@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Categories on Vitae</title>
-		<link>http://example.org/categories/</link>
-		<description>Recent content in Categories on example.org</description>
+		<link>https://pko89403.github.io/categories/</link>
+		<description>Recent content in Categories on pko89403.github.io</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
 		
-		<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://pko89403.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
 		
 		
 	</channel>
