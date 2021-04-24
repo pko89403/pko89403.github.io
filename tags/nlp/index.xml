@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>nlp on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/nlp/</link>
+		<description>Recent content in nlp on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sat, 24 Apr 2021 09:33:15 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>GPT2 : Language Models are Unsupervised Multitask Learners</title>
+			<link>https://pko89403.github.io/post/gpt2/</link>
+			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/gpt2/</guid>
+			<description>
+			
+				Language Models are Unsupervised Multitask Learners  Language Model 이란?
+ 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>
