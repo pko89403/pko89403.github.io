@@ -12,6 +12,19 @@
 		<atom:link href="https://pko89403.github.io/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>About</title>
+			<link>https://pko89403.github.io/about/</link>
+			<pubDate>Sun, 25 Apr 2021 12:21:21 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/about/</guid>
+			<description>
+			
+				Comment I’m working as ML Platform Engineer ( BE ). M.S. from PNU CSE. I’m interested in recommeder.
+Personal Information  Machine Learning …
+			
+			</description>
+		</item>
+		<item>
 			<title>GPT2 : Language Models are Unsupervised Multitask Learners</title>
 			<link>https://pko89403.github.io/post/gpt2/</link>
 			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
