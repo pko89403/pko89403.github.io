@@ -1,15 +1,100 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Tags on Vitae</title>
+		<title>Tags on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 		<link>https://pko89403.github.io/tags/</link>
 		<description>Recent content in Tags on pko89403.github.io</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 25 Apr 2021 14:56:52 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>loadtest</title>
+			<link>https://pko89403.github.io/tags/loadtest/</link>
+			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/loadtest/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>locust</title>
+			<link>https://pko89403.github.io/tags/locust/</link>
+			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/locust/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>opensource</title>
+			<link>https://pko89403.github.io/tags/opensource/</link>
+			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/opensource/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>python</title>
+			<link>https://pko89403.github.io/tags/python/</link>
+			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/python/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>ai</title>
+			<link>https://pko89403.github.io/tags/ai/</link>
+			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/ai/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>gpt</title>
+			<link>https://pko89403.github.io/tags/gpt/</link>
+			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/gpt/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>nlp</title>
+			<link>https://pko89403.github.io/tags/nlp/</link>
+			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/nlp/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
 		
 	</channel>
 </rss>

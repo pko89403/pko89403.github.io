@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>open-source on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/categories/open-source/</link>
+		<description>Recent content in open-source on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 25 Apr 2021 14:56:52 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/categories/open-source/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Locust : 파이썬 기반 오픈 소스 로드 테스트</title>
+			<link>https://pko89403.github.io/post/locust/</link>
+			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/locust/</guid>
+			<description>
+			
+				Locust Locust는 사용이 쉽고, 스크립트 가능하고, 확장 가능한 성능 테스트 도구이다. 유저들의 행동을 파이썬 코드를 사용해서 정의할 수 있다.
+Locust 공식 GitHub 
+Features 평범한 Python으로 사용자 테스트 시나리오 작 …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>
