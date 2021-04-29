@@ -2,8 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pko89403.github.io/tags/argo/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/argoworkflow/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/batchjob/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
     <loc>https://pko89403.github.io/categories/</loc>
-    <lastmod>2021-04-25T14:56:52+09:00</lastmod>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/cronjob/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/jobscheduling/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/kubernetes/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/categories/open-source/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/opensource/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/workflow/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/</loc>
+    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/loadtest/</loc>
     <lastmod>2021-04-25T14:56:52+09:00</lastmod>
@@ -14,22 +50,7 @@
     <loc>https://pko89403.github.io/post/locust/</loc>
     <lastmod>2021-04-25T14:56:52+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/categories/open-source/</loc>
-    <lastmod>2021-04-25T14:56:52+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/opensource/</loc>
-    <lastmod>2021-04-25T14:56:52+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/post/</loc>
-    <lastmod>2021-04-25T14:56:52+09:00</lastmod>
-  </url><url>
     <loc>https://pko89403.github.io/tags/python/</loc>
-    <lastmod>2021-04-25T14:56:52+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/</loc>
-    <lastmod>2021-04-25T14:56:52+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/</loc>
     <lastmod>2021-04-25T14:56:52+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/about/</loc>

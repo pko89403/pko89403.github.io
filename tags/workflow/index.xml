@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>workflow on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/workflow/</link>
+		<description>Recent content in workflow on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Thu, 29 Apr 2021 17:02:02 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Argo-Workflow : Kubernetes에서 Batch Job</title>
+			<link>https://pko89403.github.io/post/argoworkflow/</link>
+			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/argoworkflow/</guid>
+			<description>
+			
+				argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
+InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들 …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>

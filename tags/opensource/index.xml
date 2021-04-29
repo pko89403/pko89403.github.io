@@ -7,10 +7,23 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 25 Apr 2021 14:56:52 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 29 Apr 2021 17:02:02 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Argo-Workflow : Kubernetes에서 Batch Job</title>
+			<link>https://pko89403.github.io/post/argoworkflow/</link>
+			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/argoworkflow/</guid>
+			<description>
+			
+				argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
+InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들 …
+			
+			</description>
+		</item>
 		<item>
 			<title>Locust : 파이썬 기반 오픈 소스 로드 테스트</title>
 			<link>https://pko89403.github.io/post/locust/</link>
