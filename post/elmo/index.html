@@ -139,7 +139,7 @@
         </figcaption>
 </figure>
 
-<p>최근의 SOTA 언어 모델들은 context에 의존적인 토큰 표현 $x_k^{LM}$을 (토큰 임베딩이나 character 에 CNN을 사용해서)계산한다. 그리고 <strong>forward</strong> LSTM의 L 레이어로 보낸다. 각 위치 k에서, 각 LSTM의 레이어는 j = 1, &hellip;, L일 때 context에 의존적인 표현인 ${\overrightarrow{h}^{LM}<em>{k,j}}$을 출력한다. LSTM의 최상단 레이어의 출력, ${\overrightarrow{h}^{LM}</em>{k,L}}$은 소프트 맥스 레이어를 사용해서 다음 토큰 $t_{k+1}$을 예측하는데 사용한다.</p>
+<p>최근의 SOTA 언어 모델들은 context에 의존적인 토큰 표현 $x_k^{LM}$ 을 (토큰 임베딩이나 character 에 CNN을 사용해서)계산한다. 그리고 <strong>forward</strong> LSTM의 L 레이어로 보낸다. 각 위치 k에서, 각 LSTM의 레이어는 j = 1, &hellip;, L일 때 context에 의존적인 표현인 ${\overrightarrow{h}^{LM}<em>{k,j}}$ 을 출력한다. LSTM의 최상단 레이어의 출력, ${\overrightarrow{h}^{LM}</em>{k,L}}$ 은 소프트 맥스 레이어를 사용해서 다음 토큰 $t_{k+1}$을 예측하는데 사용한다.</p>
 <p><strong>backward</strong> LM은 forward LM과 유사한데, 역순으로 진행된다. 주어진 미래 context에서 이전 토큰을 예측한다.</p>
 <figure>
     <img src="/images/elmo/2.png"/> <figcaption>
@@ -251,6 +251,35 @@
 	
 	
 	
+	
+	
+	<div class="tags">
+		<div class="taxosfloating_left">
+			<p>Categories</p>
+		</div>
+		<div class="termsfloating_right">
+			<p>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<a href="/categories/paper-review/"> paper-review </a>
+			
+			
+			
+			
+			
+			</p>
+		</div>
+		<div class="clearit"></div>
+		
+		
+		
 		
 	
 		
