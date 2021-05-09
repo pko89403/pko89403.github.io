@@ -7,10 +7,46 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Thu, 29 Apr 2021 17:02:02 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 09 May 2021 19:05:20 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>ai</title>
+			<link>https://pko89403.github.io/tags/ai/</link>
+			<pubDate>Sun, 09 May 2021 19:05:20 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/ai/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>BERT</title>
+			<link>https://pko89403.github.io/tags/bert/</link>
+			<pubDate>Sun, 09 May 2021 19:05:20 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/bert/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>nlp</title>
+			<link>https://pko89403.github.io/tags/nlp/</link>
+			<pubDate>Sun, 09 May 2021 19:05:20 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/nlp/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
 		<item>
 			<title>argo</title>
 			<link>https://pko89403.github.io/tags/argo/</link>
@@ -132,35 +168,11 @@
 			</description>
 		</item>
 		<item>
-			<title>ai</title>
-			<link>https://pko89403.github.io/tags/ai/</link>
-			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/ai/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
 			<title>gpt</title>
 			<link>https://pko89403.github.io/tags/gpt/</link>
 			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/gpt/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>nlp</title>
-			<link>https://pko89403.github.io/tags/nlp/</link>
-			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/nlp/</guid>
 			<description>
 			
 				

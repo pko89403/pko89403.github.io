@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pko89403.github.io/tags/ai/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/bert/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/bert/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/categories/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/nlp/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/categories/paper-review/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/</loc>
+    <lastmod>2021-05-09T19:05:20+09:00</lastmod>
+  </url><url>
     <loc>https://pko89403.github.io/tags/argo/</loc>
     <lastmod>2021-04-29T17:02:02+09:00</lastmod>
   </url><url>
@@ -9,9 +36,6 @@
     <lastmod>2021-04-29T17:02:02+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/batchjob/</loc>
-    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/categories/</loc>
     <lastmod>2021-04-29T17:02:02+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/cronjob/</loc>
@@ -29,16 +53,7 @@
     <loc>https://pko89403.github.io/tags/opensource/</loc>
     <lastmod>2021-04-29T17:02:02+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/post/</loc>
-    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/</loc>
-    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
-  </url><url>
     <loc>https://pko89403.github.io/tags/workflow/</loc>
-    <lastmod>2021-04-29T17:02:02+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/</loc>
     <lastmod>2021-04-29T17:02:02+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/loadtest/</loc>
@@ -56,19 +71,10 @@
     <loc>https://pko89403.github.io/about/</loc>
     <lastmod>2021-04-25T12:21:21+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/tags/ai/</loc>
-    <lastmod>2021-04-24T09:33:15+09:00</lastmod>
-  </url><url>
     <loc>https://pko89403.github.io/tags/gpt/</loc>
     <lastmod>2021-04-24T09:33:15+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/post/gpt2/</loc>
-    <lastmod>2021-04-24T09:33:15+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/nlp/</loc>
-    <lastmod>2021-04-24T09:33:15+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/categories/paper-review/</loc>
     <lastmod>2021-04-24T09:33:15+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/series/</loc>
