@@ -7,25 +7,23 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-<<<<<<< HEAD
-		<lastBuildDate>Sun, 09 May 2021 19:05:20 +0900</lastBuildDate>
-=======
-		<lastBuildDate>Sat, 01 May 2021 23:43:02 +0900</lastBuildDate>
->>>>>>> dbaf944bfb4a8a6e05e40355213340c3b1f6f05d
+		<lastBuildDate>Sun, 09 May 2021 19:40:01 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-<<<<<<< HEAD
-			<title>BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding</title>
+			<title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰</title>
 			<link>https://pko89403.github.io/post/bert/</link>
-			<pubDate>Sun, 09 May 2021 19:05:20 +0900</pubDate>
+			<pubDate>Sun, 09 May 2021 19:40:01 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/post/bert/</guid>
 			<description>
 			
 				BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰 Abstract BERT라고 부르는 언어 표현 모델을 소개한다. BERT는 Bidirectional …
-=======
+			
+			</description>
+		</item>
+		<item>
 			<title>ELMO : Deep contextualized word representations 리뷰</title>
 			<link>https://pko89403.github.io/post/elmo/</link>
 			<pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
@@ -34,16 +32,11 @@
 			<description>
 			
 				ELMO : Deep contextualized word representations 논문 리뷰 정리 ELMO의 특징  레이블 작업을할 필요가 없다. 문장을 바로 입력에 사용한다. 양방향 LM 구조를 가진다. …
->>>>>>> dbaf944bfb4a8a6e05e40355213340c3b1f6f05d
 			
 			</description>
 		</item>
 		<item>
-<<<<<<< HEAD
-			<title>GPT2 : Language Models are Unsupervised Multitask Learners</title>
-=======
 			<title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</title>
->>>>>>> dbaf944bfb4a8a6e05e40355213340c3b1f6f05d
 			<link>https://pko89403.github.io/post/gpt2/</link>
 			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
 			
