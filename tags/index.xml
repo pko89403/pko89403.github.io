@@ -7,14 +7,22 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+<<<<<<< HEAD
 		<lastBuildDate>Sun, 09 May 2021 19:05:20 +0900</lastBuildDate>
+=======
+		<lastBuildDate>Sat, 01 May 2021 23:43:02 +0900</lastBuildDate>
+>>>>>>> dbaf944bfb4a8a6e05e40355213340c3b1f6f05d
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>ai</title>
 			<link>https://pko89403.github.io/tags/ai/</link>
+<<<<<<< HEAD
 			<pubDate>Sun, 09 May 2021 19:05:20 +0900</pubDate>
+=======
+			<pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
+>>>>>>> dbaf944bfb4a8a6e05e40355213340c3b1f6f05d
 			
 			<guid>https://pko89403.github.io/tags/ai/</guid>
 			<description>
@@ -24,11 +32,19 @@
 			</description>
 		</item>
 		<item>
+<<<<<<< HEAD
 			<title>BERT</title>
 			<link>https://pko89403.github.io/tags/bert/</link>
 			<pubDate>Sun, 09 May 2021 19:05:20 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/bert/</guid>
+=======
+			<title>elmo</title>
+			<link>https://pko89403.github.io/tags/elmo/</link>
+			<pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/elmo/</guid>
+>>>>>>> dbaf944bfb4a8a6e05e40355213340c3b1f6f05d
 			<description>
 			
 				
@@ -38,7 +54,11 @@
 		<item>
 			<title>nlp</title>
 			<link>https://pko89403.github.io/tags/nlp/</link>
+<<<<<<< HEAD
 			<pubDate>Sun, 09 May 2021 19:05:20 +0900</pubDate>
+=======
+			<pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
+>>>>>>> dbaf944bfb4a8a6e05e40355213340c3b1f6f05d
 			
 			<guid>https://pko89403.github.io/tags/nlp/</guid>
 			<description>
