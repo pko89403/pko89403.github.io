@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Distilling BERT on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/distilling-bert/</link>
+		<description>Recent content in Distilling BERT on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Mon, 31 May 2021 00:23:46 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/distilling-bert/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
+			<link>https://pko89403.github.io/post/distillbert/</link>
+			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/distillbert/</guid>
+			<description>
+			
+				Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>

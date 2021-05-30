@@ -7,14 +7,14 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 23 May 2021 19:42:56 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 31 May 2021 00:23:46 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>ai</title>
 			<link>https://pko89403.github.io/tags/ai/</link>
-			<pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
+			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/ai/</guid>
 			<description>
@@ -24,11 +24,35 @@
 			</description>
 		</item>
 		<item>
+			<title>Distilling BERT</title>
+			<link>https://pko89403.github.io/tags/distilling-bert/</link>
+			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/distilling-bert/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
 			<title>nlp</title>
 			<link>https://pko89403.github.io/tags/nlp/</link>
-			<pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
+			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/nlp/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>albert</title>
+			<link>https://pko89403.github.io/tags/albert/</link>
+			<pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/albert/</guid>
 			<description>
 			
 				

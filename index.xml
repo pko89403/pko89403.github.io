@@ -7,10 +7,34 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 23 May 2021 19:42:56 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 31 May 2021 00:23:46 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
+			<link>https://pko89403.github.io/post/distillbert/</link>
+			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/distillbert/</guid>
+			<description>
+			
+				Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>ALBERT : A Lite BERT 리뷰</title>
+			<link>https://pko89403.github.io/post/albert/</link>
+			<pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/albert/</guid>
+			<description>
+			
+				ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델) …
+			
+			</description>
+		</item>
 		<item>
 			<title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</title>
 			<link>https://pko89403.github.io/post/sbert/</link>
