@@ -7,10 +7,23 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Mon, 31 May 2021 00:23:46 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 06 Jun 2021 22:41:41 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Artwork Personalization at Netflix</title>
+			<link>https://pko89403.github.io/post/netflixartwork2/</link>
+			<pubDate>Sun, 06 Jun 2021 22:41:41 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/netflixartwork2/</guid>
+			<description>
+			
+				Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
+Artwork Personalization at Netflix …
+			
+			</description>
+		</item>
 		<item>
 			<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
 			<link>https://pko89403.github.io/post/distillbert/</link>
