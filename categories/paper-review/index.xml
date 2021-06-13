@@ -7,10 +7,22 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Mon, 31 May 2021 00:23:46 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 13 Jun 2021 22:25:48 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/categories/paper-review/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Cross-lingual Language Model Pretraining : XLM 리뷰</title>
+			<link>https://pko89403.github.io/post/xlm/</link>
+			<pubDate>Sun, 13 Jun 2021 22:25:48 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/xlm/</guid>
+			<description>
+			
+				Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. …
+			
+			</description>
+		</item>
 		<item>
 			<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
 			<link>https://pko89403.github.io/post/distillbert/</link>

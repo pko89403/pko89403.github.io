@@ -7,10 +7,23 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 06 Jun 2021 22:41:41 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 13 Jun 2021 22:26:04 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/categories/recommendation/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</title>
+			<link>https://pko89403.github.io/post/rl2.5/</link>
+			<pubDate>Sun, 13 Jun 2021 22:26:04 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/rl2.5/</guid>
+			<description>
+			
+				Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
+강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백 …
+			
+			</description>
+		</item>
 		<item>
 			<title>Artwork Personalization at Netflix</title>
 			<link>https://pko89403.github.io/post/netflixartwork2/</link>
