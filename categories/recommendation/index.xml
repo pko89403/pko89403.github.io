@@ -7,10 +7,22 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 13 Jun 2021 22:26:04 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 20 Jun 2021 22:11:13 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/categories/recommendation/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>단단한 강화 학습 2장 다중 선택 2.6 ~ 정리</title>
+			<link>https://pko89403.github.io/post/rl2.5.2/</link>
+			<pubDate>Sun, 20 Jun 2021 22:11:13 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/rl2.5.2/</guid>
+			<description>
+			
+				단단한 강화 학습 2장 다중 선택 2.6 ~ 정리 2.6 Optimal Initial Value Exploration을 촉진하는 기법을 긍정적 초깃값(Optimal initial value)라고 부른다. …
+			
+			</description>
+		</item>
 		<item>
 			<title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</title>
 			<link>https://pko89403.github.io/post/rl2.5/</link>
