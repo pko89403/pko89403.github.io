@@ -7,10 +7,22 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 27 Jun 2021 23:28:24 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 11 Jul 2021 22:04:33 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>A Contextual-Bandit Algorithm for Mobile Context-Aware Recommender System 논문 리뷰</title>
+			<link>https://pko89403.github.io/post/mcrs/</link>
+			<pubDate>Sun, 11 Jul 2021 22:04:33 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/mcrs/</guid>
+			<description>
+			
+				Abastract 모바일 맥락 기반 추천 시스템의 대부분의 접근 방법은 맥락 정보를 활용해서 유저와 관련성 있는 아이템을 추천하는데 초점이 맞춰져 있다. 고려할만한 맥락 정보로 아래 세가지가 있다. …
+			
+			</description>
+		</item>
 		<item>
 			<title>Collaborative Filtering Bandits 논문 리뷰</title>
 			<link>https://pko89403.github.io/post/cofiba/</link>
