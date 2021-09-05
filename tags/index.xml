@@ -7,10 +7,58 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Tue, 17 Aug 2021 00:12:31 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 05 Sep 2021 18:19:34 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>api</title>
+			<link>https://pko89403.github.io/tags/api/</link>
+			<pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/api/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>async</title>
+			<link>https://pko89403.github.io/tags/async/</link>
+			<pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/async/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>fastapi</title>
+			<link>https://pko89403.github.io/tags/fastapi/</link>
+			<pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/fastapi/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>python</title>
+			<link>https://pko89403.github.io/tags/python/</link>
+			<pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/python/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
 		<item>
 			<title>ai</title>
 			<link>https://pko89403.github.io/tags/ai/</link>
@@ -437,18 +485,6 @@
 			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/locust/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>python</title>
-			<link>https://pko89403.github.io/tags/python/</link>
-			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/python/</guid>
 			<description>
 			
 				

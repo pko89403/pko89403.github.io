@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>async on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/async/</link>
+		<description>Recent content in async on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 05 Sep 2021 18:19:34 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/async/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>FastAPI의 async def와 def에 대해서 공부해보자</title>
+			<link>https://pko89403.github.io/post/fastapiasync/</link>
+			<pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/fastapiasync/</guid>
+			<description>
+			
+				FastAPI의 async def에 관해 작성된 페이지인 Concurreny and async/await 를 보았다.
+우선 기본적으로 FastAPI는 async def를 꼭 쓸 필요는 없다. def 만으로도 비동기 처리 되도록 FastAPI 프레임 워 …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>
