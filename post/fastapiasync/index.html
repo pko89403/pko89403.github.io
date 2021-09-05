@@ -13,7 +13,7 @@
 우선 기본적으로 FastAPI는 async def를 꼭 쓸 필요는 없다. def 만으로도 비동기 처리 되도록 FastAPI 프레임 워 …"><meta property="og:title" content="FastAPI의 async def와 def에 대해서 공부해보자" />
 <meta property="og:description" content="FastAPI의 async def에 관해 작성된 페이지인 Concurreny and async/await 를 보았다.
 우선 기본적으로 FastAPI는 async def를 꼭 쓸 필요는 없다. def 만으로도 비동기 처리 되도록 FastAPI 프레임 워크로 구현하고 있다.
-    다음과 같이 await 로 호출하도록 가이드를 하는 서드 파티 라이브러리를 사용하는 경우
+  다음과 같이 await 로 호출하도록 가이드를 하는 서드 파티 라이브러리를 사용하는 경우
 results = await some_library() 다음과 같이 선언해서 사용하라고 한다.
 @app.get(&#39;/&#39;) async def read_results(): results = await some_library() return results await 사용을 지원하지 않는 서드 파티 라이브러리를 사용하는 경우, 그냥 def를 사용해서 사용하라고 한다." />
 <meta property="og:type" content="article" />
@@ -25,7 +25,7 @@ results = await some_library() 다음과 같이 선언해서 사용하라고 한
 <meta name="twitter:title" content="FastAPI의 async def와 def에 대해서 공부해보자"/>
 <meta name="twitter:description" content="FastAPI의 async def에 관해 작성된 페이지인 Concurreny and async/await 를 보았다.
 우선 기본적으로 FastAPI는 async def를 꼭 쓸 필요는 없다. def 만으로도 비동기 처리 되도록 FastAPI 프레임 워크로 구현하고 있다.
-    다음과 같이 await 로 호출하도록 가이드를 하는 서드 파티 라이브러리를 사용하는 경우
+  다음과 같이 await 로 호출하도록 가이드를 하는 서드 파티 라이브러리를 사용하는 경우
 results = await some_library() 다음과 같이 선언해서 사용하라고 한다.
 @app.get(&#39;/&#39;) async def read_results(): results = await some_library() return results await 사용을 지원하지 않는 서드 파티 라이브러리를 사용하는 경우, 그냥 def를 사용해서 사용하라고 한다."/>
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -108,13 +108,10 @@ results = await some_library() 다음과 같이 선언해서 사용하라고 한
 	<div class="markdown">
 		<p>FastAPI의 async def에 관해 작성된 페이지인 <a href="https://fastapi.tiangolo.com/async/" target="_blank">Concurreny and async/await</a> 를 보았다.</p>
 <p>우선 기본적으로 FastAPI는 <code>async def</code>를 꼭 쓸 필요는 없다. def 만으로도 비동기 처리 되도록 FastAPI 프레임 워크로 구현하고 있다.</p>
-<p><figure>
-  <img src="FastAPI%E1%84%8B%E1%85%B4%20async%20def%E1%84%8B%E1%85%AA%20def%200f2777788c114692bdd208c5012a584b/Untitled.png" alt="Untitled"  />
-</figure>
 <figure>
     <img src="/images/fastapiasync/Untitled.png"/> 
 </figure>
-</p>
+
 <p>다음과 같이 await 로 호출하도록 가이드를 하는 서드 파티 라이브러리를 사용하는 경우</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">results <span style="color:#333">=</span> await some_library()
 </code></pre></div><p>다음과 같이 선언해서 사용하라고 한다.</p>
@@ -131,7 +128,7 @@ async <span style="color:#080;font-weight:bold">def</span> <span style="color:#0
 <h3 id="technical-details">Technical Details</h3>
 <p>파이썬은 &ldquo;비동기 코드&quot;를 코루틴(coroutines)를 <code>async</code> 와 <code>await</code> 으로 지원하고 있다.</p>
 <p>비동기식 코드는 언어가 프로그램에게 코드의 특정 지점에서 다른 작업이 다른 곳에서 끝날 때까지 기다려야 함을 선언하는 방법을 가지고 있음을 의미한다.</p>
-<p>코루틴은  <code>async def</code> 함수로 반환 된 것을 용어로 표현한 것으로, 파이썬은 함수 같이 코루틴이 시작될 수 있고 어느 시점에 끝날 지 알고, await가 있을 때마다 내부적으로 일시 중지 될 수 있다는 것도 알고 있다.</p>
+<p>코루틴은  <code>async def</code> 함수로 반환 된 것을 용어로 표현한 것으로, 파이썬은 함수 같이 코루틴이 시작될 수 있고 어느 시점에 끝날 지 알고, <code>await</code>가 있을 때마다 내부적으로 일시 중지 될 수 있다는 것도 알고 있다.</p>
 <p>다른 작업을 기다린다는 의미를 다음과 같은 표현으로 나열할 수 있다.</p>
 <ul>
 <li>클라이언트가 네트워크를 통해 보낼 데이터</li>
@@ -143,9 +140,8 @@ async <span style="color:#080;font-weight:bold">def</span> <span style="color:#0
 </ul>
 <p>기존의 Flask와 Django는 Python의 새로운 비동기 기능이 나오기 이전에 나왔다. 따라서 이전 방식의 비동기 실행을 지원한다.</p>
 <h2 id="fastapi--starlette--uvicorn--cython">FastAPI &laquo; Starlette &laquo; Uvicorn &laquo; Cython</h2>
-<p>ASGI(Asynchronous Web Python)의 주요 스펙은 Djang에서 개발되었지만, WebSocket에 대한 지원이 추가되었다. FastAPI는 병렬성과 비동기성 모두를 지원하기 때문에 성능 향상을 가질 수 있었다고 한다.</p>
-<p>FastAPI는 Starlette를 한번 감싸서 개발한 ASGI 프레임워크이다. 그렇기 때문에 Starlette를 직접 사용하는 것보다는 성능이 떨어지지만, 개발 속도를 올릴 수 있다.</p>
-<p>Starlette는 내부적으로 uvicorn을 사용하는데 uvicorn은 uvloops와 httptools를 사용하는 초고속 ASGI 서버이다.</p>
+<p>FastAPI는 병렬성과 비동기성 모두를 지원하기 때문에 성능 향상을 가질 수 있었다고 한다. Starlette를 한번 감싸서 개발한 ASGI 프레임워크이다. 그렇기 때문에 Starlette를 직접 사용하는 것보다는 성능이 떨어진다(벤치마크에 비교한 결과가 나온다).</p>
+<p>Starlette는 내부적으로 uvicorn을 사용하는데 uvicorn은 uvloops와 httptools를 사용하는 초고속 ASGI 서버이다. 참고로 ASGI(Asynchronous Web Python)의 주요 스펙은 Djang에서 개발되었지만, WebSocket에 대한 지원이 추가되었다.</p>
 <p>그리고 uvloop의 성능 비밀은 libuv와 Cython에 있다고 한다. uvicorn 실행 시에 <code>—loop</code> 옵션으로 <code>asyncio</code> 와 <code>uvloop</code>를 선택할 수 있다. auto 도 있는데 패키지가 설치 되어있다는 기준으로 선택한다고 한다.</p>
 <h2 id="very-technical-details">Very Technical Details</h2>
 <p><code>async def</code> 대신 <code>def</code>로 경로 함수를 선언하면, 외부 스레드 풀에서 실행 되어서 다이렉트로 호출 되지 않아. 서버가 블록 되지 않는다.</p>
