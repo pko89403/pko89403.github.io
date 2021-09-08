@@ -7,10 +7,34 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 05 Sep 2021 18:19:34 +0900</lastBuildDate>
+		<lastBuildDate>Wed, 08 Sep 2021 21:04:30 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Spark</title>
+			<link>https://pko89403.github.io/tags/spark/</link>
+			<pubDate>Wed, 08 Sep 2021 21:04:30 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/spark/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>Stream</title>
+			<link>https://pko89403.github.io/tags/stream/</link>
+			<pubDate>Wed, 08 Sep 2021 21:04:30 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/stream/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
 		<item>
 			<title>api</title>
 			<link>https://pko89403.github.io/tags/api/</link>
