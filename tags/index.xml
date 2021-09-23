@@ -7,10 +7,82 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Wed, 08 Sep 2021 21:04:30 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 23 Sep 2021 23:53:37 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>ai</title>
+			<link>https://pko89403.github.io/tags/ai/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/ai/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>deepwalk</title>
+			<link>https://pko89403.github.io/tags/deepwalk/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/deepwalk/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>gcn</title>
+			<link>https://pko89403.github.io/tags/gcn/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/gcn/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>gnn</title>
+			<link>https://pko89403.github.io/tags/gnn/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/gnn/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>graph</title>
+			<link>https://pko89403.github.io/tags/graph/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/graph/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>graphsage</title>
+			<link>https://pko89403.github.io/tags/graphsage/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/graphsage/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
 		<item>
 			<title>Spark</title>
 			<link>https://pko89403.github.io/tags/spark/</link>
@@ -77,18 +149,6 @@
 			<pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/python/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>ai</title>
-			<link>https://pko89403.github.io/tags/ai/</link>
-			<pubDate>Tue, 17 Aug 2021 00:12:31 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/ai/</guid>
 			<description>
 			
 				
