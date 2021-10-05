@@ -2,10 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://pko89403.github.io/tags/ai/</loc>
-    <lastmod>2021-09-23T23:53:37+09:00</lastmod>
-  </url><url>
     <loc>https://pko89403.github.io/categories/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/deep-learning/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/fullstackdeeplearning/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/mlops/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/categories/mlops/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/model-deployment/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/model-monitoring/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/dfc11/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/</loc>
+    <lastmod>2021-10-05T21:25:39+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/ai/</loc>
     <lastmod>2021-09-23T23:53:37+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/deepwalk/</loc>
@@ -27,15 +57,6 @@
     <lastmod>2021-09-23T23:53:37+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/graphsage/</loc>
-    <lastmod>2021-09-23T23:53:37+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/post/</loc>
-    <lastmod>2021-09-23T23:53:37+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/</loc>
-    <lastmod>2021-09-23T23:53:37+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/</loc>
     <lastmod>2021-09-23T23:53:37+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/spark/</loc>
