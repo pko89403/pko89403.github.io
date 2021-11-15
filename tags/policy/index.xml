@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Policy on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/policy/</link>
+		<description>Recent content in Policy on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sat, 13 Nov 2021 16:05:55 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/policy/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy</title>
+			<link>https://pko89403.github.io/post/ope_policy/</link>
+			<pubDate>Sat, 13 Nov 2021 16:05:55 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/ope_policy/</guid>
+			<description>
+			
+				밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다. …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>
