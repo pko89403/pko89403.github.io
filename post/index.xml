@@ -24,6 +24,18 @@
 			</description>
 		</item>
 		<item>
+			<title>밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation</title>
+			<link>https://pko89403.github.io/post/ope_offpolicy/</link>
+			<pubDate>Sat, 13 Nov 2021 16:05:47 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/ope_offpolicy/</guid>
+			<description>
+			
+				“밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation” Bandit 추천의 기반인 Policy에 대해 알아봤고 오프라인으로 로깅된 밴딧 피드백을 이용해 Policy의 값을 추정하 …
+			
+			</description>
+		</item>
+		<item>
 			<title>딥러닝 모델의 배포와 모니터링 : Full Stack Deep Learning Lecture 11 정리</title>
 			<link>https://pko89403.github.io/post/dfc11/</link>
 			<pubDate>Tue, 05 Oct 2021 21:25:39 +0900</pubDate>
