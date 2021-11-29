@@ -7,10 +7,46 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sat, 13 Nov 2021 16:05:55 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 29 Nov 2021 18:56:06 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Data Pipelining</title>
+			<link>https://pko89403.github.io/tags/data-pipelining/</link>
+			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/data-pipelining/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>Prefect</title>
+			<link>https://pko89403.github.io/tags/prefect/</link>
+			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/prefect/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>workflow</title>
+			<link>https://pko89403.github.io/tags/workflow/</link>
+			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/workflow/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
 		<item>
 			<title>Bandit</title>
 			<link>https://pko89403.github.io/tags/bandit/</link>
@@ -641,18 +677,6 @@
 			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/kubernetes/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>workflow</title>
-			<link>https://pko89403.github.io/tags/workflow/</link>
-			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/workflow/</guid>
 			<description>
 			
 				

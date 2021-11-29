@@ -7,10 +7,23 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sat, 13 Nov 2021 16:05:55 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 29 Nov 2021 18:56:06 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>워크플로우 엔진 PREFECT : 개념</title>
+			<link>https://pko89403.github.io/post/prefect_init/</link>
+			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/prefect_init/</guid>
+			<description>
+			
+				일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
+Prefect는 데이터 워크플로우들을 구축하는 툴이 …
+			
+			</description>
+		</item>
 		<item>
 			<title>밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy</title>
 			<link>https://pko89403.github.io/post/ope_policy/</link>
