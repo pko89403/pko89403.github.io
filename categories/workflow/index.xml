@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Workflow on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/categories/workflow/</link>
+		<description>Recent content in Workflow on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Mon, 29 Nov 2021 18:56:06 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/categories/workflow/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>워크플로우 엔진 PREFECT : 개념</title>
+			<link>https://pko89403.github.io/post/prefect_init/</link>
+			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/prefect_init/</guid>
+			<description>
+			
+				일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
+Prefect는 데이터 워크플로우들을 구축하는 툴이 …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>
