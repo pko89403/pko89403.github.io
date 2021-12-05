@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>ECS on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/ecs/</link>
+		<description>Recent content in ECS on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/ecs/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
+			<link>https://pko89403.github.io/post/prefect_ecs/</link>
+			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/prefect_ecs/</guid>
+			<description>
+			
+				Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
+EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>

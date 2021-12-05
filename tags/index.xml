@@ -7,14 +7,26 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Mon, 29 Nov 2021 18:56:06 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>AWS</title>
+			<link>https://pko89403.github.io/tags/aws/</link>
+			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/aws/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
 			<title>Data Pipelining</title>
 			<link>https://pko89403.github.io/tags/data-pipelining/</link>
-			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/data-pipelining/</guid>
 			<description>
@@ -24,9 +36,21 @@
 			</description>
 		</item>
 		<item>
+			<title>ECS</title>
+			<link>https://pko89403.github.io/tags/ecs/</link>
+			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/ecs/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
 			<title>Prefect</title>
 			<link>https://pko89403.github.io/tags/prefect/</link>
-			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/prefect/</guid>
 			<description>
@@ -38,7 +62,7 @@
 		<item>
 			<title>workflow</title>
 			<link>https://pko89403.github.io/tags/workflow/</link>
-			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/workflow/</guid>
 			<description>
