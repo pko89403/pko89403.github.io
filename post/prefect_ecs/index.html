@@ -301,7 +301,64 @@ aws logs create-log-group <span style="color:#666;background-color:#fff0f0;font-
 </span><span style="color:#f00;background-color:#faa"></span><span style="color:#080;font-weight:bold">RUN</span> prefect backend server <span style="color:#f00;background-color:#faa">
 </span><span style="color:#f00;background-color:#faa">
 </span><span style="color:#f00;background-color:#faa"></span><span style="color:#080;font-weight:bold">ADD</span> agent_config.toml /root/.prefect/config.toml<span style="color:#f00;background-color:#faa">
-</span></code></pre></div><p>ECS Service를 생성할 Task Definition를 등록하고 ECS 클러스터에 Service를 생성한다.</p>
+</span></code></pre></div><p>ECS에서 사용할 Task Execution Role과 Task Role을 생성한다.</p>
+<p>Task Execution IAM Role</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#070">&#34;Version&#34;</span>: <span style="background-color:#fff0f0">&#34;2012-10-17&#34;</span>,
+    <span style="color:#070">&#34;Statement&#34;</span>: [
+        {
+            <span style="color:#070">&#34;Effect&#34;</span>: <span style="background-color:#fff0f0">&#34;Allow&#34;</span>,
+            <span style="color:#070">&#34;Action&#34;</span>: [
+                <span style="background-color:#fff0f0">&#34;ecr:GetAuthorizationToken&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecr:BatchCheckLayerAvailability&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecr:GetDownloadUrlForLayer&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecr:BatchGetImage&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;logs:CreateLogStream&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;logs:PutLogEvents&#34;</span>
+            ],
+            <span style="color:#070">&#34;Resource&#34;</span>: <span style="background-color:#fff0f0">&#34;*&#34;</span>
+        }
+    ]
+}
+</code></pre></div><p>Task IAM Role</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#070">&#34;Version&#34;</span>: <span style="background-color:#fff0f0">&#34;2012-10-17&#34;</span>,
+    <span style="color:#070">&#34;Statement&#34;</span>: [
+        {
+            <span style="color:#070">&#34;Effect&#34;</span>: <span style="background-color:#fff0f0">&#34;Allow&#34;</span>,
+            <span style="color:#070">&#34;Action&#34;</span>: [
+                <span style="background-color:#fff0f0">&#34;iam:PassRole&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ec2:AuthorizeSecurityGroupIngress&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ec2:DescribeSecurityGroups&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ec2:DescribeVpcs&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ec2:DeleteSecurityGroup&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ec2:DescribeSubnets&#34;</span>
+                <span style="background-color:#fff0f0">&#34;ec2:CreateSecurityGroup&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ec2:DescribeNetworkInterfaces&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ec2:CreateTags&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;s3:*&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:DescribeTaskDefinition&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:DeregisterTaskDefinition&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:DescribeClusters&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:ListAccountSettings&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:StopTask&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:DescribeTasks&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:ListTaskDefinitions&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:ListClusters&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:RunTask&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:RegisterTaskDefinition&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:CreateCluster&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;ecs:DeleteCluster&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;logs:CreateLogStream&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;logs:GetLogEvents&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;logs:DescribeLogGroups&#34;</span>,
+                <span style="background-color:#fff0f0">&#34;logs:PutLogEvents&#34;</span>,
+            ],
+            <span style="color:#070">&#34;Resource&#34;</span>: <span style="background-color:#fff0f0">&#34;*&#34;</span>
+        }
+    ]
+}
+</code></pre></div><p>ECS Service를 생성할 Task Definition를 등록하고 ECS 클러스터에 Service를 생성한다.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;executionRoleArn&#34;</span>: <span style="background-color:#fff0f0">&#34;{생성 Task-Execution-IAM-Role-ARN}&#34;</span>,
   <span style="color:#070">&#34;containerDefinitions&#34;</span>: [
