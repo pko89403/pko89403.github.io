@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>JD on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/jd/</link>
+		<description>Recent content in JD on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Wed, 09 Mar 2022 20:45:24 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/jd/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/graphrec/</link>
+			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/graphrec/</guid>
+			<description>
+			
+				ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+ 유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
+그러나, GNNs으로 소셜 추천 시스템을 구축하는 것 …
+			
+			</description>
+		</item>
+		
+	</channel>
+</rss>

@@ -7,10 +7,24 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Wed, 09 Mar 2022 20:23:09 +0900</lastBuildDate>
+		<lastBuildDate>Wed, 09 Mar 2022 20:45:24 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/categories/recommendation/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/graphrec/</link>
+			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/graphrec/</guid>
+			<description>
+			
+				ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+ 유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
+그러나, GNNs으로 소셜 추천 시스템을 구축하는 것 …
+			
+			</description>
+		</item>
 		<item>
 			<title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</title>
 			<link>https://pko89403.github.io/post/gmcf/</link>
@@ -19,8 +33,8 @@
 			<guid>https://pko89403.github.io/post/gmcf/</guid>
 			<description>
 			
-				 ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
- inner attribute interactions : 유저 어트리뷰트 사이의 상호작용 …
+				ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
+ inner attribute interactions : …
 			
 			</description>
 		</item>
