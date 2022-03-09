@@ -7,10 +7,46 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate>
+		<lastBuildDate>Wed, 09 Mar 2022 20:23:09 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>GMCF</title>
+			<link>https://pko89403.github.io/tags/gmcf/</link>
+			<pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/gmcf/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>GNN</title>
+			<link>https://pko89403.github.io/tags/gnn/</link>
+			<pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/gnn/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>Recsys</title>
+			<link>https://pko89403.github.io/tags/recsys/</link>
+			<pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/recsys/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
 		<item>
 			<title>AWS</title>
 			<link>https://pko89403.github.io/tags/aws/</link>
@@ -101,18 +137,6 @@
 			<pubDate>Sat, 13 Nov 2021 16:05:55 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/policy/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>Recsys</title>
-			<link>https://pko89403.github.io/tags/recsys/</link>
-			<pubDate>Sat, 13 Nov 2021 16:05:55 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/recsys/</guid>
 			<description>
 			
 				
@@ -233,18 +257,6 @@
 			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/gcn/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>gnn</title>
-			<link>https://pko89403.github.io/tags/gnn/</link>
-			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/gnn/</guid>
 			<description>
 			
 				
