@@ -7,10 +7,24 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Wed, 09 Mar 2022 20:45:24 +0900</lastBuildDate>
+		<lastBuildDate>Sat, 19 Mar 2022 12:14:52 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
+			<link>https://pko89403.github.io/post/pup/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/pup/</guid>
+			<description>
+			
+				ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+→ 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
+마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상 …
+			
+			</description>
+		</item>
 		<item>
 			<title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
 			<link>https://pko89403.github.io/post/graphrec/</link>

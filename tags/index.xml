@@ -7,16 +7,76 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Wed, 09 Mar 2022 20:45:24 +0900</lastBuildDate>
+		<lastBuildDate>Sat, 19 Mar 2022 12:14:52 +0900</lastBuildDate>
 		
 		<atom:link href="https://pko89403.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>Beibei</title>
+			<link>https://pko89403.github.io/tags/beibei/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/beibei/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>gcn</title>
+			<link>https://pko89403.github.io/tags/gcn/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/gcn/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
 			<title>GNN</title>
 			<link>https://pko89403.github.io/tags/gnn/</link>
-			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/gnn/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>Price</title>
+			<link>https://pko89403.github.io/tags/price/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/price/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>PUP</title>
+			<link>https://pko89403.github.io/tags/pup/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/pup/</guid>
+			<description>
+			
+				
+			
+			</description>
+		</item>
+		<item>
+			<title>Recsys</title>
+			<link>https://pko89403.github.io/tags/recsys/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/tags/recsys/</guid>
 			<description>
 			
 				
@@ -41,18 +101,6 @@
 			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/jd/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>Recsys</title>
-			<link>https://pko89403.github.io/tags/recsys/</link>
-			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/recsys/</guid>
 			<description>
 			
 				
@@ -269,18 +317,6 @@
 			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
 			
 			<guid>https://pko89403.github.io/tags/deepwalk/</guid>
-			<description>
-			
-				
-			
-			</description>
-		</item>
-		<item>
-			<title>gcn</title>
-			<link>https://pko89403.github.io/tags/gcn/</link>
-			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/tags/gcn/</guid>
 			<description>
 			
 				
