@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>albert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/albert/</link>
-		<description>Recent content in albert on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Mon, 31 May 2021 00:23:36 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/albert/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>ALBERT : A Lite BERT 리뷰</title>
-			<link>https://pko89403.github.io/post/albert/</link>
-			<pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/albert/</guid>
-			<description>
-			
-				ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델) …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>albert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/albert/</link>
+    <description>Recent content in albert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Mon, 31 May 2021 00:23:36 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/albert/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ALBERT : A Lite BERT 리뷰</title>
+      <link>https://pko89403.github.io/post/albert/</link>
+      <pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/albert/</guid>
+      <description>ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델)
+충분한 학습 데이터를 가지지 않은 Non-Trivial Task ( 사소하지 않은 태스크 )의 돌파구가 되었다.
+ALBERT가 RACE 데이터 셋에서 89.4%로 SOTA
+RACE Benchmark
+거대한 모델을 사전 학습하고, 작은 모델을 추출해서 실제 문제 해결에 사용하는 것이 일반화가 되었다.
+→ 모델의 크기가 과연 중요한가? 클 수록 더 좋은 NLP 모델 일까?
+모델을 크기가 커질 수록 생기는 가용할 수 있는 하드웨어와 학습 속도 등의 문제가 있다.</description>
+    </item>
+    
+  </channel>
 </rss>

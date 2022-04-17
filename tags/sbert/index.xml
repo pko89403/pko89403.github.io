@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>sbert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/sbert/</link>
-		<description>Recent content in sbert on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 23 May 2021 19:42:56 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/sbert/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</title>
-			<link>https://pko89403.github.io/post/sbert/</link>
-			<pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/sbert/</guid>
-			<description>
-			
-				Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구 …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>sbert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/sbert/</link>
+    <description>Recent content in sbert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Sun, 23 May 2021 19:42:56 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/sbert/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</title>
+      <link>https://pko89403.github.io/post/sbert/</link>
+      <pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/sbert/</guid>
+      <description>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문장을 의미적으로 잘 표현한 문장 임베딩을 잘 도출 하는 네트워크다. 새로운 BERT 구조로 큰 규모의 의미적 유사도 비교, 클러스터링, 검색 태스크 등에 사용할 수 있다.
+새로운 SOTA를 보였던 BERT는 cross-encoder 구조이다. cross-encoder는 두개의 문장이 트랜스포머 네트워크로 들어가고 타겟 값을 예측한다. context와 candidate를 결합 한 후 인코딩해서 더 풍부한 표현을 얻을 수는 있지만, 입력에 독립적인 토큰을 얻기가 힘들고, 느리다.</description>
+    </item>
+    
+  </channel>
 </rss>

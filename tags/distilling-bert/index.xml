@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Distilling BERT on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/distilling-bert/</link>
-		<description>Recent content in Distilling BERT on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Mon, 31 May 2021 00:23:46 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/distilling-bert/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
-			<link>https://pko89403.github.io/post/distillbert/</link>
-			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/distillbert/</guid>
-			<description>
-			
-				Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Distilling BERT on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/distilling-bert/</link>
+    <description>Recent content in Distilling BERT on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Mon, 31 May 2021 00:23:46 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/distilling-bert/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
+      <link>https://pko89403.github.io/post/distillbert/</link>
+      <pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/distillbert/</guid>
+      <description>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo 그리고 GPT가 있다. 이런 발전들은 이전 세대의, 언어 이해를 위한 얕은 뉴럴 네트워크는 쓸모 없다는 확신을 가지게 했다. 그러나 이 논문에서는, 기본적이고 가벼운 뉴럴 네트워크 모델이 구조 변경, 외부 학습 데이터, 추가 입력 피처들 없이도 경쟁력이 있다는 것을 증명한다. 논문에서 SOTA 언어 표현 모델인 BERT의 지식을 레이어 하나를 가지는 BiLSTM으로 녹여낼 뿐만아니라, 문장 쌍 태스크에는 샴 구조로 녹여내는 것을 제시했다.</description>
+    </item>
+    
+  </channel>
 </rss>

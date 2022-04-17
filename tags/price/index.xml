@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Price on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/price/</link>
-		<description>Recent content in Price on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sat, 19 Mar 2022 12:14:52 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/price/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
-			<link>https://pko89403.github.io/post/pup/</link>
-			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/pup/</guid>
-			<description>
-			
-				ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+  <channel>
+    <title>Price on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/price/</link>
+    <description>Recent content in Price on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Sat, 19 Mar 2022 12:14:52 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/price/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
+      <link>https://pko89403.github.io/post/pup/</link>
+      <pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/pup/</guid>
+      <description>ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
 → 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
-마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상 …
-			
-			</description>
-		</item>
-		
-	</channel>
+마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했다.
+→ 따라서 본 연구에서는 가격에 집중해서 유저의 구매 의도를 예측하는 추천 메소드 개발을 목표로 한다.
+연구가 가지는 두가지 어려움은 다음과 같다.
+ 가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다.</description>
+    </item>
+    
+  </channel>
 </rss>

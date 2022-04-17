@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Deep Learning on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/deep-learning/</link>
-		<description>Recent content in Deep Learning on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Tue, 05 Oct 2021 21:25:39 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>딥러닝 모델의 배포와 모니터링 : Full Stack Deep Learning Lecture 11 정리</title>
-			<link>https://pko89403.github.io/post/dfc11/</link>
-			<pubDate>Tue, 05 Oct 2021 21:25:39 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/dfc11/</guid>
-			<description>
-			
-				Full Stack Deep Learning의 원본 강의 11 챕터를 정리한 내용입니다.
-Notes 프로덕션에서의 ML에서는 초당 수천 혹은 수백만 예측을 딜리버리하는 유저의 요구사항을 다룬다. 반면에 노트북에서의 ML은 올바른 방식으로 셀들을 동작시 …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Deep Learning on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Tue, 05 Oct 2021 21:25:39 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>딥러닝 모델의 배포와 모니터링 : Full Stack Deep Learning Lecture 11 정리</title>
+      <link>https://pko89403.github.io/post/dfc11/</link>
+      <pubDate>Tue, 05 Oct 2021 21:25:39 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/dfc11/</guid>
+      <description>Full Stack Deep Learning의 원본 강의 11 챕터를 정리한 내용입니다.
+Notes 프로덕션에서의 ML에서는 초당 수천 혹은 수백만 예측을 딜리버리하는 유저의 요구사항을 다룬다. 반면에 노트북에서의 ML은 올바른 방식으로 셀들을 동작시키면 동작한다. 솔직하게 말하면 대부분의 데이터 사이언티스트와 ML 엔지니어들은 어떻게 ML 시스템을 배포하는지 모른다. 그래서 이 강의의 목적은 그 태스크를 수행하기 위한 다양한 방법을 제공한다.
+1. 모델 배포 1. 배포 타입들 ML 모델 배포를 위한 여러 방법들을 개념화하는 방법 중 하나는 어플리케이션의 전체 구조 중 어느 위치에 배포 할지를 고려하는 방법이 있다.</description>
+    </item>
+    
+  </channel>
 </rss>

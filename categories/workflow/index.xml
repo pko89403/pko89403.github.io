@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Workflow on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/categories/workflow/</link>
-		<description>Recent content in Workflow on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/categories/workflow/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
-			<link>https://pko89403.github.io/post/prefect_ecs/</link>
-			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/prefect_ecs/</guid>
-			<description>
-			
-				Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
-EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster …
-			
-			</description>
-		</item>
-		<item>
-			<title>워크플로우 엔진 PREFECT : 개념</title>
-			<link>https://pko89403.github.io/post/prefect_init/</link>
-			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/prefect_init/</guid>
-			<description>
-			
-				일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
-Prefect는 데이터 워크플로우들을 구축하는 툴이 …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Workflow on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/categories/workflow/</link>
+    <description>Recent content in Workflow on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/categories/workflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
+      <link>https://pko89403.github.io/post/prefect_ecs/</link>
+      <pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/prefect_ecs/</guid>
+      <description>Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
+EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. Prefect Cloud는 유료이기 때문에 사용하지 않았고 오픈소스인 Prefect Server로 Prefect Core를 구성하고, K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것이 아니기 때문에 ECS Agent로 구성했다.
+따라서 이 글에서 다룰 내용은 다음과 같다.
+ EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production )  Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다.</description>
+    </item>
+    
+    <item>
+      <title>워크플로우 엔진 PREFECT : 개념</title>
+      <link>https://pko89403.github.io/post/prefect_init/</link>
+      <pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/prefect_init/</guid>
+      <description>일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
+Prefect는 데이터 워크플로우들을 구축하는 툴이고, 워크플로우는 필요한 각 과정들을 특정 순서로 동작시킨다.
+Prefect는 라틴어 praefectus 에서 시작 되는데 의미가 교사가 학교 규율에서 학생을 유지하도록 돕는 사람이라고 한다. 도메인을 감독하고 규칙을 잘 지키는지 확인하는 관리자 라는 의미에서 이름을 붙였다고 한다.
+바로 아래는 Prefect의 Github과 공식 문서다. 여기를 참고해서 Prefect에서 사용하는 용어와 개념에 대해 정리한다.</description>
+    </item>
+    
+  </channel>
 </rss>

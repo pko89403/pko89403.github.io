@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>kafka on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/kafka/</link>
-		<description>Recent content in kafka on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 09 May 2021 21:22:18 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
-			<link>https://pko89403.github.io/post/kafka/</link>
-			<pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/kafka/</guid>
-			<description>
-			
-				Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>kafka on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/kafka/</link>
+    <description>Recent content in kafka on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Sun, 09 May 2021 21:22:18 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
+      <link>https://pko89403.github.io/post/kafka/</link>
+      <pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/kafka/</guid>
+      <description>Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency로 수집 그리고 전송할 목적으로 분산 메시지시스템을 개발 했다. 카프카는 이미 존재하는 로그 집계기 (Log Aggregator)와 메시지 시스템으로 부터 아이디어를 집약했는데, 그래서 온 오프라인과 모두의 메시지 Consumption에 적합했다. 시스템을 확장 가능하고 효율적이게 만들기 위해 파격적 이면서도 실용적인 디자인을 선택했다. 카프카를 프로덕션에서 사용했으며 매일 수백 기가의 새로운 데이터를 처리 했다.</description>
+    </item>
+    
+  </channel>
 </rss>

@@ -1,125 +1,107 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>paper-review on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/categories/paper-review/</link>
-		<description>Recent content in paper-review on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Tue, 17 Aug 2021 00:12:31 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/categories/paper-review/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Longformer: The Long-Document Transformer 리뷰</title>
-			<link>https://pko89403.github.io/post/longformer/</link>
-			<pubDate>Tue, 17 Aug 2021 00:12:31 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/longformer/</guid>
-			<description>
-			
-				ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. …
-			
-			</description>
-		</item>
-		<item>
-			<title>Cross-lingual Language Model Pretraining : XLM 리뷰</title>
-			<link>https://pko89403.github.io/post/xlm/</link>
-			<pubDate>Sun, 13 Jun 2021 22:25:48 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/xlm/</guid>
-			<description>
-			
-				Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. …
-			
-			</description>
-		</item>
-		<item>
-			<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
-			<link>https://pko89403.github.io/post/distillbert/</link>
-			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/distillbert/</guid>
-			<description>
-			
-				Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. …
-			
-			</description>
-		</item>
-		<item>
-			<title>ALBERT : A Lite BERT 리뷰</title>
-			<link>https://pko89403.github.io/post/albert/</link>
-			<pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/albert/</guid>
-			<description>
-			
-				ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델) …
-			
-			</description>
-		</item>
-		<item>
-			<title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</title>
-			<link>https://pko89403.github.io/post/sbert/</link>
-			<pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/sbert/</guid>
-			<description>
-			
-				Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구 …
-			
-			</description>
-		</item>
-		<item>
-			<title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
-			<link>https://pko89403.github.io/post/kafka/</link>
-			<pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/kafka/</guid>
-			<description>
-			
-				Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency …
-			
-			</description>
-		</item>
-		<item>
-			<title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰</title>
-			<link>https://pko89403.github.io/post/bert/</link>
-			<pubDate>Sun, 09 May 2021 19:40:01 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/bert/</guid>
-			<description>
-			
-				BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰 Abstract BERT라고 부르는 언어 표현 모델을 소개한다. BERT는 Bidirectional …
-			
-			</description>
-		</item>
-		<item>
-			<title>ELMO : Deep contextualized word representations 리뷰</title>
-			<link>https://pko89403.github.io/post/elmo/</link>
-			<pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/elmo/</guid>
-			<description>
-			
-				ELMO : Deep contextualized word representations 논문 리뷰 정리 ELMO의 특징  레이블 작업을할 필요가 없다. 문장을 바로 입력에 사용한다. 양방향 LM 구조를 가진다. …
-			
-			</description>
-		</item>
-		<item>
-			<title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</title>
-			<link>https://pko89403.github.io/post/gpt2/</link>
-			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/gpt2/</guid>
-			<description>
-			
-				Language Models are Unsupervised Multitask Learners  Language Model 이란?
- 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>paper-review on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/categories/paper-review/</link>
+    <description>Recent content in paper-review on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Tue, 17 Aug 2021 00:12:31 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/categories/paper-review/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Longformer: The Long-Document Transformer 리뷰</title>
+      <link>https://pko89403.github.io/post/longformer/</link>
+      <pubDate>Tue, 17 Aug 2021 00:12:31 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/longformer/</guid>
+      <description>ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭-인)하고 태스크 처리를 위한 글로벌 어텐션과 결합한다. 따라서 수천 이상의 토큰을 가지는 문장을 쉽게 처리할 수 있다.
+기존의 트랜스포머로 긴 시퀀스 처리하는 연구의 검증 방법에 따라 문자 단위의 언어 모델링으로 롱포머를 검증했고 text8과 enwik8 벤치마크에서 SOTA를 달성했다.</description>
+    </item>
+    
+    <item>
+      <title>Cross-lingual Language Model Pretraining : XLM 리뷰</title>
+      <link>https://pko89403.github.io/post/xlm/</link>
+      <pubDate>Sun, 13 Jun 2021 22:25:48 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/xlm/</guid>
+      <description>Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual language model(XLM)을 학습하는 세가지 메소드를 제시한다.
+ 단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드  교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
+ XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA)  비지도 학습 방식의 기계 번역의 경우</description>
+    </item>
+    
+    <item>
+      <title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
+      <link>https://pko89403.github.io/post/distillbert/</link>
+      <pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/distillbert/</guid>
+      <description>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo 그리고 GPT가 있다. 이런 발전들은 이전 세대의, 언어 이해를 위한 얕은 뉴럴 네트워크는 쓸모 없다는 확신을 가지게 했다. 그러나 이 논문에서는, 기본적이고 가벼운 뉴럴 네트워크 모델이 구조 변경, 외부 학습 데이터, 추가 입력 피처들 없이도 경쟁력이 있다는 것을 증명한다. 논문에서 SOTA 언어 표현 모델인 BERT의 지식을 레이어 하나를 가지는 BiLSTM으로 녹여낼 뿐만아니라, 문장 쌍 태스크에는 샴 구조로 녹여내는 것을 제시했다.</description>
+    </item>
+    
+    <item>
+      <title>ALBERT : A Lite BERT 리뷰</title>
+      <link>https://pko89403.github.io/post/albert/</link>
+      <pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/albert/</guid>
+      <description>ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델)
+충분한 학습 데이터를 가지지 않은 Non-Trivial Task ( 사소하지 않은 태스크 )의 돌파구가 되었다.
+ALBERT가 RACE 데이터 셋에서 89.4%로 SOTA
+RACE Benchmark
+거대한 모델을 사전 학습하고, 작은 모델을 추출해서 실제 문제 해결에 사용하는 것이 일반화가 되었다.
+→ 모델의 크기가 과연 중요한가? 클 수록 더 좋은 NLP 모델 일까?
+모델을 크기가 커질 수록 생기는 가용할 수 있는 하드웨어와 학습 속도 등의 문제가 있다.</description>
+    </item>
+    
+    <item>
+      <title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</title>
+      <link>https://pko89403.github.io/post/sbert/</link>
+      <pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/sbert/</guid>
+      <description>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문장을 의미적으로 잘 표현한 문장 임베딩을 잘 도출 하는 네트워크다. 새로운 BERT 구조로 큰 규모의 의미적 유사도 비교, 클러스터링, 검색 태스크 등에 사용할 수 있다.
+새로운 SOTA를 보였던 BERT는 cross-encoder 구조이다. cross-encoder는 두개의 문장이 트랜스포머 네트워크로 들어가고 타겟 값을 예측한다. context와 candidate를 결합 한 후 인코딩해서 더 풍부한 표현을 얻을 수는 있지만, 입력에 독립적인 토큰을 얻기가 힘들고, 느리다.</description>
+    </item>
+    
+    <item>
+      <title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
+      <link>https://pko89403.github.io/post/kafka/</link>
+      <pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/kafka/</guid>
+      <description>Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency로 수집 그리고 전송할 목적으로 분산 메시지시스템을 개발 했다. 카프카는 이미 존재하는 로그 집계기 (Log Aggregator)와 메시지 시스템으로 부터 아이디어를 집약했는데, 그래서 온 오프라인과 모두의 메시지 Consumption에 적합했다. 시스템을 확장 가능하고 효율적이게 만들기 위해 파격적 이면서도 실용적인 디자인을 선택했다. 카프카를 프로덕션에서 사용했으며 매일 수백 기가의 새로운 데이터를 처리 했다.</description>
+    </item>
+    
+    <item>
+      <title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰</title>
+      <link>https://pko89403.github.io/post/bert/</link>
+      <pubDate>Sun, 09 May 2021 19:40:01 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/bert/</guid>
+      <description>BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰 Abstract BERT라고 부르는 언어 표현 모델을 소개한다. BERT는 Bidirectional Encoder Representations from Transfomers를 가리킨다. 최근의 언어 표현 모델들과 다르게, BERT는 모든 레이어 양쪽의 context에 대해 같은 조건으로 라벨링 되지 않은 텍스트로 딥러닝을 사용한 양방향 표현을 사전 학습하도록 설계했다. 사전 학습된 BERT 모델은 질의 응답, 언어 추론과 같은 다양한 태스크에 태스크 별 아키텍처에 대한 수정을 하지 않고 출력 레이어 하나만 추가해서 파인 튜닝 할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>ELMO : Deep contextualized word representations 리뷰</title>
+      <link>https://pko89403.github.io/post/elmo/</link>
+      <pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/elmo/</guid>
+      <description>ELMO : Deep contextualized word representations 논문 리뷰 정리 ELMO의 특징  레이블 작업을할 필요가 없다. 문장을 바로 입력에 사용한다. 양방향 LM 구조를 가진다. 모든 레이어들의 출력값을 사용해서 임베딩을 출력한다.  구성요소  Character 단위 CNN 양방향 LSTM 레이어 ELMO 레이어 ( CNN의 출력과 LSTM 두개 출력, 세개 벡터를 가중합하는 방식으로 학습한 결과를 최종적인 벡터 표현 )  Abstract (1) 단어의 복잡한 특징 (예를 들어, 구문과 의미 )
+(2) 언어적 맥락에 따른 다양한 표현 ( 다형성 )</description>
+    </item>
+    
+    <item>
+      <title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</title>
+      <link>https://pko89403.github.io/post/gpt2/</link>
+      <pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/gpt2/</guid>
+      <description>Language Models are Unsupervised Multitask Learners  Language Model 이란?
+ 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다.   Unsupervised Learning 이란?
+ 입력 값과 타겟 값이 주어지지 않은 환경에서 학습   Multi-Task Learning 이란?
+ 서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임  Abstract  Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다.</description>
+    </item>
+    
+  </channel>
 </rss>

@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>longformer on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/longformer/</link>
-		<description>Recent content in longformer on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Tue, 17 Aug 2021 00:12:31 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/longformer/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Longformer: The Long-Document Transformer 리뷰</title>
-			<link>https://pko89403.github.io/post/longformer/</link>
-			<pubDate>Tue, 17 Aug 2021 00:12:31 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/longformer/</guid>
-			<description>
-			
-				ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>longformer on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/longformer/</link>
+    <description>Recent content in longformer on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Tue, 17 Aug 2021 00:12:31 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/longformer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Longformer: The Long-Document Transformer 리뷰</title>
+      <link>https://pko89403.github.io/post/longformer/</link>
+      <pubDate>Tue, 17 Aug 2021 00:12:31 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/longformer/</guid>
+      <description>ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭-인)하고 태스크 처리를 위한 글로벌 어텐션과 결합한다. 따라서 수천 이상의 토큰을 가지는 문장을 쉽게 처리할 수 있다.
+기존의 트랜스포머로 긴 시퀀스 처리하는 연구의 검증 방법에 따라 문자 단위의 언어 모델링으로 롱포머를 검증했고 text8과 enwik8 벤치마크에서 SOTA를 달성했다.</description>
+    </item>
+    
+  </channel>
 </rss>

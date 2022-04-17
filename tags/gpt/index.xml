@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>gpt on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/gpt/</link>
-		<description>Recent content in gpt on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sat, 24 Apr 2021 09:33:15 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/gpt/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</title>
-			<link>https://pko89403.github.io/post/gpt2/</link>
-			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/gpt2/</guid>
-			<description>
-			
-				Language Models are Unsupervised Multitask Learners  Language Model 이란?
- 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>gpt on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/gpt/</link>
+    <description>Recent content in gpt on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Sat, 24 Apr 2021 09:33:15 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/gpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</title>
+      <link>https://pko89403.github.io/post/gpt2/</link>
+      <pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/gpt2/</guid>
+      <description>Language Models are Unsupervised Multitask Learners  Language Model 이란?
+ 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다.   Unsupervised Learning 이란?
+ 입력 값과 타겟 값이 주어지지 않은 환경에서 학습   Multi-Task Learning 이란?
+ 서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임  Abstract  Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다.</description>
+    </item>
+    
+  </channel>
 </rss>

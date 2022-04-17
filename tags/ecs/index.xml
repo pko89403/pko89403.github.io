@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>ECS on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-		<link>https://pko89403.github.io/tags/ecs/</link>
-		<description>Recent content in ECS on pko89403.github.io</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate>
-		
-		<atom:link href="https://pko89403.github.io/tags/ecs/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
-			<link>https://pko89403.github.io/post/prefect_ecs/</link>
-			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
-			
-			<guid>https://pko89403.github.io/post/prefect_ecs/</guid>
-			<description>
-			
-				Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
-EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster …
-			
-			</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>ECS on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+    <link>https://pko89403.github.io/tags/ecs/</link>
+    <description>Recent content in ECS on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
+    <lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/ecs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
+      <link>https://pko89403.github.io/post/prefect_ecs/</link>
+      <pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
+      
+      <guid>https://pko89403.github.io/post/prefect_ecs/</guid>
+      <description>Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
+EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. Prefect Cloud는 유료이기 때문에 사용하지 않았고 오픈소스인 Prefect Server로 Prefect Core를 구성하고, K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것이 아니기 때문에 ECS Agent로 구성했다.
+따라서 이 글에서 다룰 내용은 다음과 같다.
+ EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production )  Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다.</description>
+    </item>
+    
+  </channel>
 </rss>
