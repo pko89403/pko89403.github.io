@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>opensource on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/opensource/</link>
-    <description>Recent content in opensource on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 09 May 2021 21:22:18 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
-      <link>https://pko89403.github.io/post/kafka/</link>
-      <pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/kafka/</guid>
-      <description>Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency로 수집 그리고 전송할 목적으로 분산 메시지시스템을 개발 했다. 카프카는 이미 존재하는 로그 집계기 (Log Aggregator)와 메시지 시스템으로 부터 아이디어를 집약했는데, 그래서 온 오프라인과 모두의 메시지 Consumption에 적합했다. 시스템을 확장 가능하고 효율적이게 만들기 위해 파격적 이면서도 실용적인 디자인을 선택했다. 카프카를 프로덕션에서 사용했으며 매일 수백 기가의 새로운 데이터를 처리 했다.</description>
-    </item>
-    
-    <item>
-      <title>Argo-Workflow : Kubernetes에서 Batch Job</title>
-      <link>https://pko89403.github.io/post/argoworkflow/</link>
-      <pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/argoworkflow/</guid>
-      <description>argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
-InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들었는데 디버깅하기 너무 힘들었다.
-Argo Workflow를 사용 해야겠다 고 생각한 것은 스택오버플로우 링크 를 보고였다.
-apiVersion:batch/v1beta1kind:CronJobmetadata:name:cronjob-instantsearchnamespace:modulesspec:schedule:&amp;#34;*/1 * * * *&amp;#34;jobTemplate:spec:template:metadata:annotations:sidecar.istio.io/inject:&amp;#34;false&amp;#34;spec:restartPolicy:NeverinitContainers:- name:s3-pull-assetsimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efs- name:instantsearchimage:preproc.21.04.27imagePullPolicy:Alwaysargs:- /bin/bash- &amp;#34;-c&amp;#34;- &amp;#34;sleep 10&amp;#34;volumeMounts:- name:persistent-storagemountPath:/efs- name:s3-push-assetsimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efs containers:- name:checkimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;cat preproc.log&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efsvolumes:- name:persistent-storagepersistentVolumeClaim:claimName:efs-claim2  1   What is Argo? 쿠버네티스 상의 병렬 잡 오케스트레이팅을 위한 오픈소스 컨테이너 네이티브 워크플로우 엔진이다.</description>
-    </item>
-    
-    <item>
-      <title>Locust : 파이썬 기반 오픈 소스 로드 테스트</title>
-      <link>https://pko89403.github.io/post/locust/</link>
-      <pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/locust/</guid>
-      <description>Locust Locust는 사용이 쉽고, 스크립트 가능하고, 확장 가능한 성능 테스트 도구이다. 유저들의 행동을 파이썬 코드를 사용해서 정의할 수 있다.
+	<channel>
+		<title>opensource on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/opensource/</link>
+		<description>Recent content in opensource on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 09 May 2021 21:22:18 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
+			<link>https://pko89403.github.io/post/kafka/</link>
+			<pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/kafka/</guid>
+			<description>
+			
+				Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency …
+			
+			</description>
+		</item>
+		<item>
+			<title>Argo-Workflow : Kubernetes에서 Batch Job</title>
+			<link>https://pko89403.github.io/post/argoworkflow/</link>
+			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/argoworkflow/</guid>
+			<description>
+			
+				argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
+InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들 …
+			
+			</description>
+		</item>
+		<item>
+			<title>Locust : 파이썬 기반 오픈 소스 로드 테스트</title>
+			<link>https://pko89403.github.io/post/locust/</link>
+			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/locust/</guid>
+			<description>
+			
+				Locust Locust는 사용이 쉽고, 스크립트 가능하고, 확장 가능한 성능 테스트 도구이다. 유저들의 행동을 파이썬 코드를 사용해서 정의할 수 있다.
 Locust 공식 GitHub 
-Features 평범한 Python으로 사용자 테스트 시나리오 작성 Locust는 경량 코루틴인 greenlet 내에서 모든 유저를 실행한다. 그렇기 때문에 콜백이나 다른 메커니즘을 사용하지 않고 일반 python 코드와 같은 테스트를 작성할 수 있다.
-분산 &amp;amp; 확장 가능 - 수 십만의 유저 지원 Locust를 사용하면 분산된 부하 테스트를 여러 시스템에 쉽게 동작 시킬 수 있다.</description>
-    </item>
-    
-  </channel>
+Features 평범한 Python으로 사용자 테스트 시나리오 작 …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

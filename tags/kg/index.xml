@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>KG on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/kg/</link>
-    <description>Recent content in KG on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/kg/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
-      <link>https://pko89403.github.io/post/kgat/</link>
-      <pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/kgat/</guid>
-      <description>ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소드는 인스턴스 혹은 아이템 간의 관계를 간과하기 때문에, CF 시그널을 녹여내기에 부족하다.
-본 논문에서는 지식 그래프(KG)의 가능성을 연구 하는데, 지식 그래프로 독립적인 상호작용에 대한 가정을 아이템 어트리뷰트와 함께 연결시켜 세분화 할 수 있다고 한다. 하이브리드 구조인 KG와 유저-아이템 그래프에 연결된 어트리뷰트 들로 두 아이템을 연결하는 고차 관계성으로 성공적인 추천을 할수 있다고 주장한다.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>KG on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/kg/</link>
+		<description>Recent content in KG on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/kg/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/kgat/</link>
+			<pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/kgat/</guid>
+			<description>
+			
+				ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

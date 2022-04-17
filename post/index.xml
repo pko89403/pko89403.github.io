@@ -1,350 +1,382 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/post/</link>
-    <description>Recent content in Posts on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
-      <link>https://pko89403.github.io/post/kgat/</link>
-      <pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/kgat/</guid>
-      <description>ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소드는 인스턴스 혹은 아이템 간의 관계를 간과하기 때문에, CF 시그널을 녹여내기에 부족하다.
-본 논문에서는 지식 그래프(KG)의 가능성을 연구 하는데, 지식 그래프로 독립적인 상호작용에 대한 가정을 아이템 어트리뷰트와 함께 연결시켜 세분화 할 수 있다고 한다. 하이브리드 구조인 KG와 유저-아이템 그래프에 연결된 어트리뷰트 들로 두 아이템을 연결하는 고차 관계성으로 성공적인 추천을 할수 있다고 주장한다.</description>
-    </item>
-    
-    <item>
-      <title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
-      <link>https://pko89403.github.io/post/pup/</link>
-      <pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/pup/</guid>
-      <description>ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+	<channel>
+		<title>Posts on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/post/</link>
+		<description>Recent content in Posts on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/kgat/</link>
+			<pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/kgat/</guid>
+			<description>
+			
+				ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …
+			
+			</description>
+		</item>
+		<item>
+			<title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
+			<link>https://pko89403.github.io/post/pup/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/pup/</guid>
+			<description>
+			
+				ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
 → 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
-마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했다.
-→ 따라서 본 연구에서는 가격에 집중해서 유저의 구매 의도를 예측하는 추천 메소드 개발을 목표로 한다.
-연구가 가지는 두가지 어려움은 다음과 같다.
- 가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다.</description>
-    </item>
-    
-    <item>
-      <title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
-      <link>https://pko89403.github.io/post/graphrec/</link>
-      <pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/graphrec/</guid>
-      <description>ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상 …
+			
+			</description>
+		</item>
+		<item>
+			<title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/graphrec/</link>
+			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/graphrec/</guid>
+			<description>
+			
+				ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
  유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
-그러나, GNNs으로 소셜 추천 시스템을 구축하는 것은 세가지 과제 있다.
- 유저-아이템 그래프가 상호작용과 그에 연관된 오피니언을 포함한다 소셜 관계들이 서로 다른 강도를 가진다 유저가 유저-유저 소셜 그래프와 유저-아이템 그래프 모두에 포함된다  위의 세가지 문제를 해결하기 위해 논문이 기여하는 바는 아래와 같다.</description>
-    </item>
-    
-    <item>
-      <title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</title>
-      <link>https://pko89403.github.io/post/gmcf/</link>
-      <pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/gmcf/</guid>
-      <description>ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
- inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용 cross attribute interactions : 유저 어트리뷰트와 아이템 어트리뷰트 간 상호작용  따라서 그래프 매칭 구조를 사용해 어트리뷰트 상호작용을 모델링하고 집계해서 두 상호작용 타입을 효과적으로 포착하는 GMCF(neural Graph Matching based Collaborative Filtering) 모델을 추천에서 사용한다.
-GMCF 모델은 두가지 과정을 수행하는데</description>
-    </item>
-    
-    <item>
-      <title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
-      <link>https://pko89403.github.io/post/prefect_ecs/</link>
-      <pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/prefect_ecs/</guid>
-      <description>Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
-EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. Prefect Cloud는 유료이기 때문에 사용하지 않았고 오픈소스인 Prefect Server로 Prefect Core를 구성하고, K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것이 아니기 때문에 ECS Agent로 구성했다.
-따라서 이 글에서 다룰 내용은 다음과 같다.
- EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production )  Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다.</description>
-    </item>
-    
-    <item>
-      <title>워크플로우 엔진 PREFECT : 개념</title>
-      <link>https://pko89403.github.io/post/prefect_init/</link>
-      <pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/prefect_init/</guid>
-      <description>일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
-Prefect는 데이터 워크플로우들을 구축하는 툴이고, 워크플로우는 필요한 각 과정들을 특정 순서로 동작시킨다.
-Prefect는 라틴어 praefectus 에서 시작 되는데 의미가 교사가 학교 규율에서 학생을 유지하도록 돕는 사람이라고 한다. 도메인을 감독하고 규칙을 잘 지키는지 확인하는 관리자 라는 의미에서 이름을 붙였다고 한다.
-바로 아래는 Prefect의 Github과 공식 문서다. 여기를 참고해서 Prefect에서 사용하는 용어와 개념에 대해 정리한다.</description>
-    </item>
-    
-    <item>
-      <title>밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy</title>
-      <link>https://pko89403.github.io/post/ope_policy/</link>
-      <pubDate>Sat, 13 Nov 2021 16:05:55 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/ope_policy/</guid>
-      <description>밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다.
-밴딧 기반 추천 시스템 도메인을 위해 일본의 패션 이커머스 플랫폼 ZOZOTOWN 에서 Open Bandit Dataset 라고 하는 수집된 데이터셋을 공개를 했다. 이 데이터셋은 동일한 플랫폼에서 각기 다른 정책을 동작 시키면서 수집된 많은 밴딧 피드백 로그 셋을 가지는 차별점이 있고 결론적으로 서로 다른 OPE 예측기들의 실험적 비교를 최초로 할 수 있게 해주었다.</description>
-    </item>
-    
-    <item>
-      <title>밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation</title>
-      <link>https://pko89403.github.io/post/ope_offpolicy/</link>
-      <pubDate>Sat, 13 Nov 2021 16:05:47 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/ope_offpolicy/</guid>
-      <description>&amp;ldquo;밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation&amp;rdquo; Bandit 추천의 기반인 Policy에 대해 알아봤고 오프라인으로 로깅된 밴딧 피드백을 이용해 Policy의 값을 추정하는 추정기들과 그 추정기를 검증하는 Offline-Policy-Evaluation에 대해 실습을 진행한다. 아래의 공식 예제 코드를 약간 변형해서 진행하게 된다.
-실습 진행 예제 코드
-전체 코드의 실습은 OBP에서 지원하는 아래의 항목들을 사용했다.
- Dataset : SyntheticDataset (제공하는 랜덤 데이터셋 ) Policy : LinUCB Evaluation : RM, IPW  SyntheticBanditDataset을 온라인 밴딧 알고리즘의 OPE를 검증에 사용한다.</description>
-    </item>
-    
-    <item>
-      <title>딥러닝 모델의 배포와 모니터링 : Full Stack Deep Learning Lecture 11 정리</title>
-      <link>https://pko89403.github.io/post/dfc11/</link>
-      <pubDate>Tue, 05 Oct 2021 21:25:39 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/dfc11/</guid>
-      <description>Full Stack Deep Learning의 원본 강의 11 챕터를 정리한 내용입니다.
-Notes 프로덕션에서의 ML에서는 초당 수천 혹은 수백만 예측을 딜리버리하는 유저의 요구사항을 다룬다. 반면에 노트북에서의 ML은 올바른 방식으로 셀들을 동작시키면 동작한다. 솔직하게 말하면 대부분의 데이터 사이언티스트와 ML 엔지니어들은 어떻게 ML 시스템을 배포하는지 모른다. 그래서 이 강의의 목적은 그 태스크를 수행하기 위한 다양한 방법을 제공한다.
-1. 모델 배포 1. 배포 타입들 ML 모델 배포를 위한 여러 방법들을 개념화하는 방법 중 하나는 어플리케이션의 전체 구조 중 어느 위치에 배포 할지를 고려하는 방법이 있다.</description>
-    </item>
-    
-    <item>
-      <title>Graph Neural Networks에 대한 이해</title>
-      <link>https://pko89403.github.io/post/gnn_intro/</link>
-      <pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/gnn_intro/</guid>
-      <description>GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.
-GNN은 그래프에서 노드 간의 종속성을 모델링하는 능력을 가지고 있다! 관계, 상호 작용과 같은 추상적인 개념을 다루기 적합해서 관계를 분석할 필요가 있을 때 기초적으로 사용할 수 있다.
-Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스의 집합 V 그리고 엣지의 집합 E로 간단하게 설명할 수 있다.</description>
-    </item>
-    
-    <item>
-      <title>스파크를 활용한 실시간 처리 : ch2. 스트림 처리 모델</title>
-      <link>https://pko89403.github.io/post/ss2/</link>
-      <pubDate>Wed, 08 Sep 2021 21:04:30 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/ss2/</guid>
-      <description>책 스파크를 활용한 실시간 처리 2단원 정리입니다.
-스트림 처리에서의 소스와 싱크 스파크의 스트리밍 프레임워크에서는 데이터 소스 개념을 사용해서 데이터 스트림에 접근할 수 있다. 스트림으로 부터의 데이터 접근을 스트림 소비(consuming the stream)라고 한다. 스파크 컨트롤 외부에 데이터 스트림을 쓰는데 사용하는 추상화를 스트리밍 싱크라고 한다.
-  Source&amp;amp;Sync   프로세싱 컴포넌트에 의해 소스로 부터 데이터가 소비되고 최종 결과는 싱크로 생성된다.
-소스와 싱크의 개념은 시스템 경계를 나타내며, 하나의 프레임워크의 싱크는 다운스트림 프레임워크의 소스가 된다.</description>
-    </item>
-    
-    <item>
-      <title>스파크를 활용한 실시간 처리 : ch1. 스트림 처리 소개</title>
-      <link>https://pko89403.github.io/post/ss1/</link>
-      <pubDate>Wed, 08 Sep 2021 20:58:42 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/ss1/</guid>
-      <description>책 스파크를 활용한 실시간 처리 1단원 정리입니다.
-스트림 처리(stream processing)가 무엇 인지? 스트림 처리는 unbounded data( 크기가 무한한 유형의 데이터 셋)로 부터 정보를 추출하는데 사용하는 규율 및 관련 기술의 집합으로 정의된다.
-스트림 처리는 데이터가 시스템에 도착할 때 윈도우 내 데이터 또는 최신의 데이터 쿼리하거나 처리 하는데에 주로 집중한다. 반대 되는 개념으로 일괄 처리(batch processing)가있는데 bounded data(알려진 크기의 데이터셋)의 모든 또는 대부분 데이터를 쿼리하거나 처리하는 것이다.
-스트림 처리 프로그램은 입력을 시간의 흐름에 따라 관찰되는 무한 길이의 신호 시퀀스라고 가정한다.</description>
-    </item>
-    
-    <item>
-      <title>FastAPI의 async def와 def에 대해서 공부해보자</title>
-      <link>https://pko89403.github.io/post/fastapiasync/</link>
-      <pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/fastapiasync/</guid>
-      <description>FastAPI의 async def에 관해 작성된 페이지인 Concurreny and async/await 를 보았다.
-우선 기본적으로 FastAPI는 async def를 꼭 쓸 필요는 없다. def 만으로도 비동기 처리 되도록 FastAPI 프레임 워크로 구현하고 있다.
-  다음과 같이 await 로 호출하도록 가이드를 하는 서드 파티 라이브러리를 사용하는 경우
-results = await some_library() 다음과 같이 선언해서 사용하라고 한다.
-@app.get(&amp;#39;/&amp;#39;) async def read_results(): results = await some_library() return results await 사용을 지원하지 않는 서드 파티 라이브러리를 사용하는 경우, 그냥 def를 사용해서 사용하라고 한다.</description>
-    </item>
-    
-    <item>
-      <title>Longformer: The Long-Document Transformer 리뷰</title>
-      <link>https://pko89403.github.io/post/longformer/</link>
-      <pubDate>Tue, 17 Aug 2021 00:12:31 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/longformer/</guid>
-      <description>ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭-인)하고 태스크 처리를 위한 글로벌 어텐션과 결합한다. 따라서 수천 이상의 토큰을 가지는 문장을 쉽게 처리할 수 있다.
-기존의 트랜스포머로 긴 시퀀스 처리하는 연구의 검증 방법에 따라 문자 단위의 언어 모델링으로 롱포머를 검증했고 text8과 enwik8 벤치마크에서 SOTA를 달성했다.</description>
-    </item>
-    
-    <item>
-      <title>A Contextual-Bandit Algorithm for Mobile Context-Aware Recommender System 논문 리뷰</title>
-      <link>https://pko89403.github.io/post/mcrs/</link>
-      <pubDate>Sun, 11 Jul 2021 22:04:33 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/mcrs/</guid>
-      <description>Abastract 모바일 맥락 기반 추천 시스템의 대부분의 접근 방법은 맥락 정보를 활용해서 유저와 관련성 있는 아이템을 추천하는데 초점이 맞춰져 있다. 고려할만한 맥락 정보로 아래 세가지가 있다.
- 시간 위치 소셜 정보  이전의 연구들은 모두 유저의 컨텐츠 변화 문제를 고려하지 않는데 이 논문은 컨텐츠에 대해 변화하는
- 유저의 흥미를 다이나믹하게 처리하는 알고리즘을 제시 유저 상황에 따라 Exploration과 Exploitation을 결정한 뒤 적응형으로 EE 트레이드 오프  직접 설계한 오프라인 시뮬레이션 프레임워크로 실제 온라인 로그 데이터에서 검증을 수행한다.</description>
-    </item>
-    
-    <item>
-      <title>Collaborative Filtering Bandits 논문 리뷰</title>
-      <link>https://pko89403.github.io/post/cofiba/</link>
-      <pubDate>Sun, 27 Jun 2021 23:28:24 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/cofiba/</guid>
-      <description>Collaborative Filtering Bandits 리뷰 ABSTRACT 기존 추천 방식
- Collaborative filtering Content-Based Filtering  주어진 학습 데이터로 부터 모델을 학습하는 메소드( 정적인 모델 ).
-뉴스 추천 이나 광고 도메인에는 적용이 힘듬 → 아이템과 유저 셋의 계속된 변경
-Contextual MAB 기반 적응형 클러스터링
-유저 클러스터링 + 아이템 클러스터링
-데이터 내의 선호 패턴을 이용한다. ( collaborative filtering )
-SOTA
-Regret 분석
-1. INTRODUCTION Collarborative Filtering
-아이템에 대한 상호작용한 정보를 사용한다.
-유저 피처와 아이템 피처의 내적 메소드와 같은 기술로 재현하고,</description>
-    </item>
-    
-    <item>
-      <title>단단한 강화 학습 2장 다중 선택 2.6 ~ 정리</title>
-      <link>https://pko89403.github.io/post/rl2.5.2/</link>
-      <pubDate>Sun, 20 Jun 2021 22:11:13 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/rl2.5.2/</guid>
-      <description>단단한 강화 학습 2장 다중 선택 2.6 ~ 정리 2.6 Optimal Initial Value Exploration을 촉진하는 기법을 긍정적 초깃값(Optimal initial value)라고 부른다.
-이전에 언급된 방법들은 행동 가치의 초기 추정값 $Q_1(a)$의 영향을 받았다. 초깃값에 편중 되어(Biased) 있었다. 편향 되었다는게 나쁜 것만은 아니다. 편향된 정보를 사전 지식으로 초기 추정값을 정할 수 있는 장점이 있다.
-액션 들의 가치에 대한 초기 추정값이 긍정적이면, 학습자는 액션에 대한 보상값에 실망해서 다른 행동을 선택하게 된다. 결과적으로 가치 추정값이 수렴하기 전까지 Exploration이 된다.</description>
-    </item>
-    
-    <item>
-      <title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</title>
-      <link>https://pko89403.github.io/post/rl2.5/</link>
-      <pubDate>Sun, 13 Jun 2021 22:26:04 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/rl2.5/</guid>
-      <description>Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
-강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백으로 전달한다. 그렇기 때문에 좋은 행동을 찾기 위한 직접적인 탐색이 필요하다.
-단순화 된 구조에서 하나의 상황에 대해서만 행동을 학습하게 되는 구조를
-Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 않음. Evaluative Feedback에 관한 작업이 이미 수행 된다.  이러한 구조를 가지는 특별한 구조로서 다중 선택 문제(Multi-Armed Bandits)가 있다.</description>
-    </item>
-    
-    <item>
-      <title>Cross-lingual Language Model Pretraining : XLM 리뷰</title>
-      <link>https://pko89403.github.io/post/xlm/</link>
-      <pubDate>Sun, 13 Jun 2021 22:25:48 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/xlm/</guid>
-      <description>Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual language model(XLM)을 학습하는 세가지 메소드를 제시한다.
- 단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드  교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
- XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA)  비지도 학습 방식의 기계 번역의 경우</description>
-    </item>
-    
-    <item>
-      <title>Artwork Personalization at Netflix</title>
-      <link>https://pko89403.github.io/post/netflixartwork2/</link>
-      <pubDate>Sun, 06 Jun 2021 22:41:41 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/netflixartwork2/</guid>
-      <description>Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
-Artwork Personalization at Netflix 블로그
-qcon_artwork_personalization_talk PPT
-Artwork Personalization at Netflix | Netflix 유투브 
-Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 목표는
- 각 구성원에 적합한 타이틀을 적합한 시간에 제공  였다. 수 천 타이틀의 카탈로그와 일 억개가 넘는 계정의 회원으로, 회원 각각에게 적합한 타이틀을 추천하는 것은 중요하다. 그러나 추천 업무는 그걸로 끝이 아니다. 다음과 같은 질문에 답해야한다.</description>
-    </item>
-    
-    <item>
-      <title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
-      <link>https://pko89403.github.io/post/distillbert/</link>
-      <pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/distillbert/</guid>
-      <description>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo 그리고 GPT가 있다. 이런 발전들은 이전 세대의, 언어 이해를 위한 얕은 뉴럴 네트워크는 쓸모 없다는 확신을 가지게 했다. 그러나 이 논문에서는, 기본적이고 가벼운 뉴럴 네트워크 모델이 구조 변경, 외부 학습 데이터, 추가 입력 피처들 없이도 경쟁력이 있다는 것을 증명한다. 논문에서 SOTA 언어 표현 모델인 BERT의 지식을 레이어 하나를 가지는 BiLSTM으로 녹여낼 뿐만아니라, 문장 쌍 태스크에는 샴 구조로 녹여내는 것을 제시했다.</description>
-    </item>
-    
-    <item>
-      <title>ALBERT : A Lite BERT 리뷰</title>
-      <link>https://pko89403.github.io/post/albert/</link>
-      <pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/albert/</guid>
-      <description>ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델)
-충분한 학습 데이터를 가지지 않은 Non-Trivial Task ( 사소하지 않은 태스크 )의 돌파구가 되었다.
-ALBERT가 RACE 데이터 셋에서 89.4%로 SOTA
-RACE Benchmark
-거대한 모델을 사전 학습하고, 작은 모델을 추출해서 실제 문제 해결에 사용하는 것이 일반화가 되었다.
-→ 모델의 크기가 과연 중요한가? 클 수록 더 좋은 NLP 모델 일까?
-모델을 크기가 커질 수록 생기는 가용할 수 있는 하드웨어와 학습 속도 등의 문제가 있다.</description>
-    </item>
-    
-    <item>
-      <title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</title>
-      <link>https://pko89403.github.io/post/sbert/</link>
-      <pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/sbert/</guid>
-      <description>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문장을 의미적으로 잘 표현한 문장 임베딩을 잘 도출 하는 네트워크다. 새로운 BERT 구조로 큰 규모의 의미적 유사도 비교, 클러스터링, 검색 태스크 등에 사용할 수 있다.
-새로운 SOTA를 보였던 BERT는 cross-encoder 구조이다. cross-encoder는 두개의 문장이 트랜스포머 네트워크로 들어가고 타겟 값을 예측한다. context와 candidate를 결합 한 후 인코딩해서 더 풍부한 표현을 얻을 수는 있지만, 입력에 독립적인 토큰을 얻기가 힘들고, 느리다.</description>
-    </item>
-    
-    <item>
-      <title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
-      <link>https://pko89403.github.io/post/kafka/</link>
-      <pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/kafka/</guid>
-      <description>Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency로 수집 그리고 전송할 목적으로 분산 메시지시스템을 개발 했다. 카프카는 이미 존재하는 로그 집계기 (Log Aggregator)와 메시지 시스템으로 부터 아이디어를 집약했는데, 그래서 온 오프라인과 모두의 메시지 Consumption에 적합했다. 시스템을 확장 가능하고 효율적이게 만들기 위해 파격적 이면서도 실용적인 디자인을 선택했다. 카프카를 프로덕션에서 사용했으며 매일 수백 기가의 새로운 데이터를 처리 했다.</description>
-    </item>
-    
-    <item>
-      <title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰</title>
-      <link>https://pko89403.github.io/post/bert/</link>
-      <pubDate>Sun, 09 May 2021 19:40:01 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/bert/</guid>
-      <description>BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰 Abstract BERT라고 부르는 언어 표현 모델을 소개한다. BERT는 Bidirectional Encoder Representations from Transfomers를 가리킨다. 최근의 언어 표현 모델들과 다르게, BERT는 모든 레이어 양쪽의 context에 대해 같은 조건으로 라벨링 되지 않은 텍스트로 딥러닝을 사용한 양방향 표현을 사전 학습하도록 설계했다. 사전 학습된 BERT 모델은 질의 응답, 언어 추론과 같은 다양한 태스크에 태스크 별 아키텍처에 대한 수정을 하지 않고 출력 레이어 하나만 추가해서 파인 튜닝 할 수 있다.</description>
-    </item>
-    
-    <item>
-      <title>ELMO : Deep contextualized word representations 리뷰</title>
-      <link>https://pko89403.github.io/post/elmo/</link>
-      <pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/elmo/</guid>
-      <description>ELMO : Deep contextualized word representations 논문 리뷰 정리 ELMO의 특징  레이블 작업을할 필요가 없다. 문장을 바로 입력에 사용한다. 양방향 LM 구조를 가진다. 모든 레이어들의 출력값을 사용해서 임베딩을 출력한다.  구성요소  Character 단위 CNN 양방향 LSTM 레이어 ELMO 레이어 ( CNN의 출력과 LSTM 두개 출력, 세개 벡터를 가중합하는 방식으로 학습한 결과를 최종적인 벡터 표현 )  Abstract (1) 단어의 복잡한 특징 (예를 들어, 구문과 의미 )
-(2) 언어적 맥락에 따른 다양한 표현 ( 다형성 )</description>
-    </item>
-    
-    <item>
-      <title>Argo-Workflow : Kubernetes에서 Batch Job</title>
-      <link>https://pko89403.github.io/post/argoworkflow/</link>
-      <pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/argoworkflow/</guid>
-      <description>argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
-InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들었는데 디버깅하기 너무 힘들었다.
-Argo Workflow를 사용 해야겠다 고 생각한 것은 스택오버플로우 링크 를 보고였다.
-apiVersion:batch/v1beta1kind:CronJobmetadata:name:cronjob-instantsearchnamespace:modulesspec:schedule:&amp;#34;*/1 * * * *&amp;#34;jobTemplate:spec:template:metadata:annotations:sidecar.istio.io/inject:&amp;#34;false&amp;#34;spec:restartPolicy:NeverinitContainers:- name:s3-pull-assetsimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efs- name:instantsearchimage:preproc.21.04.27imagePullPolicy:Alwaysargs:- /bin/bash- &amp;#34;-c&amp;#34;- &amp;#34;sleep 10&amp;#34;volumeMounts:- name:persistent-storagemountPath:/efs- name:s3-push-assetsimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efs containers:- name:checkimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;cat preproc.log&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efsvolumes:- name:persistent-storagepersistentVolumeClaim:claimName:efs-claim2  1   What is Argo? 쿠버네티스 상의 병렬 잡 오케스트레이팅을 위한 오픈소스 컨테이너 네이티브 워크플로우 엔진이다.</description>
-    </item>
-    
-    <item>
-      <title>Locust : 파이썬 기반 오픈 소스 로드 테스트</title>
-      <link>https://pko89403.github.io/post/locust/</link>
-      <pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/locust/</guid>
-      <description>Locust Locust는 사용이 쉽고, 스크립트 가능하고, 확장 가능한 성능 테스트 도구이다. 유저들의 행동을 파이썬 코드를 사용해서 정의할 수 있다.
+그러나, GNNs으로 소셜 추천 시스템을 구축하는 것 …
+			
+			</description>
+		</item>
+		<item>
+			<title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</title>
+			<link>https://pko89403.github.io/post/gmcf/</link>
+			<pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/gmcf/</guid>
+			<description>
+			
+				ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
+ inner attribute interactions : …
+			
+			</description>
+		</item>
+		<item>
+			<title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
+			<link>https://pko89403.github.io/post/prefect_ecs/</link>
+			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/prefect_ecs/</guid>
+			<description>
+			
+				Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
+EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster …
+			
+			</description>
+		</item>
+		<item>
+			<title>워크플로우 엔진 PREFECT : 개념</title>
+			<link>https://pko89403.github.io/post/prefect_init/</link>
+			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/prefect_init/</guid>
+			<description>
+			
+				일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
+Prefect는 데이터 워크플로우들을 구축하는 툴이 …
+			
+			</description>
+		</item>
+		<item>
+			<title>밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy</title>
+			<link>https://pko89403.github.io/post/ope_policy/</link>
+			<pubDate>Sat, 13 Nov 2021 16:05:55 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/ope_policy/</guid>
+			<description>
+			
+				밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation</title>
+			<link>https://pko89403.github.io/post/ope_offpolicy/</link>
+			<pubDate>Sat, 13 Nov 2021 16:05:47 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/ope_offpolicy/</guid>
+			<description>
+			
+				“밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation” Bandit 추천의 기반인 Policy에 대해 알아봤고 오프라인으로 로깅된 밴딧 피드백을 이용해 Policy의 값을 추정하 …
+			
+			</description>
+		</item>
+		<item>
+			<title>딥러닝 모델의 배포와 모니터링 : Full Stack Deep Learning Lecture 11 정리</title>
+			<link>https://pko89403.github.io/post/dfc11/</link>
+			<pubDate>Tue, 05 Oct 2021 21:25:39 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/dfc11/</guid>
+			<description>
+			
+				Full Stack Deep Learning의 원본 강의 11 챕터를 정리한 내용입니다.
+Notes 프로덕션에서의 ML에서는 초당 수천 혹은 수백만 예측을 딜리버리하는 유저의 요구사항을 다룬다. 반면에 노트북에서의 ML은 올바른 방식으로 셀들을 동작시 …
+			
+			</description>
+		</item>
+		<item>
+			<title>Graph Neural Networks에 대한 이해</title>
+			<link>https://pko89403.github.io/post/gnn_intro/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/gnn_intro/</guid>
+			<description>
+			
+				GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …
+			
+			</description>
+		</item>
+		<item>
+			<title>스파크를 활용한 실시간 처리 : ch2. 스트림 처리 모델</title>
+			<link>https://pko89403.github.io/post/ss2/</link>
+			<pubDate>Wed, 08 Sep 2021 21:04:30 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/ss2/</guid>
+			<description>
+			
+				책 스파크를 활용한 실시간 처리 2단원 정리입니다.
+스트림 처리에서의 소스와 싱크 스파크의 스트리밍 프레임워크에서는 데이터 소스 개념을 사용해서 데이터 스트림에 접근할 수 있다. 스트림으로 부터의 데이터 접근을 스트림 소비(consuming the …
+			
+			</description>
+		</item>
+		<item>
+			<title>스파크를 활용한 실시간 처리 : ch1. 스트림 처리 소개</title>
+			<link>https://pko89403.github.io/post/ss1/</link>
+			<pubDate>Wed, 08 Sep 2021 20:58:42 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/ss1/</guid>
+			<description>
+			
+				책 스파크를 활용한 실시간 처리 1단원 정리입니다.
+스트림 처리(stream processing)가 무엇 인지? 스트림 처리는 unbounded data( 크기가 무한한 유형의 데이터 셋)로 부터 정보를 추출하는데 사용하는 규율 및 관련 기술의 집합으 …
+			
+			</description>
+		</item>
+		<item>
+			<title>FastAPI의 async def와 def에 대해서 공부해보자</title>
+			<link>https://pko89403.github.io/post/fastapiasync/</link>
+			<pubDate>Sun, 05 Sep 2021 18:19:34 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/fastapiasync/</guid>
+			<description>
+			
+				FastAPI의 async def에 관해 작성된 페이지인 Concurreny and async/await 를 보았다.
+우선 기본적으로 FastAPI는 async def를 꼭 쓸 필요는 없다. def 만으로도 비동기 처리 되도록 FastAPI 프레임 워 …
+			
+			</description>
+		</item>
+		<item>
+			<title>Longformer: The Long-Document Transformer 리뷰</title>
+			<link>https://pko89403.github.io/post/longformer/</link>
+			<pubDate>Tue, 17 Aug 2021 00:12:31 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/longformer/</guid>
+			<description>
+			
+				ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>A Contextual-Bandit Algorithm for Mobile Context-Aware Recommender System 논문 리뷰</title>
+			<link>https://pko89403.github.io/post/mcrs/</link>
+			<pubDate>Sun, 11 Jul 2021 22:04:33 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/mcrs/</guid>
+			<description>
+			
+				Abastract 모바일 맥락 기반 추천 시스템의 대부분의 접근 방법은 맥락 정보를 활용해서 유저와 관련성 있는 아이템을 추천하는데 초점이 맞춰져 있다. 고려할만한 맥락 정보로 아래 세가지가 있다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>Collaborative Filtering Bandits 논문 리뷰</title>
+			<link>https://pko89403.github.io/post/cofiba/</link>
+			<pubDate>Sun, 27 Jun 2021 23:28:24 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/cofiba/</guid>
+			<description>
+			
+				Collaborative Filtering Bandits 리뷰 ABSTRACT 기존 추천 방식
+ Collaborative filtering Content-Based Filtering  주어진 학습 데이터로 부터 모델을 학습하는 메소드( …
+			
+			</description>
+		</item>
+		<item>
+			<title>단단한 강화 학습 2장 다중 선택 2.6 ~ 정리</title>
+			<link>https://pko89403.github.io/post/rl2.5.2/</link>
+			<pubDate>Sun, 20 Jun 2021 22:11:13 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/rl2.5.2/</guid>
+			<description>
+			
+				단단한 강화 학습 2장 다중 선택 2.6 ~ 정리 2.6 Optimal Initial Value Exploration을 촉진하는 기법을 긍정적 초깃값(Optimal initial value)라고 부른다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</title>
+			<link>https://pko89403.github.io/post/rl2.5/</link>
+			<pubDate>Sun, 13 Jun 2021 22:26:04 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/rl2.5/</guid>
+			<description>
+			
+				Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
+강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백 …
+			
+			</description>
+		</item>
+		<item>
+			<title>Cross-lingual Language Model Pretraining : XLM 리뷰</title>
+			<link>https://pko89403.github.io/post/xlm/</link>
+			<pubDate>Sun, 13 Jun 2021 22:25:48 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/xlm/</guid>
+			<description>
+			
+				Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>Artwork Personalization at Netflix</title>
+			<link>https://pko89403.github.io/post/netflixartwork2/</link>
+			<pubDate>Sun, 06 Jun 2021 22:41:41 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/netflixartwork2/</guid>
+			<description>
+			
+				Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
+Artwork Personalization at Netflix …
+			
+			</description>
+		</item>
+		<item>
+			<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</title>
+			<link>https://pko89403.github.io/post/distillbert/</link>
+			<pubDate>Mon, 31 May 2021 00:23:46 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/distillbert/</guid>
+			<description>
+			
+				Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>ALBERT : A Lite BERT 리뷰</title>
+			<link>https://pko89403.github.io/post/albert/</link>
+			<pubDate>Mon, 31 May 2021 00:23:36 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/albert/</guid>
+			<description>
+			
+				ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델) …
+			
+			</description>
+		</item>
+		<item>
+			<title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</title>
+			<link>https://pko89403.github.io/post/sbert/</link>
+			<pubDate>Sun, 23 May 2021 19:42:56 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/sbert/</guid>
+			<description>
+			
+				Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구 …
+			
+			</description>
+		</item>
+		<item>
+			<title>Kafka : a Distributed Messaging System for Log Processing 리뷰</title>
+			<link>https://pko89403.github.io/post/kafka/</link>
+			<pubDate>Sun, 09 May 2021 21:22:18 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/kafka/</guid>
+			<description>
+			
+				Kafka : a Distributed Messaging System for Log Processing ABSTRACT 로그 프로세싱은 인터넷 회사들을 위한 데이터 파이프라인의 중요한 컴포넌트가 되었다. 높은 볼륨의 로그 데이터를 낮은 Latency …
+			
+			</description>
+		</item>
+		<item>
+			<title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰</title>
+			<link>https://pko89403.github.io/post/bert/</link>
+			<pubDate>Sun, 09 May 2021 19:40:01 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/bert/</guid>
+			<description>
+			
+				BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰 Abstract BERT라고 부르는 언어 표현 모델을 소개한다. BERT는 Bidirectional …
+			
+			</description>
+		</item>
+		<item>
+			<title>ELMO : Deep contextualized word representations 리뷰</title>
+			<link>https://pko89403.github.io/post/elmo/</link>
+			<pubDate>Sat, 01 May 2021 23:43:02 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/elmo/</guid>
+			<description>
+			
+				ELMO : Deep contextualized word representations 논문 리뷰 정리 ELMO의 특징  레이블 작업을할 필요가 없다. 문장을 바로 입력에 사용한다. 양방향 LM 구조를 가진다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>Argo-Workflow : Kubernetes에서 Batch Job</title>
+			<link>https://pko89403.github.io/post/argoworkflow/</link>
+			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/argoworkflow/</guid>
+			<description>
+			
+				argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
+InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들 …
+			
+			</description>
+		</item>
+		<item>
+			<title>Locust : 파이썬 기반 오픈 소스 로드 테스트</title>
+			<link>https://pko89403.github.io/post/locust/</link>
+			<pubDate>Sun, 25 Apr 2021 14:56:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/locust/</guid>
+			<description>
+			
+				Locust Locust는 사용이 쉽고, 스크립트 가능하고, 확장 가능한 성능 테스트 도구이다. 유저들의 행동을 파이썬 코드를 사용해서 정의할 수 있다.
 Locust 공식 GitHub 
-Features 평범한 Python으로 사용자 테스트 시나리오 작성 Locust는 경량 코루틴인 greenlet 내에서 모든 유저를 실행한다. 그렇기 때문에 콜백이나 다른 메커니즘을 사용하지 않고 일반 python 코드와 같은 테스트를 작성할 수 있다.
-분산 &amp;amp; 확장 가능 - 수 십만의 유저 지원 Locust를 사용하면 분산된 부하 테스트를 여러 시스템에 쉽게 동작 시킬 수 있다.</description>
-    </item>
-    
-    <item>
-      <title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</title>
-      <link>https://pko89403.github.io/post/gpt2/</link>
-      <pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/gpt2/</guid>
-      <description>Language Models are Unsupervised Multitask Learners  Language Model 이란?
- 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다.   Unsupervised Learning 이란?
- 입력 값과 타겟 값이 주어지지 않은 환경에서 학습   Multi-Task Learning 이란?
- 서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임  Abstract  Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다.</description>
-    </item>
-    
-  </channel>
+Features 평범한 Python으로 사용자 테스트 시나리오 작 …
+			
+			</description>
+		</item>
+		<item>
+			<title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</title>
+			<link>https://pko89403.github.io/post/gpt2/</link>
+			<pubDate>Sat, 24 Apr 2021 09:33:15 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/gpt2/</guid>
+			<description>
+			
+				Language Models are Unsupervised Multitask Learners  Language Model 이란?
+ 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

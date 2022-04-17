@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>graph on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/graph/</link>
-    <description>Recent content in graph on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Thu, 23 Sep 2021 23:53:37 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/graph/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Graph Neural Networks에 대한 이해</title>
-      <link>https://pko89403.github.io/post/gnn_intro/</link>
-      <pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/gnn_intro/</guid>
-      <description>GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.
-GNN은 그래프에서 노드 간의 종속성을 모델링하는 능력을 가지고 있다! 관계, 상호 작용과 같은 추상적인 개념을 다루기 적합해서 관계를 분석할 필요가 있을 때 기초적으로 사용할 수 있다.
-Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스의 집합 V 그리고 엣지의 집합 E로 간단하게 설명할 수 있다.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>graph on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/graph/</link>
+		<description>Recent content in graph on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Thu, 23 Sep 2021 23:53:37 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/graph/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Graph Neural Networks에 대한 이해</title>
+			<link>https://pko89403.github.io/post/gnn_intro/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/gnn_intro/</guid>
+			<description>
+			
+				GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

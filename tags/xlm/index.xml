@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>xlm on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/xlm/</link>
-    <description>Recent content in xlm on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 13 Jun 2021 22:25:48 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/xlm/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Cross-lingual Language Model Pretraining : XLM 리뷰</title>
-      <link>https://pko89403.github.io/post/xlm/</link>
-      <pubDate>Sun, 13 Jun 2021 22:25:48 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/xlm/</guid>
-      <description>Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual language model(XLM)을 학습하는 세가지 메소드를 제시한다.
- 단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드  교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
- XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA)  비지도 학습 방식의 기계 번역의 경우</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>xlm on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/xlm/</link>
+		<description>Recent content in xlm on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 13 Jun 2021 22:25:48 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/xlm/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Cross-lingual Language Model Pretraining : XLM 리뷰</title>
+			<link>https://pko89403.github.io/post/xlm/</link>
+			<pubDate>Sun, 13 Jun 2021 22:25:48 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/xlm/</guid>
+			<description>
+			
+				Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

@@ -1,70 +1,81 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>GNN on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/gnn/</link>
-    <description>Recent content in GNN on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
-      <link>https://pko89403.github.io/post/kgat/</link>
-      <pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/kgat/</guid>
-      <description>ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소드는 인스턴스 혹은 아이템 간의 관계를 간과하기 때문에, CF 시그널을 녹여내기에 부족하다.
-본 논문에서는 지식 그래프(KG)의 가능성을 연구 하는데, 지식 그래프로 독립적인 상호작용에 대한 가정을 아이템 어트리뷰트와 함께 연결시켜 세분화 할 수 있다고 한다. 하이브리드 구조인 KG와 유저-아이템 그래프에 연결된 어트리뷰트 들로 두 아이템을 연결하는 고차 관계성으로 성공적인 추천을 할수 있다고 주장한다.</description>
-    </item>
-    
-    <item>
-      <title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
-      <link>https://pko89403.github.io/post/pup/</link>
-      <pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/pup/</guid>
-      <description>ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+	<channel>
+		<title>GNN on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/gnn/</link>
+		<description>Recent content in GNN on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/kgat/</link>
+			<pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/kgat/</guid>
+			<description>
+			
+				ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …
+			
+			</description>
+		</item>
+		<item>
+			<title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
+			<link>https://pko89403.github.io/post/pup/</link>
+			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/pup/</guid>
+			<description>
+			
+				ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
 → 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
-마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했다.
-→ 따라서 본 연구에서는 가격에 집중해서 유저의 구매 의도를 예측하는 추천 메소드 개발을 목표로 한다.
-연구가 가지는 두가지 어려움은 다음과 같다.
- 가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다.</description>
-    </item>
-    
-    <item>
-      <title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
-      <link>https://pko89403.github.io/post/graphrec/</link>
-      <pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/graphrec/</guid>
-      <description>ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상 …
+			
+			</description>
+		</item>
+		<item>
+			<title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/graphrec/</link>
+			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/graphrec/</guid>
+			<description>
+			
+				ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
  유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
-그러나, GNNs으로 소셜 추천 시스템을 구축하는 것은 세가지 과제 있다.
- 유저-아이템 그래프가 상호작용과 그에 연관된 오피니언을 포함한다 소셜 관계들이 서로 다른 강도를 가진다 유저가 유저-유저 소셜 그래프와 유저-아이템 그래프 모두에 포함된다  위의 세가지 문제를 해결하기 위해 논문이 기여하는 바는 아래와 같다.</description>
-    </item>
-    
-    <item>
-      <title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</title>
-      <link>https://pko89403.github.io/post/gmcf/</link>
-      <pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/gmcf/</guid>
-      <description>ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
- inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용 cross attribute interactions : 유저 어트리뷰트와 아이템 어트리뷰트 간 상호작용  따라서 그래프 매칭 구조를 사용해 어트리뷰트 상호작용을 모델링하고 집계해서 두 상호작용 타입을 효과적으로 포착하는 GMCF(neural Graph Matching based Collaborative Filtering) 모델을 추천에서 사용한다.
-GMCF 모델은 두가지 과정을 수행하는데</description>
-    </item>
-    
-    <item>
-      <title>Graph Neural Networks에 대한 이해</title>
-      <link>https://pko89403.github.io/post/gnn_intro/</link>
-      <pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/gnn_intro/</guid>
-      <description>GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.
-GNN은 그래프에서 노드 간의 종속성을 모델링하는 능력을 가지고 있다! 관계, 상호 작용과 같은 추상적인 개념을 다루기 적합해서 관계를 분석할 필요가 있을 때 기초적으로 사용할 수 있다.
-Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스의 집합 V 그리고 엣지의 집합 E로 간단하게 설명할 수 있다.</description>
-    </item>
-    
-  </channel>
+그러나, GNNs으로 소셜 추천 시스템을 구축하는 것 …
+			
+			</description>
+		</item>
+		<item>
+			<title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</title>
+			<link>https://pko89403.github.io/post/gmcf/</link>
+			<pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/gmcf/</guid>
+			<description>
+			
+				ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
+ inner attribute interactions : …
+			
+			</description>
+		</item>
+		<item>
+			<title>Graph Neural Networks에 대한 이해</title>
+			<link>https://pko89403.github.io/post/gnn_intro/</link>
+			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/gnn_intro/</guid>
+			<description>
+			
+				GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

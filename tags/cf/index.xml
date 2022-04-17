@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>CF on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/cf/</link>
-    <description>Recent content in CF on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 27 Jun 2021 23:28:24 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/cf/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Collaborative Filtering Bandits 논문 리뷰</title>
-      <link>https://pko89403.github.io/post/cofiba/</link>
-      <pubDate>Sun, 27 Jun 2021 23:28:24 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/cofiba/</guid>
-      <description>Collaborative Filtering Bandits 리뷰 ABSTRACT 기존 추천 방식
- Collaborative filtering Content-Based Filtering  주어진 학습 데이터로 부터 모델을 학습하는 메소드( 정적인 모델 ).
-뉴스 추천 이나 광고 도메인에는 적용이 힘듬 → 아이템과 유저 셋의 계속된 변경
-Contextual MAB 기반 적응형 클러스터링
-유저 클러스터링 + 아이템 클러스터링
-데이터 내의 선호 패턴을 이용한다. ( collaborative filtering )
-SOTA
-Regret 분석
-1. INTRODUCTION Collarborative Filtering
-아이템에 대한 상호작용한 정보를 사용한다.
-유저 피처와 아이템 피처의 내적 메소드와 같은 기술로 재현하고,</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>CF on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/cf/</link>
+		<description>Recent content in CF on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 27 Jun 2021 23:28:24 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/cf/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Collaborative Filtering Bandits 논문 리뷰</title>
+			<link>https://pko89403.github.io/post/cofiba/</link>
+			<pubDate>Sun, 27 Jun 2021 23:28:24 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/cofiba/</guid>
+			<description>
+			
+				Collaborative Filtering Bandits 리뷰 ABSTRACT 기존 추천 방식
+ Collaborative filtering Content-Based Filtering  주어진 학습 데이터로 부터 모델을 학습하는 메소드( …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

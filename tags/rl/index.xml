@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>RL on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/rl/</link>
-    <description>Recent content in RL on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 20 Jun 2021 22:11:13 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/rl/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>단단한 강화 학습 2장 다중 선택 2.6 ~ 정리</title>
-      <link>https://pko89403.github.io/post/rl2.5.2/</link>
-      <pubDate>Sun, 20 Jun 2021 22:11:13 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/rl2.5.2/</guid>
-      <description>단단한 강화 학습 2장 다중 선택 2.6 ~ 정리 2.6 Optimal Initial Value Exploration을 촉진하는 기법을 긍정적 초깃값(Optimal initial value)라고 부른다.
-이전에 언급된 방법들은 행동 가치의 초기 추정값 $Q_1(a)$의 영향을 받았다. 초깃값에 편중 되어(Biased) 있었다. 편향 되었다는게 나쁜 것만은 아니다. 편향된 정보를 사전 지식으로 초기 추정값을 정할 수 있는 장점이 있다.
-액션 들의 가치에 대한 초기 추정값이 긍정적이면, 학습자는 액션에 대한 보상값에 실망해서 다른 행동을 선택하게 된다. 결과적으로 가치 추정값이 수렴하기 전까지 Exploration이 된다.</description>
-    </item>
-    
-    <item>
-      <title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</title>
-      <link>https://pko89403.github.io/post/rl2.5/</link>
-      <pubDate>Sun, 13 Jun 2021 22:26:04 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/rl2.5/</guid>
-      <description>Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
-강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백으로 전달한다. 그렇기 때문에 좋은 행동을 찾기 위한 직접적인 탐색이 필요하다.
-단순화 된 구조에서 하나의 상황에 대해서만 행동을 학습하게 되는 구조를
-Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 않음. Evaluative Feedback에 관한 작업이 이미 수행 된다.  이러한 구조를 가지는 특별한 구조로서 다중 선택 문제(Multi-Armed Bandits)가 있다.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>RL on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/rl/</link>
+		<description>Recent content in RL on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 20 Jun 2021 22:11:13 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/rl/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>단단한 강화 학습 2장 다중 선택 2.6 ~ 정리</title>
+			<link>https://pko89403.github.io/post/rl2.5.2/</link>
+			<pubDate>Sun, 20 Jun 2021 22:11:13 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/rl2.5.2/</guid>
+			<description>
+			
+				단단한 강화 학습 2장 다중 선택 2.6 ~ 정리 2.6 Optimal Initial Value Exploration을 촉진하는 기법을 긍정적 초깃값(Optimal initial value)라고 부른다. …
+			
+			</description>
+		</item>
+		<item>
+			<title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</title>
+			<link>https://pko89403.github.io/post/rl2.5/</link>
+			<pubDate>Sun, 13 Jun 2021 22:26:04 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/rl2.5/</guid>
+			<description>
+			
+				Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
+강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백 …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

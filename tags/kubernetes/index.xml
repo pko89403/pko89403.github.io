@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>kubernetes on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Thu, 29 Apr 2021 17:02:02 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Argo-Workflow : Kubernetes에서 Batch Job</title>
-      <link>https://pko89403.github.io/post/argoworkflow/</link>
-      <pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/argoworkflow/</guid>
-      <description>argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
-InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들었는데 디버깅하기 너무 힘들었다.
-Argo Workflow를 사용 해야겠다 고 생각한 것은 스택오버플로우 링크 를 보고였다.
-apiVersion:batch/v1beta1kind:CronJobmetadata:name:cronjob-instantsearchnamespace:modulesspec:schedule:&amp;#34;*/1 * * * *&amp;#34;jobTemplate:spec:template:metadata:annotations:sidecar.istio.io/inject:&amp;#34;false&amp;#34;spec:restartPolicy:NeverinitContainers:- name:s3-pull-assetsimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efs- name:instantsearchimage:preproc.21.04.27imagePullPolicy:Alwaysargs:- /bin/bash- &amp;#34;-c&amp;#34;- &amp;#34;sleep 10&amp;#34;volumeMounts:- name:persistent-storagemountPath:/efs- name:s3-push-assetsimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efs containers:- name:checkimage:amazon/aws-clicommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;cat preproc.log&amp;#34;]volumeMounts:- name:persistent-storagemountPath:/efsvolumes:- name:persistent-storagepersistentVolumeClaim:claimName:efs-claim2  1   What is Argo? 쿠버네티스 상의 병렬 잡 오케스트레이팅을 위한 오픈소스 컨테이너 네이티브 워크플로우 엔진이다.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>kubernetes on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/kubernetes/</link>
+		<description>Recent content in kubernetes on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Thu, 29 Apr 2021 17:02:02 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Argo-Workflow : Kubernetes에서 Batch Job</title>
+			<link>https://pko89403.github.io/post/argoworkflow/</link>
+			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/argoworkflow/</guid>
+			<description>
+			
+				argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
+InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들 …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>

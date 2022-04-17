@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
-    <link>https://pko89403.github.io/tags/bert/</link>
-    <description>Recent content in bert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)</copyright>
-    <lastBuildDate>Sun, 09 May 2021 19:40:01 +0900</lastBuildDate><atom:link href="https://pko89403.github.io/tags/bert/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰</title>
-      <link>https://pko89403.github.io/post/bert/</link>
-      <pubDate>Sun, 09 May 2021 19:40:01 +0900</pubDate>
-      
-      <guid>https://pko89403.github.io/post/bert/</guid>
-      <description>BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰 Abstract BERT라고 부르는 언어 표현 모델을 소개한다. BERT는 Bidirectional Encoder Representations from Transfomers를 가리킨다. 최근의 언어 표현 모델들과 다르게, BERT는 모든 레이어 양쪽의 context에 대해 같은 조건으로 라벨링 되지 않은 텍스트로 딥러닝을 사용한 양방향 표현을 사전 학습하도록 설계했다. 사전 학습된 BERT 모델은 질의 응답, 언어 추론과 같은 다양한 태스크에 태스크 별 아키텍처에 대한 수정을 하지 않고 출력 레이어 하나만 추가해서 파인 튜닝 할 수 있다.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>bert on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/bert/</link>
+		<description>Recent content in bert on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sun, 09 May 2021 19:40:01 +0900</lastBuildDate>
+		
+		<atom:link href="https://pko89403.github.io/tags/bert/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰</title>
+			<link>https://pko89403.github.io/post/bert/</link>
+			<pubDate>Sun, 09 May 2021 19:40:01 +0900</pubDate>
+			
+			<guid>https://pko89403.github.io/post/bert/</guid>
+			<description>
+			
+				BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding 리뷰 Abstract BERT라고 부르는 언어 표현 모델을 소개한다. BERT는 Bidirectional …
+			
+			</description>
+		</item>
+		
+	</channel>
 </rss>
