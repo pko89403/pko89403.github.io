@@ -1,114 +1,114 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="Artwork Personalization at Netflix">
-	
-	
-	<meta name="keywords" content="Recsys,ContextualBandit,Personalization"><meta name="description" content="Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
-Artwork Personalization at Netflix …"><meta property="og:title" content="Artwork Personalization at Netflix" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Artwork Personalization at Netflix | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Recsys, ContextualBandit, Personalization">
+<meta name="description" content="Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
+Artwork Personalization at Netflix 블로그
+qcon_artwork_personalization_talk …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="Artwork Personalization at Netflix" />
 <meta property="og:description" content="Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
 Artwork Personalization at Netflix 블로그
 qcon_artwork_personalization_talk PPT
-Artwork Personalization at Netflix | Netflix 유투브 
-Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 목표는
- 각 구성원에 적합한 타이틀을 적합한 시간에 제공  였다. 수 천 타이틀의 카탈로그와 일 억개가 넘는 계정의 회원으로, 회원 각각에게 적합한 타이틀을 추천하는 것은 중요하다. 그러나 추천 업무는 그걸로 끝이 아니다. 다음과 같은 질문에 답해야한다." />
+Artwork Personalization at Netflix | Netflix 유투브 Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 목표는
+각 구성원에 적합한 타이틀을 적합한 시간에 제공 였다. 수 천 타이틀의 카탈로그와 일 억개가 넘는 계정의 회원으로, 회원 각각에게 적합한 타이틀을 추천하는 것은 중요하다. 그러나 추천 업무는 그걸로 끝이 아니다. 다음과 같은 질문에 답해야한다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/netflixartwork2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-06T22:41:41&#43;09:00" />
-<meta property="article:modified_time" content="2021-06-06T22:41:41&#43;09:00" />
+<meta property="article:published_time" content="2021-06-06T22:41:41+09:00" />
+<meta property="article:modified_time" content="2021-06-06T22:41:41+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Artwork Personalization at Netflix"/>
 <meta name="twitter:description" content="Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
 Artwork Personalization at Netflix 블로그
 qcon_artwork_personalization_talk PPT
-Artwork Personalization at Netflix | Netflix 유투브 
-Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 목표는
- 각 구성원에 적합한 타이틀을 적합한 시간에 제공  였다. 수 천 타이틀의 카탈로그와 일 억개가 넘는 계정의 회원으로, 회원 각각에게 적합한 타이틀을 추천하는 것은 중요하다. 그러나 추천 업무는 그걸로 끝이 아니다. 다음과 같은 질문에 답해야한다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>Artwork Personalization at Netflix | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+Artwork Personalization at Netflix | Netflix 유투브 Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 목표는
+각 구성원에 적합한 타이틀을 적합한 시간에 제공 였다. 수 천 타이틀의 카탈로그와 일 억개가 넘는 계정의 회원으로, 회원 각각에게 적합한 타이틀을 추천하는 것은 중요하다. 그러나 추천 업무는 그걸로 끝이 아니다. 다음과 같은 질문에 답해야한다."/>
 
-
+<meta itemprop="name" content="Artwork Personalization at Netflix">
+<meta itemprop="description" content="Artwork Personalization at Netflix 넷플릭스의 아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.
+Artwork Personalization at Netflix 블로그
+qcon_artwork_personalization_talk PPT
+Artwork Personalization at Netflix | Netflix 유투브 Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 목표는
+각 구성원에 적합한 타이틀을 적합한 시간에 제공 였다. 수 천 타이틀의 카탈로그와 일 억개가 넘는 계정의 회원으로, 회원 각각에게 적합한 타이틀을 추천하는 것은 중요하다. 그러나 추천 업무는 그걸로 끝이 아니다. 다음과 같은 질문에 답해야한다."><meta itemprop="datePublished" content="2021-06-06T22:41:41+09:00" />
+<meta itemprop="dateModified" content="2021-06-06T22:41:41+09:00" />
+<meta itemprop="wordCount" content="2100">
+<meta itemprop="keywords" content="Recsys,ContextualBandit,Personalization," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">06</span>
-				<span class="rest">Jun 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Artwork Personalization at Netflix</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="artwork-personalization-at-netflix">Artwork Personalization at Netflix</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">06</span>
+<span class="rest">Jun 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Artwork Personalization at Netflix</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="artwork-personalization-at-netflix">Artwork Personalization at Netflix</h1>
 <p>넷플릭스의  아트워크 추천에 대해서 알아보자. 블로그, PPT, 유튜브 자료가 있다.</p>
 <p><a href="https://netflixtechblog.com/artwork-personalization-c589f074ad76?gi=55ffd1ad34c3" target="_blank">Artwork Personalization at Netflix 블로그</a></p>
 <p><a href="https://qconsf.com/system/files/presentation-slides/2018-11_-_qcon_artwork_personalization_talk.pdf" target="_blank">qcon_artwork_personalization_talk PPT</a></p>
@@ -133,15 +133,13 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <p>아트워크는 연기자를 강조하거나, 흥미로운 순간을 표현하거나, 컨텐츠의 본질을 전달하는 드라마틱한 장면을 포함할 수 있다. 만약 홈페이지에서 완벽한 이미지를 표시하고 있다면, 이미지를 통해 컨텐츠를 경험할 것이다. 넷플릭스에는 일 억 이상의 타이틀이 있고, 각 회원에게 맞는 개인화 추천과 개인화 시각적 자료가 제공된다.</p>
 <p>이전 연구에서, 넷플릭스는 모든 회원들에 걸처 각각의 타이틀에 맞는 하나의 완벽한 아트워크를 찾으려고 했었다. 멀티-암드-밴딧 알고리즘으로 타이틀에 딱 맞는 최고의 아트워크를 찾았다. 개인의 다양한 취향을 고려하다면, 우리의 각 회원들에게 회원과 관련성이 있는 타이틀의 각 측면을 가장 강조하는 아트워크를 찾아주는 것이 더 좋지 않겠는가?</p>
 <p>이것에 영감을 받아서, 개인화가 의미 있는 시나리오에 대해 탐구를 해보자. 회원들은 각자 다른 시각적 히스토리를 가지고 있다. 아래 그림의 왼쪽 세 타이틀은 한 회원이 과거에 본 것이다. 오른쪽의 아트워크는 그 회원이 추천 받은 영화의 아트워크다. 영화 &lsquo;GoodWill Hunting&rsquo; 을 묘사한 이미지를 개인화 하는 것을 다뤄보자. 회원이 다른 장르와 테마를 얼마나 선호하는지에 따라 이 결정을 개인화 할 수 있다. 많은 로맨틱 영화를 경험한 회원은 맷 데이먼과 미니 드라이버가 있는 아트워크를 선호할 것이고, 코미디를 많이 소비한 회원은 잘 알려진 코미디언인 로빈 윌리엄스를 포함하는 아트워크를 선호할 것이다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix0.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix0.png"/><figcaption>
             <h4>Figure 1</h4>
         </figcaption>
 </figure>
 
 <p>다른 예로, 영화 &lsquo;Pulp Fiction&rsquo;의 아트워크 개인화에 출연자에 대한 선호도가 어떤 영향을 미칠지 상상해보자. 우마 써먼이 나온 여러 영화를 시청한 회원은 우마가 포함된 아트워크에 긍정적으로 반응할 것이다. 그러나 존 트라볼타의 팬은 존을 강조하는 아트워크를 좀 더 흥미로워 할 것이다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix1.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix1.png"/><figcaption>
             <h4>Figure 2</h4>
         </figcaption>
 </figure>
@@ -156,15 +154,13 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <li>보내는 메시지 등등</li>
 </ul>
 <p>을 포함한다. 개인화가 필요한 요소들은 각각 고유한 과제를 가진다. 시각적 요소를 개인화하는 것 뿐만이 아닌 다른 요소들의 개인화 과제가 함께 해결해야할 과제로 포함된다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix2.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix2.png"/><figcaption>
             <h4>Figure 3</h4>
         </figcaption>
 </figure>
 
 <p>이미지 개인화의 제약 사항 중 한가지는 <strong>타이틀을 표현할 아트워크를 하나만 선택할 수 있다는 것이다.</strong> 일반적인 추천 환경은 아트워크 추천과는 다르게 회원이 선택한 항목으로 나중에 선호 항목에 대해 학습 할 수 있는 많은 선택지를 제공받을 수 있다. 아트워크 선택이 닫힌 루프에서 작동하는 치킨-에그 문제라는 것을 의미한다. 회원이 타이틀을 재생하는 것은 그 회원에게 표시된 아트워크로 부터 시작되는 결정이다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix3.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix3.png"/><figcaption>
             <h4>Figure 4</h4>
         </figcaption>
 </figure>
@@ -176,8 +172,7 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 </ul>
 <p>그래서 아트워크 개인화는 기존 추천 문제 보다 상위에 위치할 수 있고 추천 알고리즘이 다른 추천 알고리즘과 함께 동작 해야 한다. 당연히, 아트워크를 개인화하는 방법을 제대로 학습 하기 위해, 특정 아트워크가 특정 회원에게 명확하게 더 나은 것을 나타내는 신호를 찾기 위해 많은 데이터를 수집해야 한다.</p>
 <p>다음 제약 사항은 아트워크를 회원에게 보여줄 때, 세션 간 아트워크를 변경했을 때의 효과를 파악하는 것이다. 아트워크를 변경하면 변경된 아트워크에 해당하는 타이틀의 인식률이 떨어질 수 있다. 예를 들어, 회원이 이미 한 타이틀에 흥미가 있었지만, 아직 그것을 소비하지 않은 상태라면? <strong>아트워크의 변경하는 함으로 개선된 선택지가 회원들을 다시 소비를 고려하게 만드는가?</strong> 만약 회원들에게 보여줄 확실히 더 나은 아트워크를 찾는다면 아마 그걸 사용할 것이다. 하지만 아트워크가 계속 바뀌게 되면 회원들에  혼란을 줄 수 있다. <strong>아트워크를 계속 변경하면 어떤 아트워크가 타이틀에 관심을 가지게 하는지?</strong> 불확실해지는 문제도 발생한다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix4.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix4.png"/><figcaption>
             <h4>Figure 5</h4>
         </figcaption>
 </figure>
@@ -185,8 +180,7 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <p>다음으로, <strong>같은 페이지나 세션 내 다른 아트워크 와의 관계도 파악 해야 한다.</strong> 주인공을 과감하게 클로즈 업한 아트워크가 다른 것 보다 더 돋보이고 그에 따라 효과가 있을 수 도 있다. 그러나 모든 타이틀이 비슷한 아트워크를 가지고 있으면 페이지가 전체의 매력이 감소할 수 있다. 아트워크 하나 하나를 보는 것은 부족할 수 있을 수도 있기 때문에, 페이지와 세션에 걸쳐 다양한 아트워크 들을 선택하는 방법에 대해서도 고려해야 한다. 타이틀의 아트워크의 효과는 아트워크 그 자체가 아닌 다른 정보 ( 예: 시놉시스, 트레일러 등 )에도 영향을 받을 수 있다. 그래서 우리는 회원들에게 매력적으로 보일 수 있는 타이틀의 보완적인 측면을 강조할 수 있는 선택이 필요하기도 하다.</p>
 <p>효과적인 개인화를 위해선 <strong>타이틀에 대한 좋은 아트워크 풀</strong>이 필요하다. 타이틀의 &ldquo;clickbait&rdquo;(흥미를 이끌어 내지만 최종적으로 소비를 시키지는 않는)를 피하기위해 각각이 매력적이고, 유익하고, 대표하는 여러가지 정보가 포함된 아트워크가 필요하다. 타이틀의 이미지 셋도 컨텐츠의 다양한 측면에 대해 관심이 있는 광범위한 잠재 고객을 충족할 수 있을 만큼 다양해야한다. 결국, 아트워크가 얼마나 매력적이고 유익한 지는 그것을 보는 개인에 따라 달라진다. 그러므로, 테마 만이 아닌 다른 미학도 강조하는 아트워크를 가져야 한다. 넷플릭스의 예술가와 디자이너로 구성된 팀은 개인화 알고리즘을 고려해서 다양한 차원의 아트워크를 만든다.</p>
 <p>아트워크 개인화 규모를 위한 엔지니어링 제약사항도 있다. 고객의 경험이 매우 시각적이기 때문에 많은 이미지를 포함한다. 그래서 각 정보에 개인화된 선택지를 적용하는 것은 <strong>초당 이천만의 요청을 매우 빠르게 처리해야 한다는 것</strong>을 의미한다. 시스템은 안정적이어야 한다. UI에서 아트워크 렌더링을 실패하는 것은 고객 경험 등급을 떨어 트릴 수 있다. 개인화 알고리즘은 타이틀이 런칭 되었을 때 빠르게 응답해야하고 콜드 스타트 상황에서도 빠르게 개인화를 위해 학습해야한다는 것을 의미한다. 타이틀 런칭 후, 알고리즘은 계속해서 변화한 환경에 적응해야 하는데 시간이 흐르면서 타이틀의 라이프 사이클과 회원의 취향이 변화함에 따라 아트워크의 효과도 계속해서 변화할 수 있기 때문이다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix5.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix5.png"/><figcaption>
             <h4>Figure 6</h4>
         </figcaption>
 </figure>
@@ -204,14 +198,12 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <li>그룹 B의 회원들이 더 높은 참여를 한다면, 새로운 알고리즘으로 전체 회원들에 적용한다.</li>
 </ul>
 <p>안타깝게도, 이러한 배치 접근 방식은 안타깝게도 reget을 발생시키는데; 장 기간동안 많은 회원이 더 좋은 경험을 받지 못하게 된다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix6.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix6.png"/><figcaption>
             <h4>Figure 7</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/netflixArtwork2/Netflix7.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix7.png"/><figcaption>
             <h4>Figure 8</h4>
         </figcaption>
 </figure>
@@ -223,8 +215,7 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <li>환경(Environment)은 액션에 대한 실제 보상(Reward)을 제공한다.</li>
 <li>알고리즘은 누적 보상을 최대화하는 방향으로 업데이트 된다.</li>
 </ul>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix8.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix8.png"/><figcaption>
             <h4>Figure 9</h4>
         </figcaption>
 </figure>
@@ -237,8 +228,7 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <li>알고리즘은 누적 보상을 최대화 하는 방향으로 업데이트 된다.</li>
 </ul>
 <p>개인화를 위해, 회원 정보가 컨텍스트가 되는데 회원 마다 이미지들에 다른 반응을 할 것이라고 예상하기 때문이다. 강화학습과 유사해보인다. 강화학습에서 고려하는 상태는 컨텍스튜얼 밴딧에는 고려되지 않는다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix9.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix9.png"/><figcaption>
             <h4>Figure 10</h4>
         </figcaption>
 </figure>
@@ -288,22 +278,19 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 </ul>
 <p>이 있기 때문이다. 각 튜플(멤버, 타이틀, 이미지)을 입력으로 회원이 컨텐츠를 즐길 확률을 예측할 수 있도록 선호도를 모델링 할 수 도 있다. 지도 학습 모델일 수도 있는 컨텍스튜얼 밴딧은 데이터 탐색과 최고의 결과를 예측을 하는데 보통 톰슨 샘플링, LinUCB 또는 베이지안 방법을 사용한다.</p>
 <h3 id="greedy-policy-model">Greedy Policy Model</h3>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix10.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix10.png"/><figcaption>
             <h4>Figure 11</h4>
         </figcaption>
 </figure>
 
 <h3 id="linucb-model">LinUCB Model</h3>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix11.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix11.png"/><figcaption>
             <h4>Figure 12</h4>
         </figcaption>
 </figure>
 
 <h3 id="thompson-sampling-model">Thompson Sampling Model</h3>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix12.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix12.png"/><figcaption>
             <h4>Figure 13</h4>
         </figcaption>
 </figure>
@@ -326,16 +313,14 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <h1 id="evaluation">Evaluation</h1>
 <h2 id="offline">Offline</h2>
 <p>온라인이나 실제 회원에게 배포하기 전에 컨텍스튜얼 밴딧 알고리즘을 검증하기 위해서 replay라고 알려진 오프라인 기술을 사용할 수 있다. 이 방법을 사용하면 로그 데이터를 기반으로 실제 질문에 대해 답변할 수 있다. 즉, 편향되지 않은 메트릭으로 서로 다른 알고리즘을 사용해서 서로 다른 시나리오에서 과거 세션에서 실제 일어났을 상황으로 오프라인 비교를 할 수 있다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix13.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix13.png"/><figcaption>
             <h4>Figure 14</h4>
         </figcaption>
 </figure>
 
 <p>Replay는 프로덕션에서 사용되는 알고리즘이 아닌 새로운 알고리즘으로 선택된 이미지를 가설적으로 제시했다면 회원들이 타이틀에 어떻게 참여 했을지 알게 해준다. 이미지에 대해서, 몇가지 메트릭에 대해 흥미가 있는데, 참여 비율이다. 그림 2는 컨텍스튜얼 밴딧 방법이 랜덤 선택이나 비 컨텍스튜얼 밴딧에 비해 카탈로그 전체의 평균 참여 비율의 평균을 얼마나 증가시키는지를 보여준다.</p>
 <p>replay를 사용하는 것의 단점도 존재하는데 많은 양의 로그 데이터가 필요 하다는 점과 몇가지 매치는 높은 분산을 가질 수 있다는 점이다.</p>
-<figure>
-    <img src="/images/netflixArtwork2/Netflix14.png"/> <figcaption>
+<figure><img src="/images/netflixArtwork2/Netflix14.png"/><figcaption>
             <h4>Figure 15</h4>
         </figcaption>
 </figure>
@@ -345,535 +330,52 @@ Introduction 많은 시간 동안, 넷플릭스 개인화 추천 시스템의 �
 <h1 id="conclusion">Conclusion</h1>
 <p>우리의 서비스 전반에 걸친 아트워크 추천 개인화를 다루었다. 컨텍스튜얼 밴딧 알고리즘으로 회원들이 새로운 컨텐츠를 발견하는 방법을 의미 있게 개선했다. 그래서 모두에게 공개했다. 이 프로젝트는 첫번째 개인화의 첫번째 사례로 우리가 추천하는 것 뿐만이 아니라 회원들에게 추천한 방법이다. 그러나 초기 접근법이고 개선하거나 확장할 수 있는 많은 방법이 있다. 새로운 이미지나 새로운 타이틀을 빠르게 개인화하는 콜드 스타트를 해결하는 알고리즘을 개발하는 것이다. 예를 들면, 컴퓨터 비전 기술을 사용하는 것이다. 다른 방법은 다른 타입의 아트워크나 시놉시스나 메타데이터, 그리고 트레일러 등으로 알고리즘의 적용을 확장하는 것이다. 더 광범위한 방법도 있다: 아티스트와 디자이너가 어떤 새로운 이미지를 추가해야 타이틀을 더욱 매력적이고 개인화 할 수 있는지 도움을 줄 수 있다.</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/recommendation/"> recommendation </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/contextualbandit/"> contextualbandit </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/personalization/"> personalization </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/recsys/"> recsys </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/recommendation/">recommendation</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/contextualbandit/">contextualbandit</a>
+<a href="/tags/personalization/">personalization</a>
+<a href="/tags/recsys/">recsys</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

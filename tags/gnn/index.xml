@@ -7,75 +7,66 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate>
-		
+		<lastBuildDate>Sat, 27 Aug 2022 00:24:34 +0900</lastBuildDate>
 		<atom:link href="https://pko89403.github.io/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
-		
+		<item>
+			<title>LightGCN : Simplifying and Powering Graph Convolution Network for Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/lightgcn/</link>
+			<pubDate>Sat, 27 Aug 2022 00:24:34 +0900</pubDate>
+			<guid>https://pko89403.github.io/post/lightgcn/</guid>
+			<description>
+			ABSTRACT 그래프 컨볼루션 네트워크는 CF에서 새로운 SOTA가 되었다. 그럼에도 불구하고, 추천에서의 효과에 대한 근거는 잘 알려지지 않았다. 추천에 GCN을 적용한 연구 들은 GCN에 대한 ablation 분석이 부족했는데, GCN은 애초에  …
+			</description>
+		</item>
 		<item>
 			<title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
 			<link>https://pko89403.github.io/post/kgat/</link>
 			<pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/kgat/</guid>
 			<description>
-			
-				ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …
-			
+			ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …
 			</description>
 		</item>
 		<item>
 			<title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
 			<link>https://pko89403.github.io/post/pup/</link>
 			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/pup/</guid>
 			<description>
-			
-				ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+			ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
 → 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
 마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상 …
-			
 			</description>
 		</item>
 		<item>
 			<title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰</title>
 			<link>https://pko89403.github.io/post/graphrec/</link>
 			<pubDate>Wed, 09 Mar 2022 20:45:24 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/graphrec/</guid>
 			<description>
-			
-				ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
- 유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
-그러나, GNNs으로 소셜 추천 시스템을 구축하는 것 …
-			
+			ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+유저 - 유저 소셜 그래프 유저 - 아이템 그래프 그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
+그러나, GNNs으로 소셜 추천 시스템을 구축하는 것은  …
 			</description>
 		</item>
 		<item>
 			<title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</title>
 			<link>https://pko89403.github.io/post/gmcf/</link>
 			<pubDate>Wed, 09 Mar 2022 20:23:09 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/gmcf/</guid>
 			<description>
-			
-				ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
- inner attribute interactions : …
-			
+			ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
+inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과  …
 			</description>
 		</item>
 		<item>
 			<title>Graph Neural Networks에 대한 이해</title>
 			<link>https://pko89403.github.io/post/gnn_intro/</link>
 			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/gnn_intro/</guid>
 			<description>
-			
-				GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …
-			
+			GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …
 			</description>
 		</item>
-		
 	</channel>
 </rss>

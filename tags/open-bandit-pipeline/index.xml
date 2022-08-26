@@ -8,33 +8,24 @@
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
 		<lastBuildDate>Sat, 13 Nov 2021 16:05:55 +0900</lastBuildDate>
-		
 		<atom:link href="https://pko89403.github.io/tags/open-bandit-pipeline/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy</title>
 			<link>https://pko89403.github.io/post/ope_policy/</link>
 			<pubDate>Sat, 13 Nov 2021 16:05:55 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/ope_policy/</guid>
 			<description>
-			
-				밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다. …
-			
+			밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다. …
 			</description>
 		</item>
 		<item>
 			<title>밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation</title>
 			<link>https://pko89403.github.io/post/ope_offpolicy/</link>
 			<pubDate>Sat, 13 Nov 2021 16:05:47 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/ope_offpolicy/</guid>
 			<description>
-			
-				“밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation” Bandit 추천의 기반인 Policy에 대해 알아봤고 오프라인으로 로깅된 밴딧 피드백을 이용해 Policy의 값을 추정하 …
-			
+			“밴딧 추천 오픈소스 OBP의 Off-Policy-Evaluation 에 대한 설명 : Off-Policy Evaluation” Bandit 추천의 기반인 Policy에 대해 알아봤고 오프라인으로 로깅된 밴딧 피드백을 이용해 Policy의 값을 추정하 …
 			</description>
 		</item>
-		
 	</channel>
 </rss>

@@ -1,110 +1,110 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="GPT2 : Language Models are Unsupervised Multitask Learners 리뷰">
-	
-	
-	<meta name="keywords" content="ai,nlp,gpt"><meta name="description" content="Language Models are Unsupervised Multitask Learners  Language Model 이란?
- 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) …"><meta property="og:title" content="GPT2 : Language Models are Unsupervised Multitask Learners 리뷰" />
-<meta property="og:description" content="Language Models are Unsupervised Multitask Learners  Language Model 이란?
- 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다.   Unsupervised Learning 이란?
- 입력 값과 타겟 값이 주어지지 않은 환경에서 학습   Multi-Task Learning 이란?
- 서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임  Abstract  Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다." />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="ai, nlp, gpt">
+<meta name="description" content="Language Models are Unsupervised Multitask Learners Language Model 이란?
+언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어  …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="GPT2 : Language Models are Unsupervised Multitask Learners 리뷰" />
+<meta property="og:description" content="Language Models are Unsupervised Multitask Learners Language Model 이란?
+언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다. Unsupervised Learning 이란?
+입력 값과 타겟 값이 주어지지 않은 환경에서 학습 Multi-Task Learning 이란?
+서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임 Abstract Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/gpt2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-04-24T09:33:15&#43;09:00" />
-<meta property="article:modified_time" content="2021-04-24T09:33:15&#43;09:00" />
+<meta property="article:published_time" content="2021-04-24T09:33:15+09:00" />
+<meta property="article:modified_time" content="2021-04-24T09:33:15+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GPT2 : Language Models are Unsupervised Multitask Learners 리뷰"/>
-<meta name="twitter:description" content="Language Models are Unsupervised Multitask Learners  Language Model 이란?
- 언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다.   Unsupervised Learning 이란?
- 입력 값과 타겟 값이 주어지지 않은 환경에서 학습   Multi-Task Learning 이란?
- 서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임  Abstract  Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>GPT2 : Language Models are Unsupervised Multitask Learners 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta name="twitter:description" content="Language Models are Unsupervised Multitask Learners Language Model 이란?
+언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다. Unsupervised Learning 이란?
+입력 값과 타겟 값이 주어지지 않은 환경에서 학습 Multi-Task Learning 이란?
+서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임 Abstract Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다."/>
 
-
+<meta itemprop="name" content="GPT2 : Language Models are Unsupervised Multitask Learners 리뷰">
+<meta itemprop="description" content="Language Models are Unsupervised Multitask Learners Language Model 이란?
+언어를 모델링 하기 위해 단어 시퀀스(문장)에 확률을 할당 하는 모델 ( m 개의 단어 시퀀스가 나타날 확률) 잘 학습된 언어 모델은 입력 되는 단어 시퀀스(문장) 이 자연스러울 수록 더 높은 확률을 부여한다. Unsupervised Learning 이란?
+입력 값과 타겟 값이 주어지지 않은 환경에서 학습 Multi-Task Learning 이란?
+서로 연관 있는 과제들을 동시에 학습함으로써 모든 과제 수행의 성능을 전반적으로 향상시키려는 학습 패러다임 Abstract Web Text 라는 거대한 데이터 셋에 비지도 학습을 사용해서 언어 모델을 학습 했다."><meta itemprop="datePublished" content="2021-04-24T09:33:15+09:00" />
+<meta itemprop="dateModified" content="2021-04-24T09:33:15+09:00" />
+<meta itemprop="wordCount" content="1432">
+<meta itemprop="keywords" content="ai,nlp,gpt," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">24</span>
-				<span class="rest">Apr 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="language-models-are-unsupervised-multitask-learners">Language Models are Unsupervised Multitask Learners</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">24</span>
+<span class="rest">Apr 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">GPT2 : Language Models are Unsupervised Multitask Learners 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="language-models-are-unsupervised-multitask-learners">Language Models are Unsupervised Multitask Learners</h1>
 <blockquote>
 <p>Language Model 이란?</p>
 </blockquote>
@@ -131,8 +131,7 @@
 <li>언더피팅 임에도 불구하고 8개 언어 모델 테스트 데이터 셋에 대해 7개 SOTA를 했다.</li>
 <li>연구를 통해 자연스럽게 발생하는 태스크 예시로 부터 언어 처리 시스템을 구축하는 훌륭한 방법을 제공한다.</li>
 </ul>
-<figure>
-    <img src="/images/gpt2/1.png"/> <figcaption>
+<figure><img src="/images/gpt2/1.png"/><figcaption>
             <h4>1</h4>
         </figcaption>
 </figure>
@@ -172,8 +171,7 @@
 </ul>
 <h1 id="2-approach">2. Approach</h1>
 <p>언어 모델링은 심볼의 시퀀스$( s_1, s_2, &hellip;, s_n )$로 구성된 예제 셋$( x_1, x_2, &hellip;, x_n )$ 의 비지도 분포 추정으로 특정 될 수 있다. 언어는 순서가 있기 때문에,</p>
-<figure>
-    <img src="/images/gpt2/2.png"/> <figcaption>
+<figure><img src="/images/gpt2/2.png"/><figcaption>
             <h4>2</h4>
         </figcaption>
 </figure>
@@ -196,14 +194,12 @@
 </ol>
 </li>
 </ul>
-<figure>
-    <img src="/images/gpt2/3.png"/> <figcaption>
+<figure><img src="/images/gpt2/3.png"/><figcaption>
             <h4>3</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/gpt2/4.png"/> <figcaption>
+<figure><img src="/images/gpt2/4.png"/><figcaption>
             <h4>4</h4>
         </figcaption>
 </figure>
@@ -265,8 +261,7 @@
 </ul>
 <p>→ 단어 레벨 언어 모델의 경험적 이점과 문자 수준 접근법의 일반성을 결합하게 한다. 어떤 유니코드 문자열에서도 확률을 부여할 수 있어서 어떤 dataset에서도 모델을 평가할 수 있게 한다.</p>
 <h2 id="23-model">2.3. Model</h2>
-<figure>
-    <img src="/images/gpt2/5.png"/> <figcaption>
+<figure><img src="/images/gpt2/5.png"/><figcaption>
             <h4>5</h4>
         </figcaption>
 </figure>
@@ -278,20 +273,17 @@
 <li>vocab 이 50,257로 확장 되었다.</li>
 <li>context-size가 512 - 1024 개 토큰으로 늘어났고, 배치 사이즈가 512로 증가 되었다.</li>
 </ul>
-<figure>
-    <img src="/images/gpt2/6.png"/> <figcaption>
+<figure><img src="/images/gpt2/6.png"/><figcaption>
             <h4>6</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/gpt2/7.png"/> <figcaption>
+<figure><img src="/images/gpt2/7.png"/><figcaption>
             <h4>7</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/gpt2/8.png"/> <figcaption>
+<figure><img src="/images/gpt2/8.png"/><figcaption>
             <h4>8</h4>
         </figcaption>
 </figure>
@@ -309,16 +301,14 @@
 <li>일반적인 분포를 벗어난 규격화된 텍스트, 분리된 구두점이나 축약점, 섞인 문장에 대해 평가했다.</li>
 <li>400억 바이트에서 <!-- raw HTML omitted -->는 26번 밖에 발생하지 않았다.</li>
 </ul>
-<figure>
-    <img src="/images/gpt2/9.png"/> <figcaption>
+<figure><img src="/images/gpt2/9.png"/><figcaption>
             <h4>9</h4>
         </figcaption>
 </figure>
 
 <p>1542M 모델에서 8 개의 데이터 셋 가운데 7개 데이터 셋에 SOTA를 달성 했다.</p>
 <h2 id="32-childrens-boot-test">3.2. Children&rsquo;s Boot Test</h2>
-<figure>
-    <img src="/images/gpt2/10.png"/> <figcaption>
+<figure><img src="/images/gpt2/10.png"/><figcaption>
             <h4>10</h4>
         </figcaption>
 </figure>
@@ -327,8 +317,7 @@
 <h2 id="33-lambada">3.3. LAMBADA</h2>
 <p>텍스트의 장기 의존성(시퀀스가 길 때, 과거를 잘 반영하지 못하는 )에 대해 모델링 하는 능력을 테스트 했다. 마지막 단어를 예측하는 태스크다. stop-word를 넣으면 성능이 더 올라갔고. 당연히 SOTA 했다.</p>
 <h2 id="34-winograd-schema-challenge">3.4. Winograd Schema Challenge</h2>
-<figure>
-    <img src="/images/gpt2/11.png"/> <figcaption>
+<figure><img src="/images/gpt2/11.png"/><figcaption>
             <h4>11</h4>
         </figcaption>
 </figure>
@@ -337,8 +326,7 @@
 <h2 id="35-reading-comprehension">3.5. Reading Comprehension</h2>
 <p>CoQA 데이터셋 에 대해서 독해 능력을 평가했다. 12.7 만의 학습 데이터를 사용하지 않고도 SOTA 했다.</p>
 <h2 id="36-summarization">3.6. Summarization</h2>
-<figure>
-    <img src="/images/gpt2/12.png"/> <figcaption>
+<figure><img src="/images/gpt2/12.png"/><figcaption>
             <h4>12</h4>
         </figcaption>
 </figure>
@@ -352,8 +340,7 @@
 <h2 id="4-generalization-vs-memorization">4. Generalization vs Memorization</h2>
 <p>비전 데이터 셋인 CIFAR-10에 중복 이미지 문제가 있었고, 일반화 성능에 대해 오버 리포팅 문제가 있었다. WebText 도 비슷한 문제가 있을 수가 있기 때문에 얼마나 테스트 셋에서 학습 데이터 셋이 나타나는 지 분석하는 것이 중요했다.</p>
 <p>그래서 Web Text 학습 데이터 셋에 8 그램 토큰을 가지는 Bloom filter(원소가 집합에 속하는지 여부를 검사한느데 사용하는 확률적 자료 구조, 8-gram이 집합에 속해 있는가?를 검사한다.)를 생성 해서 사용 했다.</p>
-<figure>
-    <img src="/images/gpt2/13.png"/> <figcaption>
+<figure><img src="/images/gpt2/13.png"/><figcaption>
             <h4>13</h4>
         </figcaption>
 </figure>
@@ -361,8 +348,7 @@
 <p>공통 언어 모델의 테스트 셋은 학습 셋과 1~6% 정도 중복 되고, 평균적으로 3.2%가 겹친다. 많은 데이터 셋이 분할된 학습 셋과 평균 5.9%의 중복을 가지고 있다.</p>
 <p>Web Text 학습 데이터 셋과 특정 평가 데이터 셋 간의 데이터 중복은 작지만 중복이 장점으로 작용하기는 한다고 한다. 다른 데이터 셋 같은 경우에는 더 높은 오버 랩이 발생한다고 한다.</p>
 <p>새로운 NLP 데이터셋에 대해 n-gram overlab을 통한 중복 제거 방법을 사용할 것을 본 논문에서 추천하고 있다.</p>
-<figure>
-    <img src="/images/gpt2/14.png"/> <figcaption>
+<figure><img src="/images/gpt2/14.png"/><figcaption>
             <h4>14</h4>
         </figcaption>
 </figure>
@@ -375,535 +361,52 @@
 <li>decaNLP와 GLUE 와 같은 벤치마크에 파인튜닝에 대해 조사를 계획하고 있다</li>
 </ul>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/paper-review/"> paper-review </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ai/"> ai </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gpt/"> gpt </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/nlp/"> nlp </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/paper-review/">paper-review</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ai/">ai</a>
+<a href="/tags/gpt/">gpt</a>
+<a href="/tags/nlp/">nlp</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

@@ -1,108 +1,110 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="GMCF : Neural Graph Matching based Collaborative Filtering 리뷰">
-	
-	
-	<meta name="keywords" content="Recsys,GNN,GMCF"><meta name="description" content="ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
- inner attribute interactions : …"><meta property="og:title" content="GMCF : Neural Graph Matching based Collaborative Filtering 리뷰" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Recsys, GNN, GMCF">
+<meta name="description" content="ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
+inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작 …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="GMCF : Neural Graph Matching based Collaborative Filtering 리뷰" />
 <meta property="og:description" content="ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
- inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용 cross attribute interactions : 유저 어트리뷰트와 아이템 어트리뷰트 간 상호작용  따라서 그래프 매칭 구조를 사용해 어트리뷰트 상호작용을 모델링하고 집계해서 두 상호작용 타입을 효과적으로 포착하는 GMCF(neural Graph Matching based Collaborative Filtering) 모델을 추천에서 사용한다.
-GMCF 모델은 두가지 과정을 수행하는데" />
+inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용 cross attribute interactions : 유저 어트리뷰트와 아이템 어트리뷰트 간 상호작용 따라서 그래프 매칭 구조를 사용해 어트리뷰트 상호작용을 모델링하고 집계해서 두 상호작용 타입을 효과적으로 포착하는 GMCF(neural Graph Matching based Collaborative Filtering) 모델을 추천에서 사용한다.
+GMCF 모델은 두가지 과정을 수행하는데
+characteristic learning : inner interactions을 기반으로 그래프 학습 preference matching : cross interactions을 기반으로 노드 매칭 실험 결과로 GMCF가 SOTA임을 보였고, 추가로 GMCF의 효과성을 증명했다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/gmcf/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-09T20:23:09&#43;09:00" />
-<meta property="article:modified_time" content="2022-03-09T20:23:09&#43;09:00" />
+<meta property="article:published_time" content="2022-03-09T20:23:09+09:00" />
+<meta property="article:modified_time" content="2022-03-09T20:23:09+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GMCF : Neural Graph Matching based Collaborative Filtering 리뷰"/>
 <meta name="twitter:description" content="ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
- inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용 cross attribute interactions : 유저 어트리뷰트와 아이템 어트리뷰트 간 상호작용  따라서 그래프 매칭 구조를 사용해 어트리뷰트 상호작용을 모델링하고 집계해서 두 상호작용 타입을 효과적으로 포착하는 GMCF(neural Graph Matching based Collaborative Filtering) 모델을 추천에서 사용한다.
-GMCF 모델은 두가지 과정을 수행하는데"/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>GMCF : Neural Graph Matching based Collaborative Filtering 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용 cross attribute interactions : 유저 어트리뷰트와 아이템 어트리뷰트 간 상호작용 따라서 그래프 매칭 구조를 사용해 어트리뷰트 상호작용을 모델링하고 집계해서 두 상호작용 타입을 효과적으로 포착하는 GMCF(neural Graph Matching based Collaborative Filtering) 모델을 추천에서 사용한다.
+GMCF 모델은 두가지 과정을 수행하는데
+characteristic learning : inner interactions을 기반으로 그래프 학습 preference matching : cross interactions을 기반으로 노드 매칭 실험 결과로 GMCF가 SOTA임을 보였고, 추가로 GMCF의 효과성을 증명했다."/>
 
-
+<meta itemprop="name" content="GMCF : Neural Graph Matching based Collaborative Filtering 리뷰">
+<meta itemprop="description" content="ABSTRACT 유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.
+inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용 cross attribute interactions : 유저 어트리뷰트와 아이템 어트리뷰트 간 상호작용 따라서 그래프 매칭 구조를 사용해 어트리뷰트 상호작용을 모델링하고 집계해서 두 상호작용 타입을 효과적으로 포착하는 GMCF(neural Graph Matching based Collaborative Filtering) 모델을 추천에서 사용한다.
+GMCF 모델은 두가지 과정을 수행하는데
+characteristic learning : inner interactions을 기반으로 그래프 학습 preference matching : cross interactions을 기반으로 노드 매칭 실험 결과로 GMCF가 SOTA임을 보였고, 추가로 GMCF의 효과성을 증명했다."><meta itemprop="datePublished" content="2022-03-09T20:23:09+09:00" />
+<meta itemprop="dateModified" content="2022-03-09T20:23:09+09:00" />
+<meta itemprop="wordCount" content="3283">
+<meta itemprop="keywords" content="Recsys,GNN,GMCF," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">09</span>
-				<span class="rest">Mar 2022</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="abstract">ABSTRACT</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">09</span>
+<span class="rest">Mar 2022</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">GMCF : Neural Graph Matching based Collaborative Filtering 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="abstract">ABSTRACT</h1>
 <p>유저와 아이템의 어트리뷰트 들은 필수적인 사이드 정보이다. 본 논문에서는 기존 모델들이 구분하지 못하는 두 가지 어트리뷰트 상호작용을 발견했다.</p>
 <ul>
 <li>inner attribute interactions : 유저 어트리뷰트 사이의 상호작용과 아이템 어트리뷰트 간 상호작용</li>
@@ -159,8 +161,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <li>노드 레벨로 두 어트리뷰트 그래프를 cross 상호작용에 기반해 매칭하고, 최종 예측 결과를 만든다.</li>
 </ul>
 <p>그림 1에서 기존 연구와 GMCF 간의 어트리뷰트 상호작용을 모델링하고 집계하는 방법의 차이를 나타낸다.</p>
-<figure>
-    <img src="/images/gmcf/0.png"/> <figcaption>
+<figure><img src="/images/gmcf/0.png"/><figcaption>
             <h4>Figure 1</h4>
         </figcaption>
 </figure>
@@ -301,8 +302,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <li>그래프 표현 매칭 모듈</li>
 </ol>
 <p>그림 2는 GMCF 모델의 전체 구조를 보인다.</p>
-<figure>
-    <img src="/images/gmcf/1.png"/> <figcaption>
+<figure><img src="/images/gmcf/1.png"/><figcaption>
             <h4>Figure 2</h4>
         </figcaption>
 </figure>
@@ -366,7 +366,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <p>inner 상호작용은 본질적으로 복잡하다. 그래서 두 어트리뷰트 들을 비선형적으로 모델링 하는 MLP 같은 뉴럴 메소드가 필요하다.</p>
 <ol>
 <li>
-<p>MLP 함수( $f_{neural} \in R^{2 \times d} → R^d$)는 입력으로 두 노드의 임베딩을 사용하고 출력으로 상호작용 정보를 **명시적으로** 모델링 한 결과를 반환한다.</p>
+<p>MLP 함수( $f_{neural} \in R^{2 \times d} → R^d$)는 입력으로 두 노드의 임베딩을 사용하고 출력으로 상호작용 정보를 <strong>명시적으로</strong> 모델링 한 결과를 반환한다.</p>
 <p>$z_{ij} = f_{neural}(u_i, u_j)$</p>
 <ul>
 <li>$z_{ij}$ : 노드 쌍 $(i, j)$을 상호작용 모델링 한 결과</li>
@@ -427,8 +427,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <p>$y^` = f_{match}(v_G^U, v_G^I) ={v_G^U}^T \cdot v_G^I$</p>
 <h2 id="45-model-training">4.5 Model Training</h2>
 <p>L2 정규화를 GMCF의 모든 파라미터에 적용한다. GMCF 가 최소화하는 로스 함수와 L2 정규화는 아래와 같다.</p>
-<figure>
-    <img src="/images/gmcf/2.png"/> 
+<figure><img src="/images/gmcf/2.png"/>
 </figure>
 
 <p>로스 함수로 binary cross-entropy 로스를 사용한다.</p>
@@ -447,8 +446,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <li>통합 함수 $f_{fuse}$가 선형 함수</li>
 </ul>
 <p>→ $f_{fuse}(u_i, z_i, s_i) = u_i + {{1}\over{2}}\sum_{j \in V^a / {{i}}} s_{ij}$( 여기서 $V^a = V^U \cup V^I$, $s_{ij} = u_i \odot u_j$ ) 로 하면 예측 함수는 아래와 같아지고, FM의 예측 함수와 유사해진다.</p>
-<figure>
-    <img src="/images/gmcf/3.png"/> 
+<figure><img src="/images/gmcf/3.png"/>
 </figure>
 
 <ul>
@@ -476,8 +474,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <h2 id="51-experimental-protocol">5.1 Experimental Protocol</h2>
 <h3 id="511-datasets">5.1.1 Datasets</h3>
 <p>세가지 데이터셋을 사용한다. 테이블 1에서 데이터셋에 대한 통계적 정보를 보인다.</p>
-<figure>
-    <img src="/images/gmcf/4.png"/> <figcaption>
+<figure><img src="/images/gmcf/4.png"/><figcaption>
             <h4>Table 1</h4>
         </figcaption>
 </figure>
@@ -526,8 +523,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <p>모든 실험은 5번의 평균으로 기록한다.</p>
 <h2 id="52-overall-performance">5.2 Overall Performance</h2>
 <p>GMCF와 베이스라인 들의 성능을 비교했다. 테이블 2에서 각 모델의 예측 성능을 보인다.</p>
-<figure>
-    <img src="/images/gmcf/5.png"/> <figcaption>
+<figure><img src="/images/gmcf/5.png"/><figcaption>
             <h4>Table 2</h4>
         </figcaption>
 </figure>
@@ -552,8 +548,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <p>1-3. 두 가지 상호작용을 모델링하는데 비선형 알고리즘이 항상 적합한지?</p>
 <p>$&lt;inner \ interaction \ model,\  cross \ interaction \ model&gt;$ 형태로 적용한 메소드를 표현한다. ($None$은 모델링을 하지 않았다는 의미이다. )</p>
 <p>GMCF 모델은 MLP 기반 메시지 패싱, Bi-interaction 기반 노드 매칭으로 $&lt;MLP, Bi&gt;$로 표현된다.</p>
-<figure>
-    <img src="/images/gmcf/6.png"/> <figcaption>
+<figure><img src="/images/gmcf/6.png"/><figcaption>
             <h4>그림 3</h4>
         </figcaption>
 </figure>
@@ -564,8 +559,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <h3 id="532-evaluation-of-the-fusing-method">5.3.2 Evaluation of the Fusing Method</h3>
 <p>퓨징 메소드는 메시지 패싱 결과와 노드 매칭 결과를 집계해서 통합 노드 표현을 생성한다.</p>
 <p>$SUM$: element-wise sum</p>
-<figure>
-    <img src="/images/gmcf/7.png"/> <figcaption>
+<figure><img src="/images/gmcf/7.png"/><figcaption>
             <h4>테이블 3</h4>
         </figcaption>
 </figure>
@@ -573,23 +567,20 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <p>퓨징 메소드로 강력한 알고리즘이 요구된다는 것을 결과로 보여준다.</p>
 <h3 id="533-evaluation-of-the-user-and-item-attributes">5.3.3 Evaluation of the User and Item Attributes</h3>
 <p>GMCF는 유저 혹은 아이템 어트리뷰트 들을 사용할 수 없을 때에도 적용 가능한 GMCF 프레임워크다. 유저의 어트리뷰트를 사용 못한다면, 유저 어트리뷰트 그래프 자체를 유저 ID를 나타내는 싱글 노드로 본다.</p>
-<figure>
-    <img src="/images/gmcf/8.png"/> <figcaption>
+<figure><img src="/images/gmcf/8.png"/><figcaption>
             <h4>그림 4</h4>
         </figcaption>
 </figure>
 
 <h2 id="54-parameter-study">5.4 Parameter study</h2>
 <p>노드를 표현하는 차원과 모델에서 사용한 MLP의 히든 레이어의 수를 검증한다.</p>
-<figure>
-    <img src="/images/gmcf/9.png"/> <figcaption>
+<figure><img src="/images/gmcf/9.png"/><figcaption>
             <h4>그림 6</h4>
         </figcaption>
 </figure>
 
 <p>차원 수 64가 가장 적합하다.</p>
-<figure>
-    <img src="/images/gmcf/10.png"/> <figcaption>
+<figure><img src="/images/gmcf/10.png"/><figcaption>
             <h4>테이블 4</h4>
         </figcaption>
 </figure>
@@ -599,8 +590,7 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <p>모델이 어트리뷰트 간 협력 정보를 잘 학습 하는지 검증하고 어트리뷰트가 예측을 잠재적으로 설명하는 의미론적 의미를 가지는지 검증한다.</p>
 <p>먼저, 유저 연령대와 영화 장르 간 코사인 유사도를 계산한다.</p>
 <p>다음으로, 두 타입의 어트리뷰트 들 간의 노드 매칭 결과를 계산한다.</p>
-<figure>
-    <img src="/images/gmcf/11.png"/> <figcaption>
+<figure><img src="/images/gmcf/11.png"/><figcaption>
             <h4>그림 5</h4>
         </figcaption>
 </figure>
@@ -619,535 +609,52 @@ GMCF 모델은 두가지 과정을 수행하는데"/>
 <li>Fine-Tuning</li>
 </ul>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/recommendation/"> recommendation </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gmcf/"> gmcf </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gnn/"> gnn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/recsys/"> recsys </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/recommendation/">recommendation</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/gmcf/">gmcf</a>
+<a href="/tags/gnn/">gnn</a>
+<a href="/tags/recsys/">recsys</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

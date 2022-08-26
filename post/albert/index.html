@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="ALBERT : A Lite BERT 리뷰">
-	
-	
-	<meta name="keywords" content="ai,nlp,albert"><meta name="description" content="ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델) …"><meta property="og:title" content="ALBERT : A Lite BERT 리뷰" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ALBERT : A Lite BERT 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="ai, nlp, albert">
+<meta name="description" content="ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델)
+충분한 학습 데이터를 가지지 않은 Non-Trivial Task ( 사소하지  …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="ALBERT : A Lite BERT 리뷰" />
 <meta property="og:description" content="ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델)
 충분한 학습 데이터를 가지지 않은 Non-Trivial Task ( 사소하지 않은 태스크 )의 돌파구가 되었다.
 ALBERT가 RACE 데이터 셋에서 89.4%로 SOTA
@@ -19,8 +33,8 @@ RACE Benchmark
 모델을 크기가 커질 수록 생기는 가용할 수 있는 하드웨어와 학습 속도 등의 문제가 있다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/albert/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-31T00:23:36&#43;09:00" />
-<meta property="article:modified_time" content="2021-05-31T00:23:36&#43;09:00" />
+<meta property="article:published_time" content="2021-05-31T00:23:36+09:00" />
+<meta property="article:modified_time" content="2021-05-31T00:23:36+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ALBERT : A Lite BERT 리뷰"/>
@@ -31,85 +45,75 @@ RACE Benchmark
 거대한 모델을 사전 학습하고, 작은 모델을 추출해서 실제 문제 해결에 사용하는 것이 일반화가 되었다.
 → 모델의 크기가 과연 중요한가? 클 수록 더 좋은 NLP 모델 일까?
 모델을 크기가 커질 수록 생기는 가용할 수 있는 하드웨어와 학습 속도 등의 문제가 있다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>ALBERT : A Lite BERT 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 
-
+<meta itemprop="name" content="ALBERT : A Lite BERT 리뷰">
+<meta itemprop="description" content="ALBERT : A Lite BERT 1. Introduction Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델)
+충분한 학습 데이터를 가지지 않은 Non-Trivial Task ( 사소하지 않은 태스크 )의 돌파구가 되었다.
+ALBERT가 RACE 데이터 셋에서 89.4%로 SOTA
+RACE Benchmark
+거대한 모델을 사전 학습하고, 작은 모델을 추출해서 실제 문제 해결에 사용하는 것이 일반화가 되었다.
+→ 모델의 크기가 과연 중요한가? 클 수록 더 좋은 NLP 모델 일까?
+모델을 크기가 커질 수록 생기는 가용할 수 있는 하드웨어와 학습 속도 등의 문제가 있다."><meta itemprop="datePublished" content="2021-05-31T00:23:36+09:00" />
+<meta itemprop="dateModified" content="2021-05-31T00:23:36+09:00" />
+<meta itemprop="wordCount" content="1176">
+<meta itemprop="keywords" content="ai,nlp,albert," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">31</span>
-				<span class="rest">May 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">ALBERT : A Lite BERT 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="albert--a-lite-bert">ALBERT : A Lite BERT</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">31</span>
+<span class="rest">May 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">ALBERT : A Lite BERT 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="albert--a-lite-bert">ALBERT : A Lite BERT</h1>
 <h1 id="1-introduction">1. Introduction</h1>
 <p>Full-Network Pretraining 가 Language Representation Model (언어를 표현할 수 있는 모델)</p>
 <p>충분한 학습 데이터를 가지지 않은 Non-Trivial Task ( 사소하지 않은 태스크 )의 돌파구가 되었다.</p>
@@ -148,8 +152,7 @@ RACE Benchmark
 <p>GLUE, SQuAD, RACE에서 새롭게 SOTA를 갱신했다.</p>
 <h1 id="2-related-work">2. RELATED WORK</h1>
 <h2 id="21-scaling-up-representation-learning-for-natural-language">2.1 SCALING UP REPRESENTATION LEARNING FOR NATURAL LANGUAGE</h2>
-<figure>
-    <img src="/images/albert/albert0.png"/> <figcaption>
+<figure><img src="/images/albert/albert0.png"/><figcaption>
             <h4>1</h4>
         </figcaption>
 </figure>
@@ -199,14 +202,12 @@ RACE Benchmark
 <h1 id="3-the-elements-of-albert">3 THE ELEMENTS OF ALBERT</h1>
 <h2 id="31-model-architecture-choices">3.1 MODEL ARCHITECTURE CHOICES</h2>
 <p>트랜스포머의 Encoder와 GELU를 사용한다.</p>
-<figure>
-    <img src="/images/albert/albert1.png"/> <figcaption>
+<figure><img src="/images/albert/albert1.png"/><figcaption>
             <h4>2</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/albert/albert2.png"/> <figcaption>
+<figure><img src="/images/albert/albert2.png"/><figcaption>
             <h4>3</h4>
         </figcaption>
 </figure>
@@ -228,8 +229,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <li>E 보다 H가 작아지면 Hidden Layer의 Input 크기 H와 맞지 않아서 한 매트릭스를 추가로 둔다.</li>
 </ul>
 <p>ALBERT에서는 임베딩 파라미터를 두개의 작은 매트릭스로 분해해서 H로 바로 매핑하는 것이 아니라 나눠서 계산하게 된다.</p>
-<figure>
-    <img src="/images/albert/albert3.png"/> <figcaption>
+<figure><img src="/images/albert/albert3.png"/><figcaption>
             <h4>4</h4>
         </figcaption>
 </figure>
@@ -239,21 +239,18 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <h3 id="cross-layer-parameter-sharing">Cross-layer parameter sharing</h3>
 <p>다양한 파라미터 공유 방법이 있지만 ( FFN, Attention ),  ALBERT의 기본 접근법은 모든 파라미터의 공유</p>
 <p>이전의 UT, DQE가 기존 트랜스포머에 비해 좋은 성능을 보였었다.</p>
-<figure>
-    <img src="/images/albert/albert4.png"/> <figcaption>
+<figure><img src="/images/albert/albert4.png"/><figcaption>
             <h4>5</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/albert/albert5.png"/> <figcaption>
+<figure><img src="/images/albert/albert5.png"/><figcaption>
             <h4>6</h4>
         </figcaption>
 </figure>
 
 <p>Layer의 Output 이 다시 Layer의 Input으로 들어가는 형태</p>
-<figure>
-    <img src="/images/albert/albert6.png"/> <figcaption>
+<figure><img src="/images/albert/albert6.png"/><figcaption>
             <h4>7</h4>
         </figcaption>
 </figure>
@@ -261,8 +258,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <p>뭔가 ALBERT가 BERT에 비해서 부드러워 보이는데, 네트워크 파라미터의 안정화에 영향을 준다는 것을 의미</p>
 <h3 id="inter-sentence-coherence-loss">Inter-sentence coherence loss</h3>
 <p>BERT는 MLM(Masked Language Model) Loss 외에도 NSP(Next-Sentence Prediction) Loss를 사용한다.</p>
-<figure>
-    <img src="/images/albert/albert7.png"/> <figcaption>
+<figure><img src="/images/albert/albert7.png"/><figcaption>
             <h4>8</h4>
         </figcaption>
 </figure>
@@ -282,8 +278,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <li>Negative Example : 두 문장의 순서를 앞뒤로 스왑 ( 두 문장의 순서가 옳은 지 )</li>
 </ul>
 <h2 id="32-model-setup">3.2 MODEL SETUP</h2>
-<figure>
-    <img src="/images/albert/albert8.png"/> <figcaption>
+<figure><img src="/images/albert/albert8.png"/><figcaption>
             <h4>9</h4>
         </figcaption>
 </figure>
@@ -305,8 +300,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <p>GLUE, SQuAD, RACE 벤치마크 데이터 셋을 사용했다.</p>
 <p>GLUE 데이터셋은 Variance 문제로(일반화가 잘 안되어서 ) 5번의 실험의 중앙값을 사용함.</p>
 <h3 id="43-overall-comparision-between-bert-and-albert">4.3 OVERALL COMPARISION BETWEEN BERT AND ALBERT</h3>
-<figure>
-    <img src="/images/albert/albert9.png"/> <figcaption>
+<figure><img src="/images/albert/albert9.png"/><figcaption>
             <h4>10</h4>
         </figcaption>
 </figure>
@@ -314,8 +308,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <p>ALBERT-xxlarge(BERT-large의 70% 파라미터)로 다운-스트림 태스크에 성능 향상을 보였다.</p>
 <p>동일한 컴퓨팅 리소스 환경에서도 학습 시간이 빨랐다. ( BERT-LARGE에 비해 ALBERT-LARGE가 1.7배 빠름 )</p>
 <h3 id="44-factorized-embedding-parameterization">4.4 FACTORIZED EMBEDDING PARAMETERIZATION</h3>
-<figure>
-    <img src="/images/albert/albert10.png"/> <figcaption>
+<figure><img src="/images/albert/albert10.png"/><figcaption>
             <h4>11</h4>
         </figcaption>
 </figure>
@@ -323,8 +316,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <p>non-shared 상태 ( BERT ) 에서 임베딩 사이즈가 커질 수록 더 좋은 성능을 보였지만 그다지</p>
 <p>all-shared 상태 ( ALBERT ) 에서 E=128일 때 최고였다.</p>
 <h3 id="45-cross-layer-parameter-sharing">4.5 CROSS-LAYER PARAMETER SHARING</h3>
-<figure>
-    <img src="/images/albert/albert11.png"/> <figcaption>
+<figure><img src="/images/albert/albert11.png"/><figcaption>
             <h4>12</h4>
         </figcaption>
 </figure>
@@ -332,8 +324,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <p>all-shared 에서 대부분의 성능 감소는 FFN-Layer 파라미터 공유에서 발생 했다.</p>
 <p>레이어 사이즈 L을 크기 M을 가지는 그룹 N개로 그룹 내에서만 파라미터 공유를 하게 전략을 세우기도 했는데  M을 작게 가져가는 전략이 더 좋은 성능을 보였다. 그룹의 크기 M을 줄이는 방법이 파라미터 수를 더 많이 줄임</p>
 <h3 id="46-sentence-order-prediction-sop">4.6 SENTENCE ORDER PREDICTION (SOP)</h3>
-<figure>
-    <img src="/images/albert/albert12.png"/> <figcaption>
+<figure><img src="/images/albert/albert12.png"/><figcaption>
             <h4>13</h4>
         </figcaption>
 </figure>
@@ -341,8 +332,7 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <p>NSP를 학습 했을 때, SOP 태스크의 성능이 52%로 좋지 않았다.  결국 NSP는 Topic Modeling 정도만 한다.는 결론이 도출 될 수 있다.</p>
 <p>SOP가 multi-sentence encoding task에서 상당히 성능을 개선 시키는 것을 보인다.</p>
 <h3 id="47-what-if-we-train-for-the-same-mount-of-time">4.7 WHAT IF WE TRAIN FOR THE SAME MOUNT OF TIME</h3>
-<figure>
-    <img src="/images/albert/albert13.png"/> <figcaption>
+<figure><img src="/images/albert/albert13.png"/><figcaption>
             <h4>14</h4>
         </figcaption>
 </figure>
@@ -351,21 +341,18 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 <h3 id="48-additional-training-data-and-dropout-effects">4.8 ADDITIONAL TRAINING DATA AND DROPOUT EFFECTS</h3>
 <p>WIKIPEDIA 와 BOOKCORPUS 데이터셋에 대해서만 실험이 진행됨.</p>
 <p>추가 데이터의 영향에 대해 측정 결과를 보이는데 100만 번 학습 스텝 이후에도 여전히 오버피팅 되지 않아서 드롭아웃을 제거 했다. 그 결과 (b)에서 엄청나게 정확도가 증가했다. 없는게 더 좋다고 한다.</p>
-<figure>
-    <img src="/images/albert/albert14.png"/> <figcaption>
+<figure><img src="/images/albert/albert14.png"/><figcaption>
             <h4>15</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/albert/albert15.png"/> <figcaption>
+<figure><img src="/images/albert/albert15.png"/><figcaption>
             <h4>16</h4>
         </figcaption>
 </figure>
 
 <h3 id="49-current-state-of-the-art-on-nlu-tasks">4.9 CURRENT STATE-OF-THE-ART ON NLU TASKS</h3>
-<figure>
-    <img src="/images/albert/albert16.png"/> <figcaption>
+<figure><img src="/images/albert/albert16.png"/><figcaption>
             <h4>17</h4>
         </figcaption>
 </figure>
@@ -382,535 +369,52 @@ GELU는 ReLU에서 정규 분포를 따르는 베르누이 분포를 곱해서 �
 </ul>
 <p>SOP는 언어 표현력을 위해 일관적으로 유용한 학습 태스크이다. 더 높은 표현력을 위한 self-supervised training loss가 더 있다고 가정한다.</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/paper-review/"> paper-review </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ai/"> ai </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/albert/"> albert </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/nlp/"> nlp </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/paper-review/">paper-review</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ai/">ai</a>
+<a href="/tags/albert/">albert</a>
+<a href="/tags/nlp/">nlp</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

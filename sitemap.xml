@@ -3,10 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pko89403.github.io/categories/</loc>
-    <lastmod>2022-04-17T19:03:56+09:00</lastmod>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/gcn/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/gnn/</loc>
-    <lastmod>2022-04-17T19:03:56+09:00</lastmod>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/lightgcn/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/lightgcn/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/post/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/categories/recommendation/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/recsys/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/tags/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
+  </url><url>
+    <loc>https://pko89403.github.io/</loc>
+    <lastmod>2022-08-27T00:24:34+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/kg/</loc>
     <lastmod>2022-04-17T19:03:56+09:00</lastmod>
@@ -17,25 +41,7 @@
     <loc>https://pko89403.github.io/post/kgat/</loc>
     <lastmod>2022-04-17T19:03:56+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/post/</loc>
-    <lastmod>2022-04-17T19:03:56+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/categories/recommendation/</loc>
-    <lastmod>2022-04-17T19:03:56+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/recsys/</loc>
-    <lastmod>2022-04-17T19:03:56+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/</loc>
-    <lastmod>2022-04-17T19:03:56+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/</loc>
-    <lastmod>2022-04-17T19:03:56+09:00</lastmod>
-  </url><url>
     <loc>https://pko89403.github.io/tags/beibei/</loc>
-    <lastmod>2022-03-19T12:14:52+09:00</lastmod>
-  </url><url>
-    <loc>https://pko89403.github.io/tags/gcn/</loc>
     <lastmod>2022-03-19T12:14:52+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/price/</loc>
@@ -74,10 +80,10 @@
     <loc>https://pko89403.github.io/tags/prefect/</loc>
     <lastmod>2021-12-05T22:33:51+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/categories/workflow/</loc>
+    <loc>https://pko89403.github.io/tags/workflow/</loc>
     <lastmod>2021-12-05T22:33:51+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/tags/workflow/</loc>
+    <loc>https://pko89403.github.io/categories/workflow/</loc>
     <lastmod>2021-12-05T22:33:51+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/post/prefect_ecs/</loc>
@@ -146,10 +152,10 @@
     <loc>https://pko89403.github.io/tags/graphsage/</loc>
     <lastmod>2021-09-23T23:53:37+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/tags/spark/</loc>
+    <loc>https://pko89403.github.io/categories/spark/</loc>
     <lastmod>2021-09-08T21:04:30+09:00</lastmod>
   </url><url>
-    <loc>https://pko89403.github.io/categories/spark/</loc>
+    <loc>https://pko89403.github.io/tags/spark/</loc>
     <lastmod>2021-09-08T21:04:30+09:00</lastmod>
   </url><url>
     <loc>https://pko89403.github.io/tags/stream/</loc>

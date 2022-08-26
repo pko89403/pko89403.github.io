@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>LightGCN on 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+		<link>https://pko89403.github.io/tags/lightgcn/</link>
+		<description>Recent content in LightGCN on pko89403.github.io</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
+		<lastBuildDate>Sat, 27 Aug 2022 00:24:34 +0900</lastBuildDate>
+		<atom:link href="https://pko89403.github.io/tags/lightgcn/index.xml" rel="self" type="application/rss+xml" />
+		<item>
+			<title>LightGCN : Simplifying and Powering Graph Convolution Network for Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/lightgcn/</link>
+			<pubDate>Sat, 27 Aug 2022 00:24:34 +0900</pubDate>
+			<guid>https://pko89403.github.io/post/lightgcn/</guid>
+			<description>
+			ABSTRACT 그래프 컨볼루션 네트워크는 CF에서 새로운 SOTA가 되었다. 그럼에도 불구하고, 추천에서의 효과에 대한 근거는 잘 알려지지 않았다. 추천에 GCN을 적용한 연구 들은 GCN에 대한 ablation 분석이 부족했는데, GCN은 애초에  …
+			</description>
+		</item>
+	</channel>
+</rss>

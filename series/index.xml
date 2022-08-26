@@ -7,9 +7,6 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		
 		<atom:link href="https://pko89403.github.io/series/index.xml" rel="self" type="application/rss+xml" />
-		
-		
 	</channel>
 </rss>

@@ -1,105 +1,104 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy">
-	
-	
-	<meta name="keywords" content="Recsys,Bandit,Yahoo,Open Bandit Pipeline,Policy"><meta name="description" content="밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다. …"><meta property="og:title" content="밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Recsys, Bandit, Yahoo, Open Bandit Pipeline, Policy">
+<meta name="description" content="밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다.
+밴딧 기반 추천 시스템 도메인을 위해 일본의 패션 이커머스 플랫폼 ZOZOTOWN 에서 Open …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy" />
 <meta property="og:description" content="밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다.
 밴딧 기반 추천 시스템 도메인을 위해 일본의 패션 이커머스 플랫폼 ZOZOTOWN 에서 Open Bandit Dataset 라고 하는 수집된 데이터셋을 공개를 했다. 이 데이터셋은 동일한 플랫폼에서 각기 다른 정책을 동작 시키면서 수집된 많은 밴딧 피드백 로그 셋을 가지는 차별점이 있고 결론적으로 서로 다른 OPE 예측기들의 실험적 비교를 최초로 할 수 있게 해주었다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/ope_policy/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-11-13T16:05:55&#43;09:00" />
-<meta property="article:modified_time" content="2021-11-13T16:05:55&#43;09:00" />
+<meta property="article:published_time" content="2021-11-13T16:05:55+09:00" />
+<meta property="article:modified_time" content="2021-11-13T16:05:55+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy"/>
 <meta name="twitter:description" content="밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다.
 밴딧 기반 추천 시스템 도메인을 위해 일본의 패션 이커머스 플랫폼 ZOZOTOWN 에서 Open Bandit Dataset 라고 하는 수집된 데이터셋을 공개를 했다. 이 데이터셋은 동일한 플랫폼에서 각기 다른 정책을 동작 시키면서 수집된 많은 밴딧 피드백 로그 셋을 가지는 차별점이 있고 결론적으로 서로 다른 OPE 예측기들의 실험적 비교를 최초로 할 수 있게 해주었다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 
-
+<meta itemprop="name" content="밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy">
+<meta itemprop="description" content="밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy 최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다.
+밴딧 기반 추천 시스템 도메인을 위해 일본의 패션 이커머스 플랫폼 ZOZOTOWN 에서 Open Bandit Dataset 라고 하는 수집된 데이터셋을 공개를 했다. 이 데이터셋은 동일한 플랫폼에서 각기 다른 정책을 동작 시키면서 수집된 많은 밴딧 피드백 로그 셋을 가지는 차별점이 있고 결론적으로 서로 다른 OPE 예측기들의 실험적 비교를 최초로 할 수 있게 해주었다."><meta itemprop="datePublished" content="2021-11-13T16:05:55+09:00" />
+<meta itemprop="dateModified" content="2021-11-13T16:05:55+09:00" />
+<meta itemprop="wordCount" content="1459">
+<meta itemprop="keywords" content="Recsys,Bandit,Yahoo,Open Bandit Pipeline,Policy," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">13</span>
-				<span class="rest">Nov 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="밴딧-추천-오픈소스-obpopen-bandit-pipeline의-bandit-policy">밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">13</span>
+<span class="rest">Nov 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">밴딧 추천 오픈소스 OBP의 Bandit Policy 에 대한 설명 : Policy</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="밴딧-추천-오픈소스-obpopen-bandit-pipeline의-bandit-policy">밴딧 추천 오픈소스 OBP(Open Bandit Pipeline)의 Bandit Policy</h1>
 <p>최근에 밴딧 기반 추천에 관심을 가지고 스터디에 참여하는 등의 활동을 진행하고 있다.</p>
 <p>밴딧 기반 추천 시스템 도메인을 위해 일본의 패션 이커머스 플랫폼 ZOZOTOWN 에서 Open Bandit Dataset 라고 하는 수집된 데이터셋을 공개를 했다. 이 데이터셋은 동일한 플랫폼에서 각기 다른 정책을 동작 시키면서 수집된 많은 밴딧 피드백 로그 셋을 가지는 차별점이 있고 결론적으로 서로 다른 OPE 예측기들의 실험적 비교를 최초로 할 수 있게 해주었다.</p>
 <p>추가로 Python 소프트웨어인 Open Bandit Pipeline을 개발해서 배치 밴딧 알고리즘과 OPE 구현을 간소화하고 표준화 했다.</p>
@@ -112,47 +111,46 @@
 <li>Evaluation : IPW, DM</li>
 </ul>
 <h2 id="pip를-이용한-파이썬-obp-패키지-설치">pip를 이용한 파이썬 OBP 패키지 설치</h2>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pip install obp
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">obp</span> 
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.dataset</span> <span style="color:#080;font-weight:bold">import</span> OpenBanditDataset
-</code></pre></div><h2 id="로깅된-밴딧-피드백-데이터셋">로깅된 밴딧 피드백 데이터셋</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install obp
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">obp</span> 
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.dataset</span> <span style="color:#080;font-weight:bold">import</span> OpenBanditDataset
+</span></span></code></pre></div><h2 id="로깅된-밴딧-피드백-데이터셋">로깅된 밴딧 피드백 데이터셋</h2>
 <p>실제 데이터를 로컬에서 로드해서 사용할 수 있는데, 사용하지 않으면 패키지 내에 미리 준비된 10000건의 데이터를 가지고 진행하게 된다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dataset <span style="color:#333">=</span> OpenBanditDataset(behavior_policy<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;random&#39;</span>, campaign<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;all&#39;</span>)
-bandit_feedback <span style="color:#333">=</span> dataset<span style="color:#333">.</span>obtain_batch_bandit_feedback()
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">bandit_feedback<span style="color:#333">.</span>keys()
-</code></pre></div><pre><code>dict_keys(['n_rounds', 'n_actions', 'action', 'position', 'reward', 'pscore', 'context', 'action_context'])
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dataset <span style="color:#333">=</span> OpenBanditDataset(behavior_policy<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;random&#39;</span>, campaign<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;all&#39;</span>)
+</span></span><span style="display:flex;"><span>bandit_feedback <span style="color:#333">=</span> dataset<span style="color:#333">.</span>obtain_batch_bandit_feedback()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>bandit_feedback<span style="color:#333">.</span>keys()
+</span></span></code></pre></div><pre><code>dict_keys(['n_rounds', 'n_actions', 'action', 'position', 'reward', 'pscore', 'context', 'action_context'])
 </code></pre>
 <h2 id="bandit-policy--정책-">Bandit Policy ( 정책 )</h2>
 <p>본 코드에서 Policy에 대한 설명과 패키지에서 구현한 방법은 이후에 계속해서 설명하게 될 것이다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.policy.linear</span> <span style="color:#080;font-weight:bold">import</span> LinUCB
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.policy.logistic</span> <span style="color:#080;font-weight:bold">import</span> LogisticUCB
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.policy</span> <span style="color:#080;font-weight:bold">import</span> Random
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lin_ucb <span style="color:#333">=</span> LinUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
-                n_actions <span style="color:#333">=</span> dataset<span style="color:#333">.</span>n_actions,
-                len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
-                random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
-
-logistic_ucb <span style="color:#333">=</span> LogisticUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
-                        n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
-                        len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
-                        random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lin_ucb_update <span style="color:#333">=</span> LinUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
-                n_actions <span style="color:#333">=</span> dataset<span style="color:#333">.</span>n_actions,
-                len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
-                batch_size<span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10</span>,
-                random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
-
-logistic_ucb_update <span style="color:#333">=</span> LogisticUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
-                        n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
-                        len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
-                        batch_size <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10</span>,
-                        random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lin_ucb<span style="color:#333">.</span>__dict__<span style="color:#333">.</span>keys()
-</code></pre></div><pre><code>dict_keys(['dim', 'n_actions', 'len_list', 'batch_size', 'random_state', 'epsilon', 'policy_name', 'n_trial', 'random_', 'action_counts', 'reward_lists', 'context_lists', 'theta_hat', 'A_inv', 'b', 'A_inv_temp', 'b_temp'])
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.policy.linear</span> <span style="color:#080;font-weight:bold">import</span> LinUCB
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.policy.logistic</span> <span style="color:#080;font-weight:bold">import</span> LogisticUCB
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.policy</span> <span style="color:#080;font-weight:bold">import</span> Random
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lin_ucb <span style="color:#333">=</span> LinUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
+</span></span><span style="display:flex;"><span>                n_actions <span style="color:#333">=</span> dataset<span style="color:#333">.</span>n_actions,
+</span></span><span style="display:flex;"><span>                len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
+</span></span><span style="display:flex;"><span>                random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>logistic_ucb <span style="color:#333">=</span> LogisticUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
+</span></span><span style="display:flex;"><span>                        n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>                        len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
+</span></span><span style="display:flex;"><span>                        random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lin_ucb_update <span style="color:#333">=</span> LinUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
+</span></span><span style="display:flex;"><span>                n_actions <span style="color:#333">=</span> dataset<span style="color:#333">.</span>n_actions,
+</span></span><span style="display:flex;"><span>                len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
+</span></span><span style="display:flex;"><span>                batch_size<span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10</span>,
+</span></span><span style="display:flex;"><span>                random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>logistic_ucb_update <span style="color:#333">=</span> LogisticUCB(dim <span style="color:#333">=</span> dataset<span style="color:#333">.</span>dim_context, 
+</span></span><span style="display:flex;"><span>                        n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>                        len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list,
+</span></span><span style="display:flex;"><span>                        batch_size <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10</span>,
+</span></span><span style="display:flex;"><span>                        random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lin_ucb<span style="color:#333">.</span>__dict__<span style="color:#333">.</span>keys()
+</span></span></code></pre></div><pre><code>dict_keys(['dim', 'n_actions', 'len_list', 'batch_size', 'random_state', 'epsilon', 'policy_name', 'n_trial', 'random_', 'action_counts', 'reward_lists', 'context_lists', 'theta_hat', 'A_inv', 'b', 'A_inv_temp', 'b_temp'])
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lin_ucb<span style="color:#333">.</span>policy_type
-
-</code></pre></div><pre><code>PolicyType.CONTEXTUAL
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lin_ucb<span style="color:#333">.</span>policy_type
+</span></span></code></pre></div><pre><code>PolicyType.CONTEXTUAL
 </code></pre>
 <h1 id="linucb">LinUCB</h1>
 <p><a href="https://arxiv.org/abs/1003.0146" target="_blank">2010년 발표된 야후 프론트 페이지 투데이 모듈에 사용했던 개인화 뉴스 추천의 컨텍스튜얼 밴딧</a></p>
@@ -210,35 +208,35 @@ A_inv_temp[action] @ contex.T @ context @ A_inv_temp[action]    <br>
 reward * context.flatten() -&gt; (dim, )</li>
 <li>n_trial이 batch_size의 배수면 A_inv, b를 복사하며 종료한다</li>
 </ol>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span> 
-
-i <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span> 
-<span style="color:#080;font-weight:bold">print</span>(f<span style="background-color:#fff0f0">&#34;{i} 번째 액션을 선택한다&#34;</span>)
-<span style="color:#080;font-weight:bold">print</span>(f<span style="background-color:#fff0f0">&#34;한 액션의 A_inv 차원 : {lin_ucb.A_inv[i].shape}&#34;</span>)
-<span style="color:#080;font-weight:bold">print</span>(f<span style="background-color:#fff0f0">&#34;한 액션의 b 차원 : {lin_ucb.b[:, i].shape}&#34;</span>)
-<span style="color:#080;font-weight:bold">print</span>(f<span style="background-color:#fff0f0">&#34;theta_hat을 구하기 위한 b 차원 변환 : {lin_ucb.b[:, i][:,np.newaxis].shape}&#34;</span>)
-<span style="color:#080;font-weight:bold">print</span>(f<span style="background-color:#fff0f0">&#34;한 액션의 theta_hat 차원 : {(lin_ucb.A_inv[i] @ lin_ucb.b[:, i][:,np.newaxis]).shape}&#34;</span>)
-</code></pre></div><pre><code>1 번째 액션을 선택한다
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>i <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span> 
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">f</span><span style="background-color:#fff0f0">&#34;</span><span style="background-color:#eee">{</span>i<span style="background-color:#eee">}</span><span style="background-color:#fff0f0"> 번째 액션을 선택한다&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">f</span><span style="background-color:#fff0f0">&#34;한 액션의 A_inv 차원 : </span><span style="background-color:#eee">{</span>lin_ucb<span style="color:#333">.</span>A_inv[i]<span style="color:#333">.</span>shape<span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">f</span><span style="background-color:#fff0f0">&#34;한 액션의 b 차원 : </span><span style="background-color:#eee">{</span>lin_ucb<span style="color:#333">.</span>b[:, i]<span style="color:#333">.</span>shape<span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">f</span><span style="background-color:#fff0f0">&#34;theta_hat을 구하기 위한 b 차원 변환 : </span><span style="background-color:#eee">{</span>lin_ucb<span style="color:#333">.</span>b[:, i][:,np<span style="color:#333">.</span>newaxis]<span style="color:#333">.</span>shape<span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">f</span><span style="background-color:#fff0f0">&#34;한 액션의 theta_hat 차원 : </span><span style="background-color:#eee">{</span>(lin_ucb<span style="color:#333">.</span>A_inv[i] <span style="color:#333">@</span> lin_ucb<span style="color:#333">.</span>b[:, i][:,np<span style="color:#333">.</span>newaxis])<span style="color:#333">.</span>shape<span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span></code></pre></div><pre><code>1 번째 액션을 선택한다
 한 액션의 A_inv 차원 : (20, 20)
 한 액션의 b 차원 : (20,)
 theta_hat을 구하기 위한 b 차원 변환 : (20, 1)
 한 액션의 theta_hat 차원 : (20, 1)
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#333">=</span> np<span style="color:#333">.</span>array([<span style="color:#60e;font-weight:bold">1.5</span>, <span style="color:#60e;font-weight:bold">0.2</span>, <span style="color:#60e;font-weight:bold">4.2</span>, <span style="color:#60e;font-weight:bold">2.5</span>])
-s <span style="color:#333">=</span> a<span style="color:#333">.</span>argsort()
-<span style="color:#080;font-weight:bold">print</span>(s)
-<span style="color:#080;font-weight:bold">print</span>(s[::<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>])
-</code></pre></div><pre><code>[1 0 3 2]
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#333">=</span> np<span style="color:#333">.</span>array([<span style="color:#60e;font-weight:bold">1.5</span>, <span style="color:#60e;font-weight:bold">0.2</span>, <span style="color:#60e;font-weight:bold">4.2</span>, <span style="color:#60e;font-weight:bold">2.5</span>])
+</span></span><span style="display:flex;"><span>s <span style="color:#333">=</span> a<span style="color:#333">.</span>argsort()
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(s)
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(s[::<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>])
+</span></span></code></pre></div><pre><code>[1 0 3 2]
 [2 3 0 1]
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lin_ucb<span style="color:#333">.</span>n_trial
-</code></pre></div><pre><code>0
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lin_ucb<span style="color:#333">.</span>n_trial
+</span></span></code></pre></div><pre><code>0
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">logistic_ucb<span style="color:#333">.</span>__dict__<span style="color:#333">.</span>keys()
-</code></pre></div><pre><code>dict_keys(['dim', 'n_actions', 'len_list', 'batch_size', 'random_state', 'alpha_', 'lambda_', 'epsilon', 'policy_name', 'n_trial', 'random_', 'action_counts', 'reward_lists', 'context_lists', 'alpha_list', 'lambda_list', 'model_list'])
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>logistic_ucb<span style="color:#333">.</span>__dict__<span style="color:#333">.</span>keys()
+</span></span></code></pre></div><pre><code>dict_keys(['dim', 'n_actions', 'len_list', 'batch_size', 'random_state', 'alpha_', 'lambda_', 'epsilon', 'policy_name', 'n_trial', 'random_', 'action_counts', 'reward_lists', 'context_lists', 'alpha_list', 'lambda_list', 'model_list'])
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">logistic_ucb<span style="color:#333">.</span>policy_type
-</code></pre></div><pre><code>PolicyType.CONTEXTUAL
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>logistic_ucb<span style="color:#333">.</span>policy_type
+</span></span></code></pre></div><pre><code>PolicyType.CONTEXTUAL
 </code></pre>
 <h1 id="logisticucb">LogisticUCB</h1>
 <h2 id="간단소개">간단소개</h2>
@@ -308,87 +306,84 @@ ucb_score = theta + self.epsilon * std -&gt; (1, n_action)</li>
 <li>predict_proba(x) : coefficient를 X를 사용해서 expected 예측 결과를 계산한다</li>
 <li>predict_proba_with_sampling(x) : 샘플링한 coefficient를 X를 사용해서 expected 예측 결과를 계산한다</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span> 
-np<span style="color:#333">.</span>zeros(<span style="color:#00d;font-weight:bold">20</span>)<span style="color:#333">.</span>shape
-</code></pre></div><pre><code>(20,)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span> 
+</span></span><span style="display:flex;"><span>np<span style="color:#333">.</span>zeros(<span style="color:#00d;font-weight:bold">20</span>)<span style="color:#333">.</span>shape
+</span></span></code></pre></div><pre><code>(20,)
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random <span style="color:#333">=</span> Random(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
-                len_list<span style="color:#333">=</span>dataset<span style="color:#333">.</span>len_list)
-
-random_action_dist <span style="color:#333">=</span> random<span style="color:#333">.</span>compute_batch_action_dist(
-    n_rounds<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;n_rounds&#39;</span>]
-)
-
-random_action_dist<span style="color:#333">.</span>shape
-</code></pre></div><pre><code>(10000, 80, 3)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>random <span style="color:#333">=</span> Random(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>                len_list<span style="color:#333">=</span>dataset<span style="color:#333">.</span>len_list)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>random_action_dist <span style="color:#333">=</span> random<span style="color:#333">.</span>compute_batch_action_dist(
+</span></span><span style="display:flex;"><span>    n_rounds<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;n_rounds&#39;</span>]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>random_action_dist<span style="color:#333">.</span>shape
+</span></span></code></pre></div><pre><code>(10000, 80, 3)
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#888"># obp.simulator.run_bandit_simulation 함수</span>
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tqdm</span> <span style="color:#080;font-weight:bold">import</span> tqdm 
-
-lin_ucb_selected_actions <span style="color:#333">=</span> [] 
-logistic_ucb_selected_actions <span style="color:#333">=</span> []
-
-lin_ucb_update_selected_actions <span style="color:#333">=</span> [] 
-logistic_ucb_update_selected_actions <span style="color:#333">=</span> [] 
-
-<span style="color:#080;font-weight:bold">with</span> tqdm(total<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;n_rounds&#39;</span>]) <span style="color:#080;font-weight:bold">as</span> pbar:
-    <span style="color:#080;font-weight:bold">for</span> i, (action, reward, position, context) <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">enumerate</span>(<span style="color:#007020">zip</span>(
-                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;action&#39;</span>],
-                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;reward&#39;</span>], 
-                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;position&#39;</span>], 
-                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;context&#39;</span>])):
-        ctx <span style="color:#333">=</span> context<span style="color:#333">.</span>reshape(<span style="color:#00d;font-weight:bold">1</span>,<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>)
-        
-        lin_ucb_action <span style="color:#333">=</span> lin_ucb<span style="color:#333">.</span>select_action(ctx)
-        logistic_ucb_action <span style="color:#333">=</span> logistic_ucb<span style="color:#333">.</span>select_action(ctx)
-
-        lin_ucb_update_action <span style="color:#333">=</span> lin_ucb_update<span style="color:#333">.</span>select_action(ctx)
-        logistic_ucb_update_action <span style="color:#333">=</span> logistic_ucb_update<span style="color:#333">.</span>select_action(ctx)
-
-        lin_ucb_selected_actions<span style="color:#333">.</span>append(lin_ucb_action)
-        logistic_ucb_selected_actions<span style="color:#333">.</span>append(logistic_ucb_action)
-        lin_ucb_update_selected_actions<span style="color:#333">.</span>append(lin_ucb_update_action )
-        logistic_ucb_update_selected_actions<span style="color:#333">.</span>append(logistic_ucb_update_action)
-
-
-        <span style="color:#080;font-weight:bold">if</span> lin_ucb_update_action[position] <span style="color:#333">==</span> action:
-            lin_ucb_update<span style="color:#333">.</span>update_params(action<span style="color:#333">=</span>action, reward<span style="color:#333">=</span>reward, context<span style="color:#333">=</span>ctx)
-        <span style="color:#080;font-weight:bold">if</span> logistic_ucb_update_action[position] <span style="color:#333">==</span> action:
-            logistic_ucb_update<span style="color:#333">.</span>update_params(action<span style="color:#333">=</span>action, reward<span style="color:#333">=</span>reward, context<span style="color:#333">=</span>ctx)
-
-        pbar<span style="color:#333">.</span>update(<span style="color:#00d;font-weight:bold">1</span>)
-
-
-</code></pre></div><pre><code>100%|██████████| 10000/10000 [00:36&lt;00:00, 273.71it/s]
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#888"># obp.simulator.run_bandit_simulation 함수</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">tqdm</span> <span style="color:#080;font-weight:bold">import</span> tqdm 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lin_ucb_selected_actions <span style="color:#333">=</span> [] 
+</span></span><span style="display:flex;"><span>logistic_ucb_selected_actions <span style="color:#333">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lin_ucb_update_selected_actions <span style="color:#333">=</span> [] 
+</span></span><span style="display:flex;"><span>logistic_ucb_update_selected_actions <span style="color:#333">=</span> [] 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">with</span> tqdm(total<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;n_rounds&#39;</span>]) <span style="color:#080;font-weight:bold">as</span> pbar:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i, (action, reward, position, context) <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">enumerate</span>(<span style="color:#007020">zip</span>(
+</span></span><span style="display:flex;"><span>                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;action&#39;</span>],
+</span></span><span style="display:flex;"><span>                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;reward&#39;</span>], 
+</span></span><span style="display:flex;"><span>                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;position&#39;</span>], 
+</span></span><span style="display:flex;"><span>                                            bandit_feedback[<span style="background-color:#fff0f0">&#39;context&#39;</span>])):
+</span></span><span style="display:flex;"><span>        ctx <span style="color:#333">=</span> context<span style="color:#333">.</span>reshape(<span style="color:#00d;font-weight:bold">1</span>,<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        lin_ucb_action <span style="color:#333">=</span> lin_ucb<span style="color:#333">.</span>select_action(ctx)
+</span></span><span style="display:flex;"><span>        logistic_ucb_action <span style="color:#333">=</span> logistic_ucb<span style="color:#333">.</span>select_action(ctx)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lin_ucb_update_action <span style="color:#333">=</span> lin_ucb_update<span style="color:#333">.</span>select_action(ctx)
+</span></span><span style="display:flex;"><span>        logistic_ucb_update_action <span style="color:#333">=</span> logistic_ucb_update<span style="color:#333">.</span>select_action(ctx)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lin_ucb_selected_actions<span style="color:#333">.</span>append(lin_ucb_action)
+</span></span><span style="display:flex;"><span>        logistic_ucb_selected_actions<span style="color:#333">.</span>append(logistic_ucb_action)
+</span></span><span style="display:flex;"><span>        lin_ucb_update_selected_actions<span style="color:#333">.</span>append(lin_ucb_update_action )
+</span></span><span style="display:flex;"><span>        logistic_ucb_update_selected_actions<span style="color:#333">.</span>append(logistic_ucb_update_action)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> lin_ucb_update_action[position] <span style="color:#333">==</span> action:
+</span></span><span style="display:flex;"><span>            lin_ucb_update<span style="color:#333">.</span>update_params(action<span style="color:#333">=</span>action, reward<span style="color:#333">=</span>reward, context<span style="color:#333">=</span>ctx)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> logistic_ucb_update_action[position] <span style="color:#333">==</span> action:
+</span></span><span style="display:flex;"><span>            logistic_ucb_update<span style="color:#333">.</span>update_params(action<span style="color:#333">=</span>action, reward<span style="color:#333">=</span>reward, context<span style="color:#333">=</span>ctx)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        pbar<span style="color:#333">.</span>update(<span style="color:#00d;font-weight:bold">1</span>)
+</span></span></code></pre></div><pre><code>100%|██████████| 10000/10000 [00:36&lt;00:00, 273.71it/s]
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lin_ucb_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(lin_ucb_selected_actions)
-logistic_ucb_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(logistic_ucb_selected_actions)
-
-lin_ucb_update_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(lin_ucb_update_selected_actions)
-logistic_ucb_update_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(logistic_ucb_update_selected_actions)
-
-<span style="color:#080;font-weight:bold">print</span>(lin_ucb_selected_actions<span style="color:#333">.</span>shape)
-
-</code></pre></div><pre><code>(10000, 3)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lin_ucb_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(lin_ucb_selected_actions)
+</span></span><span style="display:flex;"><span>logistic_ucb_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(logistic_ucb_selected_actions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lin_ucb_update_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(lin_ucb_update_selected_actions)
+</span></span><span style="display:flex;"><span>logistic_ucb_update_selected_actions <span style="color:#333">=</span> np<span style="color:#333">.</span>array(logistic_ucb_update_selected_actions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(lin_ucb_selected_actions<span style="color:#333">.</span>shape)
+</span></span></code></pre></div><pre><code>(10000, 3)
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.utils</span> <span style="color:#080;font-weight:bold">import</span> convert_to_action_dist
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span> 
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lin_ucb_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
-                                    selected_actions<span style="color:#333">=</span>lin_ucb_selected_actions)
-logistic_ucb_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
-                                    selected_actions<span style="color:#333">=</span>logistic_ucb_selected_actions)
-
-lin_ucb_update_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
-                                    selected_actions<span style="color:#333">=</span>lin_ucb_update_selected_actions)
-logistic_ucb_update_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
-                                    selected_actions<span style="color:#333">=</span>logistic_ucb_update_selected_actions)
-
-
-logistic_ucb_action_dist<span style="color:#333">.</span>shape
-</code></pre></div><pre><code>(10000, 80, 3)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.utils</span> <span style="color:#080;font-weight:bold">import</span> convert_to_action_dist
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span> 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lin_ucb_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>                                    selected_actions<span style="color:#333">=</span>lin_ucb_selected_actions)
+</span></span><span style="display:flex;"><span>logistic_ucb_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>                                    selected_actions<span style="color:#333">=</span>logistic_ucb_selected_actions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lin_ucb_update_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>                                    selected_actions<span style="color:#333">=</span>lin_ucb_update_selected_actions)
+</span></span><span style="display:flex;"><span>logistic_ucb_update_action_dist <span style="color:#333">=</span> convert_to_action_dist(n_actions<span style="color:#333">=</span>dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>                                    selected_actions<span style="color:#333">=</span>logistic_ucb_update_selected_actions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>logistic_ucb_action_dist<span style="color:#333">.</span>shape
+</span></span></code></pre></div><pre><code>(10000, 80, 3)
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">logistic_ucb_action_dist
-</code></pre></div><pre><code>array([[[0., 0., 0.],
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>logistic_ucb_action_dist
+</span></span></code></pre></div><pre><code>array([[[0., 0., 0.],
         [0., 0., 0.],
         [0., 0., 0.],
         ...,
@@ -396,69 +391,68 @@ logistic_ucb_action_dist<span style="color:#333">.</span>shape
         [0., 1., 0.],
         [1., 0., 0.]]])
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.ope</span> <span style="color:#080;font-weight:bold">import</span> (
-    OffPolicyEvaluation,
-    RegressionModel, 
-    DirectMethod, 
-    InverseProbabilityWeighting, 
-)
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> LogisticRegression
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">regression_model <span style="color:#333">=</span> RegressionModel(
-    n_actions <span style="color:#333">=</span> dataset<span style="color:#333">.</span>n_actions, 
-    len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list, 
-    action_context <span style="color:#333">=</span> dataset<span style="color:#333">.</span>action_context, 
-    base_model<span style="color:#333">=</span>LogisticRegression(random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>),
-)
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">estimated_rewards_by_reg_model <span style="color:#333">=</span> regression_model<span style="color:#333">.</span>fit_predict(
-    context<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;context&#39;</span>], 
-    action<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;action&#39;</span>], 
-    reward<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;reward&#39;</span>],
-    position<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;position&#39;</span>], 
-    pscore<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;pscore&#39;</span>],
-    n_folds<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">3</span>, 
-    random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>,
-)
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ope <span style="color:#333">=</span> OffPolicyEvaluation(
-    bandit_feedback<span style="color:#333">=</span>bandit_feedback, 
-    ope_estimators<span style="color:#333">=</span>[InverseProbabilityWeighting(), DirectMethod()]
-)
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">estimated_rewards_by_reg_model<span style="color:#333">.</span>shape
-</code></pre></div><pre><code>(10000, 80, 3)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">obp.ope</span> <span style="color:#080;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>    OffPolicyEvaluation,
+</span></span><span style="display:flex;"><span>    RegressionModel, 
+</span></span><span style="display:flex;"><span>    DirectMethod, 
+</span></span><span style="display:flex;"><span>    InverseProbabilityWeighting, 
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">sklearn.linear_model</span> <span style="color:#080;font-weight:bold">import</span> LogisticRegression
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>regression_model <span style="color:#333">=</span> RegressionModel(
+</span></span><span style="display:flex;"><span>    n_actions <span style="color:#333">=</span> dataset<span style="color:#333">.</span>n_actions, 
+</span></span><span style="display:flex;"><span>    len_list <span style="color:#333">=</span> dataset<span style="color:#333">.</span>len_list, 
+</span></span><span style="display:flex;"><span>    action_context <span style="color:#333">=</span> dataset<span style="color:#333">.</span>action_context, 
+</span></span><span style="display:flex;"><span>    base_model<span style="color:#333">=</span>LogisticRegression(random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>),
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>estimated_rewards_by_reg_model <span style="color:#333">=</span> regression_model<span style="color:#333">.</span>fit_predict(
+</span></span><span style="display:flex;"><span>    context<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;context&#39;</span>], 
+</span></span><span style="display:flex;"><span>    action<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;action&#39;</span>], 
+</span></span><span style="display:flex;"><span>    reward<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;reward&#39;</span>],
+</span></span><span style="display:flex;"><span>    position<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;position&#39;</span>], 
+</span></span><span style="display:flex;"><span>    pscore<span style="color:#333">=</span>bandit_feedback[<span style="background-color:#fff0f0">&#39;pscore&#39;</span>],
+</span></span><span style="display:flex;"><span>    n_folds<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">3</span>, 
+</span></span><span style="display:flex;"><span>    random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ope <span style="color:#333">=</span> OffPolicyEvaluation(
+</span></span><span style="display:flex;"><span>    bandit_feedback<span style="color:#333">=</span>bandit_feedback, 
+</span></span><span style="display:flex;"><span>    ope_estimators<span style="color:#333">=</span>[InverseProbabilityWeighting(), DirectMethod()]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>estimated_rewards_by_reg_model<span style="color:#333">.</span>shape
+</span></span></code></pre></div><pre><code>(10000, 80, 3)
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">estimated_policy_lin_ucb, estimated_interval_lin_ucb <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
-    action_dist<span style="color:#333">=</span>lin_ucb_action_dist, 
-    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
-)
-
-estimated_policy_logistic_ucb, estimated_interval_logistic_ucb <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
-    action_dist<span style="color:#333">=</span>logistic_ucb_action_dist, 
-    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
-)
-
-estimated_policy_lin_ucb_update, estimated_interval_lin_ucb_update <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
-    action_dist<span style="color:#333">=</span>lin_ucb_update_action_dist, 
-    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
-)
-
-estimated_policy_logistic_ucb_update, estimated_interval_logistic_ucb_update <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
-    action_dist<span style="color:#333">=</span>logistic_ucb_update_action_dist, 
-    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
-)
-
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span> 
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">estimated_concat_lin_ucb <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_lin_ucb, estimated_interval_lin_ucb], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
-estimated_concat_lin_ucb <span style="color:#333">=</span> estimated_concat_lin_ucb<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;lin_ucb_&#39;</span> <span style="color:#333">+</span> estimated_concat_lin_ucb<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">estimated_concat_logistic_ucb <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_logistic_ucb, estimated_interval_logistic_ucb], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
-estimated_concat_logistic_ucb <span style="color:#333">=</span> estimated_concat_logistic_ucb<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;logistic_ucb_&#39;</span> <span style="color:#333">+</span> estimated_concat_logistic_ucb<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">estimated_concat_lin_ucb_update <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_lin_ucb_update, estimated_interval_lin_ucb_update], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
-estimated_concat_lin_ucb_update <span style="color:#333">=</span> estimated_concat_lin_ucb_update<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;lin_ucb_update_&#39;</span> <span style="color:#333">+</span> estimated_concat_lin_ucb_update<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">estimated_concat_logistic_ucb_update <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_logistic_ucb_update, estimated_interval_logistic_ucb_update], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
-estimated_concat_logistic_ucb_update <span style="color:#333">=</span> estimated_concat_logistic_ucb_update<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;logistic_ucb_update_&#39;</span> <span style="color:#333">+</span> estimated_concat_logistic_ucb_update<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">merged <span style="color:#333">=</span> estimated_concat_lin_ucb<span style="color:#333">.</span>append(estimated_concat_logistic_ucb)\
-                            <span style="color:#333">.</span>append(estimated_concat_lin_ucb_update)\
-                            <span style="color:#333">.</span>append(estimated_concat_logistic_ucb_update)
-merged
-</code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>estimated_policy_lin_ucb, estimated_interval_lin_ucb <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
+</span></span><span style="display:flex;"><span>    action_dist<span style="color:#333">=</span>lin_ucb_action_dist, 
+</span></span><span style="display:flex;"><span>    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>estimated_policy_logistic_ucb, estimated_interval_logistic_ucb <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
+</span></span><span style="display:flex;"><span>    action_dist<span style="color:#333">=</span>logistic_ucb_action_dist, 
+</span></span><span style="display:flex;"><span>    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>estimated_policy_lin_ucb_update, estimated_interval_lin_ucb_update <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
+</span></span><span style="display:flex;"><span>    action_dist<span style="color:#333">=</span>lin_ucb_update_action_dist, 
+</span></span><span style="display:flex;"><span>    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>estimated_policy_logistic_ucb_update, estimated_interval_logistic_ucb_update <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_off_policy_estimates(
+</span></span><span style="display:flex;"><span>    action_dist<span style="color:#333">=</span>logistic_ucb_update_action_dist, 
+</span></span><span style="display:flex;"><span>    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">pd</span> 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>estimated_concat_lin_ucb <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_lin_ucb, estimated_interval_lin_ucb], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>estimated_concat_lin_ucb <span style="color:#333">=</span> estimated_concat_lin_ucb<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;lin_ucb_&#39;</span> <span style="color:#333">+</span> estimated_concat_lin_ucb<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>estimated_concat_logistic_ucb <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_logistic_ucb, estimated_interval_logistic_ucb], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>estimated_concat_logistic_ucb <span style="color:#333">=</span> estimated_concat_logistic_ucb<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;logistic_ucb_&#39;</span> <span style="color:#333">+</span> estimated_concat_logistic_ucb<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>estimated_concat_lin_ucb_update <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_lin_ucb_update, estimated_interval_lin_ucb_update], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>estimated_concat_lin_ucb_update <span style="color:#333">=</span> estimated_concat_lin_ucb_update<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;lin_ucb_update_&#39;</span> <span style="color:#333">+</span> estimated_concat_lin_ucb_update<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>estimated_concat_logistic_ucb_update <span style="color:#333">=</span> pd<span style="color:#333">.</span>concat([estimated_policy_logistic_ucb_update, estimated_interval_logistic_ucb_update], axis<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>estimated_concat_logistic_ucb_update <span style="color:#333">=</span> estimated_concat_logistic_ucb_update<span style="color:#333">.</span>set_index(<span style="background-color:#fff0f0">&#39;logistic_ucb_update_&#39;</span> <span style="color:#333">+</span> estimated_concat_logistic_ucb_update<span style="color:#333">.</span>index<span style="color:#333">.</span>astype(<span style="color:#007020">str</span>))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>merged <span style="color:#333">=</span> estimated_concat_lin_ucb<span style="color:#333">.</span>append(estimated_concat_logistic_ucb)\
+</span></span><span style="display:flex;"><span>                            <span style="color:#333">.</span>append(estimated_concat_lin_ucb_update)\
+</span></span><span style="display:flex;"><span>                            <span style="color:#333">.</span>append(estimated_concat_logistic_ucb_update)
+</span></span><span style="display:flex;"><span>merged
+</span></span></code></pre></div><!-- raw HTML omitted -->
 <pre><code>.dataframe tbody tr th {
     vertical-align: top;
 }
@@ -469,35 +463,34 @@ merged
 </code></pre>
 <p><!-- raw HTML omitted --></p>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ope<span style="color:#333">.</span>visualize_off_policy_estimates(
-    action_dist<span style="color:#333">=</span>lin_ucb_action_dist, 
-    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model, 
-    n_bootstrap_samples<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10000</span>,
-    random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>,
-)
-</code></pre></div><figure>
-    <img src="/images/obp/linucb_37_0.png"/> <figcaption>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ope<span style="color:#333">.</span>visualize_off_policy_estimates(
+</span></span><span style="display:flex;"><span>    action_dist<span style="color:#333">=</span>lin_ucb_action_dist, 
+</span></span><span style="display:flex;"><span>    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model, 
+</span></span><span style="display:flex;"><span>    n_bootstrap_samples<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10000</span>,
+</span></span><span style="display:flex;"><span>    random_state<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">12345</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><figure><img src="/images/obp/linucb_37_0.png"/><figcaption>
             <h4>visualize_off_policy_estimates</h4>
         </figcaption>
 </figure>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">policy_value_random <span style="color:#333">=</span> OpenBanditDataset<span style="color:#333">.</span>calc_on_policy_policy_value_estimate(
-    behavior_policy<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;random&#39;</span>, campaign<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;all&#39;</span>
-)
-</code></pre></div><pre><code>INFO:obp.dataset.real:When `data_path` is not given, this class downloads the example small-sized version of the Open Bandit Dataset.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>policy_value_random <span style="color:#333">=</span> OpenBanditDataset<span style="color:#333">.</span>calc_on_policy_policy_value_estimate(
+</span></span><span style="display:flex;"><span>    behavior_policy<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;random&#39;</span>, campaign<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;all&#39;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><pre><code>INFO:obp.dataset.real:When `data_path` is not given, this class downloads the example small-sized version of the Open Bandit Dataset.
 /Users/7048518/opt/anaconda3/envs/obp/lib/python3.8/site-packages/obp/dataset/real.py:203: FutureWarning: In a future version of pandas all arguments of DataFrame.drop except for the argument 'labels' will be keyword-only
   item_feature_cat = self.item_context.drop(&quot;item_feature_0&quot;, 1).apply(
 /Users/7048518/opt/anaconda3/envs/obp/lib/python3.8/site-packages/obp/dataset/real.py:206: FutureWarning: In a future version of pandas all arguments of concat except for the argument 'objs' will be keyword-only
   self.action_context = pd.concat([item_feature_cat, item_feature_0], 1).values
 </code></pre>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">relative_ee <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_estimators_comparison(
-    ground_truth_policy_value<span style="color:#333">=</span>policy_value_random, 
-    action_dist <span style="color:#333">=</span> lin_ucb_action_dist, 
-    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model,
-    metric<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;relative-ee&#39;</span>,
-)
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">relative_ee
-</code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>relative_ee <span style="color:#333">=</span> ope<span style="color:#333">.</span>summarize_estimators_comparison(
+</span></span><span style="display:flex;"><span>    ground_truth_policy_value<span style="color:#333">=</span>policy_value_random, 
+</span></span><span style="display:flex;"><span>    action_dist <span style="color:#333">=</span> lin_ucb_action_dist, 
+</span></span><span style="display:flex;"><span>    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model,
+</span></span><span style="display:flex;"><span>    metric<span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;relative-ee&#39;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>relative_ee
+</span></span></code></pre></div><!-- raw HTML omitted -->
 <pre><code>.dataframe tbody tr th {
     vertical-align: top;
 }
@@ -508,551 +501,65 @@ merged
 </code></pre>
 <p><!-- raw HTML omitted --></p>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">mutiple_comparision <span style="color:#333">=</span> ope<span style="color:#333">.</span>visualize_off_policy_estimates_of_multiple_policies(
-    policy_name_list<span style="color:#333">=</span>[<span style="background-color:#fff0f0">&#39;lin_ucb&#39;</span>, <span style="background-color:#fff0f0">&#39;logistic_ucb&#39;</span>, <span style="background-color:#fff0f0">&#39;random&#39;</span>, <span style="background-color:#fff0f0">&#39;lin_ucb_update&#39;</span>, <span style="background-color:#fff0f0">&#39;logistic_ucb_update&#39;</span>],
-    action_dist_list <span style="color:#333">=</span> [lin_ucb_action_dist, logistic_ucb_action_dist, random_action_dist, lin_ucb_update_action_dist, logistic_ucb_update_action_dist],
-    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model,
-)
-</code></pre></div><figure>
-    <img src="/images/obp/linucb_41_0.png"/> <figcaption>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>mutiple_comparision <span style="color:#333">=</span> ope<span style="color:#333">.</span>visualize_off_policy_estimates_of_multiple_policies(
+</span></span><span style="display:flex;"><span>    policy_name_list<span style="color:#333">=</span>[<span style="background-color:#fff0f0">&#39;lin_ucb&#39;</span>, <span style="background-color:#fff0f0">&#39;logistic_ucb&#39;</span>, <span style="background-color:#fff0f0">&#39;random&#39;</span>, <span style="background-color:#fff0f0">&#39;lin_ucb_update&#39;</span>, <span style="background-color:#fff0f0">&#39;logistic_ucb_update&#39;</span>],
+</span></span><span style="display:flex;"><span>    action_dist_list <span style="color:#333">=</span> [lin_ucb_action_dist, logistic_ucb_action_dist, random_action_dist, lin_ucb_update_action_dist, logistic_ucb_update_action_dist],
+</span></span><span style="display:flex;"><span>    estimated_rewards_by_reg_model<span style="color:#333">=</span>estimated_rewards_by_reg_model,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><figure><img src="/images/obp/linucb_41_0.png"/><figcaption>
             <h4>visualize_off_policy_estimates_of_multiple_policies</h4>
         </figcaption>
 </figure>
 
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/recommendation/"> recommendation </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/bandit/"> bandit </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/open-bandit-pipeline/"> open-bandit-pipeline </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/policy/"> policy </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/recsys/"> recsys </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/yahoo/"> yahoo </a>
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/recommendation/">recommendation</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/bandit/">bandit</a>
+<a href="/tags/open-bandit-pipeline/">open-bandit-pipeline</a>
+<a href="/tags/policy/">policy</a>
+<a href="/tags/recsys/">recsys</a>
+<a href="/tags/yahoo/">yahoo</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

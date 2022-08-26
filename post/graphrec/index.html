@@ -1,111 +1,115 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="GraphRec : Graph Neural Networks for Social Recommendation 리뷰">
-	
-	
-	<meta name="keywords" content="Recsys,GNN,GraphRec,JD"><meta name="description" content="ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
- 유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
-그러나, GNNs으로 소셜 추천 시스템을 구축하는 것 …"><meta property="og:title" content="GraphRec : Graph Neural Networks for Social Recommendation 리뷰" />
-<meta property="og:description" content="ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
- 유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Recsys, GNN, GraphRec, JD">
+<meta name="description" content="ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+유저 - 유저 소셜 그래프 유저 - 아이템 그래프 그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
 그러나, GNNs으로 소셜 추천 시스템을 구축하는 것은 세가지 과제 있다.
- 유저-아이템 그래프가 상호작용과 그에 연관된 오피니언을 포함한다 소셜 관계들이 서로 다른 강도를 가진다 유저가 유저-유저 소셜 그래프와 유저-아이템 그래프 모두에 포함된다  위의 세가지 문제를 해결하기 위해 논문이 기여하는 바는 아래와 같다." />
+유저-아 …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="GraphRec : Graph Neural Networks for Social Recommendation 리뷰" />
+<meta property="og:description" content="ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+유저 - 유저 소셜 그래프 유저 - 아이템 그래프 그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
+그러나, GNNs으로 소셜 추천 시스템을 구축하는 것은 세가지 과제 있다.
+유저-아이템 그래프가 상호작용과 그에 연관된 오피니언을 포함한다 소셜 관계들이 서로 다른 강도를 가진다 유저가 유저-유저 소셜 그래프와 유저-아이템 그래프 모두에 포함된다 위의 세가지 문제를 해결하기 위해 논문이 기여하는 바는 아래와 같다.
+유저-아이템 그래프의 상호작용과 오피니언을 동시에 포착하는 방법 두 그래프와 서로 다른 강도를 일관되게 모델링하는 GraphRec 프레임워크 두 실제 데이터셋 기반의 GraphRec의 효과성 증명 1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/graphrec/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-09T20:45:24&#43;09:00" />
-<meta property="article:modified_time" content="2022-03-09T20:45:24&#43;09:00" />
+<meta property="article:published_time" content="2022-03-09T20:45:24+09:00" />
+<meta property="article:modified_time" content="2022-03-09T20:45:24+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GraphRec : Graph Neural Networks for Social Recommendation 리뷰"/>
 <meta name="twitter:description" content="ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
- 유저 - 유저 소셜 그래프 유저 - 아이템 그래프  그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
+유저 - 유저 소셜 그래프 유저 - 아이템 그래프 그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
 그러나, GNNs으로 소셜 추천 시스템을 구축하는 것은 세가지 과제 있다.
- 유저-아이템 그래프가 상호작용과 그에 연관된 오피니언을 포함한다 소셜 관계들이 서로 다른 강도를 가진다 유저가 유저-유저 소셜 그래프와 유저-아이템 그래프 모두에 포함된다  위의 세가지 문제를 해결하기 위해 논문이 기여하는 바는 아래와 같다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>GraphRec : Graph Neural Networks for Social Recommendation 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+유저-아이템 그래프가 상호작용과 그에 연관된 오피니언을 포함한다 소셜 관계들이 서로 다른 강도를 가진다 유저가 유저-유저 소셜 그래프와 유저-아이템 그래프 모두에 포함된다 위의 세가지 문제를 해결하기 위해 논문이 기여하는 바는 아래와 같다.
+유저-아이템 그래프의 상호작용과 오피니언을 동시에 포착하는 방법 두 그래프와 서로 다른 강도를 일관되게 모델링하는 GraphRec 프레임워크 두 실제 데이터셋 기반의 GraphRec의 효과성 증명 1."/>
 
-
+<meta itemprop="name" content="GraphRec : Graph Neural Networks for Social Recommendation 리뷰">
+<meta itemprop="description" content="ABSTRACT 소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.
+유저 - 유저 소셜 그래프 유저 - 아이템 그래프 그리고 핵심은 유저와 아이템의 Latent Factor로 학습하는 것이다.
+그러나, GNNs으로 소셜 추천 시스템을 구축하는 것은 세가지 과제 있다.
+유저-아이템 그래프가 상호작용과 그에 연관된 오피니언을 포함한다 소셜 관계들이 서로 다른 강도를 가진다 유저가 유저-유저 소셜 그래프와 유저-아이템 그래프 모두에 포함된다 위의 세가지 문제를 해결하기 위해 논문이 기여하는 바는 아래와 같다.
+유저-아이템 그래프의 상호작용과 오피니언을 동시에 포착하는 방법 두 그래프와 서로 다른 강도를 일관되게 모델링하는 GraphRec 프레임워크 두 실제 데이터셋 기반의 GraphRec의 효과성 증명 1."><meta itemprop="datePublished" content="2022-03-09T20:45:24+09:00" />
+<meta itemprop="dateModified" content="2022-03-09T20:45:24+09:00" />
+<meta itemprop="wordCount" content="1726">
+<meta itemprop="keywords" content="Recsys,GNN,GraphRec,JD," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">09</span>
-				<span class="rest">Mar 2022</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">GraphRec : Graph Neural Networks for Social Recommendation 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="abstract">ABSTRACT</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">09</span>
+<span class="rest">Mar 2022</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">GraphRec : Graph Neural Networks for Social Recommendation 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="abstract">ABSTRACT</h1>
 <p>소셜 추천 시스템의 데이터는 아래와 같은 표현 된다.</p>
 <ul>
 <li>유저 - 유저 소셜 그래프</li>
@@ -135,8 +139,7 @@
 <p>뉴럴 네트워크를 사용해서 그래프 이웃들로 부터 피처 정보를 어떻게 반복적으로 집계할 것인가?</p>
 </blockquote>
 <p>소셜 추천의 데이터는 두개의 그래프의 그래프 데이터로 표현될 수 있다. 아래의 그림 1에서 증명 되듯이 소셜 그래프와 유저-아이템 그래프를 가진다.</p>
-<figure>
-    <img src="/images/graphRec/0.png"/> <figcaption>
+<figure><img src="/images/graphRec/0.png"/><figcaption>
             <h4>Figure 1</h4>
         </figcaption>
 </figure>
@@ -177,16 +180,14 @@
 <li>유저 - 아이템 그래프 : $R \in R^{n \times m}$ ( $r_{i, j } = 0 \ or \ 1$ )</li>
 <li>유저 - 유저 소셜 그래프 :  $T \in R^{n \times n }$ ( $T_{ij} = 0 \ or  \ 1$ )</li>
 </ul>
-<figure>
-    <img src="/images/graphRec/1.png"/> <figcaption>
+<figure><img src="/images/graphRec/1.png"/><figcaption>
             <h4>Table 1</h4>
         </figcaption>
 </figure>
 
 <h2 id="22-an-overview-of-the-proposed-framework">2.2 An Overview of the Proposed Framework</h2>
 <p>모델의 아키텍처는 그림 2와 같다.</p>
-<figure>
-    <img src="/images/graphRec/2.png"/> <figcaption>
+<figure><img src="/images/graphRec/2.png"/><figcaption>
             <h4>Figure 2</h4>
         </figcaption>
 </figure>
@@ -219,8 +220,7 @@
 <h3 id="item-aggregation--h_ii-">Item Aggregation ( $h_i^I$ )</h3>
 <p>유저-아이템 그래프는 유저와 아이템 간 상호작용과 아이템에 대한 유저의 오피니언을 포함한다.</p>
 <p>유저 $u_i$가 상호작용한 아이템 들과 이 아이템 들에 대한 유저의 오피니언들을 고려한다.</p>
-<figure>
-    <img src="/images/graphRec/3.png"/> 
+<figure><img src="/images/graphRec/3.png"/>
 </figure>
 
 <ul>
@@ -230,8 +230,7 @@
 <li>$\sigma$ - RELU</li>
 </ul>
 <p>유저는 유저-아이템 상호작용 중 아이템에 대한 그/그녀의 의견을 $r$로 표현할 수 있다. 아이템에 대한 이러한 의견들로 아이템에 대한 유저의 선호도로 포착해서 item-space user latent factor를 모델링 하는데 도움을 줄 수 있다.</p>
-<figure>
-    <img src="/images/graphRec/4.png"/> 
+<figure><img src="/images/graphRec/4.png"/>
 </figure>
 
 <ul>
@@ -242,8 +241,7 @@
 <p>각 오피니언 $r$을 Dense Vector 표현으로 오피니언 임베딩 벡터 $e_r \in R^d$로 사용한다. ( {1,2,3,4,5} → $e_r$ )</p>
 <p>아이템 임베딩 $q_a$과 오피니언 임베딩 $e_r$을 concatenate 한 후 MLP에 입력한 출력 결과 $x_{ia}$</p>
 <p>상호 작용한 아이템 셋의 $Aggre_{items}$ 집계 함수에 사용할만한 유명한 연산은 평균이다.</p>
-<figure>
-    <img src="/images/graphRec/5.png"/> 
+<figure><img src="/images/graphRec/5.png"/>
 </figure>
 
 <ul>
@@ -251,16 +249,14 @@
 </ul>
 <p>유저 $u_i$를 표현을 생성하는데 모든 상호 작용이 동등하게 기여한다고 가정한다.</p>
 <p>그러나 유저를 표현하기 위한 상호작용 들의 영향도는 극적으로 달라질 것이다. 그래서 각각의 상호작용에 가중치를 부여해서 상호작용 들이 서로 다르게 기여하게 만들어야 한다. 따라서 어텐션 메커니즘을 적용한다.</p>
-<figure>
-    <img src="/images/graphRec/6.png"/> 
+<figure><img src="/images/graphRec/6.png"/>
 </figure>
 
 <ul>
 <li>$\alpha_{ia}$ - $C(i)$에 포함된 각각 아이템 $v_a$에 대한 유저 $u_i$의 상호 작용 $( v_a, u_i )$ 어텐션 가중치</li>
 </ul>
 <p>아이템 어텐션 $\alpha_{ia}$를 어텐션 네트워크라 부르는 두 레이어의 뉴럴 네트워크로 구성한다. 어텐션 네트워크는 아래와 같이 정의한다.</p>
-<figure>
-    <img src="/images/graphRec/7.png"/> 
+<figure><img src="/images/graphRec/7.png"/>
 </figure>
 
 <ul>
@@ -270,27 +266,23 @@
 <li>$x_{ia}$ : Value</li>
 </ul>
 <p>최종적인 어텐션 가중치는 위에서 계산한 어텐션 스코어를 소프트맥스 함수를 사용해서 도출한다.</p>
-<figure>
-    <img src="/images/graphRec/8.png"/> 
+<figure><img src="/images/graphRec/8.png"/>
 </figure>
 
 <h3 id="social-aggregation--h_is-">Social Aggregation ( $h_i^S$ )</h3>
 <p>소셜 상관 계수 이론에 따르면, 유저의 선호도는 그/그녀와 직접적으로 연결된 소셜 친구와 유사하거나 혹은 영향을 받는다. 따라서 user latent factor를 추가로 모델링하기 위해 소셜 정보를 통합 시켜야 한다. 그러나 서로 다른 소셜 관계 강도를 고려해서 social-space user latent factors를 학습해야 한다. 따라서 소셜 친구를 선택하는 과정에 어텐션 메커니즘을 사용해서 유저 소셜 정보를 강조한 다음, 그 정보를 집계해야 한다.</p>
-<figure>
-    <img src="/images/graphRec/9.png"/> 
+<figure><img src="/images/graphRec/9.png"/>
 </figure>
 
 <ul>
 <li>$N(i)$ - 유저 $u_i$의 이웃 셋</li>
 </ul>
 <p>유저의 $u_i$의 이웃 셋의 item-space user latent factors를 집계해서 social-space user latent factor, $h_i^S$를 구성한다.</p>
-<figure>
-    <img src="/images/graphRec/10.png"/> 
+<figure><img src="/images/graphRec/10.png"/>
 </figure>
 
 <p>마찬가지로, 평균을 사용한 집계가 가장 자연스러운 방법이지만, 강한 유대와 약한 유대가 소셜 네트워크에 공존하고, 강한 유대를 가진 유저들 간에 더 많은 취향을 공유하므로 이러한 유저들을 뽑는데 레이어가 두개인 어텐션 메커니즘을 수행한다.</p>
-<figure>
-    <img src="/images/graphRec/11.png"/> 
+<figure><img src="/images/graphRec/11.png"/>
 </figure>
 
 <ul>
@@ -298,8 +290,7 @@
 </ul>
 <h3 id="learning-user-latent-factor">Learning User Latent Factor</h3>
 <p>더 좋은 user latent factors를 학습 하기 위해,  item-space user latent factor와 social-space user latent factor가 함께 고려되어야 한다. 따라서 두 latent factor를 concatenate 한 후, 표준 MLP 통과 시켜 최종 user latent factor를 생성한다.</p>
-<figure>
-    <img src="/images/graphRec/12.png"/> 
+<figure><img src="/images/graphRec/12.png"/>
 </figure>
 
 <ul>
@@ -310,31 +301,26 @@
 <h3 id="user-aggregation">User Aggregation</h3>
 <p>아이템 집계를 통한 item-space user latent factor를 학습한 메소드와 유사한 메소드를 사용한다. 각각의 아이템 $v_j$에 대해, $v_j$와 상호작용한 유저 셋 $B(j)$의 정보를 집계해야 한다.</p>
 <p>동일한 아이템이라도, 유저들이 유저-아이템 상호작용 중에 다른 오피니언을 표현할 수도 있다. 이런 서로 다른 유저들의 오피니언 들이 동일한 아이템의 특징을 포착해서, item latent factor를 모델링 하는데 도움을 준다.</p>
-<figure>
-    <img src="/images/graphRec/13.png"/> 
+<figure><img src="/images/graphRec/13.png"/>
 </figure>
 
 <p>기본 유저 임베딩과 오피니언 임베딩을 MLP에 통과시켜 오피니언을 인식한 유저 벡터를 얻는다.</p>
-<figure>
-    <img src="/images/graphRec/14.png"/> 
+<figure><img src="/images/graphRec/14.png"/>
 </figure>
 
 <p>그리고 오피니언을 인식한 유저 벡터를 집계한다.</p>
-<figure>
-    <img src="/images/graphRec/15.png"/> 
+<figure><img src="/images/graphRec/15.png"/>
 </figure>
 
 <p>어텐션 메커니즘을 적용해서 유저들의 중요도 가중치에 차별을 둔다.</p>
 <h2 id="25-rating-prediction">2.5 Rating Prediction</h2>
 <p>아이템 랭킹과 레이팅 예측 같은 다양한 추천 태스크가 있다. 이 연구에서는 레이팅 예측을 적용했다. 유저들과 아이템들의 latent factor ( $h_i$ 와 $z_j$)를 concatenate 한 후, 레이팅 예측을 위해 MLP 레이어에 통과시킨다.</p>
-<figure>
-    <img src="/images/graphRec/16.png"/> 
+<figure><img src="/images/graphRec/16.png"/>
 </figure>
 
 <h2 id="26-model-training">2.6 Model Training</h2>
 <p>이 연구의 태스크가 레이팅 예측이기 때문에, 공통적으로 사용되는 목적 함수는 아래와 같다.</p>
-<figure>
-    <img src="/images/graphRec/17.png"/> 
+<figure><img src="/images/graphRec/17.png"/>
 </figure>
 
 <ul>
@@ -360,8 +346,7 @@
 <p>징동상청은 중화인민공화국에서 360buy를 경영하고 있던 류창동이 설립한 웹서비스 회사이다. 중국 베이징시 차오양 구에 본사를 세워, 같은 사의 EC사이트인 &ldquo;<a href="http://jd.com/" target="_blank">JD.com</a>&ldquo;에서는 가전・PC・가구・의류・식품・도서 등의 상품을 인터넷으로 판매하고 있다.</p>
 </li>
 </ul>
-<figure>
-    <img src="/images/graphRec/18.png"/> <figcaption>
+<figure><img src="/images/graphRec/18.png"/><figcaption>
             <h4>Table 2</h4>
         </figcaption>
 </figure>
@@ -381,8 +366,7 @@
 </li>
 </ul>
 <h2 id="32-performance-comparision-of-recommender-systems">3.2 Performance Comparision of Recommender Systems</h2>
-<figure>
-    <img src="/images/graphRec/19.png"/> <figcaption>
+<figure><img src="/images/graphRec/19.png"/><figcaption>
             <h4>Table 3</h4>
         </figcaption>
 </figure>
@@ -400,8 +384,7 @@
 <li>GraphRec-SN : GraphRec에서 소셜 네트워크 정보를 제거한 모델</li>
 <li>GraphRec-Opinion : GraphRec에서 오피니언 임베딩을 제거한다.</li>
 </ul>
-<figure>
-    <img src="/images/graphRec/20.png"/> <figcaption>
+<figure><img src="/images/graphRec/20.png"/><figcaption>
             <h4>Figure 3</h4>
         </figcaption>
 </figure>
@@ -416,8 +399,7 @@
 <li>GraphRec-$\alpha$&amp;$\beta$ : 아이템 어텐션과 소셜 어텐션을 제거하고 Mean 집계를 사용한다.</li>
 <li>GraphRec-$\mu$ : 유저 집계에 사용한 유저 어텐션을 제거하고 Mean 집계를 사용한다</li>
 </ul>
-<figure>
-    <img src="/images/graphRec/21.png"/> <figcaption>
+<figure><img src="/images/graphRec/21.png"/><figcaption>
             <h4>Figure 4</h4>
         </figcaption>
 </figure>
@@ -426,8 +408,7 @@
 <p>유저들이 강한 유대감을 가진 상대와 비슷한 취향을 더 많이 공유한다고 한다. GraphRec-$\beta$의 성능이 떨어지는데, 이는 소셜 관계의 중요도를 구분하는 것이 중요하다는 것을 보인다.</p>
 <h3 id="effect-of-embedding-size">Effect of Embedding Size</h3>
 <p>유저 임베딩 $p$, 아이템 임베딩 $q$, 그리고 오피니언 임베딩 $e$의 사이즈를 분석한다.</p>
-<figure>
-    <img src="/images/graphRec/22.png"/> <figcaption>
+<figure><img src="/images/graphRec/22.png"/><figcaption>
             <h4>Figure 5</h4>
         </figcaption>
 </figure>
@@ -439,537 +420,53 @@
 <p>추가로, GraphRec이 소셜 관계의 강도를 구분할 수 있다. 실제 데이터 셋으로 성능을 증명했다.</p>
 <p>현재는 레이팅과 소셜 통계 정보를 함께 고려하고 있는데, 정보들이 다이나믹하다. 따라서 추후 연구에서는 소셜 추천을 위한 다이나믹 그래프 뉴럴 네트워크를 구축을 고려할 것이다.</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/recommendation/"> recommendation </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gnn/"> gnn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/graphrec/"> graphrec </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/jd/"> jd </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/recsys/"> recsys </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/recommendation/">recommendation</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/gnn/">gnn</a>
+<a href="/tags/graphrec/">graphrec</a>
+<a href="/tags/jd/">jd</a>
+<a href="/tags/recsys/">recsys</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

@@ -8,21 +8,15 @@
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
 		<lastBuildDate>Sun, 17 Apr 2022 19:03:56 +0900</lastBuildDate>
-		
 		<atom:link href="https://pko89403.github.io/tags/kgat/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</title>
 			<link>https://pko89403.github.io/post/kgat/</link>
 			<pubDate>Sun, 17 Apr 2022 19:03:56 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/kgat/</guid>
 			<description>
-			
-				ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …
-			
+			ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …
 			</description>
 		</item>
-		
 	</channel>
 </rss>

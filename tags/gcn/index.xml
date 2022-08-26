@@ -7,36 +7,36 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
-		<lastBuildDate>Sat, 19 Mar 2022 12:14:52 +0900</lastBuildDate>
-		
+		<lastBuildDate>Sat, 27 Aug 2022 00:24:34 +0900</lastBuildDate>
 		<atom:link href="https://pko89403.github.io/tags/gcn/index.xml" rel="self" type="application/rss+xml" />
-		
+		<item>
+			<title>LightGCN : Simplifying and Powering Graph Convolution Network for Recommendation 리뷰</title>
+			<link>https://pko89403.github.io/post/lightgcn/</link>
+			<pubDate>Sat, 27 Aug 2022 00:24:34 +0900</pubDate>
+			<guid>https://pko89403.github.io/post/lightgcn/</guid>
+			<description>
+			ABSTRACT 그래프 컨볼루션 네트워크는 CF에서 새로운 SOTA가 되었다. 그럼에도 불구하고, 추천에서의 효과에 대한 근거는 잘 알려지지 않았다. 추천에 GCN을 적용한 연구 들은 GCN에 대한 ablation 분석이 부족했는데, GCN은 애초에  …
+			</description>
+		</item>
 		<item>
 			<title>PUP : Price-aware Recommendation Convolution Network 리뷰</title>
 			<link>https://pko89403.github.io/post/pup/</link>
 			<pubDate>Sat, 19 Mar 2022 12:14:52 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/pup/</guid>
 			<description>
-			
-				ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+			ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
 → 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
 마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상 …
-			
 			</description>
 		</item>
 		<item>
 			<title>Graph Neural Networks에 대한 이해</title>
 			<link>https://pko89403.github.io/post/gnn_intro/</link>
 			<pubDate>Thu, 23 Sep 2021 23:53:37 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/gnn_intro/</guid>
 			<description>
-			
-				GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …
-			
+			GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …
 			</description>
 		</item>
-		
 	</channel>
 </rss>

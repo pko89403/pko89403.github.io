@@ -8,48 +8,36 @@
 		<language>en-us</language>
 		<copyright>© Copyright notice | Vitae theme for Hugo</copyright>
 		<lastBuildDate>Sun, 05 Dec 2021 22:33:51 +0900</lastBuildDate>
-		
 		<atom:link href="https://pko89403.github.io/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
-		
 		<item>
 			<title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</title>
 			<link>https://pko89403.github.io/post/prefect_ecs/</link>
 			<pubDate>Sun, 05 Dec 2021 22:33:51 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/prefect_ecs/</guid>
 			<description>
-			
-				Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
+			Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
 EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster …
-			
 			</description>
 		</item>
 		<item>
 			<title>워크플로우 엔진 PREFECT : 개념</title>
 			<link>https://pko89403.github.io/post/prefect_init/</link>
 			<pubDate>Mon, 29 Nov 2021 18:56:06 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/prefect_init/</guid>
 			<description>
-			
-				일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
+			일주일 마다 한번씩 크롤링을 해서 정리한 후, 검색을 위해 엘라스틱 서치(ES)에 인덱스를 생성할 필요가 있다. 그래서 파이썬 기반의 새로운 워크플로우 관리 엔진인 PREFECT를 사용해보려 한다.
 Prefect는 데이터 워크플로우들을 구축하는 툴이 …
-			
 			</description>
 		</item>
 		<item>
 			<title>Argo-Workflow : Kubernetes에서 Batch Job</title>
 			<link>https://pko89403.github.io/post/argoworkflow/</link>
 			<pubDate>Thu, 29 Apr 2021 17:02:02 +0900</pubDate>
-			
 			<guid>https://pko89403.github.io/post/argoworkflow/</guid>
 			<description>
-			
-				argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
+			argo workflow Kubernetes CronJob으로 필요한 데이터 전처리를 할 필요가 있어서 사용했는데 진짜 이상했다.
 InitContainer에 순서대로 Job들을 쌓아서 마지막 Container로 로그를 다 뱉어내고 찍어내는 식으로 만들 …
-			
 			</description>
 		</item>
-		
 	</channel>
 </rss>

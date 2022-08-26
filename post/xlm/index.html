@@ -1,107 +1,106 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="Cross-lingual Language Model Pretraining : XLM 리뷰">
-	
-	
-	<meta name="keywords" content="ai,nlp,xlm"><meta name="description" content="Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. …"><meta property="og:title" content="Cross-lingual Language Model Pretraining : XLM 리뷰" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cross-lingual Language Model Pretraining : XLM 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="ai, nlp, xlm">
+<meta name="description" content="Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="Cross-lingual Language Model Pretraining : XLM 리뷰" />
 <meta property="og:description" content="Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual language model(XLM)을 학습하는 세가지 메소드를 제시한다.
- 단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드  교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
- XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA)  비지도 학습 방식의 기계 번역의 경우" />
+단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드 교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
+XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA) 비지도 학습 방식의 기계 번역의 경우" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/xlm/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-13T22:25:48&#43;09:00" />
-<meta property="article:modified_time" content="2021-06-13T22:25:48&#43;09:00" />
+<meta property="article:published_time" content="2021-06-13T22:25:48+09:00" />
+<meta property="article:modified_time" content="2021-06-13T22:25:48+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cross-lingual Language Model Pretraining : XLM 리뷰"/>
 <meta name="twitter:description" content="Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual language model(XLM)을 학습하는 세가지 메소드를 제시한다.
- 단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드  교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
- XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA)  비지도 학습 방식의 기계 번역의 경우"/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>Cross-lingual Language Model Pretraining : XLM 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드 교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
+XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA) 비지도 학습 방식의 기계 번역의 경우"/>
 
-
+<meta itemprop="name" content="Cross-lingual Language Model Pretraining : XLM 리뷰">
+<meta itemprop="description" content="Abstract 최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual language model(XLM)을 학습하는 세가지 메소드를 제시한다.
+단일 언어 데이터만 사용하는 비지도 학습 메소드 병렬 데이터와 XLM에 새로운 목적함수를 사용하는 지도 학습 메소드 교차 언어 분류, 지도 및 비지도 방식의 기계 번역에서 SOTA를 달성했다.
+XNLI 데이터셋에서 논문의 방법은 정확도를 4.9% 개선 (SOTA) 비지도 학습 방식의 기계 번역의 경우"><meta itemprop="datePublished" content="2021-06-13T22:25:48+09:00" />
+<meta itemprop="dateModified" content="2021-06-13T22:25:48+09:00" />
+<meta itemprop="wordCount" content="2748">
+<meta itemprop="keywords" content="ai,nlp,xlm," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">13</span>
-				<span class="rest">Jun 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Cross-lingual Language Model Pretraining : XLM 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="abstract">Abstract</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">13</span>
+<span class="rest">Jun 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Cross-lingual Language Model Pretraining : XLM 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="abstract">Abstract</h1>
 <p>최근 연구들은 영어 자연어 이해를 위한 생성적 사전학습(generative pretraining)의 효율성을 증명했다. 본 연구에서는 이 방식을 여러 언어들로 확장해서 교차 언어(cross-lingual) 사전학습의 효과를 보인다. cross-lingual language model(XLM)을 학습하는 세가지 메소드를 제시한다.</p>
 <ol>
 <li>단일 언어 데이터만 사용하는 비지도 학습 메소드</li>
@@ -151,8 +150,7 @@
 <p>언어를 N개를 다룬다. N 개의 단일 언어 말뭉치 ${{C_i}}_{i=1&hellip;N}$를 가진다고 가정하고, 말뭉치 $C_i$ 내의 문장의 수를 $n_i$로 표기한다.</p>
 <h2 id="31-shared-sub-word-vocabulary">3.1 Shared sub-word vocabulary($*$)</h2>
 <p>모든 실험에서는 모든 언어를 처리를 BPE로 생성한 동일한 vocab을 공유해서 사용한다. 이전 연구와 같이, vocab을 공유하는 것이 숫자나 고유 명사와 같은 동일한 알파벳과 기준 토큰을 공유하기 때문에 언어에 따른 임베딩 공간 정렬을 개선시킨다. 단일 언어 말뭉치에서 랜덤하게 샘플된 문장들의 결합으로 BPE 분할을 학습한다. 문장들은 확률 ${q_i}_{i=1&hellip;N}$을 사용하는 다항분포에 따라 샘플링 된다.</p>
-<figure>
-    <img src="/images/xlm/xlm0.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm0.png"/><figcaption>
             <h4>Figure 1</h4>
         </figcaption>
 </figure>
@@ -173,16 +171,14 @@
 </li>
 </ul>
 <p>논문의 방식과 MLM의 차이는 문장의 쌍을 사용하는 것이 아닌 <strong>랜덤한 수의 문장(256개 토큰)을 사용</strong>하는 점이다. 자주 등장하고 자주 등장하지 않는 토큰 간 불균형을 처리하기 위해서, 자주 등장하는 토큰을 서브 샘플링한다. 텍스트 스트림의 토큰들은 단일 언어 분포에 따라 샘플링 되고, 샘플링 가중치로 그들의 발생 빈도 제곱근을 분모로 사용한다. 목적 함수는 그림 1에 있다.</p>
-<figure>
-    <img src="/images/xlm/xlm1.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm1.png"/><figcaption>
             <h4>Figure 2</h4>
         </figcaption>
 </figure>
 
 <h2 id="34-translation-language-modeling-tlm">3.4 Translation Language Modeling (TLM)</h2>
 <p><strong>TLM은 지도 학습 방법이다.</strong> CLM과 MLM의 비지도 방식이고 단일 언어 데이터만 사용한다. 병렬 데이터를 활용할 수 없다. TLM은 MLM이 확장된 형태로, 단일 언어 텍스트 스트림을 고려하는 하는 것이 아닌 그림 1에서 묘사된 것 처럼 <strong>병렬 문장(소스 문장과 타겟 문장)이 결합된 형태</strong>를 다룬다. 소스와 타겟 문장 둘 다에 랜덤하게 단어를 마스킹한다. 소스 문장에서 마스킹 된 단어를 예측하기 위해서, 둘러싼 소스 단어 들과 번역된 타겟 단어를 사용한다. 특히, 모델은 소스 문장으로 마스킹 된 소스 언어의 단어를 추론하기 부족할 때, 타겟 언어의 컨텍스트를 활용할 수 있다. 이 정렬 난이도를 낮추기 위해 타겟 문장의 위치도 재설정 한다.</p>
-<figure>
-    <img src="/images/xlm/xlm2.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm2.png"/><figcaption>
             <h4>Figure 3</h4>
         </figcaption>
 </figure>
@@ -205,8 +201,7 @@
 <li>영어 NLI 학습 데이터셋에 모든 파라미터를 파인튜닝한다.</li>
 </ol>
 <p>교차 언어 자연어 추론 데이터 셋(XNLI, 15개 언어)을 검증하는데 사용한다. 또한 학습과 테스트 셋의 기계 번역 베이스라인을 포함한다. 결과는 테이블 1에 리포트한다.</p>
-<figure>
-    <img src="/images/xlm/xlm3.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm3.png"/><figcaption>
             <h4>Figure 4</h4>
         </figcaption>
 </figure>
@@ -224,8 +219,7 @@
 <li>언어 말뭉치의 결합에 fastText를 적용한다.</li>
 </ul>
 <p>이 방법 공통 알파벳을 공유하는 언어에 대해 높은 성능의 교차 언어 임베딩을 직접 제공하는 것을 보였다. 이 연구에서 공유 vocab도 사용하지만 단어 임베딩은 교차 언어 모델의 룩업 테이블로 구해진다. 섹션 5에서, 이 세 방법을 서로 다른 세가지 메트릭들로 비교한다. 메트릭으로 코사인 유사도, L2 거리 그리고 교차 단어 유사도를 사용한다.</p>
-<figure>
-    <img src="/images/xlm/xlm4.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm4.png"/><figcaption>
             <h4>Figure 5</h4>
         </figcaption>
 </figure>
@@ -256,8 +250,7 @@
 <p>MLM 메소드는 제로샷 교차 언어 분류에서 SOTA를 이루었고, 223 백만 병렬 문장을 사용하는 Artetxe and Schwenk (2018)( 평균 정확도 70.2% )에 비해 월등한 성능( 평균 정확도 71.5% )을 냈다.</p>
 <p>병렬 데이터를 사용하는 MLM+TLM은, 정확도 3.6%가 개선된 75.1를 달성했다. 적은 리소스 언어인 스와힐리어와 우르두어 에서는, 상대적으로 6.2%, 6.3%를 개선시켰다. TLM+MLM은 영문에서 MLM(83.2%)에서 85%로 정확도를 개선시켰다. Artetxe and Schwenk (2018)(11.1%) 그리고 Devlin et al. (2018)(3.6%)의 개선을 이루었다.</p>
 <p>각 XNLI 언어(TRANSLATE-TRAIN)를 학습 셋으로 파인튜닝을 하면, 논문의 지도 모델은 우리의 제로샷 접근법에 비해 1.6% 우수 했고 평균 정확도 76.7%로 SOTA에 도달했다. 이 결과는 특히 접근 방식의 일관성을 증명하고 XLM이 높은 성능으로 어떠한 언어에도 파인튜닝 될 수 있음을 보여준다. 다언어 BERT( Devlin et al. 2018)과 유사하게, TRANSLATE-TRAIN이 평균 정확도 2.5%가 TRASLATE-TEST에 비해 높다는 것을 보았고, 제로샷 접근법에서는 0.9%가 높다는 것을 보였다.</p>
-<figure>
-    <img src="/images/xlm/xlm5.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm5.png"/><figcaption>
             <h4>Table 1</h4>
         </figcaption>
 </figure>
@@ -272,8 +265,7 @@
 </ul>
 <p>9개의 서로 다른 세팅이 나온다. 그리고 Lample et al. (2018b)를 따라 온라인 역 번역 로스와 함께 디노이징 오토 인코딩 로스를 사용해서 모델을 학습시킨다. 결과는 테이블 2에 리포트 되어있다. Lample et al. (2018b)의 결과와 비교했다. 각 언어 쌍에서 이전의 SOTA에 비해 상당한 성능 개선을 보았다. Lample et al. (2018b) (EMB)의 NMT 방법을 재구현했고, 보고된 성능에 비해 더 좋은 결과를 얻었다. 더 큰 배치를 사용하는 멀티 GPU 구현에 인한 것으로 예상한다.</p>
 <p>독일어-영어에서 이전 비지도 방법에 비해 9.1 BLEU를 개선을 이루었고, 신경망 기반 비지도 방법에서는 13.3 BLEU가 개선 되었다. 룩업 테이블 (EMB)만 사전 학습 하는 것과 비교하면, MLM으로 인코더와 디코더를 사전 학습하면 독일어-영어에서 7 BLEU 이상의 지속적인 개선이 된다. <strong>MLM으로 사전 학습하는 것이 CLM에 비해 상당한 개선을 보임을 발견했다.</strong> 영어-프랑스어에서 30.4 ~ 33.4 BLEU, 루마니아어-영어에서 28.0 ~ 31.8 정도였다. 이러한 결과들은 NLU 태스크들에 MLM과 CLM을 비교 했던 Devlin et al. (2018)의 연구와 동일하다. 그리고 인코더가 사전학습에서 가장 중요함을 발견했다. 인코더와 디코더의 사전학습하는 것을 비교하면, 디코더 만을 사전학습 하는 것은 성능을 엄청나게 떨어트리는 것을 발견했고, 인코더만 사전학습 하는 것은 최종 BLEU 스코어에 미미한 효과가 있다는 것을 발견했다.</p>
-<figure>
-    <img src="/images/xlm/xlm6.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm6.png"/><figcaption>
             <h4>Table 2</h4>
         </figcaption>
 </figure>
@@ -286,15 +278,13 @@
 <li>양방향과 back-translation ( 루 ↔ 영 + BT )</li>
 </ul>
 <p>BT를 이용한 모델은 사전 학습에 사용하는 언어 모델과 동일한 단일 언어 데이터로 학습된다. 비지도 학습에서는 사전 학습이 각 구성에서 BLEU 스코어를 엄청난 개선을 보임을 발견했고, MLM을 사용한 사전학습이 최고 성능을 보였다. BT를 사용한 모델이 사전 학습 모델과 동일한 양의 데이터를 사용하지만 검증으로 사용할만큼 잘 생성하지는 못했다. 양방향+BT 모델은 최고 성능을 보였고 38.5 BLEU 점수를 달성했다. 이전 SOTA 였던 Senrich et al. (2016) ( BT + 앙상블 )에 비해 4 BLEU 의 성능 개선을 달성했다.</p>
-<figure>
-    <img src="/images/xlm/xlm7.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm7.png"/><figcaption>
             <h4>Figure 6</h4>
         </figcaption>
 </figure>
 
 <p>완벽하지는 않더라도 Target Sentence를 보고 인공적인 Source Sentence를 만드는 과정</p>
-<figure>
-    <img src="/images/xlm/xlm8.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm8.png"/><figcaption>
             <h4>Table 3</h4>
         </figcaption>
 </figure>
@@ -306,8 +296,7 @@
 <li>추가로 영어와 힌두어를 사용한다.</li>
 </ul>
 <p>네팔어와 영어가 거리가 좀 있는 언어지만, 네팔어와 힌두어는 유사한게 동일한 힌두어 알파벳을 공유하고 산스크리트 어에서 발전된 언어이기 때문이다. 영어 데이터를 사용했을 때, 네팔 언어모델의 perplexity를 17.1점을 낮췄고, 네팔어만 사용한 모델 157.2에서 시작해서 전체를 사용했을 때 109.3으로 41.6점을 낮췄다. 교차 언어 모델링으로 인한 perplexity 개선을 얻은 것은 위키피디아 기사와 같이 언어 간 공유되는 n 그램 기준 포인트로 부분적으로 설명할 수 있다. 그래서 교차 언어 모델은 네팔어 모델을 개선시키기 위해 이러한 기준 포인트로 힌두어나 영어 단일 말뭉치에서 제공하는 추가 컨텍스트를 트랜스퍼 할 수 있다.</p>
-<figure>
-    <img src="/images/xlm/xlm9.png"/> <figcaption>
+<figure><img src="/images/xlm/xlm9.png"/><figcaption>
             <h4>Table 4</h4>
         </figcaption>
 </figure>
@@ -318,9 +307,8 @@
 <li>Concat ( fastText )</li>
 <li>XLM(MLM) ( fastText )</li>
 </ul>
-<p>위의 메소드들은 서로 다른 특성을 가지는 비지도 학습 방식의 교차 언어 임베딩을 제공한다. 테이블 5에서는 동일한 vocab을 사용한 세가지 메소드를 연구하고 MUSE 사전의 단어 번역 쌍에서의 코사인 유사도와 L2를 계산한다. Camacho-Collados et al.(2017)에서의 SemEval' 17 교차 언어 유사도 태스크를 통한 코사인 유사도 측정법의 성능을 검증한다. 교차 언어에서 단어 유사도에서XLM이 Concat과 MUSE에 비해 더 좋은 성능을 보였고 피어슨 상관 계수 0.69를 달성했다. XLM이 Concat과 MUSE에 비해 임베딩 거리가 더 가까웠다. MUSE는 코사인 유사도 0.38, L2 5.13이고 XLM은 0.55, 2.64 였다. XLM 임베딩들은 이러한 근접성을 강화할 수 있는 문장 인코더와 함께 학습되는 특수성을 가지고 있지만, MUSE와 Concat은 fastText 단어 임베딩을 기반으로 한다.</p>
-<figure>
-    <img src="/images/xlm/xlm10.png"/> <figcaption>
+<p>위의 메소드들은 서로 다른 특성을 가지는 비지도 학습 방식의 교차 언어 임베딩을 제공한다. 테이블 5에서는 동일한 vocab을 사용한 세가지 메소드를 연구하고 MUSE 사전의 단어 번역 쌍에서의 코사인 유사도와 L2를 계산한다. Camacho-Collados et al.(2017)에서의 SemEval&rsquo; 17 교차 언어 유사도 태스크를 통한 코사인 유사도 측정법의 성능을 검증한다. 교차 언어에서 단어 유사도에서XLM이 Concat과 MUSE에 비해 더 좋은 성능을 보였고 피어슨 상관 계수 0.69를 달성했다. XLM이 Concat과 MUSE에 비해 임베딩 거리가 더 가까웠다. MUSE는 코사인 유사도 0.38, L2 5.13이고 XLM은 0.55, 2.64 였다. XLM 임베딩들은 이러한 근접성을 강화할 수 있는 문장 인코더와 함께 학습되는 특수성을 가지고 있지만, MUSE와 Concat은 fastText 단어 임베딩을 기반으로 한다.</p>
+<figure><img src="/images/xlm/xlm10.png"/><figcaption>
             <h4>Table 5</h4>
         </figcaption>
 </figure>
@@ -330,535 +318,52 @@
 <h1 id="참고자료">참고자료</h1>
 <p><a href="https://www.youtube.com/watch?v=aRwvwdfK0cA" target="_blank">[고려대 ICPS lab. 논문리뷰] Cross-lingual Language Model Pretraining</a></p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/paper-review/"> paper-review </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ai/"> ai </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/nlp/"> nlp </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/xlm/"> xlm </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/paper-review/">paper-review</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ai/">ai</a>
+<a href="/tags/nlp/">nlp</a>
+<a href="/tags/xlm/">xlm</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

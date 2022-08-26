@@ -1,105 +1,103 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="KGAT: Knowledge Graph Attention Network for Recommendation 리뷰">
-	
-	
-	<meta name="keywords" content="Recsys,GNN,KGAT,KG"><meta name="description" content="ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로  …"><meta property="og:title" content="KGAT: Knowledge Graph Attention Network for Recommendation 리뷰" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Recsys, GNN, KGAT, KG">
+<meta name="description" content="ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소 …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="KGAT: Knowledge Graph Attention Network for Recommendation 리뷰" />
 <meta property="og:description" content="ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소드는 인스턴스 혹은 아이템 간의 관계를 간과하기 때문에, CF 시그널을 녹여내기에 부족하다.
 본 논문에서는 지식 그래프(KG)의 가능성을 연구 하는데, 지식 그래프로 독립적인 상호작용에 대한 가정을 아이템 어트리뷰트와 함께 연결시켜 세분화 할 수 있다고 한다. 하이브리드 구조인 KG와 유저-아이템 그래프에 연결된 어트리뷰트 들로 두 아이템을 연결하는 고차 관계성으로 성공적인 추천을 할수 있다고 주장한다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/kgat/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-04-17T19:03:56&#43;09:00" />
-<meta property="article:modified_time" content="2022-04-17T19:03:56&#43;09:00" />
+<meta property="article:published_time" content="2022-04-17T19:03:56+09:00" />
+<meta property="article:modified_time" content="2022-04-17T19:03:56+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KGAT: Knowledge Graph Attention Network for Recommendation 리뷰"/>
 <meta name="twitter:description" content="ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소드는 인스턴스 혹은 아이템 간의 관계를 간과하기 때문에, CF 시그널을 녹여내기에 부족하다.
 본 논문에서는 지식 그래프(KG)의 가능성을 연구 하는데, 지식 그래프로 독립적인 상호작용에 대한 가정을 아이템 어트리뷰트와 함께 연결시켜 세분화 할 수 있다고 한다. 하이브리드 구조인 KG와 유저-아이템 그래프에 연결된 어트리뷰트 들로 두 아이템을 연결하는 고차 관계성으로 성공적인 추천을 할수 있다고 주장한다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>KGAT: Knowledge Graph Attention Network for Recommendation 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 
-
+<meta itemprop="name" content="KGAT: Knowledge Graph Attention Network for Recommendation 리뷰">
+<meta itemprop="description" content="ABSTRACT 더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소드는 인스턴스 혹은 아이템 간의 관계를 간과하기 때문에, CF 시그널을 녹여내기에 부족하다.
+본 논문에서는 지식 그래프(KG)의 가능성을 연구 하는데, 지식 그래프로 독립적인 상호작용에 대한 가정을 아이템 어트리뷰트와 함께 연결시켜 세분화 할 수 있다고 한다. 하이브리드 구조인 KG와 유저-아이템 그래프에 연결된 어트리뷰트 들로 두 아이템을 연결하는 고차 관계성으로 성공적인 추천을 할수 있다고 주장한다."><meta itemprop="datePublished" content="2022-04-17T19:03:56+09:00" />
+<meta itemprop="dateModified" content="2022-04-17T19:03:56+09:00" />
+<meta itemprop="wordCount" content="3952">
+<meta itemprop="keywords" content="Recsys,GNN,KGAT,KG," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">17</span>
-				<span class="rest">Apr 2022</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="abstract">ABSTRACT</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">17</span>
+<span class="rest">Apr 2022</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">KGAT: Knowledge Graph Attention Network for Recommendation 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="abstract">ABSTRACT</h1>
 <p>더 정확하고, 다양하고, 설명가능한 추천을 제공하기 위해 유저-아이템 간 상호작용 모델링을 넘어 부가적인 정보도 함께 고려 해야 한다. FM 같은 기존 메소드는 지도 학습으로 각각의 상호작용을 부가 정보와 함께 인코딩된 독립된 객체로 가정했다. 하지만 기존 메소드는 인스턴스 혹은 아이템 간의 관계를 간과하기 때문에, CF 시그널을 녹여내기에 부족하다.</p>
 <p>본 논문에서는 지식 그래프(KG)의 가능성을 연구 하는데, 지식 그래프로 독립적인 상호작용에 대한 가정을 아이템 어트리뷰트와 함께 연결시켜 세분화 할 수 있다고 한다. 하이브리드 구조인 KG와 유저-아이템 그래프에 연결된 어트리뷰트 들로 두 아이템을 연결하는 고차 관계성으로 성공적인 추천을 할수 있다고 주장한다.</p>
 <p>Knowledge Graph Attention Network ( KGAT ) 메소드를 제안하는데, e2e 방식으로 고차 연결성을 명시적으로 KG에 모델링한다. 노드의 이웃( 유저, 아이템 혹은 어트리뷰트 )에서 부터 노드 임베딩을 재정의하기 위해 임베딩을  재귀적으로 전파하고, 어텐션 메커니즘으로 노드 이웃 간의 중요도를 구분한다. KGAT는 개념적으로 기존 KG 기반 추천 메소드에 비해 유리하다. ( KG 기반 추천 메소드는 경로를 추출해 그 고차 관계성을 활용하거나 정규화로 암시적으로 고차 관계성을 모델링하는 메소드다. )</p>
@@ -107,16 +105,14 @@
 <h1 id="1-introduction">1. INTRODUCTION</h1>
 <p>CF 메소드는 “사이드 정보를 모델링할 수 없다”는 단점이 있다. 사이드 정보에는 아이템 어트리뷰트, 유저 프로파일 그리고 컨텍스트가 있다. 그래서 유저와 아이템 간 상호작용 데이터가 희소한 상황에서는 성능이 낮다. 이런 정보를 통합하기 위해 공통적으로 사용하는 패러다임은 사이드 정보를 유저 ID, 아이템 ID 와 함께 제너릭한 피처 벡터로 변환하고, 지도 학습 모델의 예측에 사용하는 것이다.</p>
 <p>추천에 지도 학습을 적용한 패러다임은 성능이 강력하다. 하지만 각 상호작용을 독립적인 데이터 인스턴스로 모델링하는 단점과 그들 간의 관계는 고려하지 않는 단점이 있다. 따라서 수집한 유저 행동에서 어트리뷰트 기반 CF 시그널을 녹여내기 부족하다.</p>
-<figure>
-    <img src="/images/kgat/0.png"/> <figcaption>
+<figure><img src="/images/kgat/0.png"/><figcaption>
             <h4>Figure 1</h4>
         </figcaption>
 </figure>
 
 <p>그림 1에서 보이듯이, 유저 $u_1$와 영화 $i_1$간의 상호작용이 있고, 영화 $i_1$의 감독은 엔티티 $e_1$다. CF 메소드는 유사한 유저의 히스토리에 집중한다, $u_i$와 유사한 유저는 $i_1$를 시청한 $u_4$, $u_5$이다. 지도 학습 메소드들은 어트리뷰트로 유사한 아이템을 강조한다. $e_1$와 $i_2$. 서로 다른 두 타입의 정보는 추천을 보완할 뿐만 아니라, 타겟 유저와 아이템 간에 고차 관계를 형성한다. 기존 지도 학습 메소드는 이것들을 통합 하는데 실패했고, 그림 1 내 노란 원의 동일한 감독 $e_1$이 촬영한 서로 다른 영화를 관람한 유저들 혹은 회색 원의 $e_1$과 다른 공통 관계를 공유하는 고차 연결성을 처리하지 못한다.</p>
 <p>피처 기반 지도 학습 모델의 한계를 해결하기 위한 솔루션은 아이템 사이드 정보 그래프인 지식 그래프로 예측 모델을 생성하는 것이다. 지식 그래프와 유저-아이템 그래프의 하이브리드 한 구조를 Collaborative Knowledge Graph ( CKG )라 한다. 그림 1에 있듯, 성공적인 추천은 CKG의 고차 관계를 모두 활용하는 것이다. 예 ) 장기 연결성</p>
-<figure>
-    <img src="/images/kgat/1.png"/> 
+<figure><img src="/images/kgat/1.png"/>
 </figure>
 
 <p>위의 두 경로는 노랑 원과 회색 원 까지의 상대적인 경로다. 이런 고차 정보를 활용하는 것은 어려운 일이다.</p>
@@ -152,7 +148,7 @@
 <h3 id="knowledge-graph">Knowledge Graph</h3>
 <p>아이템 어트리뷰트와 외부 지식같은 아이템의 사이드 정보가 있다. 일반적으로 이러한 보조 데이터는 실제 세계 엔티티와 아이템의 프로파일링하기 위한 그들 간의 관계로 구성된다. 예를 들어, 영화는 감독, 캐스팅, 장르로 설명될 수 있다. 지식 그래프 $g_2$의 형태로 사이드 정보를 조직화하는데 방향성 있는 그래프로 주제-특성-객체 세가지 요소로 구성된다. 형식적으로는, ${{(h,r,t)|h,t \in \delta, r \in R}}$로 표현되고, 여기서 각 세 요소는 헤드 엔티티 $h$에서 테일 엔티티 $t$ 까지 관계 $r$을 설명한다. 예를 들어,  ( 휴 잭맨, 배우, 로건 )은 휴 잭맨이 영화 로건의 배우라는 것을 표현한다. $R$은 양쪽 표준 방향 관계를 포함한다. 게다가, 아이템-엔티티 정렬 셋을 구성한다. $A = {{(i,e) | i \in I, e \in \delta }}$, 여기서 $(i,e)$는 KG에서 아이템 $i$가 엔티티 $e$로 정렬될 수 있다는 것을 나타낸다.</p>
 <h3 id="collaborative-knowledge-graph">Collaborative Knowledge Graph</h3>
-<p>CKG의 개념을 정의하는데, 유저 행동들과 아이템 지식을 일관된 관계성 그래프로 인코딩한 그래프다. 우선 triplet $( u, interact, i )$으로 각 유저 행동을 표현한다. 여기서 $y_{ui} = 1$이 유저 $u$와 아이템 $i$ 간 추가적인 관계 $interaction$을 표현한다. 그리고 유저-아이템 그래프는 아이템-엔티티 정렬 셋에 기반해 일관된 그래프 $G = {{(h,r,t)|h,t \in \delta', r \in R’ }}$로 KG와 통합될 수 있다. 여기서 $\delta’ = \delta \cup U$이고 $R’ = R \cup {{interact}}$이다.</p>
+<p>CKG의 개념을 정의하는데, 유저 행동들과 아이템 지식을 일관된 관계성 그래프로 인코딩한 그래프다. 우선 triplet $( u, interact, i )$으로 각 유저 행동을 표현한다. 여기서 $y_{ui} = 1$이 유저 $u$와 아이템 $i$ 간 추가적인 관계 $interaction$을 표현한다. 그리고 유저-아이템 그래프는 아이템-엔티티 정렬 셋에 기반해 일관된 그래프 $G = {{(h,r,t)|h,t \in \delta&rsquo;, r \in R’ }}$로 KG와 통합될 수 있다. 여기서 $\delta’ = \delta \cup U$이고 $R’ = R \cup {{interact}}$이다.</p>
 <h3 id="task-decription">Task Decription</h3>
 <p>이 연구에서 해결될 추천 태스크를 공식화 한다.</p>
 <ul>
@@ -163,8 +159,7 @@
 <p>추천을 잘 하기 위해 고차 연결성을 활용해야 한다. 노드 간의 $L$차 연결성을 멀티-홉 관계 경로로 정의한다: $e_0 \overset{r_1}{→} e_1 \overset{r_2}{→} \cdot \cdot \cdot \overset{r_L}{→} e_L$, 여기서 $e_l \in \delta’$ 이고 $r_l \in R’$이다. $(e_{l-1}, r_l, e_l )$은 $l$번째 triplet이고, $L$은 시퀀스 길이이다. 유저 선호도 추론을 위해 CF 메소드는 유저 들 간의 행동 유사도에 따른다. 이러한 직관은 행동 기반 연결성으로 다음과 같이 표현될 수 있다. $u_1 \overset{r_1}{→} i_1 \overset{-r_1}{→} u_2 \overset{r_1}{→} i_2$는  “유저 $u_1$가 아이템 $i_2$를 선호한다”고 제시하는데, 유저 $u_2$가 이전에 $i_2$를 채택한 데이터가 있기 때문이다. CF 메소드와 다르게, FM과 NFM 같은 지도 학습 모델은 유저가 비슷한 특성을 공유하는 아이템 들을 채택하는 경향을 보인다고 가정한다. 그래서 어트리뷰트 기반 연결성에 초점을 맞춘다. 예를 들어, $u_1 \overset{r_1}{→} i_1 \overset{r_2}{→} e_1 \overset{-r_2}{→} i_2$는 “유저 $u_1$가 아이템 $i_2$를 채택한다”고 제시한다. 왜냐하면 $i_2$가 이전에 좋아했던 $i_1$과 같은 $e_1$ 감독이기 때문이다. 그러나 FM과 NFM은 엔티티를 개별 피처 필드의 값으로 다뤄서, 필드와 관련 인스턴스 간의 관련성을 알수 없다. 예를 들어, $u_1 \overset{r_1}{→} i_1 \overset{r_2}{→} e_1 \overset{-r_3}{→} i_2$을 모델링 하기 어렵다. $e_1$이 $director$와 $actor$ 필드를 연결하는 브릿지를 제공한다. 하지만, 이 메소드 들은 고차 연결성을 충분히 탐색하지 않고 고차 관계를 간과한다.</p>
 <h1 id="3-methodology">3. METHODOLOGY</h1>
 <p>KGAT 모델은 e2e 방식으로 고차 관계성을 활용한다. 그림 2로 모델 프레임워크를 보이는데, KGAT는 총 세 컴포넌트로 구성된다.</p>
-<figure>
-    <img src="/images/kgat/2.png"/> <figcaption>
+<figure><img src="/images/kgat/2.png"/><figcaption>
             <h4>Figure 2</h4>
         </figcaption>
 </figure>
@@ -176,14 +171,12 @@
 </ol>
 <h2 id="31-embedding-layer">3.1 Embedding Layer</h2>
 <p>지식 그래프 임베딩은 그래프 구조를 유지하면서 엔티티와 관계를 벡터로 파라미터 화하기 위한 효과적인 방법이다. 널리 사용되는 TransR을 CKG에 적용한다. 더 자세하게는, 만약 그래프에 triplet $(h,r,t)$가 존재하면 번역 원리 $e_h^r + e_r \approx e_t^r$를 최적화 해서 각 엔트리와 관계를 학습한다. 여기에, $e_h,e_t \in R^d$와 $e_r \in R^k$는 $h$, $t$, 그리고 $r$의 임베딩이다. $e_h^r, e_t^r$은 $e_h$와 $e_t$를 관계인 $r$의 공간으로 투영시킨 표현이다. 그러므로, 주어진 triplet $(h,r,t)$에서 타당성 점수(에너지 점수)는 아래와 같이 공식화한다.</p>
-<figure>
-    <img src="/images/kgat/3.png"/> 
+<figure><img src="/images/kgat/3.png"/>
 </figure>
 
 <p>여기서 $W_r \in R^{k \times d}$는 관계 $r$의 변환 매트릭스로, 엔티티 들을 $d$ 차원의 엔티티 공간에서 $k$ 차원의 관계 공간으로 투영한다. $g(h,r,t)$의 더 낮은 점수는 triplet이 참일 가능성이 높으며, 그 반대도 마찬가지라고 제시한다.</p>
 <p>TransR 학습은 적합한 triplet 들과 그렇지 않은 것 들 간의 관계 차수를 고려한다. 그리고 pairwise 랭킹 로스로 분별력을 향상 시킨다.</p>
-<figure>
-    <img src="/images/kgat/4.png"/> 
+<figure><img src="/images/kgat/4.png"/>
 </figure>
 
 <p>여기서 $\tau = {{(h, r, t, t’)|(h,r,t) \in g, (h,r,t’) \notin g }}$ , 그리고 $(h,r,t’)$는 망가진 triplet으로 적절한 triplet에서 엔티티 하나를 랜덤하게 교체해서 생성한다. $\sigma(\cdot)$은 시그모이드 함수다. 이 레이어는 triplet의 세분성으로 부터 엔티티와 관계를 모델링하고, 정규화기와 표현에 직접 연결을 주입하는 방식으로 동작해서 모델 표현 능력을 향상 시킨다.</p>
@@ -198,21 +191,18 @@
 <h3 id="information-propagation">Information Propagation</h3>
 <p>엔티티 하나가 여러 triplet에 포함될 수 있는데, 엔티티는 두 triplet을 연결하는 브릿지로 제공되어 정보를 전파한다. $e_1 \overset{r_2}{→} i_2 \overset{-r_1}{→} u_2$과 $e_2 \overset{r_3}{→} i_2 \overset{-r_1}{→} u_2$를 예시로, 아이템 $i_2$는 어트리뷰트 $e_1$과 $e_2$를 입력으로 취해 피처를 풍부하게 한다. 그리고 유저 $u_2$의 선호도에 영향을 미치는데 $e_1$에서 $u_2$로 정보를 전파해서 시뮬레이션 할 수 있다. 엔티티와 이웃 간의 정보 전파를 수행하기 위해서 이 직관을 따른다.</p>
 <p>엔티티 $h$를 고려 했을때, $N_h = {{(h,r,t)|(h,r,t) \in g }}$를 사용해서 triplet 셋을 나타내는데 여기서 $h$는 헤드 엔티티, ego-network라 부른다. 엔티티 $h$의 1차 연결성 구조를 특성화하기 위해, $h$의 ego-network의 선형 조합을 계산한다.</p>
-<figure>
-    <img src="/images/kgat/5.png"/> 
+<figure><img src="/images/kgat/5.png"/>
 </figure>
 
 <p>여기서 $\pi(h,r,t)$는 엣지 $(h,r,t)$에서의 각 전파의 감쇄 요소를 제어한다. 관계 $r$에 따라 어느 정도의 정보가 $t$에서 $h$로 전파될 지 나타낸다.</p>
 <h3 id="knowledge-aware-attention">Knowledge-aware Attention</h3>
 <p>$\pi(h,r,t)$를 관계주의 어텐션 메커니즘을 통해 구현하고, 다음과 같이 공식화 된다.</p>
-<figure>
-    <img src="/images/kgat/6.png"/> 
+<figure><img src="/images/kgat/6.png"/>
 </figure>
 
 <p>비선형 활성화 함수로 $tanh$를 선택한다. 그러면 어텐션 점수가 $e_h$와 $e_t$ 간 관계 $r$의 공간 내 거리에 의존하게 된다. 즉 더 많은 정보를 더 가까운 엔티티로 전파한다. 표현의 단순화를 위해 내적을 사용하고 어텐션 모듈에 대한 연구는 추후에 연구한다.</p>
 <p>이후, 소프트맥스 함수를 적용해서 연결된 모든 triplet에 따라 계수 들을 정규화 한다.</p>
-<figure>
-    <img src="/images/kgat/7.png"/> 
+<figure><img src="/images/kgat/7.png"/>
 </figure>
 
 <p>그 결과, 최종 어텐션 점수는 CF 시그널 포착을 위해 어떤 이웃 노드에 더 많은 어텐션을 해야할지를 제시할 수 있다. 전파를 수행 시, 어텐션은 집중할 데이터 부분을 제시하고, 추천 후의 설명에 사용한다.</p>
@@ -220,58 +210,49 @@
 <h3 id="information-aggregation">Information Aggregation</h3>
 <p>최종 단계는 엔티티 표현 $e_h$와 ego-network 표현을 엔티티 $h$에 대한 새로운 표현 $e_{N_h}$으로 집계한다. $e_h^{(1)} = f(e_h, e_{N_h})$다. 세가지 타입의 집계를 사용해서 $f(\cdot)$을 구현했다.</p>
 <p><strong>GCN Aggregator :</strong> 두 표현을 합치고 비선형 변환을 다음과 같이 적용한다.</p>
-<figure>
-    <img src="/images/kgat/8.png"/> 
+<figure><img src="/images/kgat/8.png"/>
 </figure>
 
 <p>활성화 함수로 $LeakyReLU$를 사용하고 $W \in R^{d’ \times d}$은 유용한 정보를 전파를 위한 학습 가능한 가중치 매트릭스로 증류하는 역할을 한다, $d’$는 변환 사이즈이다.</p>
 <p><strong>GraphSage Aggregator :</strong> 두 표현을 concatenate 한다. 비선형 변환은 다음과 같이 적용한다.</p>
-<figure>
-    <img src="/images/kgat/9.png"/> 
+<figure><img src="/images/kgat/9.png"/>
 </figure>
 
 <p>여기서 ||는 concatenate 연산이다.</p>
 <p><strong>Bi-Interaction Aggregator :</strong> $e_h$와 $e_{N_h}$ 간 피처 상호작용 두 종류 고려를 위해 설계했고 아래와 같다.</p>
-<figure>
-    <img src="/images/kgat/10.png"/> 
+<figure><img src="/images/kgat/10.png"/>
 </figure>
 
 <p>여기서 $W_1, W_2 \in R^{d’ \times d}$는 학습 가능한 가중치 매트릭스이고, $\odot$은 element-wise 곱이다. GCN과 GraphSage의 집계와 다르게, $e_h$와 $e_{N_h}$ 간 피처 상호작용을 추가로 인코딩한다. 이 텀은 전파된 정보를 $e_h$와 $e_{N_h}$ 간의 관련도에 민감하게 만든다. 즉, 유사한 엔티티들에서 더 많은 메시지를 전달한다.</p>
 <p>요약하자면, 임베딩 전파 레이어의 장점은 일차 연결성 정보를 명시적으로 활용해서 사용자, 아이템 그리고 지식 엔티티 표현을 연결한다.</p>
 <h3 id="high-order-propagation">High-order Propagation</h3>
 <p>고차 연결성 정보를 탐색하기 위해 전파 레이어를 더 쌓아서 고차 이웃에서 전파된 정보를 수집할 수 있다. $L$번째 단계에서, 우리는 엔티티의 표현을 재귀적으로 아래와 같이 공식화 한다.</p>
-<figure>
-    <img src="/images/kgat/11.png"/> 
+<figure><img src="/images/kgat/11.png"/>
 </figure>
 
 <p>여기서 엔티티 $h$에 대해 $l$-ego network 내에서 전파되는 정보는 다음과 같다.</p>
-<figure>
-    <img src="/images/kgat/12.png"/> 
+<figure><img src="/images/kgat/12.png"/>
 </figure>
 
 <p>$e_t^{(l-1)}$는 이전 정보 전파 과정에서 생성된 엔티티 $t$ 표현으로, $(l-1)$ 홉 이웃 들로 부터 정보를 암기한다. $e_h^{(0)}$는 초기 정보 전파 반복에서 $e_h$로 세팅된다. 레이어 $l$에서 엔티티 $h$의 표현에 더 기여한다. 그 결과 $u_2 \overset{r_1}{→} i_2 \overset{-r_2}{→} e_1 \overset{r_2}{→} i_1 \overset{-r_1}{→} u_1$ 같은 고차 연결성이 임베딩 전파 프로세스에서 포착된다. 게다가, $u_2$로 부터의 정보는 $e_{u_1}^{(3)}$로 명시적으로 인코딩된다. 고차 임베딩 전파는 어트리뷰트 기반 협력 시그널을 표현 학습 과정에서 주입한다.</p>
 <h2 id="33-model-prediction">3.3 Model Prediction</h2>
 <p>$L$개 레이어 수행 후, 유저 노드 $u$에 대한 표현 여러 개를 얻고 이를 ${{ e_u^{(1)}, &hellip;, e_u^{(L)} }}$라 한다. 아이템 노드 $i$도 유사하게 ${{ e_i^{(1)}, &hellip;, e_i^{(L)} }}$를 얻는다. $l$번째 레이어의 출력은 그림 1에서 보이듯이, $u$( 혹은 $i$ )가 루트 인채로 깊이가 $l$인 트리 구조의 메시지 집계로, 서로 다른 레이어들의 출력 들이 서로 다른 차수들의 연결 정보를 강조한다. 그래서 레이어 집계 메커니즘을 채택해서 각 과정의 표현들을 한 벡터로 아래와 같이 concatenate 한다.</p>
-<figure>
-    <img src="/images/kgat/13.png"/> 
+<figure><img src="/images/kgat/13.png"/>
 </figure>
 
 <p>초기 임베딩을 임베딩 전파 연산으로 강화할 뿐만 아니라, $L$을 조정하여 전파 강도를 조절할 수 있다.</p>
 <p>최종적으로 유저와 아이템 표현에 내적을 수행해서, 매칭 점수를 예측한다.</p>
-<figure>
-    <img src="/images/kgat/14.png"/> 
+<figure><img src="/images/kgat/14.png"/>
 </figure>
 
 <h2 id="34-optimization">3.4 Optimization</h2>
 <p>추천 모델을 최적화를 위해, BPR 로스로 최적화 한다. BPR 로스는 더 많은 유저 선호도를 나타내는 관측된 상호작용 들이 관측되지 않은 것에 비해 더 높은 예측 값을 가진다고 가정한다.</p>
-<figure>
-    <img src="/images/kgat/15.png"/> 
+<figure><img src="/images/kgat/15.png"/>
 </figure>
 
 <p>여기서 $O = {{ (u,i,j) | (u,i) \in R^+, (u, j) \in R^- }}$는 학습 셋을 의미한다. $R^+$는 유저 $u$와 아이템 $j$ 간에 관측된 ( 긍정적인 ) 상호작용을 나타낸다. $R^-$는 샘플링된 관측되지 않은 ( 부정적인 ) 상호작용을 나타낸다. $\sigma( \cdot)$는 시그모이드 함수이다.</p>
 <p>최종적으로, 수식 (2)와 수식 (13)을 동시에 학습하는 목적 함수를 아래와 같이 가진다.</p>
-<figure>
-    <img src="/images/kgat/16.png"/> 
+<figure><img src="/images/kgat/16.png"/>
 </figure>
 
 <p>모델 파라미터 셋은  $\Theta = {{ E, W_r, \forall l \in R, W_1^{(l)}, W_2^{(l)}, \forall l \in {{ 1, &hellip;, L }}}}$는 이고, $E$는 모든 엔트리와 관계들에 대한 임베딩 테이블이다; 오버피팅 방지를 위해 $\Theta$에 $\lambda$로 파라미터 화된 $L_2$ 정규화가 수행되었다. 모델 사이즈에 대해 모델 파라미터의 대부분은 FM과 거의 동일한 엔티티 임베딩( 아마존 데이터셋 실험에서 6.5 백만 )에서 온다는 것이 중요하다. 전파 레이어의 가중치는 크지 않다. ( 아마존 데이터셋 에서 타워 구조의 세 레이어들에서 5.4 천, 64-32-16-8 )</p>
@@ -289,8 +270,7 @@
 </ol>
 <h2 id="41-dataset-description">4.1 Dataset Description</h2>
 <p>KGAT의 효과성을 검증을 위해 세가지 벤치마크 데이터셋을 이용한다 : Amazon-book, Last-FM, Yelp2018</p>
-<figure>
-    <img src="/images/kgat/17.png"/> <figcaption>
+<figure><img src="/images/kgat/17.png"/><figcaption>
             <h4>Table 1</h4>
         </figcaption>
 </figure>
@@ -321,8 +301,7 @@
 <h2 id="43-performance-comparision--rq1-">4.3 Performance Comparision ( RQ1 )</h2>
 <h3 id="431-overall-comparision">4.3.1 Overall Comparision</h3>
 <p>테이블 2에 성능 비교가 나온다.</p>
-<figure>
-    <img src="/images/kgat/18.png"/> <figcaption>
+<figure><img src="/images/kgat/18.png"/><figcaption>
             <h4>Table 2</h4>
         </figcaption>
 </figure>
@@ -336,8 +315,7 @@
 </ul>
 <h3 id="432-performance-comparision-wrt-interaction-sparsity-levels">4.3.2 Performance Comparision w.r.t Interaction Sparsity Levels</h3>
 <p>KG를 활용하는 이유는 추천 시스템의 표현력을 제한하는 희소성 이슈를 완화하기 위해서다. 이를 위해, 희소성의 정도가 다른 유저 그룹들에 대해 실험을 수행한다. 유저 별 상호작용 수에 기반해서 테스트셋을 네 그룹으로 나눈다. Amazon-book을 예로, 유저 별 상호작용 수를 7-15-48-4475로 나누었다. 그림 3에 서로 다른 유저 그룹 별 ndcg@20 결과가 나온다.</p>
-<figure>
-    <img src="/images/kgat/19.png"/> <figcaption>
+<figure><img src="/images/kgat/19.png"/><figcaption>
             <h4>Figure 3</h4>
         </figcaption>
 </figure>
@@ -349,8 +327,7 @@
 <h2 id="44-study-of-kgat--rq2-">4.4 Study of KGAT ( RQ2 )</h2>
 <h3 id="441-effect-of-model-depth">4.4.1 Effect of Model Depth</h3>
 <p>임베딩 전파 레이어 여러개를 사용하는 것의 효율성을 조사하기 위해 KGAT의 깊이를 ( 즉 $L$ )을 다양하게 준다. 레이어 수는 ${{1, 2, 3, 4}}$로 준다. 결과가 테이블 3에 나온다.</p>
-<figure>
-    <img src="/images/kgat/20.png"/> <figcaption>
+<figure><img src="/images/kgat/20.png"/><figcaption>
             <h4>Table 3</h4>
         </figcaption>
 </figure>
@@ -362,8 +339,7 @@
 </ul>
 <h3 id="442-effect-of-aggregators">4.4.2 Effect of Aggregators</h3>
 <p>집계기의 효과를 조사하기 위해서, KGAT-1의 변형을 고려한다. GCN, GraphSage 그리고 Bi-Interaction 을 사용한다. 테이블 4에 실험 결과가 있다.</p>
-<figure>
-    <img src="/images/kgat/21.png"/> <figcaption>
+<figure><img src="/images/kgat/21.png"/><figcaption>
             <h4>Table 4</h4>
         </figcaption>
 </figure>
@@ -374,8 +350,7 @@
 </ul>
 <h3 id="443-effect-of-knowledge-graph-embedding-and-attention-mechanism">4.4.3 Effect of Knowledge Graph Embedding and Attention Mechanism</h3>
 <p>지식 그래프 임베딩과 어텐션 메커니즘의 효과 증명을 위해 KGAT-1의 세가지 변형으로 ablathon study를 진행한다. TransR 임베딩을 끈 $KGAT-1_{w/o \ KGE}$, 어텐션 메커니즘을 끄고 $\pi(h,r,t)$를 $1/|N_h|$로 세팅한, $KGAT-1_{w/o \ Att}$, 더해서 두개를 다 끈 $KGAT-1_{w/o \ K &amp;A}$를 사용한다. 결과는 테이블 5에 있다.</p>
-<figure>
-    <img src="/images/kgat/22.png"/> <figcaption>
+<figure><img src="/images/kgat/22.png"/><figcaption>
             <h4>Table 5</h4>
         </figcaption>
 </figure>
@@ -386,551 +361,66 @@
 </ul>
 <h2 id="45-case-study--rq3-">4.5 Case Study ( RQ3 )</h2>
 <p>어텐션 메커니즘으로 고차 연결성을 추론하여 타겟 아이템에 대한 사용자 선호도를 추론하고 설명을 제공할 수 있다. 그래서, Amazon-book에서 랜덤하게 하나의 유저 u202를 뽑고 관련성 있는 하나의 아이템 i4293( 학습 중에는 안보임 )을 뽑았다. 어텐션 점수를 기반으로 유저-아이템 쌍을 연결하는 행동 기반과 어트리뷰트 기반 고차 연결성을 추출했다. 그림 4는 고차 연결성의 시각화를 보인다.</p>
-<figure>
-    <img src="/images/kgat/23.png"/> <figcaption>
+<figure><img src="/images/kgat/23.png"/><figcaption>
             <h4>Figure 4</h4>
         </figcaption>
 </figure>
 
 <ul>
-<li>KGAT는 유저 선호도를 추론하기 위해 중요한 역할을 하는 행동 기반과 어트리뷰트 기반 연결성을 포착한다. 검색된 경로는 왜 아이템이 유저 선호도에 다다르는 증거로 보일 수 있다. 연결성 $u_{208} \overset{r_0}{→} Old Man’s war \overset{r_14}{→} John Scalzi \overset{-r_14}{→} i_{4293}$이 가장 높은 어텐션 점수를 가지고, 그래서 우리는 설명할 수 있다. **동일한 저자 John Scalzi가 작성한 Old Man’s war를 보았으니 Last Colony를 추천한다.**</li>
+<li>KGAT는 유저 선호도를 추론하기 위해 중요한 역할을 하는 행동 기반과 어트리뷰트 기반 연결성을 포착한다. 검색된 경로는 왜 아이템이 유저 선호도에 다다르는 증거로 보일 수 있다. 연결성 $u_{208} \overset{r_0}{→} Old Man’s war \overset{r_14}{→} John Scalzi \overset{-r_14}{→} i_{4293}$이 가장 높은 어텐션 점수를 가지고, 그래서 우리는 설명할 수 있다. <strong>동일한 저자 John Scalzi가 작성한 Old Man’s war를 보았으니 Last Colony를 추천한다.</strong></li>
 <li>아이템 지식의 퀄리티는 굉장히 중요하다. 엔티티 english와 Original Language의 관계는 하나의 경로에 들어간다. 너무 일반적이다.  향후 연구에서 덜 유익한 엔티티를 필터링하기 위한 하드 어텐션을 수행하도록 영감을 준다.</li>
 </ul>
 <h1 id="5-conclusion-and-future-work">5. CONCLUSION AND FUTURE WORK</h1>
 <p>지식 인식 추천을 위해 CKG에서의 고차 연결성을 시맨틱 관계와 함께 연구했다. 새로운 프레임워크인 KGAT를 제안해서 e2e 방식으로 명시적으로 고차 연결성을 모델링 한다. 어텐션 임베딩 전파 레이어로 노드 표현을 업데이트 하기 위해 노드 이웃의 임베딩을 적응적으로 전파한다. 실제 데이터 셋 세가지로 합리성과 효과성을 증명한다.</p>
 <p>이 연구는 추천에서 GNN의 잠재성을 연구해서, 정보 전파 메커니즘으로 구조적 지식을 활용하려는 초기 시도이다. 지식 그래프 외에도, 소셜 네트워크와 아이템 컨텍스트 같은 많은 구조적 정보가 실제 시나리오에 존재한다. 예를 들어, 소셜 네트워크를 CKG와 통합하면, 소셜 영향도가 추천에 어떻게 영향을 미치는지 조사할 수 있다. 또 다른 연구 방향은 정보 전파와 결정 프로세스를 통합하는 것으로 설명 가능한 추천의 가능성을 열어준다.</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/recommendation/"> recommendation </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gnn/"> gnn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/kg/"> kg </a>
-			
-			
-			
-			
-			
-			<a href="/tags/kgat/"> kgat </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/recsys/"> recsys </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/recommendation/">recommendation</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/gnn/">gnn</a>
+<a href="/tags/kg/">kg</a>
+<a href="/tags/kgat/">kgat</a>
+<a href="/tags/recsys/">recsys</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

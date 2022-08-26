@@ -1,110 +1,110 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기">
-	
-	
-	<meta name="keywords" content="AWS,ECS,Prefect,Workflow,Data Pipelining"><meta name="description" content="Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
-EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster …"><meta property="og:title" content="워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="AWS, ECS, Prefect, Workflow, Data Pipelining">
+<meta name="description" content="Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
+EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기" />
 <meta property="og:description" content="Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
 EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. Prefect Cloud는 유료이기 때문에 사용하지 않았고 오픈소스인 Prefect Server로 Prefect Core를 구성하고, K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것이 아니기 때문에 ECS Agent로 구성했다.
 따라서 이 글에서 다룰 내용은 다음과 같다.
- EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production )  Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다." />
+EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production ) Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/prefect_ecs/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-12-05T22:33:51&#43;09:00" />
-<meta property="article:modified_time" content="2021-12-05T22:33:51&#43;09:00" />
+<meta property="article:published_time" content="2021-12-05T22:33:51+09:00" />
+<meta property="article:modified_time" content="2021-12-05T22:33:51+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기"/>
 <meta name="twitter:description" content="Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
 EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. Prefect Cloud는 유료이기 때문에 사용하지 않았고 오픈소스인 Prefect Server로 Prefect Core를 구성하고, K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것이 아니기 때문에 ECS Agent로 구성했다.
 따라서 이 글에서 다룰 내용은 다음과 같다.
- EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production )  Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production ) Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다."/>
 
-
+<meta itemprop="name" content="워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기">
+<meta itemprop="description" content="Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,
+EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. Prefect Cloud는 유료이기 때문에 사용하지 않았고 오픈소스인 Prefect Server로 Prefect Core를 구성하고, K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것이 아니기 때문에 ECS Agent로 구성했다.
+따라서 이 글에서 다룰 내용은 다음과 같다.
+EC2에서 Prefect Server 실행 하기 EC2에서 ECS Agent 실행 하기 ECS Service로 ECS Agent를 실행 하기 ( Production ) Prefect Cloud를 사용하지 않은 오픈 소스인 Prefect Server를 사용해서 구성했다."><meta itemprop="datePublished" content="2021-12-05T22:33:51+09:00" />
+<meta itemprop="dateModified" content="2021-12-05T22:33:51+09:00" />
+<meta itemprop="wordCount" content="1638">
+<meta itemprop="keywords" content="AWS,ECS,Prefect,Workflow,Data Pipelining," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">05</span>
-				<span class="rest">Dec 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<p>Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,<br>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">05</span>
+<span class="rest">Dec 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">워크플로우 엔진 PREFECT : ECS Agent 로 Prefect 환경 구축하기</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Prefect를 AWS 클라우드 환경에서 구성했다. 다양한 방법으로 Prefect를 구성할 수 있지만,<br>
 EC2 Instance 상에 Prefect Backend의 오픈소스인 Prefect Server를 실행시키고 ECS Cluster를 생성한 다음 ECS Agent를 사용했다. <br>
 Prefect Cloud는 유료이기 때문에 사용하지 않았고 오픈소스인 Prefect Server로 Prefect Core를 구성하고, <br>
 K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것이 아니기 때문에 ECS Agent로 구성했다.</p>
@@ -118,8 +118,7 @@ K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것
 <h1 id="1-prefect-architecture">1. Prefect Architecture</h1>
 <h2 id="11-prefect-server">1.1. Prefect Server</h2>
 <p>Prefect Server는 데이터를 직접 유지하지 않고 메타 데이터로만 동작한다. Prefect를 구성하는 각 마이크로서비스는 다음과 같다.</p>
-<figure>
-    <img src="/images/Prefect_ECS/0.png"/> <figcaption>
+<figure><img src="/images/Prefect_ECS/0.png"/><figcaption>
             <h4>Prefect Architecture</h4>
         </figcaption>
 </figure>
@@ -158,15 +157,15 @@ K8S Agent로 구성해도 되지만, 거대한 워크플로우 관리를 할 것
 <h2 id="21-prefect-server-실행--ec2-">2.1. Prefect Server 실행 ( EC2 )</h2>
 <p>AWS EC2 환경에서 Prefect Server를 구축하기로 했다. EC2를 생성하고 ssh를 통해 EC2에 접속한다. 그리고 아래 커맨드 들을 입력해서 기본적으로 필요한 Python과 Docker와 Docker-Compose를 설치 했다.</p>
 <p>추가로 Security Group에서 UI ( :8080 )와 Backend ( :4200 )을 오픈해야한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yum install -y python3 pip3 <span style="color:#888"># 파이썬 설치</span>
-sudo amazon-linux-extras install docker <span style="color:#888"># 도커 설치</span>
-sudo service docker start <span style="color:#888"># 도커 시작</span>
-sudo usermod -a -G docker ec2-user <span style="color:#888"># 도커 권한 추가</span>
-sudo curl -L https://github.com/docker/compose/releases/download/v2.1.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose <span style="color:#888"># 도커 컴포즈</span>
-sudo chmod +x /usr/local/bin/docker-compose <span style="color:#888"># 도커 컴포즈 권한 추가</span>
-</code></pre></div><p>Prefect를 설치하기 위해서는 파이썬 3.6 이상의 버전이 필요하다. 3.9 버전에 대한 완벽한 지원은 아직 안된다고 한다. Anaconda로 설치하는 것을 공식 문서에서는 권장하고 있다. 여기에서 사용하고 있는 Prefect의 버전은 0.15.9 다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">conda install -c conda-forge prefect
-</code></pre></div><p>엑스트라 패키지가 포함된 버전을 설치할 수도 있다. 지원하는 엑스트라 패키지는 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install -y python3 pip3 <span style="color:#888"># 파이썬 설치</span>
+</span></span><span style="display:flex;"><span>sudo amazon-linux-extras install docker <span style="color:#888"># 도커 설치</span>
+</span></span><span style="display:flex;"><span>sudo service docker start <span style="color:#888"># 도커 시작</span>
+</span></span><span style="display:flex;"><span>sudo usermod -a -G docker ec2-user <span style="color:#888"># 도커 권한 추가</span>
+</span></span><span style="display:flex;"><span>sudo curl -L https://github.com/docker/compose/releases/download/v2.1.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose <span style="color:#888"># 도커 컴포즈</span>
+</span></span><span style="display:flex;"><span>sudo chmod +x /usr/local/bin/docker-compose <span style="color:#888"># 도커 컴포즈 권한 추가</span>
+</span></span></code></pre></div><p>Prefect를 설치하기 위해서는 파이썬 3.6 이상의 버전이 필요하다. 3.9 버전에 대한 완벽한 지원은 아직 안된다고 한다. Anaconda로 설치하는 것을 공식 문서에서는 권장하고 있다. 여기에서 사용하고 있는 Prefect의 버전은 0.15.9 다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda install -c conda-forge prefect
+</span></span></code></pre></div><p>엑스트라 패키지가 포함된 버전을 설치할 수도 있다. 지원하는 엑스트라 패키지는 다음과 같다.</p>
 <ul>
 <li>all_extras : 모든 사용 가능한 디펜던시 도구</li>
 <li>dev : Prefect 자체를 개발하기 위한 도구</li>
@@ -182,21 +181,20 @@ sudo chmod +x /usr/local/bin/docker-compose <span style="color:#888"># 도커 �
 <li>redis : Redis DB와 상호작용 하기 위한 도구</li>
 </ul>
 <p>EC2에서 따로 가상환경을 설정하지 않고 Prefect Server 만 실행할 것이라 pip를 사용해서 설치를 진행한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install <span style="background-color:#fff0f0">&#34;prefect[aws]&#34;</span>
-</code></pre></div><p>아래의 커맨드를 입력해서 Prefect가 Prefect Server를 사용할 수 있도록 구성한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefect backend server
-</code></pre></div><p>그리고 root/.prefect 경로에 config.toml 파일을 생성한 후 Prefect Core가 사용할 호스트명을 입력한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#333">[</span>server<span style="color:#333">]</span>
-<span style="color:#333">[</span>server.ui<span style="color:#333">]</span>
-<span style="color:#963">apollo_url</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200/graphql&#34;</span>
-
-<span style="color:#333">[</span>cloud<span style="color:#333">]</span>
-<span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200&#34;</span>
-</code></pre></div><p>Prefect Server를 아래의 커맨드로 실행한다. 그러면 Docker-Compose가 실행되며 Prefect Server가 구성된다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefect server start --expose -d <span style="color:#888"># AWS GCP에서 사용할 때</span>
-</code></pre></div><p>EC2의 <code>IP:8080</code>으로 접속하게 되면 Prefect UI에 접속할 수 있다. 아래와 같은 화면이 보이게 된다.</p>
-<figure>
-    <img src="/images/Prefect_ECS/1.png"/> <figcaption>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install <span style="background-color:#fff0f0">&#34;prefect[aws]&#34;</span>
+</span></span></code></pre></div><p>아래의 커맨드를 입력해서 Prefect가 Prefect Server를 사용할 수 있도록 구성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>prefect backend server
+</span></span></code></pre></div><p>그리고 root/.prefect 경로에 config.toml 파일을 생성한 후 Prefect Core가 사용할 호스트명을 입력한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#333">[</span>server<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">[</span>server.ui<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#963">apollo_url</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200/graphql&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#333">[</span>cloud<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200&#34;</span>
+</span></span></code></pre></div><p>Prefect Server를 아래의 커맨드로 실행한다. 그러면 Docker-Compose가 실행되며 Prefect Server가 구성된다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>prefect server start --expose -d <span style="color:#888"># AWS GCP에서 사용할 때</span>
+</span></span></code></pre></div><p>EC2의 <code>IP:8080</code>으로 접속하게 되면 Prefect UI에 접속할 수 있다. 아래와 같은 화면이 보이게 된다.</p>
+<figure><img src="/images/Prefect_ECS/1.png"/><figcaption>
             <h4>Prefect UI 화면</h4>
         </figcaption>
 </figure>
@@ -212,33 +210,32 @@ sudo chmod +x /usr/local/bin/docker-compose <span style="color:#888"># 도커 �
 <li>AWS ECS ( Fargate Deprecated )</li>
 </ul>
 <p>사용할 수 있는 Agent는 UI를 통해 확인 할 수 있다.</p>
-<figure>
-    <img src="/images/Prefect_ECS/2.png"/> <figcaption>
+<figure><img src="/images/Prefect_ECS/2.png"/><figcaption>
             <h4>Prefect UI:Agent 화면</h4>
         </figcaption>
 </figure>
 
 <h2 id="31-local-agent">3.1. Local Agent</h2>
 <p>Prefect Agent를 로컬 프로세스로 구성해서 Flow를 실행한다. 가벼운 워크플로우나 로컬에서 Flow를 테스트하는데 사용하는 것이 적절하다. 구성하는 방법은 아래의 커맨드를 실행하면 된다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefect agent <span style="color:#007020">local</span> start
-prefect agent <span style="color:#007020">local</span> install <span style="color:#888"># supervisor 를 사용하는 것을 지원한다</span>
-prefect agent <span style="color:#007020">local</span> start --api <span style="color:#333">{</span>Prefect Server Host<span style="color:#333">}</span>:4200 --label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span>
-</code></pre></div><h2 id="32-docker-agent">3.2. Docker Agent</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>prefect agent <span style="color:#007020">local</span> start
+</span></span><span style="display:flex;"><span>prefect agent <span style="color:#007020">local</span> install <span style="color:#888"># supervisor 를 사용하는 것을 지원한다</span>
+</span></span><span style="display:flex;"><span>prefect agent <span style="color:#007020">local</span> start --api <span style="color:#333">{</span>Prefect Server Host<span style="color:#333">}</span>:4200 --label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span>
+</span></span></code></pre></div><h2 id="32-docker-agent">3.2. Docker Agent</h2>
 <p>개별 Docker Container에서 Flow를 실행한다. Local Agent에 비해 더 많은 격리성과 제어를 제공한다.</p>
 <p>로컬에서 구성하는 방법은 아래와 같다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefect agent docker start --api <span style="color:#333">{</span>Prefect Server Host<span style="color:#333">}</span>:4200 --label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span>
-</code></pre></div><p>EC2에서는 ECR을 사용하기 위해서 아래와 같이 구성해서 실행할 수 있다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefect agent docker start --api <span style="color:#333">{</span>Prefect Server Host<span style="color:#333">}</span>:4200 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--env <span style="color:#963">AWS_ACCESS_KEY_ID</span><span style="color:#333">={}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--env <span style="color:#963">AWS_SECRET_ACCESS_KEY</span><span style="color:#333">={}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--env <span style="color:#963">AWS_REGION</span><span style="color:#333">=</span>ap-northeast-2
-</code></pre></div><p>아래와 같이 개발한 Flow의 이미지를 빌드하고 Flow를 Server에 등록하고 ECR에 푸쉬해 Flow를 실행할 수 있다. ( Flow 개발과 Flow를 등록하는 방법은 다음 글에서 다룰 예정이어서 여기서는 다루지 않겠다 )</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t <span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span> .
-docker run -it --network host <span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span> python -m <span style="color:#333">{</span>Flow 명<span style="color:#333">}</span>
-docker tag <span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span>:<span style="color:#333">{</span>Flow 이미지 태그<span style="color:#333">}</span> <span style="color:#333">{</span>ECR Repository 명<span style="color:#333">}</span>/<span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span>:<span style="color:#333">{</span>Flow 이미지 태그<span style="color:#333">}</span>
-docker push <span style="color:#333">{</span>ECR Repository 명<span style="color:#333">}</span>/<span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span>:<span style="color:#333">{</span>Flow 이미지 태그<span style="color:#333">}</span>
-</code></pre></div><h2 id="33-ecs-agent">3.3. ECS Agent</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>prefect agent docker start --api <span style="color:#333">{</span>Prefect Server Host<span style="color:#333">}</span>:4200 --label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span>
+</span></span></code></pre></div><p>EC2에서는 ECR을 사용하기 위해서 아래와 같이 구성해서 실행할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>prefect agent docker start --api <span style="color:#333">{</span>Prefect Server Host<span style="color:#333">}</span>:4200 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--env <span style="color:#963">AWS_ACCESS_KEY_ID</span><span style="color:#333">={}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--env <span style="color:#963">AWS_SECRET_ACCESS_KEY</span><span style="color:#333">={}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--env <span style="color:#963">AWS_REGION</span><span style="color:#333">=</span>ap-northeast-2
+</span></span></code></pre></div><p>아래와 같이 개발한 Flow의 이미지를 빌드하고 Flow를 Server에 등록하고 ECR에 푸쉬해 Flow를 실행할 수 있다. ( Flow 개발과 Flow를 등록하는 방법은 다음 글에서 다룰 예정이어서 여기서는 다루지 않겠다 )</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t <span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span> .
+</span></span><span style="display:flex;"><span>docker run -it --network host <span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span> python -m <span style="color:#333">{</span>Flow 명<span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>docker tag <span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span>:<span style="color:#333">{</span>Flow 이미지 태그<span style="color:#333">}</span> <span style="color:#333">{</span>ECR Repository 명<span style="color:#333">}</span>/<span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span>:<span style="color:#333">{</span>Flow 이미지 태그<span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>docker push <span style="color:#333">{</span>ECR Repository 명<span style="color:#333">}</span>/<span style="color:#333">{</span>Flow 이미지 명<span style="color:#333">}</span>:<span style="color:#333">{</span>Flow 이미지 태그<span style="color:#333">}</span>
+</span></span></code></pre></div><h2 id="33-ecs-agent">3.3. ECS Agent</h2>
 <p>ECS는 AWS에서 제공하고 있는 클러스터 관리 서비스중 하나다. Prefect ECS Agent는 ECS Tasks로 Flow를 실행하는 방법이다.</p>
 <p>ECS Agent 사용 시, 고려해야할 점이 몇가지가 있다.</p>
 <ul>
@@ -249,718 +246,233 @@ docker push <span style="color:#333">{</span>ECR Repository 명<span style="colo
 <p>추가적으로 ECS 네트워크 모드( host, bridge, awsvpc )에 대해 잘 알 수 있다면 더 자세한 설정이 가능해진다.</p>
 <h3 id="331-ec2를-사용해서-ecs-agent를-사용">3.3.1. EC2를 사용해서 ECS Agent를 사용</h3>
 <p>ECS Cluster를 별도의 설정 없이 생성하고 EC2를 사용해서 ECS Agent를 간단하게 사용할 수 있다. 물론 ~/.prefect/config.toml 파일을 이용해서 Prefect Server의 Host에 대해 명시해야한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#333">[</span>cloud<span style="color:#333">]</span>
-<span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200&#34;</span>
-</code></pre></div><p>기본적으로 사용할 launch-type이나 task-role-arn이나 execution-role을 아래의 커맨드로 정의해서 기본적인 IAM과 Task Definition을 사용 할 수 있지만, 개인적인 판단으로는 Flow를 register 하는 당시에 코드를 통해 선택할 수 있는데 그 방법이 더 좋다고 생각한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefect agent ecs start --cluster <span style="color:#333">{</span>ECS 클러스터 ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span>  &gt; /dev/null 2&gt;&amp;<span style="color:#60e;font-weight:bold">1</span> &amp;
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">prefect agent ecs start <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--cluster <span style="color:#333">{</span>ECS 클러스터 ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--execution-role-arn <span style="color:#333">{</span>Execution Role을 위해 생성한 IAM ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--task-role-arn <span style="color:#333">{</span>Task Role을 위해 생성한 IAM ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--launch-type <span style="color:#333">{</span>ECS Task의 실행 타입<span style="color:#333">(</span>EC2|FARGATE<span style="color:#333">)}</span> &gt; /dev/null 2&gt;&amp;<span style="color:#60e;font-weight:bold">1</span> &amp;
-</code></pre></div><h3 id="332-ecs-service를-사용해서-ecs-agent를-사용">3.3.2. ECS Service를 사용해서 ECS Agent를 사용</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#333">[</span>cloud<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200&#34;</span>
+</span></span></code></pre></div><p>기본적으로 사용할 launch-type이나 task-role-arn이나 execution-role을 아래의 커맨드로 정의해서 기본적인 IAM과 Task Definition을 사용 할 수 있지만, 개인적인 판단으로는 Flow를 register 하는 당시에 코드를 통해 선택할 수 있는데 그 방법이 더 좋다고 생각한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>prefect agent ecs start --cluster <span style="color:#333">{</span>ECS 클러스터 ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span>  &gt; /dev/null 2&gt;&amp;<span style="color:#60e;font-weight:bold">1</span> &amp;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>prefect agent ecs start <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--cluster <span style="color:#333">{</span>ECS 클러스터 ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--execution-role-arn <span style="color:#333">{</span>Execution Role을 위해 생성한 IAM ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--task-role-arn <span style="color:#333">{</span>Task Role을 위해 생성한 IAM ARN<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--label <span style="color:#333">{</span>Agent가 사용할 Label<span style="color:#333">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--launch-type <span style="color:#333">{</span>ECS Task의 실행 타입<span style="color:#333">(</span>EC2|FARGATE<span style="color:#333">)}</span> &gt; /dev/null 2&gt;&amp;<span style="color:#60e;font-weight:bold">1</span> &amp;
+</span></span></code></pre></div><h3 id="332-ecs-service를-사용해서-ecs-agent를-사용">3.3.2. ECS Service를 사용해서 ECS Agent를 사용</h3>
 <p>하지만 여기 까지는 Production으로 사용하기에는 많이 부족해 보인다. 그래서 좀 더 리서치를 했다. ECS Fargate를 Spot-Instance로 사용하고 Agent를 Fargate로 Task Runner를 Fargate_SPOT로 사용하는 방법으로 비용을 줄이고 좀 더 안정적으로 사용하는 방법을 찾아 실제로 테스트한 결과를 기록으로 남긴다.</p>
 <p>아래와 같이 ECS 클러스터를 생성한다.</p>
 <ul>
 <li>FARGATE : ECS Service로 ECS Agent가 실행될 것이다</li>
 <li>FARGATE_SPOT : ECS Task Runner가 실행 될 것이다</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">export</span> <span style="color:#963">AWS_REGION</span><span style="color:#333">=</span>ap-northeast-2
-<span style="color:#007020">export</span> <span style="color:#963">ECS_CLUSTSTER_NAME</span><span style="color:#333">=</span>prefect-ecs-cluster 
-
-aws ecs create-cluster --cluster-name <span style="color:#963">$ECS_CLUSTER_NAME</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--capacity-providers FARGATE_SPOT FARGATE <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--default-capacity-provider-strategy <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span><span style="color:#963">capacityProvider</span><span style="color:#333">=</span>FARGATE_SPOT,weight<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span><span style="color:#963">capacityProvider</span><span style="color:#333">=</span>FARGATE,base<span style="color:#333">=</span>1,weight<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">2</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--region <span style="color:#963">$AWS_REGION</span>
-</code></pre></div><p>ECS에서 Flow를 실행 시에 Log를 모니터링 해야 하기 때문에 별도의 LOG_GROUP을 생성한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">export</span> <span style="color:#963">ECS_LOG_GROUP_NAME</span><span style="color:#333">=</span>/ecs/prefect-ecs-agent
-aws logs create-log-group <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--log-group-name <span style="color:#963">$ECS_LOG_GROUP_NAME</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--region <span style="color:#963">$AWS_REGION</span>
-</code></pre></div><p>문제가 하나 있는데 ECS Agent를 등록하기 위해서는 공식적인 가이드는 Prefect Backend로 Server로 사용할 때의 가이드는 없고, 유료 서비스인 Cloud를 사용하는 방법에 대해서만 가이드 한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#007020">export</span> <span style="color:#963">AWS_REGION</span><span style="color:#333">=</span>ap-northeast-2
+</span></span><span style="display:flex;"><span><span style="color:#007020">export</span> <span style="color:#963">ECS_CLUSTSTER_NAME</span><span style="color:#333">=</span>prefect-ecs-cluster 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>aws ecs create-cluster --cluster-name <span style="color:#963">$ECS_CLUSTER_NAME</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--capacity-providers FARGATE_SPOT FARGATE <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--default-capacity-provider-strategy <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span><span style="color:#963">capacityProvider</span><span style="color:#333">=</span>FARGATE_SPOT,weight<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span><span style="color:#963">capacityProvider</span><span style="color:#333">=</span>FARGATE,base<span style="color:#333">=</span>1,weight<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">2</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--region <span style="color:#963">$AWS_REGION</span>
+</span></span></code></pre></div><p>ECS에서 Flow를 실행 시에 Log를 모니터링 해야 하기 때문에 별도의 LOG_GROUP을 생성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#007020">export</span> <span style="color:#963">ECS_LOG_GROUP_NAME</span><span style="color:#333">=</span>/ecs/prefect-ecs-agent
+</span></span><span style="display:flex;"><span>aws logs create-log-group <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--log-group-name <span style="color:#963">$ECS_LOG_GROUP_NAME</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>--region <span style="color:#963">$AWS_REGION</span>
+</span></span></code></pre></div><p>문제가 하나 있는데 ECS Agent를 등록하기 위해서는 공식적인 가이드는 Prefect Backend로 Server로 사용할 때의 가이드는 없고, 유료 서비스인 Cloud를 사용하는 방법에 대해서만 가이드 한다.</p>
 <p>EC2로 실행하고 있는 Prefect Server의 Host를 등록하기 위해 아래의 환경 변수들을 여러가지 방법을 테스트 했지만 성공하지는 못했다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__BACKEND&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="color:#f00;background-color:#faa">backend</span>}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__API&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="color:#f00;background-color:#faa">prefect.config.cloud.api</span>}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__AGENT__LABELS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;[]&#34;</span>}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__USE_LOCAL_SECRETS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;false&#34;</span>}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__SEND_FLOW_RUN_LOGS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;true&#34;</span>}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__LOGGING__LEVEL&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;INFO&#34;</span>}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__ENGINE__FLOW_RUNNER__DEFAULT_CLASS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;prefect.engine.cloud.CloudFlowRunner&#34;</span>,}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__ENGINE__TASK_RUNNER__DEFAULT_CLASS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;prefect.engine.cloud.CloudTaskRunner&#34;</span>,}
-{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__LOGGING__LOG_TO_CLOUD&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;true&#34;</span>}
-</code></pre></div><p>따라서 Prefect의 Agent를 등록할 ECS Service의 Docker 이미지를 config.toml 파일을 추가하는 형태로 만들어서 아래와 같이 사용했다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__BACKEND&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="color:#f00;background-color:#faa">backend</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__API&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="color:#f00;background-color:#faa">prefect.config.cloud.api</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__AGENT__LABELS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;[]&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__USE_LOCAL_SECRETS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;false&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__SEND_FLOW_RUN_LOGS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;true&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__LOGGING__LEVEL&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;INFO&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__ENGINE__FLOW_RUNNER__DEFAULT_CLASS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;prefect.engine.cloud.CloudFlowRunner&#34;</span>,}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__ENGINE__TASK_RUNNER__DEFAULT_CLASS&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;prefect.engine.cloud.CloudTaskRunner&#34;</span>,}
+</span></span><span style="display:flex;"><span>{<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__LOGGING__LOG_TO_CLOUD&#34;</span>, <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;true&#34;</span>}
+</span></span></code></pre></div><p>따라서 Prefect의 Agent를 등록할 ECS Service의 Docker 이미지를 config.toml 파일을 추가하는 형태로 만들어서 아래와 같이 사용했다.</p>
 <p>root/.prefect/config.toml 파일을 미리 작성한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#333">[</span>cloud<span style="color:#333">]</span>
-<span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Backend Server HostName}:4200&#34;</span>
-</code></pre></div><p>Custom 하게 Prefect ECS Agent에서 사용할 Docker 이미지의 Dockerfile를 작성한 후, 빌드하고 Docker Registry에 푸시한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-docker" data-lang="docker"><span style="color:#080;font-weight:bold">FROM</span><span style="background-color:#fff0f0"> prefecthq/prefect:latest</span><span style="color:#f00;background-color:#faa">
-</span><span style="color:#f00;background-color:#faa"></span><span style="color:#080;font-weight:bold">RUN</span> prefect backend server <span style="color:#f00;background-color:#faa">
-</span><span style="color:#f00;background-color:#faa">
-</span><span style="color:#f00;background-color:#faa"></span><span style="color:#080;font-weight:bold">ADD</span> agent_config.toml /root/.prefect/config.toml<span style="color:#f00;background-color:#faa">
-</span></code></pre></div><p>ECS에서 사용할 Task Execution Role과 Task Role을 생성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#333">[</span>cloud<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Backend Server HostName}:4200&#34;</span>
+</span></span></code></pre></div><p>Custom 하게 Prefect ECS Agent에서 사용할 Docker 이미지의 Dockerfile를 작성한 후, 빌드하고 Docker Registry에 푸시한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-docker" data-lang="docker"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">FROM</span><span style="background-color:#fff0f0"> prefecthq/prefect:latest</span><span style="color:#f00;background-color:#faa">
+</span></span></span><span style="display:flex;"><span><span style="color:#f00;background-color:#faa"></span><span style="color:#080;font-weight:bold">RUN</span> prefect backend server <span style="color:#f00;background-color:#faa">
+</span></span></span><span style="display:flex;"><span><span style="color:#f00;background-color:#faa">
+</span></span></span><span style="display:flex;"><span><span style="color:#f00;background-color:#faa"></span><span style="color:#080;font-weight:bold">ADD</span> agent_config.toml /root/.prefect/config.toml<span style="color:#f00;background-color:#faa">
+</span></span></span></code></pre></div><p>ECS에서 사용할 Task Execution Role과 Task Role을 생성한다.</p>
 <p>Task Execution IAM Role</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#070">&#34;Version&#34;</span>: <span style="background-color:#fff0f0">&#34;2012-10-17&#34;</span>,
-    <span style="color:#070">&#34;Statement&#34;</span>: [
-        {
-            <span style="color:#070">&#34;Effect&#34;</span>: <span style="background-color:#fff0f0">&#34;Allow&#34;</span>,
-            <span style="color:#070">&#34;Action&#34;</span>: [
-                <span style="background-color:#fff0f0">&#34;ecr:GetAuthorizationToken&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecr:BatchCheckLayerAvailability&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecr:GetDownloadUrlForLayer&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecr:BatchGetImage&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;logs:CreateLogStream&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;logs:PutLogEvents&#34;</span>
-            ],
-            <span style="color:#070">&#34;Resource&#34;</span>: <span style="background-color:#fff0f0">&#34;*&#34;</span>
-        }
-    ]
-}
-</code></pre></div><p>Task IAM Role</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#070">&#34;Version&#34;</span>: <span style="background-color:#fff0f0">&#34;2012-10-17&#34;</span>,
-    <span style="color:#070">&#34;Statement&#34;</span>: [
-        {
-            <span style="color:#070">&#34;Effect&#34;</span>: <span style="background-color:#fff0f0">&#34;Allow&#34;</span>,
-            <span style="color:#070">&#34;Action&#34;</span>: [
-                <span style="background-color:#fff0f0">&#34;iam:PassRole&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ec2:AuthorizeSecurityGroupIngress&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ec2:DescribeSecurityGroups&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ec2:DescribeVpcs&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ec2:DeleteSecurityGroup&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ec2:DescribeSubnets&#34;</span>
-                <span style="background-color:#fff0f0">&#34;ec2:CreateSecurityGroup&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ec2:DescribeNetworkInterfaces&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ec2:CreateTags&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;s3:*&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:DescribeTaskDefinition&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:DeregisterTaskDefinition&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:DescribeClusters&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:ListAccountSettings&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:StopTask&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:DescribeTasks&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:ListTaskDefinitions&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:ListClusters&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:RunTask&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:RegisterTaskDefinition&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:CreateCluster&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;ecs:DeleteCluster&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;logs:CreateLogStream&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;logs:GetLogEvents&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;logs:DescribeLogGroups&#34;</span>,
-                <span style="background-color:#fff0f0">&#34;logs:PutLogEvents&#34;</span>,
-            ],
-            <span style="color:#070">&#34;Resource&#34;</span>: <span style="background-color:#fff0f0">&#34;*&#34;</span>
-        }
-    ]
-}
-</code></pre></div><p>ECS Service를 생성할 Task Definition를 등록하고 ECS 클러스터에 Service를 생성한다.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#070">&#34;executionRoleArn&#34;</span>: <span style="background-color:#fff0f0">&#34;{생성 Task-Execution-IAM-Role-ARN}&#34;</span>,
-  <span style="color:#070">&#34;containerDefinitions&#34;</span>: [
-    {
-      <span style="color:#070">&#34;logConfiguration&#34;</span>: {
-        <span style="color:#070">&#34;logDriver&#34;</span>: <span style="background-color:#fff0f0">&#34;awslogs&#34;</span>,
-        <span style="color:#070">&#34;options&#34;</span>: {
-          <span style="color:#070">&#34;awslogs-group&#34;</span>: <span style="background-color:#fff0f0">&#34;/ecs/prefect-ecs-agent&#34;</span>,
-          <span style="color:#070">&#34;awslogs-region&#34;</span>: <span style="background-color:#fff0f0">&#34;ap-northeast-2&#34;</span>,
-          <span style="color:#070">&#34;awslogs-create-group&#34;</span>: <span style="background-color:#fff0f0">&#34;true&#34;</span>,
-          <span style="color:#070">&#34;awslogs-stream-prefix&#34;</span>: <span style="background-color:#fff0f0">&#34;ecs&#34;</span>
-        }
-      },
-      <span style="color:#070">&#34;command&#34;</span>: [
-        <span style="background-color:#fff0f0">&#34;prefect&#34;</span>,
-        <span style="background-color:#fff0f0">&#34;agent&#34;</span>,
-        <span style="background-color:#fff0f0">&#34;ecs&#34;</span>,
-        <span style="background-color:#fff0f0">&#34;start&#34;</span>
-      ],
-      <span style="color:#070">&#34;environment&#34;</span>: [
-        {
-          <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__AGENT__LABELS&#34;</span>,
-          <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;[{Agent가 사용할 Label}]&#34;</span>
-        },
-        {
-          <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__AGENT__LEVEL&#34;</span>,
-          <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;INFO&#34;</span>
-        }
-      ],
-      <span style="color:#070">&#34;image&#34;</span>: <span style="background-color:#fff0f0">&#34;{Custom 하게 생성한 Prefect ECS Agent용 도커 이미지}&#34;</span>,
-      <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;prefect-ecs-agent-container&#34;</span>
-    }
-  ],
-  <span style="color:#070">&#34;memory&#34;</span>: <span style="background-color:#fff0f0">&#34;1024&#34;</span>,
-  <span style="color:#070">&#34;taskRoleArn&#34;</span>: <span style="background-color:#fff0f0">&#34;{생성 Task-Role-IAM-Role-ARN}&#34;</span>,
-  <span style="color:#070">&#34;compatibilities&#34;</span>: [
-    <span style="background-color:#fff0f0">&#34;EC2&#34;</span>,
-    <span style="background-color:#fff0f0">&#34;FARGATE&#34;</span>
-  ],
-  <span style="color:#070">&#34;requiresCompatibilities&#34;</span>: [
-    <span style="background-color:#fff0f0">&#34;FARGATE&#34;</span>
-  ],
-  <span style="color:#070">&#34;networkMode&#34;</span>: <span style="background-color:#fff0f0">&#34;awsvpc&#34;</span>,
-  <span style="color:#070">&#34;runtimePlatform&#34;</span>: {
-    <span style="color:#070">&#34;operatingSystemFamily&#34;</span>: <span style="background-color:#fff0f0">&#34;LINUX&#34;</span>,
-    <span style="color:#070">&#34;cpuArchitecture&#34;</span>: <span style="color:#080;font-weight:bold">null</span>
-  },
-  <span style="color:#070">&#34;cpu&#34;</span>: <span style="background-color:#fff0f0">&#34;512&#34;</span>,
-}
-</code></pre></div><h1 id="4-번외--slack-notification">4. 번외 : Slack Notification</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;Version&#34;</span>: <span style="background-color:#fff0f0">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&#34;Effect&#34;</span>: <span style="background-color:#fff0f0">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecr:GetAuthorizationToken&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecr:BatchCheckLayerAvailability&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecr:GetDownloadUrlForLayer&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecr:BatchGetImage&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;logs:CreateLogStream&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;logs:PutLogEvents&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&#34;Resource&#34;</span>: <span style="background-color:#fff0f0">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Task IAM Role</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;Version&#34;</span>: <span style="background-color:#fff0f0">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&#34;Effect&#34;</span>: <span style="background-color:#fff0f0">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;iam:PassRole&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:AuthorizeSecurityGroupIngress&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:DescribeSecurityGroups&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:DescribeVpcs&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:DeleteSecurityGroup&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:DescribeSubnets&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:CreateSecurityGroup&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:DescribeNetworkInterfaces&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ec2:CreateTags&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;s3:*&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:DescribeTaskDefinition&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:DeregisterTaskDefinition&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:DescribeClusters&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:ListAccountSettings&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:StopTask&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:DescribeTasks&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:ListTaskDefinitions&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:ListClusters&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:RunTask&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:RegisterTaskDefinition&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:CreateCluster&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;ecs:DeleteCluster&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;logs:CreateLogStream&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;logs:GetLogEvents&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;logs:DescribeLogGroups&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;logs:PutLogEvents&#34;</span>,
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&#34;Resource&#34;</span>: <span style="background-color:#fff0f0">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>ECS Service를 생성할 Task Definition를 등록하고 ECS 클러스터에 Service를 생성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;executionRoleArn&#34;</span>: <span style="background-color:#fff0f0">&#34;{생성 Task-Execution-IAM-Role-ARN}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;containerDefinitions&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#070">&#34;logConfiguration&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#070">&#34;logDriver&#34;</span>: <span style="background-color:#fff0f0">&#34;awslogs&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#070">&#34;options&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;awslogs-group&#34;</span>: <span style="background-color:#fff0f0">&#34;/ecs/prefect-ecs-agent&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;awslogs-region&#34;</span>: <span style="background-color:#fff0f0">&#34;ap-northeast-2&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;awslogs-create-group&#34;</span>: <span style="background-color:#fff0f0">&#34;true&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;awslogs-stream-prefix&#34;</span>: <span style="background-color:#fff0f0">&#34;ecs&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#070">&#34;command&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="background-color:#fff0f0">&#34;prefect&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="background-color:#fff0f0">&#34;agent&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="background-color:#fff0f0">&#34;ecs&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="background-color:#fff0f0">&#34;start&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#070">&#34;environment&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__AGENT__LABELS&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;[{Agent가 사용할 Label}]&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;PREFECT__CLOUD__AGENT__LEVEL&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#070">&#34;value&#34;</span>: <span style="background-color:#fff0f0">&#34;INFO&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#070">&#34;image&#34;</span>: <span style="background-color:#fff0f0">&#34;{Custom 하게 생성한 Prefect ECS Agent용 도커 이미지}&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;prefect-ecs-agent-container&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;memory&#34;</span>: <span style="background-color:#fff0f0">&#34;1024&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;taskRoleArn&#34;</span>: <span style="background-color:#fff0f0">&#34;{생성 Task-Role-IAM-Role-ARN}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;compatibilities&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;EC2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;FARGATE&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;requiresCompatibilities&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;FARGATE&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;networkMode&#34;</span>: <span style="background-color:#fff0f0">&#34;awsvpc&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;runtimePlatform&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;operatingSystemFamily&#34;</span>: <span style="background-color:#fff0f0">&#34;LINUX&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;cpuArchitecture&#34;</span>: <span style="color:#080;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#070">&#34;cpu&#34;</span>: <span style="background-color:#fff0f0">&#34;512&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="4-번외--slack-notification">4. 번외 : Slack Notification</h1>
 <p>Slack을 사용해서 Flow에 대한 알람을 받도록 만들 수가 있다. 그렇게 하기 위해선 따로 거쳐야 하는 과정이 있고 아래와 같다.</p>
 <p>Prefect의 Backend Server와 Agent의 ~/.prefect/config.toml 파일에 SLACK_WEB_HOOK_URL 을 추가한다.</p>
 <p>기본값이 SLACK_WEB_HOOK_URL이고 다른 변수명을 사용해서 저장해서 다른 state_handler에서 사용할 때 변경해서 사용할 수 있다</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#333">[</span>server<span style="color:#333">]</span>
-<span style="color:#333">[</span>server.ui<span style="color:#333">]</span>
-<span style="color:#963">apollo_url</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}/graphql&#34;</span>
-
-<span style="color:#333">[</span>cloud<span style="color:#333">]</span>
-<span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200&#34;</span>
-
-<span style="color:#333">[</span>context.secrets<span style="color:#333">]</span>
-<span style="color:#963">SLACK_WEBHOOK_URL</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Slack WebHook URL}&#34;</span>
-</code></pre></div><h1 id="5-참고-자료">5. 참고 자료</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#333">[</span>server<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">[</span>server.ui<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#963">apollo_url</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}/graphql&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#333">[</span>cloud<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#963">api</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Prefect Server Host}:4200&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#333">[</span>context.secrets<span style="color:#333">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#963">SLACK_WEBHOOK_URL</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;{Slack WebHook URL}&#34;</span>
+</span></span></code></pre></div><h1 id="5-참고-자료">5. 참고 자료</h1>
 <p><a href="https://infinitelambda.com/post/prefect-workflow-automation-azure-devops-aks/" target="_blank">Prefect Workflow Automation with Azure DevOps and AKS | Infinite Lambda</a></p>
 <p><a href="https://towardsdatascience.com/deploying-prefect-server-with-aws-ecs-fargate-and-docker-storage-36f633226c5f" target="_blank">Deploying Prefect Server with AWS ECS and Docker Storage</a></p>
 <p><a href="https://towardsdatascience.com/serverless-data-pipelines-made-easy-with-prefect-and-aws-ecs-fargate-7e25bacb450c#8815" target="_blank">Serverless Data Pipelines Made Easy with Prefect and AWS ECS Fargate</a></p>
 <p><a href="https://towardsdatascience.com/how-to-cut-your-aws-ecs-costs-with-fargate-spot-and-prefect-1a1ba5d2e2df" target="_blank">How to Cut Your AWS ECS Costs with Fargate Spot and Prefect</a></p>
 <p><a href="https://www.lejimmy.com/distributed-data-pipelines-with-aws-ecs-fargate-and-prefect-cloud/" target="_blank">Distributed Data Pipelines with AWS ECS Fargate and Prefect Cloud</a></p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/workflow/"> workflow </a>
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/aws/"> aws </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/data-pipelining/"> data-pipelining </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ecs/"> ecs </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/prefect/"> prefect </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/workflow/"> workflow </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/workflow/">workflow</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/aws/">aws</a>
+<a href="/tags/data-pipelining/">data-pipelining</a>
+<a href="/tags/ecs/">ecs</a>
+<a href="/tags/prefect/">prefect</a>
+<a href="/tags/workflow/">workflow</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

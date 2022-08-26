@@ -1,103 +1,100 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰">
-	
-	
-	<meta name="keywords" content="ai,nlp,Distilling BERT"><meta name="description" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. …"><meta property="og:title" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="ai, nlp, Distilling BERT">
+<meta name="description" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰" />
 <meta property="og:description" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo 그리고 GPT가 있다. 이런 발전들은 이전 세대의, 언어 이해를 위한 얕은 뉴럴 네트워크는 쓸모 없다는 확신을 가지게 했다. 그러나 이 논문에서는, 기본적이고 가벼운 뉴럴 네트워크 모델이 구조 변경, 외부 학습 데이터, 추가 입력 피처들 없이도 경쟁력이 있다는 것을 증명한다. 논문에서 SOTA 언어 표현 모델인 BERT의 지식을 레이어 하나를 가지는 BiLSTM으로 녹여낼 뿐만아니라, 문장 쌍 태스크에는 샴 구조로 녹여내는 것을 제시했다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/distillbert/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-31T00:23:46&#43;09:00" />
-<meta property="article:modified_time" content="2021-05-31T00:23:46&#43;09:00" />
+<meta property="article:published_time" content="2021-05-31T00:23:46+09:00" />
+<meta property="article:modified_time" content="2021-05-31T00:23:46+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰"/>
 <meta name="twitter:description" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo 그리고 GPT가 있다. 이런 발전들은 이전 세대의, 언어 이해를 위한 얕은 뉴럴 네트워크는 쓸모 없다는 확신을 가지게 했다. 그러나 이 논문에서는, 기본적이고 가벼운 뉴럴 네트워크 모델이 구조 변경, 외부 학습 데이터, 추가 입력 피처들 없이도 경쟁력이 있다는 것을 증명한다. 논문에서 SOTA 언어 표현 모델인 BERT의 지식을 레이어 하나를 가지는 BiLSTM으로 녹여낼 뿐만아니라, 문장 쌍 태스크에는 샴 구조로 녹여내는 것을 제시했다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 
-
+<meta itemprop="name" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰">
+<meta itemprop="description" content="Distilling Task-Specific Knowledge from BERT into Simple Neural Networks Abstract 자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo 그리고 GPT가 있다. 이런 발전들은 이전 세대의, 언어 이해를 위한 얕은 뉴럴 네트워크는 쓸모 없다는 확신을 가지게 했다. 그러나 이 논문에서는, 기본적이고 가벼운 뉴럴 네트워크 모델이 구조 변경, 외부 학습 데이터, 추가 입력 피처들 없이도 경쟁력이 있다는 것을 증명한다. 논문에서 SOTA 언어 표현 모델인 BERT의 지식을 레이어 하나를 가지는 BiLSTM으로 녹여낼 뿐만아니라, 문장 쌍 태스크에는 샴 구조로 녹여내는 것을 제시했다."><meta itemprop="datePublished" content="2021-05-31T00:23:46+09:00" />
+<meta itemprop="dateModified" content="2021-05-31T00:23:46+09:00" />
+<meta itemprop="wordCount" content="2221">
+<meta itemprop="keywords" content="ai,nlp,Distilling BERT," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">31</span>
-				<span class="rest">May 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="distilling-task-specific-knowledge-from-bert-into-simple-neural-networks">Distilling Task-Specific Knowledge from BERT into Simple Neural Networks</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">31</span>
+<span class="rest">May 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Distilling Task-Specific Knowledge from BERT into Simple Neural Networks 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="distilling-task-specific-knowledge-from-bert-into-simple-neural-networks">Distilling Task-Specific Knowledge from BERT into Simple Neural Networks</h1>
 <h1 id="abstract">Abstract</h1>
 <p>자연어 처리 분야에서 뉴럴 네트워크는 깊어지고 복잡해지고 있다. 최근 트렌드는 딥 언어 표현 모델이고 BERT, ELMo 그리고 GPT가 있다. 이런 발전들은 이전 세대의, 언어 이해를 위한 얕은 뉴럴 네트워크는 쓸모 없다는 확신을 가지게 했다. 그러나 이 논문에서는, 기본적이고 가벼운 뉴럴 네트워크 모델이 구조 변경, 외부 학습 데이터, 추가 입력 피처들 없이도 경쟁력이 있다는 것을 증명한다. 논문에서 SOTA 언어 표현 모델인 BERT의 지식을 레이어 하나를 가지는 BiLSTM으로 녹여낼 뿐만아니라, 문장 쌍 태스크에는 샴 구조로 녹여내는 것을 제시했다. 페러프레이징, 자연어 추론, 감정 분류 데이터셋에 대해 100 배 더 적은 파라미터 수와 15배 단축시킨 추론 시간으로 ELMo와 비교할 만한 결과를  달성했다.</p>
 <h1 id="introduction">Introduction</h1>
@@ -109,8 +106,7 @@
 <li>BERT에서 BiLSTM으로 트랜스퍼하는 효과적인 방법에 대해 연구하고 싶었음.</li>
 </ol>
 <p>구체적으로 knowledge distillation 방법을 활용하는데, 지식 증류는 큰 모델을 teacher로 제공하고 작은 모델은 student로 선생님을 흉내내는 법을 학습하는 방법이다.</p>
-<figure>
-    <img src="/images/distillBert/distill0.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill0.png"/><figcaption>
             <h4>1</h4>
         </figcaption>
 </figure>
@@ -152,8 +148,7 @@
 <li>ReLU를 사용하는 fully-connected 레이어로 피딩한다</li>
 <li>그 후에, 소프트맥스 레이어로 보내져서 분류한다</li>
 </ul>
-<figure>
-    <img src="/images/distillBert/distill1.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill1.png"/><figcaption>
             <h4>2</h4>
         </figcaption>
 </figure>
@@ -164,8 +159,7 @@
 <li>다음, 표준 concatenate-compare 연산을 두 문장 벡터 간에 적용한다. $f(h_{s1}, h_{s2}) = [h_{s1}, h_{s2}, h_{s1} \odot h_{s2}, |h_{s1} - h_{s2}|]$, $\odot$ 는 엘리먼트 단위 곱을 의미한다</li>
 <li>그 후에, ReLU를 사용하는 분류기로 로 보낸다</li>
 </ul>
-<figure>
-    <img src="/images/distillBert/distill2.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill2.png"/><figcaption>
             <h4>3</h4>
         </figcaption>
 </figure>
@@ -173,24 +167,21 @@
 <p>BiLSTM 의 표현력을 다시 검토하기 위한 논문의 목적을 위해 아키텍처 엔지니어링을 최소한으로 했다. 어텐션과 레이어 정규화 같은 기술은 사용하지 않았다.</p>
 <h2 id="32-distillation-objective">3.2 Distillation Objective</h2>
 <p>지식 전달을 출력 레벨에서 함으로써 지식 증류를 수행한다. 학생 모델은 특정 데이터 포인트에서 교사 모델의 행동을 모방해서 학습한다. Ba 와 Caruana (2014)는 원 핫 예측 라벨 외에도 교사의 예측 확률이 중요하다고 주장한다. 이진 감정 분류에서, 예를 들면, 어떤 문장은 감정을 강력하게 드러내지만, 다른 문장은 중립일 수 있다. 그렇기 때문에, 만약 학생을 학습 시키기 위해서 교사의 예측된 원 핫 라벨만 사용하면, 예측 불확실성에 대한 귀중한 정보를 잃을 수 있다. 신경망 출력인 확률은 아래와 같이 주어진다.</p>
-<figure>
-    <img src="/images/distillBert/distill3.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill3.png"/><figcaption>
             <h4>4</h4>
         </figcaption>
 </figure>
 
 <p>$w_i$는 소프트맥스 가중치 $W$의 i 번째 행이고, $z$는 $w^Th$와 같다. 소프트맥스 함수의 인수를 $logits$이라고 한다. logits으로 학습하는 것은 교사 모델로 학습된 관계가 모든 타겟들에 대해 동일하게 강조되기 때문에 학생 모델의 학습을 더 쉽게 만든다.</p>
 <p>증류에 사용하는 목적 함수는 학생과 교사 모델 간 logits 차이를 MSE 로스로 패널티를 주는 함수다.</p>
-<figure>
-    <img src="/images/distillBert/distill4.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill4.png"/><figcaption>
             <h4>5</h4>
         </figcaption>
 </figure>
 
 <p>$z^{(B)}$와 $z^{(S)}$는 교사와 학생 모델의 logits이다. 소프트 타겟의 크로스 엔트로피를 사용해도 된다. 실험을 했을 때는 MSE가 성능이 조금 더 좋았다.</p>
 <p>학습 과정에서의 증류 목적함수는 원 핫 라벨 $t$에 대해 기존 크로스 엔트로피 로스와 함께 사용될 수 있다.</p>
-<figure>
-    <img src="/images/distillBert/distill5.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill5.png"/><figcaption>
             <h4>6</h4>
         </figcaption>
 </figure>
@@ -239,8 +230,7 @@
 <p><strong>GLUE ELMO baselines</strong>. GLUE 논문에 나온 모델은 BiLSTM 기반 모델로 ELMO를 기반으로 학습되고 모든 태스크에 대해서 공동으로 파인튜닝 된 모델이다. ELMo BiLSTM내의 4096개 유닛을 포함하고 파라미터 수가 9천 3백만 파라미터가 넘는다. BERT 논문에서 같은 모델이 나오는데 결과가 기존 논문과 좀 달랐다. 이것도 함께 리포트 되었다.</p>
 <h1 id="5-result-and-discussion">5 Result and Discussion</h1>
 <p>모델들의 결과는 테이블 1에 나타난다. QQP에서는 데이터셋이 대부분 라벨링 되지 않은 데이터셋이기 때문에, F1과 정확도를 리포트 했다. GLUE에서는 데이터셋에 대한 각 모델의 평균 점수를 리포트 했다.</p>
-<figure>
-    <img src="/images/distillBert/distill5.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill5.png"/><figcaption>
             <h4>6</h4>
         </figcaption>
 </figure>
@@ -251,8 +241,7 @@
 <p>그러나 행 1-3인 트랜스포머보다 성능이 낮았고, 평균적으로 4-7점 낮았다. 그렇지만 효율성 측면에서 더 높고 파라미터수가 확실히 더 작다.</p>
 <h2 id="52-inference-efficiency">5.2 Inference Efficiency</h2>
 <p>추론 속도와 파라미터 분석으로 파이토치로 구현한 BERT와 ELMo를 사용했다. NVIDIA V100 GPU 한장에서, SST-2 학습 셋의 모든 67350 문장에 대해 배치 512으로 모델 추론을 한다. 테이블 2에 보이듯이, ELMo에 비해 98배와 $BERT_{LARGE}$에 비해 349배 적은 파라미터를 사용한다. 상대적으로 15배와 434배 빠르다. 2.2백만 파라미터에서, 300 차원의 LSTM 유닛이 두배 크지만, ELMo 보다는 작다. 문장 쌍 태스크에서는, 이전의 SOTA와는 다르게 샴 구조에서 쌍 단위 단어 상호 작용 작업을 하지 않는다. 그래서 런타임이 문장 길이에 따라 선형적으로 늘어난다.</p>
-<figure>
-    <img src="/images/distillBert/distill6.png"/> <figcaption>
+<figure><img src="/images/distillBert/distill6.png"/><figcaption>
             <h4>7</h4>
         </figcaption>
 </figure>
@@ -261,535 +250,52 @@
 <p>본 논문에서는 BERT에서 간단한 BiLSTM 모델로 증류하는 것을 연구했다. 증류 모델은 ELMo에 비해 파라미터수가 훨씬 작고, 추론 시간이 더 짧지만 비교가능한 결과를 달성했다. 본 눈문의 결과는 작은 BiLSTM이 이전에 평가되었던 것보다 자연어 작업에 더 표현력이 높다는 것을 의미한다.</p>
 <p>이후 연구 방향 중 하나는 CNN과 같이 극도로 단순한 아키텍처를 탐색하고, SVM과 로직스틱 회귀를 지원하는 것이다. 또 다른 연구 방향은 pairwise 단어 상호 작용과 어텐션 같은 트릭을 사용해서 더 복잡한 구조를 탐색하는 것이다.</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/paper-review/"> paper-review </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ai/"> ai </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/distilling-bert/"> distilling-bert </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/nlp/"> nlp </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/paper-review/">paper-review</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ai/">ai</a>
+<a href="/tags/distilling-bert/">distilling-bert</a>
+<a href="/tags/nlp/">nlp</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

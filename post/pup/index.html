@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="PUP : Price-aware Recommendation Convolution Network 리뷰">
-	
-	
-	<meta name="keywords" content="Recsys,GNN,GCN,Price,PUP,Beibei"><meta name="description" content="ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PUP : Price-aware Recommendation Convolution Network 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Recsys, GNN, GCN, Price, PUP, Beibei">
+<meta name="description" content="ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
 → 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
-마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상 …"><meta property="og:title" content="PUP : Price-aware Recommendation Convolution Network 리뷰" />
+마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했 …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="PUP : Price-aware Recommendation Convolution Network 리뷰" />
 <meta property="og:description" content="ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
 → 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
 마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했다.
 → 따라서 본 연구에서는 가격에 집중해서 유저의 구매 의도를 예측하는 추천 메소드 개발을 목표로 한다.
 연구가 가지는 두가지 어려움은 다음과 같다.
- 가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다." />
+가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다. 유저-아이템 과 아이템-가격 간의 관계를 GCN으로 모델링 한다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/pup/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-19T12:14:52&#43;09:00" />
-<meta property="article:modified_time" content="2022-03-19T12:14:52&#43;09:00" />
+<meta property="article:published_time" content="2022-03-19T12:14:52+09:00" />
+<meta property="article:modified_time" content="2022-03-19T12:14:52+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PUP : Price-aware Recommendation Convolution Network 리뷰"/>
@@ -30,86 +43,75 @@
 마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했다.
 → 따라서 본 연구에서는 가격에 집중해서 유저의 구매 의도를 예측하는 추천 메소드 개발을 목표로 한다.
 연구가 가지는 두가지 어려움은 다음과 같다.
- 가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>PUP : Price-aware Recommendation Convolution Network 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다. 유저-아이템 과 아이템-가격 간의 관계를 GCN으로 모델링 한다."/>
 
-
+<meta itemprop="name" content="PUP : Price-aware Recommendation Convolution Network 리뷰">
+<meta itemprop="description" content="ABSTRACT 최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.
+→ 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.
+마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했다.
+→ 따라서 본 연구에서는 가격에 집중해서 유저의 구매 의도를 예측하는 추천 메소드 개발을 목표로 한다.
+연구가 가지는 두가지 어려움은 다음과 같다.
+가격에 대한 유저의 선호도와 민감도가 알려지지 않았다. 과거 유저가 구매 아이템에 암시적으로 반영되어있다. 유저-아이템 과 아이템-가격 간의 관계를 GCN으로 모델링 한다."><meta itemprop="datePublished" content="2022-03-19T12:14:52+09:00" />
+<meta itemprop="dateModified" content="2022-03-19T12:14:52+09:00" />
+<meta itemprop="wordCount" content="3184">
+<meta itemprop="keywords" content="Recsys,GNN,GCN,Price,PUP,Beibei," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">19</span>
-				<span class="rest">Mar 2022</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">PUP : Price-aware Recommendation Convolution Network 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="abstract">ABSTRACT</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">19</span>
+<span class="rest">Mar 2022</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">PUP : Price-aware Recommendation Convolution Network 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="abstract">ABSTRACT</h1>
 <p>최근의 추천은 유저 행동을 마이닝 하는 연구가 많았다.</p>
 <p>→ 유저 들이나 아이템 들을 설명하는 텍스트 정보, 데모그라픽, 이미지 등의 일반적인 정보를 다루는 CF.</p>
 <p>마케팅에서 중요하게 여기는 가격은 유저의 최종적인 구매를 결정하지만, 상대적으로 관심을 받지 못했다.</p>
@@ -186,16 +188,14 @@
 <li>엔트로피 $\uparrow$ : 유저의 가격 민감도가 카테고리에 영향을 받는다.</li>
 </ul>
 <p>그림 1은 전체 유저에 대한 엔트로피의 히스토그램을 그린다.</p>
-<figure>
-    <img src="/images/PUP/0.png"/> <figcaption>
+<figure><img src="/images/PUP/0.png"/><figcaption>
             <h4>Figure 1</h4>
         </figcaption>
 </figure>
 
 <p>한쪽으로 쏠린 분포 → 가격과 카테고리가 관련성이 높다.</p>
 <p>추가로 데이터셋 에서 세 유저를 랜덤하게 샘플링해서 그림 2에 가격-카테고리인 상호작용 히스토리를 나타낸다.</p>
-<figure>
-    <img src="/images/PUP/1.png"/> <figcaption>
+<figure><img src="/images/PUP/1.png"/><figcaption>
             <h4>Figure 2</h4>
         </figcaption>
 </figure>
@@ -228,8 +228,7 @@
 </ul>
 <h1 id="3-method">3. METHOD</h1>
 <p>PUP 모델은 그림 3에 있다.</p>
-<figure>
-    <img src="/images/PUP/2.png"/> <figcaption>
+<figure><img src="/images/PUP/2.png"/><figcaption>
             <h4>Figure 3</h4>
         </figcaption>
 </figure>
@@ -254,8 +253,7 @@
 <li><strong>가격 - 유저</strong> 의 관계가 <strong>유저 - 아이템</strong>과 <strong>아이템 - 가격</strong>의 전이 관계로 생성된다.</li>
 </ul>
 <p>복잡한 관계 파악을 위해, 아이템을 유저와 가격을 연결시키는 브릿지로 사용한다. 따라서 가격 변수를 나눈 네가지 타입의 노드 유저, 아이템, 가격, 카테고리로 구성된 그래프를 생성한다.</p>
-<figure>
-    <img src="/images/PUP/3.png"/> <figcaption>
+<figure><img src="/images/PUP/3.png"/><figcaption>
             <h4>Unified Heterogeneous Graph</h4>
         </figcaption>
 </figure>
@@ -308,8 +306,7 @@
 <li>(유저 - 아이템), (아이템 - 가격), (아이템 - 카테고리)</li>
 </ul>
 <p>직접 연결된 두 노드로 메시지를 전파한다. 노드 $i$와 노드 $j$를 그래프 내 연결된 두 노드로 가정하면 노드 $j$에서 노드 $i$로 전파된 임베딩은 아래와 같이 공식화 된다.</p>
-<figure>
-    <img src="/images/PUP/4.png"/> 
+<figure><img src="/images/PUP/4.png"/>
 </figure>
 
 <ul>
@@ -320,15 +317,13 @@
 <p><strong>Neighbor aggregation layer</strong>. 네트워크 표현 학습에서, 그래프 구조 내 두 노드의 이웃 관계는 그들의 관계가 잠재 공간에서 가까이 위치해야 한다는 것을 의미한다. GCN에 영감을 받아, 이웃 노드의 표현을 집계해서 노드 표현을 업데이트 했다. 집계 연산 중 합, 평균, LSTM은 가장 빈번하게 사용되는 방법이다.</p>
 <p>→ PUP의 인코더 에서는, 평균 풀링과 비선형 활성화 함수를 활용해서 그래프의 메시지 패싱을 수행한다.</p>
 <p>서로 다른 노드 타입의 업데이트 규칙은 그림 4와 같다.</p>
-<figure>
-    <img src="/images/PUP/5.png"/> <figcaption>
+<figure><img src="/images/PUP/5.png"/><figcaption>
             <h4>Figure 4</h4>
         </figcaption>
 </figure>
 
 <p>위의 업데이트 규칙은 아래와 같이 공식화 된다.</p>
-<figure>
-    <img src="/images/PUP/6.png"/> 
+<figure><img src="/images/PUP/6.png"/>
 </figure>
 
 <p>임베딩 전파와 이웃 집계로 그래프 컨볼루션 인코더로 추출된 표현이 노드와 그 고차 이웃과의 관계를 효과적으로 모델링할 수 있다</p>
@@ -355,21 +350,18 @@
 <p>FM은 모든 피처를 공유된 사후 공간에 분해하고 모든 피처 벡터의 쌍을 내적으로 상호작용을 예측한다.</p>
 </blockquote>
 <p>유저 $u$, 아이템 $i$의 카테고리 $c$, 아이템 $i$의 가격 $p$는 아래와 같이 공식화된다.</p>
-<figure>
-    <img src="/images/PUP/7.png"/> 
+<figure><img src="/images/PUP/7.png"/>
 </figure>
 
 <p>최종 예측 결합은 두 브랜치 결과를 하이퍼 파라미터 $\alpha$로 결합한다. 계산에 사용 되는 $S_{global}$과 $S_{category}$의 임베딩은 서로 다르고 독립적이다( 각 브랜치가 고유한 그래프 컨볼루션 인코더를 가짐 ).</p>
 <p><strong>글로벌 브랜치</strong>. 세 피처(유저, 아이템, 가격)가 투-웨이 FM 방식으로 피딩되어 카테고리 임베딩 없이 상호작용 확률을 예측한다. 세 내적 각각은 유저의 관심사, 유저의 글로벌한 가격 효과, 아이템 가격에 대한 바이어스를 포착한다.</p>
-<figure>
-    <img src="/images/PUP/8.png"/> 
+<figure><img src="/images/PUP/8.png"/>
 </figure>
 
 <p>카테고리 노드는 정규화 텀으로만 제공되어 그래프 상에 동일한 카테고리의 아이템을 서로 가깝게 만든다. 카테고리 정보가 글로벌 브랜치 내 디코더 과정에서 숨겨져 있어서, 카테고리와 관련된 가격의 “로컬” 효과가 학습된 잠재 공간으로 부터 나온다.</p>
 <p>유저의 전체 구매력과 감당 가능한 가격대인 글로벌 가격 효과는 그래프 컨볼루션 인코더로 학습된 잠재 공간에 존재한다.</p>
 <p><strong>카테고리 브랜치</strong>. 유저의 가격 민감도는 카테고리에 따라 달라질 수 있다. 따라서 카테고리와 관련된 미묘한 가격 인식을 포착하는 역할을 한다. 아이템 임베딩을 제외하고 유저, 카테고리, 가격로 상호작용을 예측한다.</p>
-<figure>
-    <img src="/images/PUP/9.png"/> 
+<figure><img src="/images/PUP/9.png"/>
 </figure>
 
 <p>아이템 노드는 가격과 카테고리 정보를 유저에게 전달하는 브릿지 역할을 한다. 세 임베딩에 내적을 적용해서, 유저의 카테고리에 의존적인 가격 인식이 공유된 잠재 공간에 있다는 것을 보장한다.</p>
@@ -380,16 +372,14 @@
 <blockquote>
 <p>BPR은 긍정 샘플(상호작용 함)이 부정 샘플(상호작용 하지 않음)보다 높은 랭크를 가지게 한다. 절대적인 관심사 대신 아이템에 대한 상대적인 선호도 우선순위에 초점을 맞춘다.</p>
 </blockquote>
-<figure>
-    <img src="/images/PUP/10.png"/> 
+<figure><img src="/images/PUP/10.png"/>
 </figure>
 
 <h1 id="4-implementation">4. IMPLEMENTATION</h1>
 <h2 id="a-how-to-perform-graph-convolution">A. How to Perform Graph Convolution?</h2>
 <p>그래프 컨볼루션 인코더는 임베딩 레이어, 임베딩 전파 레이어, 이웃 집계 레이어로 구성된다. 메시지 패싱은 세 레이어를 쌓아서 구성된다. 그래프 컨볼루션 인코더는  semi-supervised 접근법과 유사하게 sparse matrix production을 사용해서 효과적으로 구현될 수 있다.</p>
 <p>sparse한 rectified adjacency matrix $\hat{A}$를 아래와 같이 정의한다.</p>
-<figure>
-    <img src="/images/PUP/11.png"/> 
+<figure><img src="/images/PUP/11.png"/>
 </figure>
 
 <ul>
@@ -398,8 +388,7 @@
 <li>$f(M)$ : 매트릭스 $M$의 각 row의 평균</li>
 </ul>
 <p>그리고 매트릭스의 출력 표현은 다음과 같다.</p>
-<figure>
-    <img src="/images/PUP/12.png"/> 
+<figure><img src="/images/PUP/12.png"/>
 </figure>
 
 <ul>
@@ -409,8 +398,7 @@
 <p>임베딩 레이어, 임베딩 전파 레이어, 이웃 집계 레이어를 쌓는 것과 위의 매트릭스 곱의 표현이 동일하다는 것을 증명할 수 있다.</p>
 <h2 id="b-how-to-efficiently-perform-decoding">B. How to Efficiently Perform Decoding?</h2>
 <p>디코더는 모든 피처 쌍을 내적 해서 계산 복잡도가 상대적으로 높다. 아래의 트릭을 사용해서 선형 복잡도를 가지도록 복잡도를 낮출 수 있다.</p>
-<figure>
-    <img src="/images/PUP/13.png"/> 
+<figure><img src="/images/PUP/13.png"/>
 </figure>
 
 <h2 id="c-how-to-prevent-the-model-from-overfitting">C. How to Prevent the Model from Overfitting?</h2>
@@ -429,8 +417,7 @@
 </ul>
 <h2 id="a-experimental-settings">A. Experimental Settings</h2>
 <p><strong>1) Dataset and Evaluation Protocol</strong> : 두 실제 데이터셋을 사용해서 성능 비교를 수행한다. 다양한 아이템의 카테고리와 가격 정보가 있는 Yelp와 Beibei를 사용하는데 통계 자료는 Table 1에 요약된다.</p>
-<figure>
-    <img src="/images/PUP/14.png"/> <figcaption>
+<figure><img src="/images/PUP/14.png"/><figcaption>
             <h4>Table 1</h4>
         </figcaption>
 </figure>
@@ -459,8 +446,7 @@
 <li>NDCG@100</li>
 </ul>
 <p>테이블 2에 베이스라인과 PUP을 비교한 결과가 나온다.</p>
-<figure>
-    <img src="/images/PUP/15.png"/> <figcaption>
+<figure><img src="/images/PUP/15.png"/><figcaption>
             <h4>Table 2</h4>
         </figcaption>
 </figure>
@@ -476,15 +462,13 @@
 <li>가격대를 나누는 quantization 프로세스를 비교 검증한다. 아마존 리뷰에서 수집한 일반 데이터셋으로 실험을 수행한다.</li>
 </ul>
 <p><strong>1) Ablation Study of Price Factor</strong></p>
-<figure>
-    <img src="/images/PUP/16.png"/> <figcaption>
+<figure><img src="/images/PUP/16.png"/><figcaption>
             <h4>Table 3</h4>
         </figcaption>
 </figure>
 
 <p><strong>2) The Quantization Process of Price Factor</strong></p>
-<figure>
-    <img src="/images/PUP/17.png"/> <figcaption>
+<figure><img src="/images/PUP/17.png"/><figcaption>
             <h4>Table 4</h4>
         </figcaption>
 </figure>
@@ -496,8 +480,7 @@
 <ol start="3">
 <li>The Fineness of the Price Factor</li>
 </ol>
-<figure>
-    <img src="/images/PUP/18.png"/> <figcaption>
+<figure><img src="/images/PUP/18.png"/><figcaption>
             <h4>Figure 5</h4>
         </figcaption>
 </figure>
@@ -507,8 +490,7 @@
 </ul>
 <h2 id="d-the-two-branch-design">D. The Two-branch Design</h2>
 <p>가격 인식의 글로벌 효과와 로컬 효과를 두 브랜치로 구분해 설계했다.  $m/n$은 글로벌 브랜치와 로컬 브랜치에서 사용하는 임베딩 사이즈이다. 글로벌에 많은 차원이 할당된다면 유저의 관심사와 가격의 평균 영향도에 더 많은 집중을 하게 되고 카테고리 브랜치의 경우, 로컬과 카테고리에 의존적인 가격 인식이 더 많은 역할을 하게 된다.</p>
-<figure>
-    <img src="/images/PUP/19.png"/> <figcaption>
+<figure><img src="/images/PUP/19.png"/><figcaption>
             <h4>Table 5</h4>
         </figcaption>
 </figure>
@@ -516,8 +498,7 @@
 <p>카테고리 브랜치의 아이템 임베딩은 숨겨져 있고 사용자-아이템 상호작용 예측을 할 때 아이템이 중요하기 때문에 글로벌 브랜치가 메인이 되었을 때 성능이 향상되는게 당연하다.</p>
 <h2 id="e-consistency-of-price-awareness-across-categories">E. Consistency of Price Awareness across Categories</h2>
 <p>CWTPS의 엔트로피 값으로 나눈 서로 다른 유저 그룹들에 대해 DeepFM과 PUP의 결과와 비교한다.</p>
-<figure>
-    <img src="/images/PUP/20.png"/> <figcaption>
+<figure><img src="/images/PUP/20.png"/><figcaption>
             <h4>Table 6</h4>
         </figcaption>
 </figure>
@@ -537,8 +518,7 @@
 <li>CIR : 카테고리 E의 모든 아이템이 후보 셋</li>
 <li>UCIR : 카테고리 D,E,F,G의 모든 아이템이 후보 셋</li>
 </ul>
-<figure>
-    <img src="/images/PUP/21.png"/> <figcaption>
+<figure><img src="/images/PUP/21.png"/><figcaption>
             <h4>Figure 6</h4>
         </figcaption>
 </figure>
@@ -553,541 +533,55 @@
 <p>본 논문에서는 가격 민감도 모델링에 특화되어 디자인 했지만, 다른 특징들에도 쉽게 통합할 수 있다. 유저 프로파일이 유저 노드와 연결된 노드로 추가되면 되고, 아이템의 특성도 유사하게 적용할 수 있다.</p>
 <p>가격의 다이나믹함을 모델링이 추후 연구 과제이다.</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/recommendation/"> recommendation </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/beibei/"> beibei </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gcn/"> gcn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gnn/"> gnn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/price/"> price </a>
-			
-			
-			
-			
-			
-			<a href="/tags/pup/"> pup </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/recsys/"> recsys </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/recommendation/">recommendation</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/beibei/">beibei</a>
+<a href="/tags/gcn/">gcn</a>
+<a href="/tags/gnn/">gnn</a>
+<a href="/tags/price/">price</a>
+<a href="/tags/pup/">pup</a>
+<a href="/tags/recsys/">recsys</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

@@ -1,110 +1,110 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="단단한 강화 학습 2장 다중 선택 ~ 2.5 정리">
-	
-	
-	<meta name="keywords" content="Recsys,Multi-Armed Bandits,Bandits,RL"><meta name="description" content="Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
-강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백 …"><meta property="og:title" content="단단한 강화 학습 2장 다중 선택 ~ 2.5 정리" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Recsys, Multi-Armed Bandits, Bandits, RL">
+<meta name="description" content="Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
+강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백으로 전달한다. 그렇기 때문 …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="단단한 강화 학습 2장 다중 선택 ~ 2.5 정리" />
 <meta property="og:description" content="Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
 강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백으로 전달한다. 그렇기 때문에 좋은 행동을 찾기 위한 직접적인 탐색이 필요하다.
 단순화 된 구조에서 하나의 상황에 대해서만 행동을 학습하게 되는 구조를
-Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 않음. Evaluative Feedback에 관한 작업이 이미 수행 된다.  이러한 구조를 가지는 특별한 구조로서 다중 선택 문제(Multi-Armed Bandits)가 있다." />
+Non-Associative 구조라고 한다. 하나 이상의 situation을 다루지 않음. Evaluative Feedback에 관한 작업이 이미 수행 된다. 이러한 구조를 가지는 특별한 구조로서 다중 선택 문제(Multi-Armed Bandits)가 있다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/rl2.5/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-13T22:26:04&#43;09:00" />
-<meta property="article:modified_time" content="2021-06-13T22:26:04&#43;09:00" />
+<meta property="article:published_time" content="2021-06-13T22:26:04+09:00" />
+<meta property="article:modified_time" content="2021-06-13T22:26:04+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="단단한 강화 학습 2장 다중 선택 ~ 2.5 정리"/>
 <meta name="twitter:description" content="Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
 강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백으로 전달한다. 그렇기 때문에 좋은 행동을 찾기 위한 직접적인 탐색이 필요하다.
 단순화 된 구조에서 하나의 상황에 대해서만 행동을 학습하게 되는 구조를
-Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 않음. Evaluative Feedback에 관한 작업이 이미 수행 된다.  이러한 구조를 가지는 특별한 구조로서 다중 선택 문제(Multi-Armed Bandits)가 있다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>단단한 강화 학습 2장 다중 선택 ~ 2.5 정리 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+Non-Associative 구조라고 한다. 하나 이상의 situation을 다루지 않음. Evaluative Feedback에 관한 작업이 이미 수행 된다. 이러한 구조를 가지는 특별한 구조로서 다중 선택 문제(Multi-Armed Bandits)가 있다."/>
 
-
+<meta itemprop="name" content="단단한 강화 학습 2장 다중 선택 ~ 2.5 정리">
+<meta itemprop="description" content="Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.
+강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백으로 전달한다. 그렇기 때문에 좋은 행동을 찾기 위한 직접적인 탐색이 필요하다.
+단순화 된 구조에서 하나의 상황에 대해서만 행동을 학습하게 되는 구조를
+Non-Associative 구조라고 한다. 하나 이상의 situation을 다루지 않음. Evaluative Feedback에 관한 작업이 이미 수행 된다. 이러한 구조를 가지는 특별한 구조로서 다중 선택 문제(Multi-Armed Bandits)가 있다."><meta itemprop="datePublished" content="2021-06-13T22:26:04+09:00" />
+<meta itemprop="dateModified" content="2021-06-13T22:26:04+09:00" />
+<meta itemprop="wordCount" content="1324">
+<meta itemprop="keywords" content="Recsys,Multi-Armed Bandits,Bandits,RL," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">13</span>
-				<span class="rest">Jun 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<p>Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.</p>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">13</span>
+<span class="rest">Jun 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">단단한 강화 학습 2장 다중 선택 ~ 2.5 정리</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Bandit Problem은 오직 하나의 상태만 다루는 강화학습 문제이다.</p>
 <p>강화 학습은 지도 학습과는 다른 종류의 학습 피드백을 전달한다. 학습자의 행동과 무관하게 정해져 있는 정답이 있는 지도 학습과는 다르게, 강화 학습은 행동에 대한 결과를 피드백으로 전달한다. 그렇기 때문에 좋은 행동을 찾기 위한 직접적인 탐색이 필요하다.</p>
 <p>단순화 된 구조에서 하나의 상황에 대해서만 행동을 학습하게 되는 구조를</p>
 <h3 id="non-associative-구조라고-한다">Non-Associative 구조라고 한다.</h3>
@@ -166,8 +166,7 @@ Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 �
 <li>실행을 2000번 독립적으로 수행하면서 학습 알고리즘의 평균 결과를 측정할 수 있다.</li>
 </ul>
 <p>음영으로 표시되는 분포는 아래 그림과 같다.</p>
-<figure>
-    <img src="/images/rl2.5/rl0.png"/> <figcaption>
+<figure><img src="/images/rl2.5/rl0.png"/><figcaption>
             <h4>Figure 1</h4>
         </figcaption>
 </figure>
@@ -178,8 +177,7 @@ Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 �
 <p>그리고 탐욕적 방법은 약 30% 정도의 문제에서 최적의 행동을 찾는 것으로 보인다. 입실론 그리디 방법은 탐험을 계속 했기 때문에 최적 행동을 찾을 확률이 계속해서 증가했다. 결국에 더 좋은 성능을 보였다.</p>
 <p>$\epsilon = 0.1$인 경우 더 많이 탐험 했고 더 빨리 최적 행동을 찾았지만 최적 행동을 선택한 시간 단계는 91%에 미치지 못한다. 91%를 해석하자면 여기에서 1%는 10개의 행동 중 하나가 최적의 행동이기 때문이다.</p>
 <p>$\epsilon = 0.01$의 경우, 최적 행동을 찾는 것은 더 느리지만 결국에는 $\epsilon = 0.1$에 비해 두 그래프 모두에 좋은 결과를 보일 것이다. $\epsilon$을 시간에 따라 감소시켜 가면서 최상의 결과를 보이는 행동을 찾는 방법도 가능하다.</p>
-<figure>
-    <img src="/images/rl2.5/rl1.png"/> <figcaption>
+<figure><img src="/images/rl2.5/rl1.png"/><figcaption>
             <h4>Figure 2</h4>
         </figcaption>
 </figure>
@@ -199,8 +197,7 @@ Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 �
 <li>[목푯값 - 이전 추정값]은 추정 오차(error)를 나타낸다.</li>
 </ul>
 <p>오차는 &lsquo;목푯값&rsquo;으로 한단계 접근할 때마다 감소한다. 사실 시간 간격의 크기는 시간 단계마다 다른데 시간 간격의 크기를 $\alpha$로 나타내거나 더 일반적으로는 $\alpha_t(a)$로 표현한다. 아래는 점증적으로 계산한 표본평균과 입실론 그리디 행동 선택을 이용한 완전한 다중 선택 알고리즘의 의사코드이다.</p>
-<figure>
-    <img src="/images/rl2.5/rl2.png"/> <figcaption>
+<figure><img src="/images/rl2.5/rl2.png"/><figcaption>
             <h4>Figure 3</h4>
         </figcaption>
 </figure>
@@ -226,537 +223,53 @@ Non-Associative 구조라고 한다.  하나 이상의 situation을 다루지 �
 </ol>
 <p>표본 방법의 경우에는 두가지를 모두 만족하지만 고정된 시간 간격의 크기 $\alpha_n(a) = \alpha$를 적용하면 만족할 수 없다. 충분히 작아져야한다는 두번째 조건을 만족하지 못하는데, 이것은 추정값이 완전히 수렴하지 않고 가장 최근에 받은 보상에 반응하여 연속적으로 변한다는 것을 의미한다. 앞에서 언급한 것과 같이 실제 문제에서는 당연한 것이다. 그렇기 때문에 실제 문제에서는 적용이 거의 되지는 않는다.</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/recommendation/"> recommendation </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/bandits/"> bandits </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/multi-armed-bandits/"> multi-armed-bandits </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/recsys/"> recsys </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/rl/"> rl </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/recommendation/">recommendation</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/bandits/">bandits</a>
+<a href="/tags/multi-armed-bandits/">multi-armed-bandits</a>
+<a href="/tags/recsys/">recsys</a>
+<a href="/tags/rl/">rl</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

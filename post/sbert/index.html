@@ -1,130 +1,123 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰">
-	
-	
-	<meta name="keywords" content="ai,nlp,sbert"><meta name="description" content="Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구 …"><meta property="og:title" content="Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="ai, nlp, sbert">
+<meta name="description" content="Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문 …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰" />
 <meta property="og:description" content="Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문장을 의미적으로 잘 표현한 문장 임베딩을 잘 도출 하는 네트워크다. 새로운 BERT 구조로 큰 규모의 의미적 유사도 비교, 클러스터링, 검색 태스크 등에 사용할 수 있다.
 새로운 SOTA를 보였던 BERT는 cross-encoder 구조이다. cross-encoder는 두개의 문장이 트랜스포머 네트워크로 들어가고 타겟 값을 예측한다. context와 candidate를 결합 한 후 인코딩해서 더 풍부한 표현을 얻을 수는 있지만, 입력에 독립적인 토큰을 얻기가 힘들고, 느리다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/sbert/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-23T19:42:56&#43;09:00" />
-<meta property="article:modified_time" content="2021-05-23T19:42:56&#43;09:00" />
+<meta property="article:published_time" content="2021-05-23T19:42:56+09:00" />
+<meta property="article:modified_time" content="2021-05-23T19:42:56+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰"/>
 <meta name="twitter:description" content="Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문장을 의미적으로 잘 표현한 문장 임베딩을 잘 도출 하는 네트워크다. 새로운 BERT 구조로 큰 규모의 의미적 유사도 비교, 클러스터링, 검색 태스크 등에 사용할 수 있다.
 새로운 SOTA를 보였던 BERT는 cross-encoder 구조이다. cross-encoder는 두개의 문장이 트랜스포머 네트워크로 들어가고 타겟 값을 예측한다. context와 candidate를 결합 한 후 인코딩해서 더 풍부한 표현을 얻을 수는 있지만, 입력에 독립적인 토큰을 얻기가 힘들고, 느리다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 
-
+<meta itemprop="name" content="Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰">
+<meta itemprop="description" content="Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks 1. Introduction 본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문장을 의미적으로 잘 표현한 문장 임베딩을 잘 도출 하는 네트워크다. 새로운 BERT 구조로 큰 규모의 의미적 유사도 비교, 클러스터링, 검색 태스크 등에 사용할 수 있다.
+새로운 SOTA를 보였던 BERT는 cross-encoder 구조이다. cross-encoder는 두개의 문장이 트랜스포머 네트워크로 들어가고 타겟 값을 예측한다. context와 candidate를 결합 한 후 인코딩해서 더 풍부한 표현을 얻을 수는 있지만, 입력에 독립적인 토큰을 얻기가 힘들고, 느리다."><meta itemprop="datePublished" content="2021-05-23T19:42:56+09:00" />
+<meta itemprop="dateModified" content="2021-05-23T19:42:56+09:00" />
+<meta itemprop="wordCount" content="2694">
+<meta itemprop="keywords" content="ai,nlp,sbert," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">23</span>
-				<span class="rest">May 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="sentence-bert-sentence-embeddings-using-siamese-bert-networks">Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">23</span>
+<span class="rest">May 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Sentence-BERT : Sentence Embeddings using Siamese BERT-Networks 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="sentence-bert-sentence-embeddings-using-siamese-bert-networks">Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</h1>
 <h1 id="1-introduction">1. Introduction</h1>
 <p>본 논문은 Sentence-BERT에 대해서 소개한다. BERT 를 siamese(둘) triplet(셋) 구조로 변경한 네트워크다. 문장을 의미적으로 잘 표현한 문장 임베딩을 잘 도출 하는 네트워크다. 새로운 BERT 구조로 큰 규모의 의미적 유사도 비교, 클러스터링, 검색 태스크 등에 사용할 수 있다.</p>
 <p>새로운 SOTA를 보였던 BERT는 cross-encoder 구조이다. cross-encoder는 두개의 문장이 트랜스포머 네트워크로 들어가고 타겟 값을 예측한다. context와 candidate를 결합 한 후 인코딩해서 더 풍부한 표현을 얻을 수는 있지만, 입력에 독립적인 토큰을 얻기가 힘들고, 느리다. 그리고 Cross-encoder 구조는 입력이 쌍으로 들어가는 태스크의 경우, 쌍은 조합의 경우의 수가 너무 많기 때문에 적절하지 않다.</p>
-<figure>
-    <img src="/images/sbert/sbert0.png"/> 
+<figure><img src="/images/sbert/sbert0.png"/>
 </figure>
 
 <p>예를들어, 10000개의 문장에서 가장 유사한 문장 두개를 찾는 태스크의 경우에는 Cross-Encoder 네트워크에서는 $n \cdot (n-1) / 2 = 49,995,000$ 의 연산이 필요하다. (자기 자신끼리는 빼니까). V100 GPU에서 65시간이 소요된다. 비슷한 사례로, 4천만 개가 넘는 quora 질문 중 새로운 질문과 가장 중요한 질문을 찾는 태스크를 BERT로 pair-wise로 할 경우에 쿼리 하나에 응답 시간이 50시간 넘게 걸린다고 한다.</p>
 <p>클러스터링이나 검색 태스크에서는 문장을 의미적으로 유사한 문장 간 거리가 가깝도록 벡터를 만든다. BERT에 문장을 넣어서 고정 길이의 벡터로 뽑아내기도 하지만, 가장 흔하게 사용되는 방법은 BERT 임베딩으로 알려진 BERT의 결과를 평균하거나 첫번째로 출력되는 토큰 [CLS] 토큰을 사용한다. 그렇지만 이러한 방식들은 GloVe 임베딩 평균을 사용 하는 것 보다 나쁘다고 한다.</p>
 <p>[CLS] 토큰은 Special Classification Token으로 토큰 시퀀스의 의미를 담고 있게 되는데, Classification Task에서 사용한다고 한다.</p>
-<figure>
-    <img src="/images/sbert/sbert1.png"/> 
+<figure><img src="/images/sbert/sbert1.png"/>
 </figure>
 
-<figure>
-    <img src="/images/sbert/sbert2.png"/> 
+<figure><img src="/images/sbert/sbert2.png"/>
 </figure>
 
-<figure>
-    <img src="/images/sbert/sbert3.png"/> 
+<figure><img src="/images/sbert/sbert3.png"/>
 </figure>
 
 <p>이러한 이슈를 해결하기 위해 본 논문에서 SBERT를 개발했다. 샴 네트워크 구조가 입력 문장들에 대해 고정된 길이의 벡터를 도출 할 수 있게 한다. 이렇게 나온 벡터에 cosine 유사도나 manhatten / eucliedean 거리를 계산해서 의미적으로 유사한 문장을 구할 수 있다.</p>
-<figure>
-    <img src="/images/sbert/sbert4.png"/> 
+<figure><img src="/images/sbert/sbert4.png"/>
 </figure>
 
 <p>최근 하드웨어는 벡터 연산이 굉장히 효율적으로 계산될 수 있어서, 검색이나 클러스터링에서도 SBERT를 사용 할 수 있다. 10000 문장 중 가장 유사한 문장 쌍을 구하는 태스크는 BERT로 65 시간이 걸렸었는데, SBERT에서 임베딩을 사용하면 5초 내, 코사인 유사도를 사용하면 0.01초 내에 해결할 수 있다. 인덱스를 최적화한 경우, 50시간이 걸리던 유사한 질문 검색 태스크가 수 초 내에도 해결 된다고 한다.</p>
@@ -147,12 +140,10 @@
 <li>BERT에 입력해서 결과 생성</li>
 </ol>
 <p>추가로 CLS 토큰을 사용해서 고정된 크기의 벡터를 도출해냈다. 이 두가지 방법은 bert-as-service 리포지토리에도 이미 있을 정도로 유명하지만, 실제로 사용할 정도의 성능을 내는지는 검증 되지는 않았다고 한다.</p>
-<figure>
-    <img src="/images/sbert/sbert5.png"/> 
+<figure><img src="/images/sbert/sbert5.png"/>
 </figure>
 
-<figure>
-    <img src="/images/sbert/sbert6.png"/> 
+<figure><img src="/images/sbert/sbert6.png"/>
 </figure>
 
 <p>문장 임베딩은 굉장히 잘 연구된 분야로 제시된 메소드가 많다.</p>
@@ -183,14 +174,12 @@
 <p>구조는 그림 1과 같다.</p>
 <h3 id="regression-objective-function">Regression Objective Function</h3>
 <p>두 문장 임베딩 u와 v 간의 코사인 유사도가 계산된다. MSE 로스가 사용된다. 그림 2와 같다.</p>
-<figure>
-    <img src="/images/sbert/sbert7.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert7.png"/><figcaption>
             <h4>그림 1</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/sbert/sbert8.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert8.png"/><figcaption>
             <h4>그림 2</h4>
         </figcaption>
 </figure>
@@ -209,12 +198,10 @@
 <li>SNLI는 570,000 문장 쌍이 라벨과 함께 있는 컬렉션이고 라벨은 모순, 함의, 중립을 가진다.</li>
 <li>MultiNLI는 430,000 문장 쌍이고 발화와 서술된 텍스트 장르를 다룬다.</li>
 </ul>
-<figure>
-    <img src="/images/sbert/sbert9.png"/> 
+<figure><img src="/images/sbert/sbert9.png"/>
 </figure>
 
-<figure>
-    <img src="/images/sbert/sbert10.png"/> 
+<figure><img src="/images/sbert/sbert10.png"/>
 </figure>
 
 <p>세가지로 분류하는 소프트 맥스 분류 목적 함수를 사용해서 파인튜닝한다. 배치 사이즈는 16으로 Adam 옵티마이저로 학습율은 2e-5를 사용했다. 그리고 linear learning rate 웜업을 학습 데이터의 10%로 사용했다. 기본 풀링 전략은 MEAN이다.</p>
@@ -231,8 +218,7 @@
 <li>피어슨 상관 관계 : 두 계량형 변수 사이의 선형 관계를 평가한다. ( 한 변수 변화가 다른 변수 변화에 비례적 )</li>
 <li>스피어맨 상관 관계 : 두 계량형 변수 또는 순서형 변수 사이의 단순 관계 평가</li>
 </ul>
-<figure>
-    <img src="/images/sbert/sbert11.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert11.png"/><figcaption>
             <h4>테이블 1</h4>
         </figcaption>
 </figure>
@@ -243,8 +229,7 @@
 <h2 id="42-supervised-sts">4.2 Supervised STS</h2>
 <p>STS 벤치마크는 이미 지도학습 된 STS 모델의 검증에 사용하는 데이터셋으로 유명하다. 8,628개의 문장 쌍으로 caption, news 그리고 forums 세가지 카테고리를 가진다. 5,749 쌍을 학습으로 1,500 쌍은 개발 그리고 테스트에 1,379 쌍으로 데이터 셋을 분할한다. BERT는 두 문장을 입력으로 받고 간단한 회귀 방법으로 출력으로 해서 SOTA를 달성했었다.</p>
 <p>SBERT에서는 학습 데이터 셋을 회귀 목적 함수를 파인튜닝에 사용했다. 예측 할 때, 문장 간 코사인 유사도를 계산했다. 모든 모델들은 variance 문제를 해소하고자 10개 랜덤 시드로 학습했다. 결과는 테이블 2에 있다.</p>
-<figure>
-    <img src="/images/sbert/sbert12.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert12.png"/><figcaption>
             <h4>테이블 2</h4>
         </figcaption>
 </figure>
@@ -264,8 +249,7 @@
 </ol>
 <p>학습 과정에서 토픽 두 가지가 제공되고 남은 한 토픽을 사용해서 검증을 한다. 모든 세가지 토픽에 대해서 반복하고 결과를 평균한다.</p>
 <p>SBERT는 회귀 목적 함수를 사용해서 파인튜닝 한다. 유사도 점수는 문장 임베딩 간 코사인 유사도를 계산해서 구한다. 기존 결과와 비교로 피어슨 상관 계수 r를 사용했다. 피어슨 상관 계수가 꽤 심각한 결점이 있다는 것을 발견했고, 그렇기 때문에 STS 모델과 비교할 수 없다고 한다. 결과는 아래 테이블 3에 있다.</p>
-<figure>
-    <img src="/images/sbert/sbert13.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert13.png"/><figcaption>
             <h4>테이블 3</h4>
         </figcaption>
 </figure>
@@ -282,8 +266,7 @@
 </ul>
 <p>Dor et al의 데이터셋을 사용했다. Triplet 목적 함수를 사용했는데, SBERT 학습의 한 epoch에 180만 triplet을 학습하고 222,957 triplet으로 검증했다. 검증 메트릭으로는 정확도를 사용했다 : 긍정 예제가 기준에 더 가까운가? 부정 예제 보다?</p>
 <p>결과는 아래 테이블 4에 나온다. Dor et al은 이 데이터셋에서 문장 임베딩을 도출 하기 위해서 BiLSTM 아키텍처를 triplet 로스로 파인튜닝했다. 테이블에서 볼 수 있듯이, SBERT가 성능이 BiLSTM에 비해 좋았다.</p>
-<figure>
-    <img src="/images/sbert/sbert14.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert14.png"/><figcaption>
             <h4>테이블 4</h4>
         </figcaption>
 </figure>
@@ -302,8 +285,7 @@
 <li>MRPC : 병렬 뉴스 소스의 마이크로소프트 페러프레이즈 코퍼스</li>
 </ul>
 <p>결과는 테이블 5에서 찾을 수 있다.</p>
-<figure>
-    <img src="/images/sbert/sbert15.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert15.png"/><figcaption>
             <h4>테이블 5</h4>
         </figcaption>
 </figure>
@@ -319,8 +301,7 @@
 <li>분류 목적 함수에서는 서로 다른 결합 메소드를 검증한다.</li>
 </ul>
 <p>이런 구성으로, 10개의 랜덤 시드로 SBERT를 학습하고 그 성능을 평균 했다. 데이터셋에 따라 다른 목적 함수( 분류 vs 회귀)를 사용했다. 분류 목적 함수의 경우에는 SNLI와 Multi-NLI 데이터셋에 대해서 SBERT를 학습했다. 회귀 목적 함수에는 STS 벤치마크 데이터셋을 트레이닝 셋으로 학습했다. 성능은 STS 벤치마크 데이터셋을 분리해서 성능을 측정 했다고 한다. 테이블 6에서 결과를 볼 수 있었다.</p>
-<figure>
-    <img src="/images/sbert/sbert16.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert16.png"/><figcaption>
             <h4>테이블 6</h4>
         </figcaption>
 </figure>
@@ -337,8 +318,7 @@
 </ul>
 <p>스마트 배칭을 사용함으로 패딩 토큰에 의해 유발되는 계산 오버헤드를 엄청나게 감소 시킬 수 있다고 한다.</p>
 <p>성능은 Intel i7-5820k CPU @ 3.30GHz, Nvidia Tesla V100 GPU, CUDA 9.2 and cuDNN 서버에서 측정되었다고 한다. 결과는 테이블 7에 있다.</p>
-<figure>
-    <img src="/images/sbert/sbert17.png"/> <figcaption>
+<figure><img src="/images/sbert/sbert17.png"/><figcaption>
             <h4>테이블 7</h4>
         </figcaption>
 </figure>
@@ -351,535 +331,52 @@
 <h1 id="9-etc">9 ETC</h1>
 <p>NAACL 2021에 억셉된 Augmented SBERT</p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/paper-review/"> paper-review </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/ai/"> ai </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/nlp/"> nlp </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/sbert/"> sbert </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/paper-review/">paper-review</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ai/">ai</a>
+<a href="/tags/nlp/">nlp</a>
+<a href="/tags/sbert/">sbert</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

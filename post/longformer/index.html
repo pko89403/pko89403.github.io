@@ -1,105 +1,103 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="Longformer: The Long-Document Transformer 리뷰">
-	
-	
-	<meta name="keywords" content="ai,nlp,longformer"><meta name="description" content="ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. …"><meta property="og:title" content="Longformer: The Long-Document Transformer 리뷰" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Longformer: The Long-Document Transformer 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="ai, nlp, longformer">
+<meta name="description" content="ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭- …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="Longformer: The Long-Document Transformer 리뷰" />
 <meta property="og:description" content="ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭-인)하고 태스크 처리를 위한 글로벌 어텐션과 결합한다. 따라서 수천 이상의 토큰을 가지는 문장을 쉽게 처리할 수 있다.
 기존의 트랜스포머로 긴 시퀀스 처리하는 연구의 검증 방법에 따라 문자 단위의 언어 모델링으로 롱포머를 검증했고 text8과 enwik8 벤치마크에서 SOTA를 달성했다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/longformer/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-17T00:12:31&#43;09:00" />
-<meta property="article:modified_time" content="2021-08-17T00:12:31&#43;09:00" />
+<meta property="article:published_time" content="2021-08-17T00:12:31+09:00" />
+<meta property="article:modified_time" content="2021-08-17T00:12:31+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Longformer: The Long-Document Transformer 리뷰"/>
 <meta name="twitter:description" content="ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭-인)하고 태스크 처리를 위한 글로벌 어텐션과 결합한다. 따라서 수천 이상의 토큰을 가지는 문장을 쉽게 처리할 수 있다.
 기존의 트랜스포머로 긴 시퀀스 처리하는 연구의 검증 방법에 따라 문자 단위의 언어 모델링으로 롱포머를 검증했고 text8과 enwik8 벤치마크에서 SOTA를 달성했다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>Longformer: The Long-Document Transformer 리뷰 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 
-
+<meta itemprop="name" content="Longformer: The Long-Document Transformer 리뷰">
+<meta itemprop="description" content="ABSTRACT 셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭-인)하고 태스크 처리를 위한 글로벌 어텐션과 결합한다. 따라서 수천 이상의 토큰을 가지는 문장을 쉽게 처리할 수 있다.
+기존의 트랜스포머로 긴 시퀀스 처리하는 연구의 검증 방법에 따라 문자 단위의 언어 모델링으로 롱포머를 검증했고 text8과 enwik8 벤치마크에서 SOTA를 달성했다."><meta itemprop="datePublished" content="2021-08-17T00:12:31+09:00" />
+<meta itemprop="dateModified" content="2021-08-17T00:12:31+09:00" />
+<meta itemprop="wordCount" content="2174">
+<meta itemprop="keywords" content="ai,nlp,longformer," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">17</span>
-				<span class="rest">Aug 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Longformer: The Long-Document Transformer 리뷰</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<h1 id="abstract">ABSTRACT</h1>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">17</span>
+<span class="rest">Aug 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Longformer: The Long-Document Transformer 리뷰</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="abstract">ABSTRACT</h1>
 <p>셀프 어텐션 때문에 트랜스포머 기반 모델들이 긴 시퀀스를 처리 못한다. 시퀀스 길이가 늘어날 수록 연산량이 크게 증가하기 때문이다. 그래서, 시퀀스 길이에 선형적으로 대응하는 어텐션 메커니즘을 사용하는 롱포머를 제안한다. 롱포머는 기존 셀프 어텐션을 교체(드롭-인)하고 태스크 처리를 위한 글로벌 어텐션과 결합한다. 따라서 수천 이상의 토큰을 가지는 문장을 쉽게 처리할 수 있다.</p>
 <p>기존의 트랜스포머로 긴 시퀀스 처리하는 연구의 검증 방법에 따라 문자 단위의 언어 모델링으로 롱포머를 검증했고 text8과 enwik8 벤치마크에서 SOTA를 달성했다.</p>
 <p>기존 다른 연구와 다르게, 추가로 롱포머를 사전학습하고 다양한 다운스트림 태스크에 파인튜닝했다. RoBERTa에 비해 긴 문장 태스크들에 상당한 성능 향상을 보였고 Wiki-Hop과 TriviaQA 벤치마크에서 새로운 SOTA를 달성했다.</p>
@@ -108,8 +106,7 @@
 <p>트랜스포머는 언어 생성 모델과 언어 이해 모델을 포함한 광범위한 자연어 태스크에서 SOTA를 달성했다. 셀프 어텐션이 전체 시퀀스의 문맥 정보를 잘 캡쳐하기 때문이다.</p>
 <p>문제가 있다. 시퀀스 길이가 증가할 수록 이차 형태($n^2$)로 메모리와 연산이 증가한다.</p>
 <p>롱포머는 셀프 어텐션 연산을 시퀀스 길이에 선형 대응하도록 구조를 수정해서 긴 문서를 잘 처리하게 만들려고 했다.</p>
-<figure>
-    <img src="/images/longformer/0.png"/> <figcaption>
+<figure><img src="/images/longformer/0.png"/><figcaption>
             <h4>1</h4>
         </figcaption>
 </figure>
@@ -125,8 +122,7 @@
 <p>마지막으로 오리지널한 트랜스포머 모델과 유사한 인코더-디코더 구조로 롱포머를 변형해서 시퀀스-투-시퀀스 학습에 사용한다. 이 모델을 LED라고 부르고 인코더 네트워크에 롱포머의 어텐션 패턴을 사용한다. 요약 같은 긴 문서의 seq2seq에 사용한다. LED의 효과를 arXiv 요약 데이터셋으로 증명한다.</p>
 <h1 id="2-related-work">2 Related Work</h1>
 <h2 id="long-document-transformers">Long-Document Transformers</h2>
-<figure>
-    <img src="/images/longformer/1.png"/> <figcaption>
+<figure><img src="/images/longformer/1.png"/><figcaption>
             <h4>2</h4>
         </figcaption>
 </figure>
@@ -166,16 +162,14 @@
 <p>MLM에서는 마스킹된 워드를 예측하기 위해 로컬 문맥을 사용하고 이후 분류를 위해 전체 시퀀스의 표현을 스페셜 토큰(BERT의 경우 [CLS])에서 집계한다. QA에서는 질문과 문서가 결합되고 셀프 어텐션으로 질문을 문서와 비교한다.</p>
 <p>미리 선택된 입력 위치에 &ldquo;글로벌 어텐션&quot;을 추가한다. 중요한 점은 이 어텐션 연산을 대칭으로 만드는 것이다. 글로벌 어텐션을 하는 토큰에 시퀀스의 모든 토큰을 사용하고 모든 토큰의 입력을 사용한다.</p>
 <p>로컬 어텐션과 글로벌 어텐션의 결합을 해도 여전히 복잡도가 $O(n)$이다. 글로벌 어텐션을 적용하는 토큰의 수가 적고 이것이 n의 복잡도와 독립적이기 때문이다. 태스크 별 글로벌 어텐션을 다르게 정의하기 때문에 복잡한 구조를 사용하는 기존의 방식보다 간단하다.</p>
-<figure>
-    <img src="/images/longformer/2.png"/> <figcaption>
+<figure><img src="/images/longformer/2.png"/><figcaption>
             <h4>3</h4>
         </figcaption>
 </figure>
 
 <h3 id="linear-projections-for-global-attention">Linear Projections for Global Attention</h3>
 <p>트랜스포머 모델은 어텐션 스코어를 다음과 같이 계산한다.</p>
-<figure>
-    <img src="/images/longformer/3.png"/> 
+<figure><img src="/images/longformer/3.png"/>
 </figure>
 
 <p>슬라이딩 윈도우 어텐션 - 어텐션 스코어 계산에 $Q_s, K_s, V_s$를 사용하고</p>
@@ -186,8 +180,7 @@
 <h2 id="32-implementation">3.2 Implementation</h2>
 <p>기존 트랜스포머의 어텐션 스코어 계산에서 가장 비싼 연산은 $QK^T$로 $n^2$이다.</p>
 <p>롱포머에서는 딜레이티드 슬라이딩 윈도우 어텐션이 $QK^T$의 고정된 대각선 수 만큼만 계산한다. 구현에는 밴디드 매트릭스 곱 형태가 필요하다. 그리고 파이토치와 텐서플로우에는 제공하지 않는다.</p>
-<figure>
-    <img src="/images/longformer/4.png"/> <figcaption>
+<figure><img src="/images/longformer/4.png"/><figcaption>
             <h4>4</h4>
         </figcaption>
 </figure>
@@ -211,15 +204,13 @@
 <p>시퀀스 길이를 32,256로 검증한다. 시퀀스를 512 길이 씩 자르고 시퀀스의 마지막 512 토큰들로 성능을 리포트한다.</p>
 <h3 id="421-results">4.2.1 Results</h3>
 <p>text8과 enwik8 벤치마크 데이터 셋으로 검증에 사용했다. 작은 모델을 사용했을 때, 새로운 SOTA를 BPC 1.10과 1.00로 달성했다.</p>
-<figure>
-    <img src="/images/longformer/5.png"/> <figcaption>
+<figure><img src="/images/longformer/5.png"/><figcaption>
             <h4>5</h4>
         </figcaption>
 </figure>
 
 <p>큰 모델에서는 enwik8 데이터셋만 사용했다. 테이블 3은 롱포머가 트랜스포머-XL 모델에 비해 좋고 Sparse Transformer와 유사하다 혹은 최근의 두배 이상의 파라미터를 가지는 모델에 비해 조금 덜 좋다 정도를 보인다. Adaptive와 Compressive는 사전학습과 파인튜닝이 안되어서 성능이 더 좋긴한데 어차피 가치가 없다.</p>
-<figure>
-    <img src="/images/longformer/6.png"/> <figcaption>
+<figure><img src="/images/longformer/6.png"/><figcaption>
             <h4>6</h4>
         </figcaption>
 </figure>
@@ -227,8 +218,7 @@
 <h3 id="422-ablation-study">4.2.2 Ablation Study</h3>
 <p>어텐션 패턴 선택의 중요도를 보이기 위해서 실험을 진행한다. 각 구성을 150K 스텝의 한 페이즈로 하고 text8을 사용해서 BPC 성능을 보인다.</p>
 <p>테이블 4에서 레이어 별 윈도우 사이즈에 대한 효과를 증명한다. 상위 레이어로 갈 수록 윈도우 사이즈를 증가시키는 것이 성능이 가장 좋았다. 아래는 딜레이션의 효과로 안쓰는 것에 비해서 성능을 개선했다.</p>
-<figure>
-    <img src="/images/longformer/7.png"/> <figcaption>
+<figure><img src="/images/longformer/7.png"/><figcaption>
             <h4>7</h4>
         </figcaption>
 </figure>
@@ -240,8 +230,7 @@
 <p>슬라이딩 윈도우 어텐션의 윈도우 사이즈를 512로 사용해 RoBERTa와 같은 계산량이 같다.</p>
 <h2 id="positional-embeddings">Positional Embeddings</h2>
 <p>RoBERTa가 기존에 학습된 절대 포지션 임베딩을 512 사이즈를 사용했는데 롱포머는 더 긴 문서를 지원하기 위해 추가 포지션 임베딩을 추가해야 한다. BERT의 어텐션 헤드 분석 결과 로컬 컨텍스트에 대해 강한 학습된 바이어스를 가지고 있다는 것을 근거로 포지션 임베딩을 랜덤 초기화 해서 사용하지 않고 기존의 512 포지션 임베딩을 복사해서 초기화 했다.  간단해 보이지만 매우 효과적이었다.</p>
-<figure>
-    <img src="/images/longformer/8.png"/> <figcaption>
+<figure><img src="/images/longformer/8.png"/><figcaption>
             <h4>8</h4>
         </figcaption>
 </figure>
@@ -262,8 +251,7 @@
 <p>모든 RoBERTa 가중치를 프리징하고 새로운 포지션 임베딩만 학습을 하기도 하는데 짧은 문서에 대한 RoBERTa 성능을 완벽하게 보존하려고 했다. 1.850으로 학습한게 나았지만 전체 다 학습한 1.705보다는 높았다.</p>
 <h1 id="6-tasks">6 Tasks</h1>
 <p>QA, coreference resolution 그리고 분류를 포함한 여러 긴 문서 태스크에 롱포머를 적용했다. 테이블 6의 검증 데이터셋은 512 보다 긴 단어 피스를 가진다. 목표는 어텐션 메커니즘의 효과를 검증하는 것이다.</p>
-<figure>
-    <img src="/images/longformer/9.png"/> <figcaption>
+<figure><img src="/images/longformer/9.png"/><figcaption>
             <h4>9</h4>
         </figcaption>
 </figure>
@@ -286,30 +274,26 @@
 <p>TriviaQA는 로컬 컨텍스트가 질문에 답변하기에 충분한 경우가 많아서 개선이 중간 정도 였다.</p>
 <p>HotpotQA의 경우, 팩트 보조 감독이 모델이 관련성 있는 컨텍스트를 쉽게 찾게하고 로컬 컨텍스트에 초점을 맞추어서 개선이 적게 된다. 이것은 중간 추론 체인에 대한 원거리 감독만을 포함하는 WikoHop과 반대로, 전체 컨텍스트에 대한 추론에 의해 우리의 접근 방식이 더 좋다.</p>
 <p>IMDB와 OntoNotes 데이터셋들은 성능 개선이 적다. IMDB는 문서가 짧아서 개선이 더 적고 OntoNotes는 두 멘션 간 거리가 일반적으로 작기 때문에 작은 청크를 별도로 처리하는 베이스 라인이 교차 청크 상호작용을 고려하지 않아도 멘션을 합칠 수 있다.</p>
-<figure>
-    <img src="/images/longformer/10.png"/> <figcaption>
+<figure><img src="/images/longformer/10.png"/><figcaption>
             <h4>10</h4>
         </figcaption>
 </figure>
 
 <h3 id="longformer-large-for-qa">Longformer-large for QA</h3>
 <p>테이블 8에서 WikiHop과 TriviaQA는 새로운 SOTA 결과를 롱포머-large로 달성했다. 테이블 9는 HotpotQA는 더 자세한 결과를 보인다. 롱포머는 공개 리더보드에서 두번째로 GNN이 첫번째다. GNN을 안쓰고는 최고의 성능이다.</p>
-<figure>
-    <img src="/images/longformer/11.png"/> <figcaption>
+<figure><img src="/images/longformer/11.png"/><figcaption>
             <h4>11</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/longformer/12.png"/> <figcaption>
+<figure><img src="/images/longformer/12.png"/><figcaption>
             <h4>12</h4>
         </figcaption>
 </figure>
 
 <h2 id="65-ablation-on-wikihop">6.5 Ablation on WikiHop</h2>
 <p>테이블 10은 WikiHop에 ablation study를 한 결과이다. 모든 결과들은 베이스가 롱포머고 명시된 것을 제외하고는 동일한 하이퍼 파라미터로 5 epoch 동안 파인튜닝 했다.</p>
-<figure>
-    <img src="/images/longformer/13.png"/> <figcaption>
+<figure><img src="/images/longformer/13.png"/><figcaption>
             <h4>13</h4>
         </figcaption>
 </figure>
@@ -325,14 +309,12 @@
 <p>인코더가 문서를 읽고 디코더가 요약 결과를 생성한다. 인코더에서 1024 토큰 크기 만큼의 윈도우로 로컬 어텐션을 사용했고 첫 <!-- raw HTML omitted --> 토큰에 글로벌 어텐션을 했다. 디코더는  전체 인코더와 이전에 디코딩된 위치에 풀 어텐션을 사용한다. 추가로 학습에 티처 포싱을 사용했고 추론 시에 빔 서치를 사용했다.</p>
 <p>테이블 11은 결과를 보인다. LED는 arXiv에 SOTA를 달성했다. 사전 학습 혹은 태스크 특화 초기화 없이, 긴 입력값을 처리로 BigBird 보다 좋은 성능을 보인다.</p>
 <p>그림 3은 시퀀스 길이의 중요성을 설명한다.</p>
-<figure>
-    <img src="/images/longformer/14.png"/> <figcaption>
+<figure><img src="/images/longformer/14.png"/><figcaption>
             <h4>14</h4>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/images/longformer/15.png"/> <figcaption>
+<figure><img src="/images/longformer/15.png"/><figcaption>
             <h4>15</h4>
         </figcaption>
 </figure>
@@ -352,535 +334,52 @@
 <li><a href="https://wiki.beomi.net/longformer.html" target="_blank">https://wiki.beomi.net/longformer.html</a></li>
 </ul>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/categories/paper-review/"> paper-review </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			
-			
-			<a href="/tags/ai/"> ai </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/longformer/"> longformer </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/nlp/"> nlp </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/paper-review/">paper-review</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ai/">ai</a>
+<a href="/tags/longformer/">longformer</a>
+<a href="/tags/nlp/">nlp</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>

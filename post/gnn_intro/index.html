@@ -1,107 +1,107 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	
-	<meta name="generator" content="Hugo 0.82.1" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<meta property="og:title" content="Graph Neural Networks에 대한 이해">
-	
-	
-	<meta name="keywords" content="ai,graph,gnn,gcn,graphsage,deepwalk"><meta name="description" content="GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage) …"><meta property="og:title" content="Graph Neural Networks에 대한 이해" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Graph Neural Networks에 대한 이해 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="ai, graph, gnn, gcn, graphsage, deepwalk">
+<meta name="description" content="GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.
+GNN은 그래프 …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" /><link rel="stylesheet" href="/css/katex.css" crossorigin="anonymous">
+<script defer src="/js/katex.js"  integrity="sha384-HELAAZU8xvHgfT/8z4Mhmu+E2z3oBrMEuywaMh/CEd5uTZIDSct7TEaX+S43+dOi" crossorigin="anonymous"></script>
+<script defer src="/js/auto-render.js" integrity="sha384-0QrOZ8WIARJUoT5pH7Iuzi7iq0mXUXLF9yj5ZvYxTkMRv1zcaPQiOQ9ksHYbKw7M" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, { delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false} ] }); });
+</script>
+
+
+
+
+<meta property="og:title" content="Graph Neural Networks에 대한 이해" />
 <meta property="og:description" content="GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.
 GNN은 그래프에서 노드 간의 종속성을 모델링하는 능력을 가지고 있다! 관계, 상호 작용과 같은 추상적인 개념을 다루기 적합해서 관계를 분석할 필요가 있을 때 기초적으로 사용할 수 있다.
 Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스의 집합 V 그리고 엣지의 집합 E로 간단하게 설명할 수 있다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pko89403.github.io/post/gnn_intro/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-23T23:53:37&#43;09:00" />
-<meta property="article:modified_time" content="2021-09-23T23:53:37&#43;09:00" />
+<meta property="article:published_time" content="2021-09-23T23:53:37+09:00" />
+<meta property="article:modified_time" content="2021-09-23T23:53:37+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Graph Neural Networks에 대한 이해"/>
 <meta name="twitter:description" content="GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.
 GNN은 그래프에서 노드 간의 종속성을 모델링하는 능력을 가지고 있다! 관계, 상호 작용과 같은 추상적인 개념을 다루기 적합해서 관계를 분석할 필요가 있을 때 기초적으로 사용할 수 있다.
 Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스의 집합 V 그리고 엣지의 집합 E로 간단하게 설명할 수 있다."/>
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
-	<link rel="stylesheet" href="/css/katex.min.css" crossorigin="anonymous">
-	<script defer src="/js/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-	<script defer src="/js/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "$", right: "$", display: false}
-				]
-		});
-		});
-	</script><title>Graph Neural Networks에 대한 이해 | 유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</title>
 
-
+<meta itemprop="name" content="Graph Neural Networks에 대한 이해">
+<meta itemprop="description" content="GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.
+GNN은 그래프에서 노드 간의 종속성을 모델링하는 능력을 가지고 있다! 관계, 상호 작용과 같은 추상적인 개념을 다루기 적합해서 관계를 분석할 필요가 있을 때 기초적으로 사용할 수 있다.
+Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스의 집합 V 그리고 엣지의 집합 E로 간단하게 설명할 수 있다."><meta itemprop="datePublished" content="2021-09-23T23:53:37+09:00" />
+<meta itemprop="dateModified" content="2021-09-23T23:53:37+09:00" />
+<meta itemprop="wordCount" content="976">
+<meta itemprop="keywords" content="ai,graph,gnn,gcn,graphsage,deepwalk," />
 </head>
-<body><header>
-	
-	<div id="avatar">
-		<a href="https://pko89403.github.io/">
-		  <img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?">
-		</a>
-	</div>
-	
-	<div id="titletext"><h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2></div>
-	<div id="title-description"><p id="subtitle"><a href=""></a></p><div id="social">
-			<nav>
-				<ul>
-					<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li><li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li></ul>
-			</nav>
-		</div>
-	</div>
-	
-	<div id="mainmenu">
-		<nav>
-			<ul>
-				
-				<li><a href="/">Home</a></li>
-				
-				<li><a href="/post">All Posts</a></li>
-				
-				<li><a href="/about">About</a></li>
-				
-				<li><a href="/tags">Tags</a></li>
-				
-				<li><a href="/categories">Categories</a></li>
-				
-			</ul>
-		</nav>
-	</div>
-	
+<body>
+<header>
+<div id="avatar">
+<a href="https://pko89403.github.io/"><img src="/img/Avatar.png" alt="유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?"></a>
+</div>
+<div id="titletext">
+<h2 id="title"><a href="https://pko89403.github.io/">유기농은 너무 비싸서 그런데 농약 친 건 어딨나요?</a></h2>
+</div>
+<div id="title-description">
+<p id="subtitle"><a href=""></a></p>
+<div id="social">
+<nav><ul>
+<li><a href="https://github.com/pko89403"><i title="Github" class="icons fab fa-github"></i></a></li>
+<li><a href="mailto:pko89403@gmail.com"><i title="Email" class="icons fas fa-envelope"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+<div id="mainmenu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/post">All Posts</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/tags">Tags</a></li>
+<li><a href="/categories">Categories</a></li>
+</ul>
+</nav>
+</div>
 </header>
-<main><div class="post">
-	
-	<div class="author">
-	
-	</div>
-	<div class="post-header">
-	
-		<div class="meta">
-			
-			<div class="date">
-				<span class="day">23</span>
-				<span class="rest">Sep 2021</span>
-			</div>
-			
-		</div>
-		
-		<div class="matter">
-			<h1 class="title">Graph Neural Networks에 대한 이해</h1>
-		</div>
-	</div>
-	<div class="markdown">
-		<p>GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 <a href="https://towardsdatascience.com/a-gentle-introduction-to-graph-neural-network-basics-deepwalk-and-graphsage-db5d540d50b3" target="_blank">A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)</a>에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.</p>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">23</span>
+<span class="rest">Sep 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Graph Neural Networks에 대한 이해</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+
+
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>GNN 기반 추천 논문들을 읽기 전에 정리를 해보았다. 기본은 <a href="https://towardsdatascience.com/a-gentle-introduction-to-graph-neural-network-basics-deepwalk-and-graphsage-db5d540d50b3" target="_blank">A Gentle Introduction to Graph Neural Networks (Basics, DeepWalk, and GraphSage)</a>에 대한 내용 번역이고 추가로 정리한 내용들을 포함했다.</p>
 <p>GNN은 그래프에서 노드 간의 종속성을 모델링하는 능력을 가지고 있다! 관계, 상호 작용과 같은 추상적인 개념을 다루기 적합해서 관계를 분석할 필요가 있을 때 기초적으로 사용할 수 있다.</p>
 <h1 id="basics-of-graph-neural-network">Basics of Graph Neural Network</h1>
 <p>그래프 G는 노드라고 부르는 버텍스의 집합 V 그리고 엣지의 집합 E로 간단하게 설명할 수 있다.</p>
@@ -130,7 +130,7 @@ Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스�
 <li>$x_{ne[v]}$는 $v$와 완결된 이웃 노드의 피처들을 의미한다.</li>
 <li>함수 $f$는 트랜지션 함수로 입력을 d 차원 공간으로 투영시킨다</li>
 </ul>
-<p>$h_v$에 <strong>Banach fixed theorem</strong>( 변수 x와 연속 함수 $f(x)$의 정의영역[$f(x)$의 정의역과 공역]이 닫힌 공간 $[0,1]$로 한정되면 $f(x_0) = x_0$ 인 고정점 $x_0$이 반드시 존재한다 )을 적용해서 반복적으로 업데이트 하도록 위 식을 재작성 할 수 있다. 이런 연산( 멀리 있는 노드로 부터 현재 노드 까지 정보가 전달 되는 과정 )을 &lsquo;message passing&rsquo; 이나 &lsquo;neighborhood aggregation&rsquo; 라고 한다.</p>
+<p>$h_v$에 <strong>Banach fixed theorem</strong>( 변수 x와 연속 함수 $f(x)$의 정의영역[$f(x)$의 정의역과 공역]이 닫힌 공간 $[0,1]$로 한정되면 $f(x_0) = x_0$ 인 고정점 $x_0$이 반드시 존재한다 )을 적용해서 반복적으로 업데이트 하도록 위 식을 재작성 할 수 있다. 이런 연산( 멀리 있는 노드로 부터 현재 노드 까지 정보가 전달 되는 과정 )을 &lsquo;message passing&rsquo; 이나 &rsquo;neighborhood aggregation&rsquo; 라고 한다.</p>
 <h3 id="ht1---fht-x">$H^{t+1}  = F(H^t, X)$</h3>
 <ul>
 <li>$H$와 $X$가 모든 $h$와 $x$를 결합한 것을 의미한다.</li>
@@ -184,8 +184,7 @@ Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스�
 <p>신호 처리 분야에서 영감을 받은 알고리즘이다. 노드 간 정보 전파를 신호 전달로 고려한다. 그래프를 노멀라이즈한 라플라시안 매트릭스로 표현 한 후에 &lsquo;Spectral-based&rsquo; 라는 스펙트럼에 기반한 한 컨볼루션을 그래프에 적용해서 그래프를 표현한다.</p>
 <h1 id="graphsage">GraphSage</h1>
 <p>그래프 세이지는 각 노드 임베딩을 귀납적인 방식으로 학습해서 딥워크가 가진 문제에 대한 솔루션을 제공한다. 각각의 노드가 자신의 이웃에 대한 집계 결과로 표현된다. 따라서 학습 중에 그래프에 포함되어 있지 않았던 노드도 그 노드의 이웃 노드 들로 표현될 수 있다. GCN과의 차이점은 GraphSage는 셀프와 이웃이 CONCAT 된다는 점이고 GCN은 SUM이 된다는 점이 다르다.</p>
-<figure>
-    <img src="/images/gnn/gnn0.png"/> 
+<figure><img src="/images/gnn/gnn0.png"/>
 </figure>
 
 <ul>
@@ -195,8 +194,7 @@ Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스�
 <p>논문에서는 세가지 집계 함수를 제시한다.</p>
 <h2 id="1-mean-aggregator">1. Mean aggregator</h2>
 <p>노드 벡터와 그 노드의 이웃 노드의 벡터에 평균을 취한다.</p>
-<figure>
-    <img src="/images/gnn/gnn1.png"/> 
+<figure><img src="/images/gnn/gnn1.png"/>
 </figure>
 
 <p>원래 연산과 비교하면 5번 줄의 CONCAT 연산이 제거 되었는데 이 연산은 &ldquo;skip-connection&quot;으로 볼 수 도 있다.</p>
@@ -204,13 +202,11 @@ Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스�
 <p>그래프 노드들 간에 정해진순서가 없어서 순서를 랜덤하게 할당한 후에 LSTM을 적용한다.</p>
 <h2 id="3-pooling-aggregator">3. Pooling aggregator</h2>
 <p>노드의 이웃 노드 셋에 엘리먼트 별 풀링 함수를 수행한다.</p>
-<figure>
-    <img src="/images/gnn/gnn2.png"/> 
+<figure><img src="/images/gnn/gnn2.png"/>
 </figure>
 
 <p>풀링은 평균 등의 다른 풀링 함수로 교체될 수 있다. 논문에서는 맥스 풀링을 디폴트로 사용한다. 로스 함수는 다음과 같이 정의되고 가까운 노드가 유사한 임베딩을 가지고 멀리 떨어진 노드는 투영된 공간에서 분리되도록 한다.</p>
-<figure>
-    <img src="/images/gnn/gnn3.png"/> 
+<figure><img src="/images/gnn/gnn3.png"/>
 </figure>
 
 <ul>
@@ -224,543 +220,57 @@ Basics of Graph Neural Network 그래프 G는 노드라고 부르는 버텍스�
 <h1 id="참고-사이트">참고 사이트</h1>
 <p><a href="https://ghebook.blogspot.com/2011/10/fixed-point-theorem.html" target="_blank">고정점 정리(固定點 定理, Fixed Point Theorem)</a></p>
 <p><a href="https://medium.com/watcha/gnn-%EC%86%8C%EA%B0%9C-%EA%B8%B0%EC%B4%88%EB%B6%80%ED%84%B0-%EB%85%BC%EB%AC%B8%EA%B9%8C%EC%A7%80-96567b783479" target="_blank">GNN 소개 - 기초부터 논문까지</a></p>
-<p><a href="https://greeksharifa.github.io/machine_learning/2021/06/05/GIN/" target="_blank">Python, Machine &amp;amp; Deep Learning</a></p>
+<p><a href="https://greeksharifa.github.io/machine_learning/2021/06/05/GIN/" target="_blank">Python, Machine & Deep Learning</a></p>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Categories</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			<a href="/categories/gnn/"> gnn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-	
-		
-	
-	
-	
-	<div class="tags">
-		<div class="taxosfloating_left">
-			<p>Tags</p>
-		</div>
-		<div class="termsfloating_right">
-			<p>
-			
-			
-			
-			<a href="/tags/ai/"> ai </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/deepwalk/"> deepwalk </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gcn/"> gcn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/gnn/"> gnn </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/graph/"> graph </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<a href="/tags/graphsage/"> graphsage </a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			</p>
-		</div>
-		<div class="clearit"></div>
-		
-		
-		
-		
-		
-	</div>
+</div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Categories</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/categories/gnn/">gnn</a>
+</p>
+</div>
+<div class="clearit"></div>
+<div class="tags">
+<div class="taxosfloating_left">
+<p>Tags</p>
+</div>
+<div class="termsfloating_right">
+<p>
+<a href="/tags/ai/">ai</a>
+<a href="/tags/deepwalk/">deepwalk</a>
+<a href="/tags/gcn/">gcn</a>
+<a href="/tags/gnn/">gnn</a>
+<a href="/tags/graph/">graph</a>
+<a href="/tags/graphsage/">graphsage</a>
+</p>
+</div>
+<div class="clearit"></div>
+</div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-	(function() {
-	    
-	    
-	    if (window.location.hostname == "localhost")
-	        return;
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    var disqus_shortname = 'Slave';
-	    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+(function() {
+
+
+if (window.location.hostname == "localhost")
+  return;
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+var disqus_shortname = 'Slave';
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
 <noscript>Please enable JavaScript to load the comments.</noscript>
 
 
+</article>
 </div>
-
-  </main>
+</main>
 <footer>
-	 © Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae">Vitae</a> theme for <a href="https://gohugo.io">Hugo</a> 
-	
-	
-	
-</footer>
-
+© Copyright notice | <a href="https://github.com/dataCobra/hugo-vitae" target="_blank">Vitae</a> theme for <a href="https://gohugo.io" target="_blank">Hugo</a>
+</footer><script src="/js/dark-mode.js"></script>
 
 </body>
 </html>
